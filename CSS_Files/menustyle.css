@@ -22,7 +22,7 @@ body {
 
 .uppermenu a {
     float: left;
-    color: #d0e4cc ;
+    color: #dae8d7 ;
     text-align: center;
     padding: 20px;
     padding-bottom: 0;
@@ -102,7 +102,7 @@ body {
 
 .dropdown-content a {
     /*color: #D9DED8;*/
-    color:#d0e4cc ;
+    color: #dae8d7 ;
     text-align: center;
     padding-top: 20px;
     padding-left: 0;
