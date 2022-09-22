@@ -1,5 +1,5 @@
 body {
-    background-color: #D9DED8;
+    background-color: #d0e4cc ;
        margin: 0;
     padding: 0;
 
@@ -17,12 +17,12 @@ body {
 
 
 .uppermenu a:hover {
-    background-color:#D9DED8;
+    background-color:#d0e4cc ;
     color: #000000;}
 
 .uppermenu a {
     float: left;
-    color: #D9DED8;
+    color: #d0e4cc ;
     text-align: center;
     padding: 20px;
     padding-bottom: 0;
