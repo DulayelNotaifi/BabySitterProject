@@ -1,6 +1,6 @@
 body {
     background-color: #D9DED8;
-    margin: 0;
+       margin: 0;
     padding: 0;
 
 }
@@ -17,7 +17,7 @@ body {
 
 
 .uppermenu a:hover {
-    background-color: #a7b2a4;
+    background-color:#D9DED8;
     color: #000000;}
 
 .uppermenu a {
@@ -101,7 +101,8 @@ body {
 }
 
 .dropdown-content a {
-    color: #D9DED8;
+    /*color: #D9DED8;*/
+    color:#D9DED8;
     text-align: center;
     padding-top: 20px;
     padding-left: 0;
@@ -120,15 +121,15 @@ body {
 
 
 /*********************/
-.babypic img {
+/*.babypic img {
     height: 585.9375px;
     width: 575.520833333333px;
-}
+}*/
 
 .babypic {
     position: absolute;
-    bottom: 5%;
-    left: 10%;
+    bottom: 8%;
+    left: 15%;
 }
 
 .textdescription {
