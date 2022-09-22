@@ -5,9 +5,47 @@
     <meta charset="UTF-8">
     <title>Offer List</title>
     <link rel="stylesheet" type="text/css" href="../CSS_Files/viewOfferListStyle.css">
+    <link rel="stylesheet" href="../CSS_Files/menustyle.css">
 </head>
 
 <body>
+
+
+    <!--Upper Menue-->
+    <div class="uppermenu">
+        <div class="tab1">
+            <a href="">Manage profile </a>
+            <div class="dropdown-content">
+                <a href="">View</a>
+                <a href="">Edit</a>
+                <a class="last" href="">delete</a>
+            </div>
+        </div>
+        <div class="tab2">
+            <a href="#">Job request </a>
+            <div class="dropdown-content">
+                <a href="">Post request </a>
+                <a href="">Edit request</a>
+                <a class="last" href="">Cancel request</a>
+            </div>
+        </div>
+
+        <div class="tab3 need-more">
+            <a href="">View booking </a>
+            <div class="dropdown-content">
+                <a href="">View current bookings </a>
+                <a class="last" href="">View previous bookings
+                </a>
+            </div>
+        </div>
+        <div class="tab4">
+            <a href="">View offer list</a>
+        </div>
+        <div class="logout">
+            <a href="">Log out</a>
+        </div>
+
+    </div>
     <h2>Choose an offer to complete your Request:</h2>
 
     <!-- Offer template Example-->
@@ -22,7 +60,7 @@
         <label class="PriceLabel">offered price/day: </label>
          <label class="Price">150 SAR</label> <br>
 
-         <a href="#">View Offer details</a>
+         <a href="../HTML_Files/OfferDetails.html">View Offer details</a>
 
         </p>
         <button class="Accept" onclick="location.href ='google.com'">Accept</button>

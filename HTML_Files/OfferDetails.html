@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../CSS_Files/OfferDetailsStyle.css">
+    <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+    
+    <title>Offer Details</title>
+</head>
+
+<body>
+
+    <!--Upper Menue-->
+    <div class="uppermenu">
+        <div class="tab1">
+            <a href="">Manage profile </a>
+            <div class="dropdown-content">
+                <a href="">View</a>
+                <a href="">Edit</a>
+                <a class="last" href="">delete</a>
+            </div>
+        </div>
+        <div class="tab2">
+            <a href="#">Job request </a>
+            <div class="dropdown-content">
+                <a href="">Post request </a>
+                <a href="">Edit request</a>
+                <a class="last" href="">Cancel request</a>
+            </div>
+        </div>
+
+        <div class="tab3 need-more">
+            <a href="">View booking </a>
+            <div class="dropdown-content">
+                <a href="">View current bookings </a>
+                <a class="last" href="">View previous bookings
+                </a>
+            </div>
+        </div>
+        <div class="tab4">
+            <a href="">View offer list</a>
+        </div>
+        <div class="logout">
+            <a href="">Log out</a>
+        </div>
+
+    </div>
+
+    <!--Page Content-->
+
+    <div id="BriefInfo">
+
+        <img src="female.png" id="sitterPic" alt="babystter picture">
+        <p>
+            <label class="NameLabel">babystter Name: </label>
+            <label class="Name">sara</label><br>
+
+            <a href="#">View babystter Profile</a>
+        </p>
+    </div>   
+         <hr>
+            <!--Table-->
+            <div id="AvailabilityTable">
+
+             <h2>Availability </h2>
+
+            <table>
+                <thead>
+               <th></th> 
+               <th>Sun</th><th>Mon</th> 
+               <th>Tue</th> <th>Wed</th> <th>Thu</th> 
+               <th>Fri</th> <th>Sat</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Morning</td>
+                    <td><input type="checkbox" name="Sun Morning" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Mon Morning" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Tue Morning" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Wed Morning" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Thu Morning" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Fri Morning" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Sat Morning" checked onclick="return false"></td>
+
+
+        
+                </tr>
+
+                <tr>
+                    <td>Afternoon</td>
+                    <td><input type="checkbox" name="Sun Afternoon" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Mon Afternoon" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Tue Afternoon" ununchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Wed Afternoon" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Thu Afternoon" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Fri Afternoon" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Sat Afternoon" unchecked onclick="return false"></td>
+                </tr>
+
+                <tr>
+                    <td>Evening</td>
+                    <td><input type="checkbox" name="Sun Evening" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Mon Evening" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Tue Evening" ununchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Wed Evening" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Thu Evening" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Fri Evening" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Sat Evening" unchecked onclick="return false"></td>
+                </tr>
+
+                <tr>
+                    <td>Night</td>
+                    <td><input type="checkbox" name="Sun Night" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Mon Night" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Tue Night" ununchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Wed Night" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Thu Night" checked onclick="return false"></td>
+                    <td><input type="checkbox" name="Fri Night" unchecked onclick="return false"></td>
+                    <td><input type="checkbox" name="Sat Night" unchecked onclick="return false"></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+<hr>
+
+<div id="PriceInfo">
+            <label class="PriceLabel">offered price/day: </label>
+            <label class="Price">150 SAR</label> <br>
+
+            <label class="PriceLabel">Offer a live-In Contract? </label>
+            <input type="radio" name="live-In Contract" checked value="Yes" onclick="return false">
+            <label>YES</label>
+
+            <input type="radio" name="live-In Contract" unchecked value="No" onclick="return false">
+            <label>NO</label>
+
+        </div>
+
+        
+
+            
+        
+    
+    
+</body>
+</html>
