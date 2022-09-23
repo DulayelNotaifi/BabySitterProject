@@ -152,6 +152,9 @@ div .subHeadText{
 margin-top: -30px;
 color: rgb(43, 43, 181);
 }
+#shareProfile a:hover i{
+color: rgb(225, 88, 116);
+}
 
 #ContactBar{
     margin-top: 200px;
@@ -174,6 +177,7 @@ color: rgb(43, 43, 181);
     width: 270px;
     height: 35px;
     margin-left: 75%;
+    margin-top: 10px;
     border-radius: 10px;
     border-style: none;
 }
@@ -182,7 +186,6 @@ color: rgb(43, 43, 181);
     position: absolute;
     font-size: 25px;
     margin: 15px;
-   
 
 }
 
