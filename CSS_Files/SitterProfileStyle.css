@@ -1,0 +1,190 @@
+
+
+
+ #videoBar {
+    position: relative;
+    background-color:white;
+    height: 150px ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+}
+
+#videoBar video{
+    position: absolute;
+    margin: 20px;
+    width: 20%;
+    height: 75%;  
+
+}
+
+#videoBar label{
+    position: absolute;
+    margin-left: 270px;
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    letter-spacing: 2px;
+    font-weight: bolder;
+ 
+    
+}
+
+#videoBar .sitterage{
+    margin-top: 65px;
+}
+
+div h2{
+    margin-left: 15px;
+    padding-top: 10px;
+    color:brown;
+    text-decoration:underline;
+   
+
+}
+
+#Discription{
+    position: relative;
+    background-color:white;
+    height: 200px ;
+    overflow:scroll;
+
+}
+
+#Discription p{
+    position: absolute;
+    margin-top: 15px;
+    width: 60%;
+    font-size: large;
+    line-height: 30px;
+    margin-left: 20px;
+    overflow:scroll;
+}
+
+#Experience{
+    background-color: white;
+    height: 140px;
+
+}
+div i{
+    
+    color:brown;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+
+
+
+
+div .headText{
+    display:inline-block;
+    font-size:larger;
+    font-weight: bolder;
+    margin-left: 10px;
+   
+}
+div .subHeadText{
+
+    display: block;
+    font-size: larger;
+    color: gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+}
+
+#AboutMe{
+    background-color: white;
+    height: 300px;   
+}
+
+#Skills{
+    background-color: white;
+    height: 100px;
+}
+
+#Review{
+    background-color: white;
+    height: 400px;
+}
+
+#Review .commentDiv{
+    display: inline-block;
+    position: relative;
+    background-color: rgb(248, 250, 219);
+    width: 250px;
+    height:300px;
+    border-style:solid;
+    border-radius: 30px;
+    margin: 15px
+}
+
+#Review .commentDiv p{
+    height: 280px;
+    width: 200px;
+    margin-left: 20px;
+    position: absolute;
+    overflow: scroll;
+    line-height: 30px;
+    text-align: center;
+   
+}
+
+#Rate{
+    background-color: white;
+    height: 110px; 
+}
+
+#Rate i{
+    margin-top: 0px;
+   color: rgb(229, 97, 49);
+}
+
+#shareProfile{
+    background-color: white;
+    position: relative;
+    height: 170px;
+  
+}
+
+#shareProfile i{
+margin-top: -30px;
+color: rgb(43, 43, 181);
+}
+
+#ContactBar{
+    margin-top: 200px;
+    position: absolute;
+    background-color:white;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    bottom:0;
+    border-top: 2px solid black;
+
+}
+
+#ContactBar button{
+    position: absolute;
+    color: white;
+    font-size: medium;
+    background-color: #00748f;
+    text-align: center;
+    width: 270px;
+    height: 35px;
+    margin-left: 75%;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#ContactBar label{
+    position: absolute;
+    font-size: 25px;
+    margin: 15px;
+   
+
+}
+
+
+
