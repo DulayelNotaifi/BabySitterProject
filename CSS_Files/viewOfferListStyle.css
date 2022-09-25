@@ -21,7 +21,7 @@ h2{
     border-style:ridge;
 }
 
-#content div{
+#content div {
 
     background-color: rgb(248, 250, 219);
     display: inline-block;
@@ -44,10 +44,10 @@ h2{
 #content div p{
     line-height: 30px;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 120px;
 }
 
-#content button{
+#content button , #content .a .input {
     position: absolute;
     height: 30px;
     margin-left: 60px;
@@ -56,28 +56,18 @@ h2{
     font-weight: bold; 
 }
 
-#content .Accept{
+
+
+#content .Accept , #content  a.email{
     margin-left: 130px;
 }
 
 
 
 
-#content .finished .contact:hover {
 
-    height: 30px;
-    margin-bottom: 30px;
-    border-style: solid;
-    background-color: rgb(158, 198, 144); 
-    font-weight: bold; 
-}
-#content div .contact:hover {
 
-    height: 30px;
-    margin-bottom: 30px;
-    border-style: solid;
-    background-color: rgb(194, 132, 106); 
-    font-weight: bold; 
-}
+
+
 
 
