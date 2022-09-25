@@ -30,11 +30,11 @@ h2{
     height: 300px;
     border-style:solid;
     border-radius: 30px;
-    margin: 15px
+    margin: 30px  15px 30px 15px ;
 
 }
 
-#content div .NameLabel, #content div .PriceLabel , #content div .StartDateLabel ,#content div .EndDateLabel {
+#content div .NameLabel, #content div .PriceLabel , #content div .StartDateLabel ,#content div .EndDateLabel ,#content div .timeslotslabel{
     font-weight:bolder;
    padding: 5px; 
    color: rgb(0, 111, 96);
