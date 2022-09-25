@@ -47,8 +47,8 @@ h2{
     margin-top: 120px;
 }
 
-#content button , #content .finished a input {
-    position: absolute;
+#content button , #content .finished a input {   
+     position: absolute;
     height: 30px;
     margin-left: 60px;
     border-style: solid;
@@ -60,6 +60,18 @@ h2{
 
 #content .Accept , #content .finished .email{
     margin-left: 130px;
+   
+}
+
+
+
+
+#content div a .contact {
+    height: 30px;
+    margin-left: 35px;
+    border-style: solid;
+    background-color: white; 
+    font-weight: bold; 
 }
 
 
