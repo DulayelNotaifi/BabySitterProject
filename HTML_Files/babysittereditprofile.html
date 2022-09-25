@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baby sitter edit profile</title>
+    <link href="http://fonts.cdnfonts.com/css/prettier-script" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+    <link rel="stylesheet" href="../CSS_Files/editstyle.css">
+
+</head>
+
+<body>
+    <div class="topofpage">
+        <p>Riyadh Saudi Arabia</p>
+    </div>
+    <div class="uppermenu">
+        <div class="tab0">
+            <a href="babysitterhome.html">Home</a>
+        </div>
+        <div class="tab1">
+            <a href="">Manage profile </a>
+            <div class="dropdown-content">
+                <a href="">View</a>
+                <a href="babysittereditprofile.html">Edit</a>
+                <a class="last" href="">delete</a>
+            </div>
+        </div>
+        <div class="tab2">
+            <a href="#">View job request list </a>
+            <div class="dropdown-content">
+                <a href="">Send offer </a>
+                <a href="">View job request details </a>
+            </div>
+        </div>
+
+        <div class="tab3 need-more">
+            <a href="">View job </a>
+            <div class="dropdown-content">
+                <a href="">View current job </a>
+                <a href="">View previous jobs
+                </a>
+            </div>
+        </div>
+        <div class="tab4">
+            <a href="">View status of offers
+            </a>
+        </div>
+        <div class="tab4">
+            <a href="">View rates and reviews
+            </a>
+        </div>
+
+        <div class="logout">
+            <a href="">Log out</a>
+        </div>
+    </div>
+    <div class="cont">
+        <h1>Edit profile:</h1>
+        <div class="contentedit">
+
+            <form action="#">
+                <label for="firstname">First Name:</label>
+                <input type="text" class="inputing-text" id="firstname" placeholder="Enter your first name">
+                <label for="lastname">Last Name:</label>
+                <input type="text" class="inputing-text" id="lastname" placeholder="Enter your last name">
+                <p class="more-space-on-bottom"></p>
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+                <p class="more-space-on-bottom"></p>
+                <label for="id">ID:</label>
+                <input type="text" class="inputing-text" id="id" placeholder="Enter your ID">
+                <label for="age">Age:</label>
+                <input type="text" class="inputing-text" id="age" placeholder="Enter your age">
+
+                <label for="eMail">Email:</label>
+                <input type="email" class="inputing-text" id="eMail" placeholder="Enter your new email">
+                <label for="city">City:</label>
+                <input type="text" class="inputing-text" id="city" placeholder="Enter your new city">
+                <label for="phone">Phone:</label>
+                <input type="text" class="inputing-text" id="phone" placeholder="Enter your new phone">
+                <label for="password">Password:</label>
+                <input type="password" class="inputing-text" id="password" placeholder="Enter your new password">
+                <label for="bio">Bio:</label>
+                <p class="more-space-on-bottom"></p>
+                <textarea name="biotextbox" id="bio" rows="10" placeholder=" years of experience, education, languages
+                spoken, skills … etc"></textarea>
+                <p class="more-space-on-bottom"></p>
+                <input class="botton-bigger" type="submit" value="Send Edits" />
+
+        </div>
+        <div class="forthepic bbystr">
+            <img src="female.png" alt="a picture of a female">
+            <p>Upload a different photo:</p>
+
+            <input type="file">
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>

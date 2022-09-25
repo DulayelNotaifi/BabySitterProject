@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>parent home page</title>
+    <title>parent edit profile</title>
     <link href="http://fonts.cdnfonts.com/css/prettier-script" rel="stylesheet">
     <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+    <link rel="stylesheet" href="../CSS_Files/editstyle.css">
+
 </head>
 
 <body>
@@ -51,15 +53,34 @@
         </div>
 
     </div>
+    <div class="cont">
+        <h1>Edit profile:</h1>
+        <div class="contentedit">
+            <form action="#">
 
+                <label for="firstname">First Name:</label>
+                <input type="text" class="inputing-text" id="firstname" placeholder="Enter your first name">
+                <label for="lastname">Last Name:</label>
+                <input type="text" class="inputing-text" id="lastname" placeholder="Enter your last name">
+                <label for="eMail">Email:</label>
+                <input type="email" class="inputing-text" id="eMail" placeholder="Enter your new email">
+                <label for="city">City:</label>
+                <input type="text" class="inputing-text" id="city" placeholder="Enter your new city">
+                <label for="location">Location:</label>
+                <input type="text" class="inputing-text" id="location" placeholder="Enter your new location">
+                <label for="password">Password:</label>
+                <input type="password" class="inputing-text" id="password" placeholder="Enter your new password">
+                <p class="more-space-on-bottom"></p>
+                <input class="botton-bigger" type="submit" value="Send Edits" />
 
-    <div class="babypic">
-        <img src="car.png" alt="a baby carrige"> <!---->
-    </div>
+        </div>
+        <div class="forthepic">
+            <img src="female.png" alt="a picture of a female">
+            <p>Upload a different photo:</p>
 
-    <div class="textdescription">
-        <p class="p1">A Watchful Eye</p>
-        <p class="p2">baby care</p>
+            <input type="file">
+        </div>
+        </form>
     </div>
 </body>
 
