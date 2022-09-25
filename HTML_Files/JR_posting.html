@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Post Job Request</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../CSS_Files/job_request_style.css">
+        <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+    </head>
+    
+    <body>
+        
+         <!--menu-->
+         <div class="topofpage">
+            <p>Riyadh Saudi Arabia</p>
+        </div>
+        <div class="uppermenu">
+            <div class="tab1">
+                <a href="">Manage profile </a>
+                <div class="dropdown-content">
+                    <a href="">View</a>
+                    <a href="">Edit</a>
+                    <a class="last" href="">delete</a>
+                </div>
+            </div>
+            <div class="tab2">
+                <a href="#">Job request </a>
+                <div class="dropdown-content">
+                    <a href="">Post request </a>
+                    <a href="">Edit request</a>
+                    <a class="last" href="">Cancel request</a>
+                </div>
+            </div>
+    
+            <div class="tab3 need-more">
+                <a href="">View booking </a>
+                <div class="dropdown-content">
+                    <a href="">View current bookings </a>
+                    <a class="last" href="">View previous bookings
+                    </a>
+                </div>
+            </div>
+            <div class="tab4">
+                <a href="">View offer list</a>
+            </div>
+            <div class="logout">
+                <a href="">Log out</a>
+            </div>
+    
+        </div>
+
+        <!--end menu-->
+
+
+        <h2>Post Job Request</h2><br>
+        
+        <form action="#" method="post"></form>
+
+           <fieldset> 
+                <label> Kid/s name: <br>
+                    <input name="kidsname" type="text" value="abdullah" required> 
+                </label>
+                <br>
+                <label> Kid/s age: <br>
+                    <input name="kidsages" type="number" min="0" max="17" value="5" equired> 
+                </label>
+                <br>
+                <label> Type of service: <br>
+                    <input name="service" type="text" value="Take care" required> 
+                </label>
+                <br>
+                <label> Duration: <br>
+                    Day:<input name="day" type="date" required > 
+                    From: <input name="from_time" type="time" required > 
+                   To: <input name="to_time" type="time"  required> 
+                </label>
+                <br><br>
+                <label> Add comments: (optional)<br>
+                    <textarea class="comments" name="comments" cols="50" rows="6" >
+                    </textarea>
+                </label>
+                <br>
+                 
+                <div id="submit-and-cancel">
+                
+                    <a href="JR_posted.html">
+                        <input class="post" type="submit" value="post">
+                    </a>
+                
+                    <a href="JR_main.html">
+                    
+                        <button>Go Back</button>
+                
+                    </a>
+                </div>
+            </fieldset> 
+        
+    </body>
+
+</html>
