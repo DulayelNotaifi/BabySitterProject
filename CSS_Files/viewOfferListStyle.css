@@ -25,12 +25,13 @@ h2{
 
     background-color: rgb(248, 250, 219);
     display: inline-block;
-    position: relative;
     width: 250px;
+    position: relative;
     height: 300px;
     border-style:solid;
     border-radius: 30px;
-    margin: 30px  15px 30px 15px ;
+    margin: 30px  15px 15px 30px ;
+    padding: 3px ;
 
 }
 
@@ -75,7 +76,30 @@ h2{
 }
 
 
-
+.checked{
+    color: orange;
+  }
+  .unchecked{
+    color: grey;
+  }
+  
+  
+  .SubDiv{
+  display: block;
+  margin-top: 12px;
+  border: 1.5px solid;
+  border-radius: 10px;
+  background-color: rgb(248, 250, 219);
+  margin-bottom: 10px;
+  }
+  
+  
+  .innerDiv{
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+  
+  }
 
 
 

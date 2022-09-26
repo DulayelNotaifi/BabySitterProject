@@ -6,7 +6,7 @@
     <title>raview&rate</title>
     <link href="/CSS_Files/review&rateStyle.css" type="text/css" rel="stylesheet">
     <link href="/CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -53,42 +53,63 @@
             <a href="">Log out</a>
         </div>
 
+
+
+
+
+
     </div>
 <h2><strong> Review & Rate </strong></h2>
+
+
+
+
+
+
+
+
     <div class="container">
-        <form action="action_page.php">
+
+
+
+    
+
+            <img src="female.png" id="sitterPic" alt="babystter picture">
+
+         </br>
+          <label  for="fname">First Name</label>
+          <input  type="text" id="fname" name="firstname" placeholder="Your name..">
       
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      
-          <label for="lname">Last Name</label>
+          <label for="lname" >Last Name</label>
           <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-      
-          <label for="rate">Rate</label>
-          <select id="rate" name="rate">
-            <option selected>Amazing</option>
-            <option >9</option>
-            <option >8</option>
-            <option >7</option>
-            <option >6</option>
-            <option >5</option>
-            <option >4</option>
-            <option >3</option>
-            <option >2</option>
-            <option >1</option>
-            <option >Awful</option>
-      
-          <label for="subject">Subject</label>
-          <textarea id="subject" placeholder="Write something.." ></textarea>
+
+
+
+     <label>Rate:</label>
+
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star checked"></span>
+     <span class="fa fa-star"></span>
+     <span class="fa fa-star"></span> 
+    
+    </br>
+
+
+
+
+
+
+          <label id ="subject">Give Your Feedback:</label>
+          <textarea for="subject" placeholder="Write something.." > </textarea>
       
           <input type="submit" value="Submit">
       
-        </form>
-      </div>
 
 
 
 
+    </div>
 
 
     </body></html>
