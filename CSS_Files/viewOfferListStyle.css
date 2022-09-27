@@ -21,7 +21,13 @@ h2{
     border-style:ridge;
 }
 
-#content div {
+
+
+
+
+
+
+#content div  {
 
     background-color: rgb(248, 250, 219);
     display: inline-block;
@@ -48,7 +54,9 @@ h2{
     margin-top: 120px;
 }
 
-#content button , #content .finished a input {   
+
+
+#content button {   
      position: absolute;
     height: 30px;
     margin-left: 60px;
@@ -59,55 +67,32 @@ h2{
 
 
 
-#content .Accept , #content .finished .email{
+#content .Accept {
     margin-left: 130px;
+   
+}
+
+
+ #content input {   
+    position: absolute;
+   height: 30px;
+   margin-left: 10px;
+   border-style: solid;
+   background-color: white; 
+   font-weight: bold; 
+}
+
+#content .email{
+    margin-left: -70px;
    
 }
 
 
 
 
-#content div a .contact {
-    height: 30px;
-    margin-left: 35px;
-    border-style: solid;
-    background-color: white; 
-    font-weight: bold; 
-}
-
-
-.checked{
-    color: orange;
-  }
-  .unchecked{
-    color: grey;
-  }
-  
-  
-  .SubDiv{
-  display: block;
-  margin-top: 12px;
-  border: 1.5px solid;
-  border-radius: 10px;
-  background-color: rgb(248, 250, 219);
-  margin-bottom: 10px;
-  }
-  
-  
-  .innerDiv{
-    margin-left: 10px;
-    margin-top: 5px;
-    position: relative;
-  
-  }
 
 
 
-  label .contactcur {
-
-    margin-left: 20px;
-    position: relative;
-  }
 
 
 
