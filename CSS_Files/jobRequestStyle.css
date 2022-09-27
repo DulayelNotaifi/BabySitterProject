@@ -1,0 +1,89 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(248, 250, 219);
+}
+
+.postingPage, .editingPage, .postedPage, .editedPage, .cancelPage, .canceledPage{
+    margin-top:180px;
+    margin-bottom: 100px;
+}
+
+
+h1{
+  text-align: center;
+}
+
+
+.container{
+    background-color: rgb(248, 250, 219);
+    position: relative;
+    border-style: solid;
+    border-radius: 30px;
+    width: 30%;
+    margin: auto;
+    padding: 20px;
+    overflow: hidden;
+    overflow: scroll;
+  }
+  
+
+  .inputName , .inputAge, .inptService{
+    height: 30px;
+    width: 300px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.commentsArea{
+    max-width:fit-content;
+    max-height: fit-content;
+    height: 300px;
+    width: 500px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+  .nameLabel, .ageLabel ,.serviceLabel, .durationLabel, .commentsLabel ,
+  .dayLabel, .timeLabel{
+    font-weight:bold;
+}
+
+.Bottons{
+    height: 30px;
+    width: 120px;
+    background-color: #f3f8f2f7;
+    border: 1px solid #000000;
+    border-radius: 0.5rem;
+}
+
+.postBotton {
+margin-left: 180px;
+border-radius: 0.5rem;
+}
+
+.editBotton, .resetBotton{
+    position: relative;
+    left: 105px;
+}
+
+.cancelBotton{
+    margin-left: 17%;
+}
+
+
+.posted, .edited, .canceled{
+    text-align: center; 
+    font-size: 20px;
+   }
+
+.canceled{
+margin-top: 100px;
+}
+
+.container p{
+    margin-left:25%;
+    text-align: left;
+    font-size: 18px;
+}
