@@ -1,26 +1,19 @@
 Body{
-    background-color: #d0e4cc ;
-}
-
-h2{
-    height: 30px;
-    margin-top: 180px;
-    color: black;
-    text-align: center;
+    background-color: rgb(248, 250, 219);
     font-family: 'Times New Roman', Times, serif;
 }
 
-#parintPic{
-    position: absolute;
-    width: 35%;
-    height: 30%;
-    left: 75px;
-    margin-top: 15px;
-    border-style:ridge;
+.jobRequestListPage, .detailsPage {
+    margin-top:180px;
+    margin-bottom: 100px;
 }
 
-#jobList div, #parintInfo div{
+h1{
+    text-align: center;
+}
 
+
+.jobReq1, .jobReq2, .parintInfo div {
     background-color: rgb(248, 250, 219);
     display: inline-block;
     position: relative;
@@ -32,21 +25,14 @@ h2{
 
 }
 
-#jobList div .NameLabel, #jobList div .ageLabel, #jobList div .serviceLabel, #jobList div .DayLabel, #jobList div .timeLabel
-#requestDetails div .NameLabel, #requestDetails div .cityLabel, #requestDetails div .neighborhoodLabel 
-.NameLabel, .ageLabel ,.serviceLabel, .dayLabel, .timeLabel, .NameLabel, .commentsLabel, .cityLabel, .neighborhoodLabel , .OfferPriceDetails, .OfferPrice {
+.nameLabel, .ageLabel,.serviceLabel, .dayLabel, .timeLabel ,
+.cityLabel, .neighborhoodLabel ,
+ .commentsLabel, .OfferPriceDetails, .OfferPrice {
     font-weight:bolder;
-   padding: 5px; 
-  
 }
 
-#parintInfo div p{
-line-height: 30px;
-    text-align: center;
-    margin-bottom: 10px;
-}
 
-#jobList div p, #parintInfo div{
+.jobRequestListPage div p{ 
     position: absolute;
     line-height: 30px;
     text-align: left;
@@ -54,7 +40,7 @@ line-height: 30px;
     left: 40px;  
 }
 
-#jobList button, #jobRequestDetails button{
+.jobRequestListPage button, .jobRequestDetails button{
     position: absolute;
     height: 30px;
     border-style: solid;
@@ -62,9 +48,6 @@ line-height: 30px;
     font-weight: bold; 
 }
 
-.submit-and-cancel{
-    position: absolute;
-}
 
 .OfferPrice{
     position: absolute;
@@ -72,6 +55,29 @@ line-height: 30px;
     bottom: 65px;
 
 }
+
+.sendOffer{
+    position: absolute;
+    left: 80px;
+    bottom: 25px;
+}
+
+.parintPic{
+    position: absolute;
+    width: 35%;
+    height: 30%;
+    left: 75px;
+    margin-top: 15px;
+    border-style:ridge;
+}
+
+.parintInfo div p{
+line-height: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 150px;
+}
+
 
 .OfferPriceDetails{
     margin-left: 0%;
@@ -81,38 +87,21 @@ line-height: 30px;
 }
 
 
-fieldset{
+.jobRequestDetails{
     width: 30%;
     height: 300px;
     width: 400px;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: rgb(248, 250, 219);
     border-style:solid;
     overflow: hidden;
     overflow-y: scroll;
-    top: 210px;
+    top: -125px;
     left: 600px;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
-    border: #000;
-}
-
-.sendOffer{
-    position: absolute;
-    left: 80px;
-    bottom: 25px;
-}
-
-#parintInfo div p{
-    margin-top: 150px;
-}
-
-#offerBotton{
-    position: absolute;
-    left: 30px;
-    bottom: 25px;
 }
 
 .sendOfferDetails{
@@ -121,7 +110,7 @@ fieldset{
     bottom: 15px;
 }
 
-#parintInfo div{
+.parintInfo div{
     top: 200px;
     left: 280px;
 }
@@ -131,7 +120,7 @@ fieldset{
     bottom: 15px;
 }
 
-fieldset p {
+.jobRequestDetails p {
     line-height: 30px;
     min-width: 320px;
     margin-bottom: 10px;
@@ -139,7 +128,7 @@ fieldset p {
     position: absolute;
 } 
 
-#detailsPage{
+.detailsPage{
 position: relative ;
 top: -150px;
 }

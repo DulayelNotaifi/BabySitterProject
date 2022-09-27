@@ -4,29 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Job Request Details</title>
-    <link rel="stylesheet" type="text/css" href="../CSS_Files/view_job_request_list_style.css">
-    <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+    <link rel="stylesheet" type="text/css" href="/CSS_Files/viewJobRequestListStyle.css">
+    <link rel="stylesheet" href="/CSS_Files/menustyle.css">
 </head>
 
 <body>
 
-      <!--menu--><div class="topofpage">
+      <!--menu--> 
+      <div class="topofpage">
         <p>Riyadh Saudi Arabia</p>
     </div>
     <div class="uppermenu">
+        <div class="tab0">
+            <a href="babysitterhome.html">Home</a>
+        </div>
         <div class="tab1">
             <a href="">Manage profile </a>
             <div class="dropdown-content">
                 <a href="">View</a>
-                <a href="">Edit</a>
+                <a href="babysittereditprofile.html">Edit</a>
                 <a class="last" href="">delete</a>
             </div>
         </div>
         <div class="tab2">
-            <a href="#">View job request list </a>
+            <a href="../HTML_Files/viewJobRequestList.html">View job request list </a>
             <div class="dropdown-content">
                 <a href="">Send offer </a>
-                <a href="">View job request details </a>
+                <a href="../HTML_Files/viewJobRequestDetails.html">View job request details </a>
             </div>
         </div>
 
@@ -43,31 +47,27 @@
             </a>
         </div>
         <div class="tab4">
-            <a href="">View rate
+            <a href="">View rates and reviews
             </a>
         </div>
-        <div class="tab4">
-            <a href="">View reviews
-            </a>
-        </div>
+
         <div class="logout">
             <a href="">Log out</a>
         </div>
     </div>
-
     <!--end menu-->
 
-    <h2>Job Request Details</h2>
 
+<div class="detailsPage">
+<br> <br> <br>
+    <h1>Job Request Details</h1>
 
-<div id="detailsPage">
-
-    <div id="parintInfo"> <!-- parint info -->
+    <div class="parintInfo"> <!-- parint info -->
         <div>
-            <img src="female.png" id="parintPic" alt="parint picture">
+            <img src="female.png" class="parintPic" alt="parint picture">
             <p>
 
-            <label class="NameLabel">Parint Name: </label>
+            <label class="nameLabel">Parint Name: </label>
             <label class="Name">Mona</label><br>
  
             <label class="cityLabel">City: </label>
@@ -82,11 +82,11 @@
     </div>
 
 
-    <div id="jobRequestDetails"> 
+    <div class="jobRequestDetails"> 
     
-        <fieldset> 
+        <form action="#" method="post">
           <p>
-            <label class="NameLabel">Kid/s Name: </label>
+            <label class="nameLabel">Kid/s Name: </label>
             <label class="Name">Norah</label><br>
             
             <label class="ageLabel">Kid/s Ages: </label>
@@ -110,15 +110,15 @@
                 <input name="OfferPrice" type="number" min="0" max="99999"> SAR
             </label> <br>
             
-            <div id="submit-and-cancel">
+            <div>
             
                 <button class="sendOfferDetails" onclick="location.href ='#'">Send Offer</button>
             
-                <button class="goBack" onclick="location.href ='view_JR_list.html'">Go Back</button>
+                <button class="goBack" onclick="location.href ='../HTML_Files/viewJobRequestList.html'">Go Back</button>
         
             </div>
           </p>
-        </fieldset> 
+        </form>
     </div>    
   
 </div> 

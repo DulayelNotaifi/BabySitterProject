@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Job Request List</title>
-    <link rel="stylesheet" type="text/css" href="../CSS_Files/view_job_request_list_style.css">
-    <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+    <link rel="stylesheet" type="text/css" href="/CSS_Files/viewJobRequestListStyle.css">
+    <link rel="stylesheet" href="/CSS_Files/menustyle.css">
 </head>
 
 <body>
@@ -15,19 +15,22 @@
         <p>Riyadh Saudi Arabia</p>
     </div>
     <div class="uppermenu">
+        <div class="tab0">
+            <a href="babysitterhome.html">Home</a>
+        </div>
         <div class="tab1">
             <a href="">Manage profile </a>
             <div class="dropdown-content">
                 <a href="">View</a>
-                <a href="">Edit</a>
+                <a href="babysittereditprofile.html">Edit</a>
                 <a class="last" href="">delete</a>
             </div>
         </div>
         <div class="tab2">
-            <a href="#">View job request list </a>
+            <a href="../HTML_Files/viewJobRequestList.html">View job request list </a>
             <div class="dropdown-content">
                 <a href="">Send offer </a>
-                <a href="">View job request details </a>
+                <a href="../HTML_Files/viewJobRequestDetails.html">View job request details </a>
             </div>
         </div>
 
@@ -44,30 +47,26 @@
             </a>
         </div>
         <div class="tab4">
-            <a href="">View rate
+            <a href="">View rates and reviews
             </a>
         </div>
-        <div class="tab4">
-            <a href="">View reviews
-            </a>
-        </div>
+
         <div class="logout">
             <a href="">Log out</a>
         </div>
     </div>
-
-
     <!--end menu-->
 
 
-    <h2>Job Request List</h2>
 
-    <div id="jobList">
 
-        <div id="jobReq1"> 
+    <div class="jobRequestListPage">
+        <h1>Job Request List</h1>
+        
+        <div class="jobReq1"> 
             
           <p>
-            <label class="NameLabel">Kid/s Name: </label>
+            <label class="nameLabel">Kid/s Name: </label>
             <label class="Name">Norah</label><br>
             
             <label class="ageLabel">Kid/s Ages: </label>
@@ -76,14 +75,14 @@
             <label class="serviceLabel">Type Of Service: </label>
             <label class="service">Take care</label><br>
     
-            <label class="DayLabel">Day: </label>
+            <label class="dayLabel">Day: </label>
             <label class="day">3/10/2022 </label><br>
     
             <label class="timeLabel">Time: </label>
             <label class="time">5:00pm - 9:00pm </label>
             <br>
     
-             <a href="view_JR_details.html">View Job Request Details</a> <br> 
+             <a href="viewJobRequestDetails.html">View Job Request Details</a> <br> 
     
           </p>
     
@@ -97,9 +96,9 @@
 
         </div>
 
-        <div id="jobReq2"> 
+        <div class="jobReq2"> 
           <p>
-            <label class="NameLabel">Kid/s Name: </label>
+            <label class="nameLabel">Kid/s Name: </label>
             <label class="Name">Sara</label><br>
         
             <label class="ageLabel">Kid/s Ages: </label>
@@ -108,7 +107,7 @@
             <label class="serviceLabel">Type Of Service: </label>
             <label class="service">Take care</label><br>
 
-            <label class="DayLabel">Day: </label>
+            <label class="dayLabel">Day: </label>
             <label class="day">1/10/2022 </label><br>
 
             <label class="timeLabel">Time: </label>
