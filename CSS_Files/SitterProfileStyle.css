@@ -99,6 +99,18 @@ div .subHeadText{
     height: 300px;   
 }
 
+#AvailabilityTable{
+    background-color: white;
+    height: 200px;   
+}
+
+#AvailabilityTable table{
+    margin-left: 20px;
+    font-size: large;
+}
+
+
+
 #Skills{
     background-color: white;
     height: 100px;
