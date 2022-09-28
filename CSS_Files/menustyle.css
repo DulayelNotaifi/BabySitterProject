@@ -14,7 +14,7 @@ body {
     /*rgb(150, 161, 148);*/
     margin: auto;
     display: flex;
-align-items: center;
+    align-items: center;
 justify-content: center;
 }
 
@@ -26,7 +26,7 @@ justify-content: center;
 
 .uppermenu a {
     float: left;
-    color: #dae8d7;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
     padding-bottom: 4px;
@@ -107,7 +107,7 @@ justify-content: center;
 
 .dropdown-content a {
     /*color: #D9DED8;*/
-    color: #dae8d7;
+    color: #ffffff;
     text-align: center;
     padding-top: 20px;
     padding-left: 0;
@@ -126,15 +126,15 @@ justify-content: center;
 
 
 /*********************/
-/*.babypic img {
-    height: 585.9375px;
-    width: 575.520833333333px;
-}*/
+.babypic img {
+    width: 562px;
+    height: 486px;
+}
 
 .babypic {
     position: absolute;
-    bottom: 8%;
-    left: 15%;
+    bottom: 12%;
+    left: 10%;
 }
 
 .textdescription {
