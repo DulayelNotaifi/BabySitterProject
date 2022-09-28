@@ -1,6 +1,7 @@
 
-
-
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
  #videoBar {
     position: relative;
     background-color:white;
@@ -22,7 +23,6 @@
     position: absolute;
     margin-left: 300px;
     margin-top: 50px;
-    font-family: 'Times New Roman', Times, serif;
     font-size: x-large;
     letter-spacing: 2px;
     font-weight: bolder;
@@ -52,6 +52,7 @@ div h2{
 }
 
 #Discription p{
+    
     position: absolute;
     margin-top: 15px;
     width: 60%;
