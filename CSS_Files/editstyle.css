@@ -64,7 +64,7 @@ top:10px;
     margin-left: 100px;
     margin-right: 50px;
     width: 100%;
-    height: max-content;
+    height: 100%;
 }
 
 .forthepic p {
@@ -162,3 +162,7 @@ justify-content: center;
     border-radius: 30px;
 height: 200px;}
 
+.need-bottom-space{
+margin-bottom: 200px;
+padding-bottom: 600px;
+}
