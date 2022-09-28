@@ -6,7 +6,7 @@ Body{
 #BriefInfo{
     position: relative;
     background-color: #ebefe4;
-    margin-top: 45px;
+    margin-top: 60px;
     margin-bottom: 15px;
     height: 100px;
 }
@@ -66,6 +66,7 @@ border-spacing: 8px;
     display: inline-block;
     font-weight: bolder;
     margin: 10px;
+    font-size: 20px;
     
 }
 
