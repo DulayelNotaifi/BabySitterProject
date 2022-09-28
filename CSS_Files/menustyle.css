@@ -26,7 +26,7 @@ justify-content: center;
 
 .uppermenu a {
     float: left;
-    color: #d0e4cc;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
     padding-bottom: 4px;
@@ -54,8 +54,7 @@ justify-content: center;
     position: fixed;
     text-align: left;
     z-index: 100;
-
-    font-family: 'Cedora', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .topofpage p {
@@ -108,7 +107,7 @@ justify-content: center;
 
 .dropdown-content a {
     /*color: #D9DED8;*/
-    color: #d0e4cc;
+    color: #ffffff;
     text-align: center;
     padding-top: 20px;
     padding-left: 0;

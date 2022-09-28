@@ -128,6 +128,7 @@ border-radius: 0.25rem;
 padding: .375rem .75rem;
 border: 1px solid #ced4da;
 overflow: auto;
+font-weight: 650;
 
 }
 .botton-bigger{
@@ -166,4 +167,8 @@ height: 200px;}
 .need-bottom-space{
 margin-bottom: 200px;
 padding-bottom: 600px;
+}
+.aaaa{
+    margin-bottom: 200px;
+padding-bottom: 200px;
 }
