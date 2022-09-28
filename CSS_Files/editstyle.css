@@ -29,12 +29,12 @@
     border: 1px solid #ced4da;
 }
 span.par{
-    font-weight: 650;
+    font-weight: 400;
 }
 
 h1 {
     font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Times New Roman', Times, serif;
     background-color: white;
     color: black;
     margin-top: 70px;
@@ -45,7 +45,7 @@ h1 {
 
 .forthepic {
     position: relative;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Times New Roman', Times, serif;
     margin-left: 750px;
 top:10px;
     padding-left: 50px;
@@ -60,11 +60,11 @@ top:10px;
 .cont {
     position: relative;
     top: 50px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Times New Roman', Times, serif;
     margin-left: 100px;
     margin-right: 50px;
     width: 100%;
-    height: max-content;
+    height: 100%;
 }
 
 .forthepic p {
@@ -96,7 +96,7 @@ top:10px;
 
 textarea {
     background-color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Times New Roman', Times, serif;
     width: 520px;
     border-color: #d0e4ccc9;
     border-radius: 0.25rem;
@@ -113,6 +113,7 @@ background-clip: padding-box;
 border-radius: 0.25rem;
 padding: .375rem .75rem;
 border: 1px solid #ced4da;
+font-weight: 650;
 }
 .bio-par{
     height: 300px;
@@ -139,7 +140,7 @@ overflow: auto;
 .down-more-cont{
     position: relative;
     top: 100px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
 align-items: center;
 justify-content: center;
@@ -162,3 +163,7 @@ justify-content: center;
     border-radius: 30px;
 height: 200px;}
 
+.need-bottom-space{
+margin-bottom: 200px;
+padding-bottom: 600px;
+}
