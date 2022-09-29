@@ -12,7 +12,8 @@
         
          <!--menu-->
          <div class="topofpage">
-            <p>Riyadh Saudi Arabia</p>
+            <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
+            <p class="andname">A Watchful Eye</p>
         </div>
         <div class="uppermenu">
             <div class="tab0">
@@ -29,17 +30,17 @@
             <div class="tab2">
                 <a href="#">Job request </a>
                 <div class="dropdown-content">
-                    <a href="../HTML_Files/postingJobRequest.html">Post request </a>
-                    <a href="../HTML_Files/editingJobRequest.html">Edit request</a>
-                    <a class="last" href="../HTML_Files/cancelingJobRequest.html">Cancel request</a>
+                    <a href="postingJobRequest.html">Post request </a>
+                    <a href="editingJobRequest.html">Edit request</a>
+                    <a class="last" href="cancelingJobRequest.html">Cancel request</a>
                 </div>
             </div>
     
             <div class="tab3 need-more">
-                <a href="">View booking </a>
+                <a href="viewbookings.html">View booking </a>
                 <div class="dropdown-content">
-                    <a href="">View current bookings </a>
-                    <a class="last" href="">View previous bookings
+                    <a href="viewCurrentBookings.html">View current bookings </a>
+                    <a class="last" href="viewPreviousBookings.html">View previous bookings
                     </a>
                 </div>
             </div>
@@ -54,18 +55,18 @@
         <!--end menu-->
 
         <div class="editingPage">
-            <h1>Edit Job Request</h1>
+            <h2>Edit Job Request</h2>
         
             <div class="container">
 
             <form action="#" method="post">
-
+                <p id="formInfo">
                 <label class="nameLabel"> Kid/s Name: 
                     <input class="inputName" name="kidsname" type="text" value="Abdullah" required> 
                 </label>
                 
                 <label class="ageLabel"> Kid/s Age: 
-                    <input class="inputAge" name="kidsages" type="number" min="0" max="17" value="5" equired> <!-- ? -->
+                    <input class="inputAge" name="kidsages" type="number" min="0" max="17" value="5" equired> 
                 </label>
                 
                 <label class="serviceLabel"> Type Of Service: 
@@ -79,17 +80,17 @@
                 </label>
                 <br><br>
                 <label class="commentsLabel"> Add Comments: (optional)
-                    <textarea class="commentsArea" name="comments" cols="50" rows="6" value="Add any comment if you want"> <!-- ?? -->
-                    </textarea>
+                    <textarea class="commentsArea" name="comments" cols="72" rows="6"></textarea>
                 </label>
                 <br>
                  
-                    <input class="Bottons resetBotton" type="reset" value="reset"> <!-- ? -->
-                <a href="editedJobRequest.html">
+                    <input class="Bottons resetBotton" type="reset" value="reset">
+
+                <a href="../HTML_Files/editedJobRequest.html">
                     <input class="Bottons editBotton" type="submit" value="Edit">
                 </a>
                 
-
+                </p>
             </form>
             </div> <!-- end container -->
         </div> <!-- end postingPage -->

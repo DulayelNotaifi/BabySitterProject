@@ -4,11 +4,9 @@ body{
 }
 
 .postingPage, .editingPage, .postedPage, .editedPage, .cancelPage, .canceledPage{
-    margin-top:180px;
+   /* margin-top:180px;*/
     margin-bottom: 100px;
 }
-
-
 
 
 h2{
@@ -18,7 +16,7 @@ h2{
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 70px;
-
+    margin-bottom: 50px;
 }
 
 
@@ -27,7 +25,7 @@ h2{
     position: relative;
     border-style: solid;
     border-radius: 30px;
-    width: 30%;
+    width: 580px;
     margin: auto;
     padding: 20px;
     overflow: hidden;
@@ -70,11 +68,18 @@ h2{
     /*  End of Extra Style for Offer Details Page */
 
   .inputName , .inputAge, .inptService{
-    height: 30px;
-    width: 300px;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+height: 30px;
+width: 500px;
+display: block;
+margin-top: 10px;
+margin-bottom: 10px;
+border-color: #d0e4ccc9;
+color: #495057;
+background-color: #ffffff;
+background-clip: padding-box;
+border-radius: 0.25rem;
+padding: .375rem .75rem;
+border: 1px solid #ced4da;
 }
 
 .commentsArea{
@@ -96,23 +101,22 @@ h2{
 .Bottons{
     height: 30px;
     width: 120px;
-    background-color: #f3f8f2f7;
+    background-color: #ffffff;
     border: 1px solid #000000;
-    border-radius: 0.5rem;
 }
 
 .postBotton {
-margin-left: 180px;
-border-radius: 0.5rem;
+margin-left: 200px;
 }
 
 .editBotton, .resetBotton{
     position: relative;
-    left: 105px;
+    left: 145px;
 }
 
 .cancelBotton{
     margin-left: 17%;
+    padding-left: 10px;
 }
 
 
@@ -125,8 +129,15 @@ border-radius: 0.5rem;
 margin-top: 100px;
 }
 
-.container p{
+.container .editedInfo, .container .postedInfo , .container .canceledInfo{
     margin-left:25%;
+    text-align: left;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.container #formInfo{
+    margin-left:20px;   
     text-align: left;
     font-size: 18px;
 }
