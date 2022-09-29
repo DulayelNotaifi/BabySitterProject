@@ -4,14 +4,21 @@ Body{
 }
 
 .jobRequestListPage, .detailsPage {
-    margin-top:180px;
     margin-bottom: 100px;
 }
 
-h1{
+
+h2{
+    height: 30px;
+    background-color: white;
+    color: black;
     text-align: center;
+    margin-top: 70px;
 }
 
+#detailsH2{
+    margin-top: 167px;
+}
 
 .jobReq1, .jobReq2, .parintInfo div {
     background-color: rgb(248, 250, 219);
@@ -29,6 +36,7 @@ h1{
 .cityLabel, .neighborhoodLabel ,
  .commentsLabel, .OfferPriceDetails, .OfferPrice {
     font-weight:bolder;
+    color: rgb(0, 111, 96);
 }
 
 
@@ -97,8 +105,8 @@ line-height: 30px;
     border-style:solid;
     overflow: hidden;
     overflow-y: scroll;
-    top: -125px;
-    left: 600px;
+    top: -225px;
+    left: 700px;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
@@ -111,8 +119,8 @@ line-height: 30px;
 }
 
 .parintInfo div{
-    top: 200px;
-    left: 280px;
+    top: 100px;
+    left: 380px;
 }
 .goBack{
     position: absolute;
