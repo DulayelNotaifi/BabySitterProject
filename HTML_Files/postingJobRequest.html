@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../CSS_Files/jobRequestStyle.css">
         <link rel="stylesheet" href="../CSS_Files/menustyle.css">
+        <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     </head>
     
     <body>
@@ -60,13 +61,13 @@
             <div class="container">
 
             <form action="#" method="post">
-<p id="formInfo">
+            <p id="formInfo">
                 <label class="nameLabel"> Kid/s Name: 
                     <input class="inputName" name="kidsname" type="text" placeholder="Enter Kid/s Name" required> 
                 </label>
                 
                 <label class="ageLabel"> Kid/s Age: 
-                    <input class="inputAge" name="kidsages" type="number" min="0" max="17" placeholder="Enter Kid/s Age" equired>
+                    <input class="inputAge" name="kidsages" type="number" min="0" max="17" placeholder="Enter Kid/s Age" required>
                 </label>
                 
                 <label class="serviceLabel"> Type Of Service: 
@@ -74,10 +75,9 @@
                 </label>
                 
                 <label class="durationLabel"> Duration: <br>
-                    Day:<input class="inputDay" name="day" type="date" required > 
-                    From: <input class="inputFromTime" name="from_time" type="time" required > 
-                   To: <input class="inpuToTime" name="to_time" type="time"  required> 
-                </label>
+                    Day:<input class="inputDay" name="day" type="date" required > </label>
+                <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" required > </label>
+                <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time"  required> </label>
                 <br><br>
                 <label class="commentsLabel"> Add Comments: (optional)
                     <textarea class="commentsArea" name="comments" cols="72" rows="6" placeholder="  Add any comment if you want"></textarea>
@@ -91,6 +91,42 @@
             </form>
             </div> <!-- end container -->
         </div> <!-- end postingPage -->
+
+        <footer> <!-- footer -->
+            <table class="tableF">
+                <tr>
+                    <th><a href="aboutUs.html"> About Us </a></th>
+                    <th><a href="FAQ.html"> FAQs </a></th>
+                    <th><a href="ContactUs.html"> Contact Us </a></th>
+                </tr>
+            </table>
+            <div id="shareProfile">
+                    <h4>Share the website</h4>
+                
+                    <a href="https://facebook.com" target="_blank">
+                        <i class="fa-brands fa-facebook fa-2x"></i>
+                    </a>
+            
+                    <a href="https://twitter.com" target="_blank">
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                    </a>
+            
+                    <a href="https://linkedin.com" target="_blank">
+                        <i class="fa-brands fa-linkedin fa-2x"></i>
+                    </a>
+            
+                    <a href="https://instagram.com" target="_blank">
+                        <i class="fa-brands fa-instagram fa-2x"></i>
+                    </a>
+            
+                    <a href="https://web.whatsapp.com" target="_blank">
+                        <i class="fa-brands fa-whatsapp fa-2x"></i>
+                    </a>
+                </div><br> 
+            <div class="footer">
+            &copy; A Watchful Eye, 2022
+            </div>
+            </footer> <!-- end footer -->
     </body>
 
 </html>
