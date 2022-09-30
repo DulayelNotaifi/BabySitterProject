@@ -15,10 +15,13 @@ h2{
     color: black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    margin-top: 70px;
+    margin-top: 2px;
     margin-bottom: 50px;
 }
 
+#offerH2{
+    margin-top: 70px;  
+}
 
 .container{
     background-color: rgb(248, 250, 219);
