@@ -47,6 +47,7 @@ h1 {
     position: relative;
     font-family: 'Times New Roman', Times, serif;
     margin-left: 750px;
+    padding-top: 30px;
 top:10px;
     padding-left: 50px;
     padding-bottom: 30px;
@@ -57,6 +58,11 @@ top:10px;
     border-radius: 30px;
 }
 
+.forthepic img{
+width: 250px;
+height: 250px;
+padding-bottom: 15px;
+}
 .cont {
     position: relative;
     top: 50px;
