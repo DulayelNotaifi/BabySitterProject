@@ -12,6 +12,9 @@ footer {
 .r footer{
   position: relative;
 }
+.acad {
+  position: absolute;
+}
 html {
   height: 100%;
 }
