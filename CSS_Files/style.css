@@ -552,7 +552,9 @@ footer {
   margin-top: 48px;
 
 }
-
+i{
+color: rgb(0,111,96);
+}
 /*footer{
   text-align: center;
   background: #000000e8;
