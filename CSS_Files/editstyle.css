@@ -16,7 +16,7 @@
 
 .inputing-text {
     height: 30px;
-    width: 500px;
+    width:500px;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -33,7 +33,7 @@ span.par{
 }
 
 h1 {
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Times New Roman', Times, serif;
     background-color: white;
     color: black;
@@ -176,5 +176,38 @@ padding-bottom: 600px;
 }
 .aaaa{
     margin-bottom: 200px;
-padding-bottom: 200px;
+padding-bottom: 400px;
+}
+.aaanot{
+    margin-bottom: 200px;
+    padding-bottom: 300px;
+}
+.locad{
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: #d0e4ccc9;
+    color: #495057;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    display:inline;
+    width:237px;
+
+}
+.bigio{
+    height: 300px;
+    width: 500px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: #d0e4ccc9;
+    background-color:  #ffffff;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    font-weight: 650; 
 }
