@@ -260,8 +260,11 @@ margin: 0 auto;*/
   border-style: solid;
   border-radius: 25px;
   font-size: 19px;
+   color: rgb(0,111,96);
 }
-
+form{
+   color: rgb(0,111,96);
+}
 .Form-babySitter {
   display: block;
   width: 600px;
@@ -310,7 +313,9 @@ font-size: 19px;
   padding-bottom: 2px;
   text-align: left;
   margin-left: 10px;
-  font-size: 21px;
+  font-size: 19px;
+  font-weight: bold;
+   color: rgb(0,111,96);
 }
 
 .Glabel{
@@ -374,7 +379,7 @@ font-size: 16px;
     transform:translateX(-50%);
 }*/
 .Rate {
-  height: 30px;
+   height: 30px;
   background-color: white;
   color: black;
   text-align: center;
@@ -384,7 +389,7 @@ font-size: 16px;
 
 /* View offers with their Status  */
 .Offers {
-  height: 30px;
+   height: 30px;
   background-color: white;
   color: black;
   text-align: center;
@@ -507,7 +512,7 @@ input[type="password"],
 .submit-btn {
  height: 34px;
 width: 94%;
-border-radius: 25px;
+border-radius: 4px;
 background-color: white;
 border: 1px solid gainsboro;
 padding: 7px 16px; 
@@ -521,9 +526,9 @@ input[type="reset"] {
   height: 40px;
   width: 49.5%;
   margin-top: 10px;
-  border-radius: 25px;
+  border-radius: 4px;
   background-color: white;
-border: 1px solid gainsboro;
+border: 1px solid black;
 color: black;
 }
 
@@ -531,10 +536,10 @@ color: black;
 margin-top: 15px;
 height: 40px;
 width: 99.5%;
-border-radius: 25px;
+border-radius: 4px;
 padding: 0;
 background-color: white;
-border: 1px solid gainsboro;
+border: 1px solid black;
 color: black;
 }
 
@@ -624,15 +629,14 @@ span.par {
   font-weight: 400;
 }
 
-h1 {
-  font-weight: 500;
-  font-family: "Times New Roman", Times, serif;
-  background-color: white;
-  color: black;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  text-align: center;
+h2 {
+height: 32px;
+background-color: white;
+color: black;
+text-align: center;
+margin-top: 14px;
 }
+
 .content-container {
   display: flex;
   justify-content: space-evenly;
@@ -665,8 +669,9 @@ h1 {
 
 .forthepic p {
   margin: 20px 0 6px 0;
-  font-weight: 400;
-  font-size: 21px;
+  font-weight: 700;
+  font-size: 19px;
+  color: rgb(0,111,96);
 }
 
 .forthepic input {
@@ -694,7 +699,7 @@ textarea {
   font-family: "Times New Roman", Times, serif;
   width: 100%;
   border-color: #d0e4ccc9;
-  border-radius: 10px;
+  border-radius: 4px;
   font-size: 12px;
 }
 .needs-container {
