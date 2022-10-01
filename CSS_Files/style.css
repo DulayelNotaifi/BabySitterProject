@@ -379,22 +379,20 @@ font-size: 16px;
     transform:translateX(-50%);
 }*/
 .Rate {
-  height: 30px;
-  background-color: white;
-  color: black;
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
-  margin-top: 80px;
+ height: 32px;
+background-color: white;
+color: black;
+text-align: center;
+margin-top: 14px;
 }
 
 /* View offers with their Status  */
 .Offers {
-  height: 30px;
-  background-color: white;
-  color: black;
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
-  margin-top: 80px;
+ height: 32px;
+background-color: white;
+color: black;
+text-align: center;
+margin-top: 14px;
 }
 
 /*.Offers{
