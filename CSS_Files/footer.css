@@ -1,10 +1,9 @@
 footer {
-
+position:relative;
   text-align: center;
   background: #000000e8;
   color: white;
   margin-top: 48px;
-  position: absolute;
   bottom: 0px;
   width: 100%;
 }
