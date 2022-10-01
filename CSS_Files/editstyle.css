@@ -30,6 +30,7 @@
 }
 span.par{
     font-weight: 400;
+    color:black;
 }
 
 h2 {
@@ -109,6 +110,7 @@ textarea {
 }
 .needs-container{
     height: 30px;
+    color:rgb(0,111,96);
 width: 500px;
 display: block;
 margin-top: 10px;
@@ -209,5 +211,10 @@ padding-bottom: 400px;
     border-radius: 0.25rem;
     padding: .375rem .75rem;
     border: 1px solid #ced4da;
-    font-weight: 650; 
+    font-weight: 650;
+    color:rgb(0,111,96); 
+}
+label{
+    color:rgb(0,111,96);
+    font-weight: 600;
 }
