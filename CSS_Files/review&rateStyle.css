@@ -39,11 +39,11 @@ input[type=text], select, textarea {
     
    
     height: 30px;
-    margin-left: 35%;
+    margin-left: 20%;
     border-style: solid;
     background-color: white; 
     font-weight: bold; 
-    width: 300px;
+    width: 60%;
 
  
   }
