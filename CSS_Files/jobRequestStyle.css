@@ -3,14 +3,11 @@ body{
     background-color: rgb(248, 250, 219);
 }
 
-.postingPage, .editingPage, .postedPage, .editedPage, .cancelPage, .canceledPage{
+.postingPage, .editingPage, .cancelPage{
    /* margin-top:180px;*/
     margin-bottom: 100px;
 }
 
-.canceledPage{
- margin-bottom: 389px;
-}
 
 h2{
     height: 30px;
@@ -126,29 +123,17 @@ margin-left: 200px;
 }
 
 .cancelBotton{
-    margin-left: 17%;
-    padding-left: 10px;
-}
-
-
-.posted, .edited, .canceled{
-    text-align: center; 
-    font-size: 20px;
-   }
-
-.canceled{
-margin-top: 100px;
-}
-
-.container .editedInfo, .container .postedInfo , .container .canceledInfo{
-    margin-left:25%;
-    text-align: left;
-    font-size: 18px;
-    padding: 20px;
+    margin-left: 60px;
 }
 
 .container #formInfo{
     margin-left:20px;   
     text-align: left;
     font-size: 18px;
+}
+
+.canceledInfo{
+    text-align: left;
+    position: relative;
+    left: 180px;
 }
