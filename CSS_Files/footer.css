@@ -1,6 +1,6 @@
 footer {
   text-align: center;
-  background: #000000e8;
+  background: #000000;
   color: white;
   margin-top: 48px;
   bottom: 0px;
@@ -12,7 +12,17 @@ footer {
 .r footer{
   position: relative;
 }
+<<<<<<< HEAD
 .acad {
+=======
+
+.rsitterProfile{
+  position: relative;
+  margin-bottom: 200px;
+}
+
+.OfferListFooter{
+>>>>>>> bc71a3142aba30043e64bebeaed7467c9c523880
   position: absolute;
 }
 html {
@@ -35,6 +45,7 @@ body {
 .tableF {
   width: 100%;
 }
+
 
 .tableF a {
   text-decoration: none;
