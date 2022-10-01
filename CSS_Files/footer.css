@@ -1,9 +1,18 @@
 footer {
+
   text-align: center;
   background: #000000e8;
   color: white;
   margin-top: 48px;
-
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
 }
 
 /*footer{
