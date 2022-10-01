@@ -69,8 +69,9 @@ h2{
 
 .sendOffer{
     position: absolute;
-    left: 80px;
+    left: 85px;
     bottom: 25px;
+    border: 1px solid black;
 }
 
 .parintPic{
@@ -94,7 +95,7 @@ line-height: 30px;
     margin-left: 0%;
     position: absolute;
     bottom: 10px;
-    left: 35px;
+    left: 200px;
 }
 
 
@@ -117,8 +118,12 @@ line-height: 30px;
 
 .sendOfferDetails{
     position: absolute;
-    left: 135px;  
+    left: 320px;  
     bottom: 15px;
+    height: 30px;
+    width: 280px;
+    background-color: #ffffff;
+    border: 1px solid black;
 }
 
 .parintInfo div{
@@ -127,8 +132,12 @@ line-height: 30px;
 }
 .goBack{
     position: absolute;
-    left: 220px; 
+    left: 30px; 
     bottom: 15px;
+    height: 30px;
+    width: 280px;
+    background-color: #ffffff;
+    border: 1px solid black;
 }
 
 .jobRequestDetails p {
