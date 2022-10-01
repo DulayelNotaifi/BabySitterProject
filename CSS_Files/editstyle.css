@@ -5,7 +5,7 @@
 
     background-color: rgb(248, 250, 219);
     position: absolute;
-    width:580px;
+    width:640px;
     border-style: solid;
     border-radius: 30px;
     padding-left: 30px;
@@ -16,7 +16,7 @@
 
 .inputing-text {
     height: 30px;
-    width:500px;
+    width:580px;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -104,14 +104,15 @@ padding-bottom: 15px;
 textarea {
     background-color: #ffffff;
     font-family: 'Times New Roman', Times, serif;
-    width: 520px;
+    width: 604px;
     border-color: #d0e4ccc9;
     border-radius: 0.25rem;
+    
 }
 .needs-container{
     height: 30px;
     color:rgb(0,111,96);
-width: 500px;
+width: 580px;
 display: block;
 margin-top: 10px;
 margin-bottom: 10px;
@@ -125,7 +126,7 @@ font-weight: 650;
 }
 .bio-par{
     height: 300px;
-width: 500px;
+width: 580px;
 display: block;
 margin-top: 10px;
 margin-bottom: 10px;
@@ -167,7 +168,7 @@ justify-content: center;
     padding-left: 10px;
     background-color: rgb(248, 250, 219);
     position: absolute;
-    width:600px;
+    width:650px;
     border-style: solid;
     border-radius: 30px;
 height: 200px;}
@@ -196,12 +197,12 @@ padding-bottom: 400px;
     padding: .375rem .75rem;
     border: 1px solid #ced4da;
     display:inline;
-    width:237px;
+    width: 277px;
 
 }
 .bigio{
     height: 300px;
-    width: 500px;
+    width: 580px;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
