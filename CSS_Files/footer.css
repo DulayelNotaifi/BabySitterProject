@@ -12,6 +12,15 @@ footer {
 .r footer{
   position: relative;
 }
+
+.rsitterProfile{
+  position: relative;
+  margin-bottom: 200px;
+}
+
+.OfferListFooter{
+  position: absolute;
+}
 html {
   height: 100%;
 }
