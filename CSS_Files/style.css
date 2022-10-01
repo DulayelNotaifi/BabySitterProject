@@ -43,7 +43,7 @@ body {
   height: 45.77px;
   text-decoration: none;
   font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .topofpage {
@@ -57,8 +57,7 @@ body {
   position: fixed;
   text-align: left;
   z-index: 100;
-
-  font-family: "Cedora", sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .topofpage p {
