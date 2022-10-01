@@ -629,15 +629,14 @@ span.par {
   font-weight: 400;
 }
 
-h1 {
-  font-weight: 500;
-  font-family: "Times New Roman", Times, serif;
-  background-color: white;
-  color: black;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  text-align: center;
+h2 {
+height: 30px;
+background-color: white;
+color: black;
+text-align: center;
+margin-top: 70px;
 }
+
 .content-container {
   display: flex;
   justify-content: space-evenly;
