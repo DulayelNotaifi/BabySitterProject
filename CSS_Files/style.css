@@ -528,7 +528,7 @@ input[type="reset"] {
   margin-top: 10px;
   border-radius: 4px;
   background-color: white;
-border: 1px solid gainsboro;
+border: 1px solid black;
 color: black;
 }
 
@@ -539,7 +539,7 @@ width: 99.5%;
 border-radius: 4px;
 padding: 0;
 background-color: white;
-border: 1px solid gainsboro;
+border: 1px solid black;
 color: black;
 }
 
@@ -630,11 +630,11 @@ span.par {
 }
 
 h2 {
-height: 30px;
+height: 32px;
 background-color: white;
 color: black;
 text-align: center;
-margin-top: 70px;
+margin-top: 14px;
 }
 
 .content-container {
