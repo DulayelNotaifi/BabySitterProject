@@ -168,10 +168,15 @@ margin: 0 auto;*/
   color: rgb(0,111,96);
 }
 
+.second-para{
+  color: rgb(0,111,96);
+}
+
 .or {
   position: relative;
   text-align: center;
   margin: 15px 0px;
+  color: rgb(0,111,96);
 }
 .or hr {
   margin: 0px;
@@ -308,6 +313,7 @@ font-size: 19px;
   margin-left: 10px;
   font-size: 21px;
   color: rgb(0,111,96);
+  font-weight:500;
 }
 
 .SLabel{
