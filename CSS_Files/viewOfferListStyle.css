@@ -68,7 +68,12 @@ h2{
 
 #content .Accept , #content .email {
     margin-left: 130px;
+    color: rgb(39, 141,7);
    
+}
+
+#content .Reject{
+    color: rgb(254, 9,9);
 }
 
 
