@@ -1,0 +1,52 @@
+footer {
+    position:absolute;
+      text-align: center;
+      background: #000000e8;
+      color: white;
+      margin-top: 48px;
+      bottom: 0px;
+      width: 100%;
+    }
+    .rev{
+        position:relative;
+
+
+    }
+    html {
+      height: 100%;
+    }
+    body {
+      min-height: 100%;
+    }
+    
+    /*footer{
+      text-align: center;
+      background: #000000e8;
+      color: white;
+      clear: both;
+      width:100%;
+      height: 200px;
+      position:absolute; 
+      bottom:0;
+    }*/
+    .tableF {
+      width: 100%;
+    }
+    
+    .tableF a {
+      text-decoration: none;
+      color: white;
+    }
+    
+    .footerP {
+      text-align: center;
+      color: white;
+      padding: 10px;
+      margin-top: 48px;
+    }
+    
+    #shareWeb h4 {
+      margin-top: 17px;
+      margin-bottom: 8px;
+    }
+    
