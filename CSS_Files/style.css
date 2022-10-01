@@ -260,8 +260,11 @@ margin: 0 auto;*/
   border-style: solid;
   border-radius: 25px;
   font-size: 19px;
+   color: rgb(0,111,96);
 }
-
+form{
+   color: rgb(0,111,96);
+}
 .Form-babySitter {
   display: block;
   width: 600px;
@@ -311,6 +314,7 @@ font-size: 19px;
   text-align: left;
   margin-left: 10px;
   font-size: 21px;
+   color: rgb(0,111,96);
 }
 
 .Glabel{
@@ -667,6 +671,7 @@ h1 {
   margin: 20px 0 6px 0;
   font-weight: 400;
   font-size: 21px;
+  color: rgb(0,111,96);
 }
 
 .forthepic input {
