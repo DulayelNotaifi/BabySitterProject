@@ -1,11 +1,16 @@
 footer {
-position:relative;
   text-align: center;
   background: #000000e8;
   color: white;
   margin-top: 48px;
   bottom: 0px;
   width: 100%;
+}
+.a{
+  position: absolute;
+}
+.r{
+  position: relative;
 }
 html {
   height: 100%;
