@@ -394,7 +394,7 @@ font-size: 16px;
   color: black;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
-  margin-top: 52px;
+  margin-top: 70px;
 }
 
 /*.Offers{
@@ -629,7 +629,7 @@ span.par {
   font-weight: 400;
 }
 
-h2 {
+.signTitle {
 height: 32px;
 background-color: white;
 color: black;
@@ -816,12 +816,12 @@ body {
 margin-left: 10px;
 }
 .AboutFaqTitle {
-  height: 30px;
-  background-color: white;
-  color: black;
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
-  margin-top: 80px;
+  height: 32px;
+background-color: white;
+color: black;
+text-align: center;
+font-family: "Times New Roman", Times, serif;
+margin-top: 70px;
 }
 
 /*form input.button {
