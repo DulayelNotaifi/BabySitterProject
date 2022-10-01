@@ -138,14 +138,15 @@ padding: .375rem .75rem;
 border: 1px solid #ced4da;
 overflow: auto;
 font-weight: 650;
+color: rgb(0,111,96); 
 
 }
 .botton-bigger{
     height: 30px;
-    width: 120px;
+    width: 604px;
     background-color: #ffffff;
     border: 1px solid black;
-    margin-left: 180px;
+    /*margin-left: 180px;*/
 }
 .down-more-cont{
     position: relative;
