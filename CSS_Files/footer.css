@@ -12,9 +12,6 @@ footer {
 .r footer{
   position: relative;
 }
-<<<<<<< HEAD
-.acad {
-=======
 
 .rsitterProfile{
   position: relative;
@@ -22,7 +19,7 @@ footer {
 }
 
 .OfferListFooter{
->>>>>>> bc71a3142aba30043e64bebeaed7467c9c523880
+
   position: absolute;
 }
 html {
@@ -32,16 +29,7 @@ body {
   min-height: 100%;
 }
 
-/*footer{
-  text-align: center;
-  background: #000000e8;
-  color: white;
-  clear: both;
-  width:100%;
-  height: 200px;
-  position:absolute; 
-  bottom:0;
-}*/
+
 .tableF {
   width: 100%;
 }
