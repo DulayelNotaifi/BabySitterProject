@@ -99,7 +99,7 @@ border: 1px solid #ced4da;
 }
 
   .nameLabel, .ageLabel ,.serviceLabel, .durationLabel, .commentsLabel ,
-  .dayLabel, .timeLabel,.PriceLabel{
+  .dayLabel, .timeLabel,.PriceLabel,.Expirelabel {
     font-weight:bold;
     color: rgb(0, 111, 96);
 }
