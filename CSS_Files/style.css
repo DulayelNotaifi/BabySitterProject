@@ -77,8 +77,10 @@ line-height: 2;
 }
 
 img.logo-small {
-  border-radius: 50%;
-  height: 50px;
+ border-radius: 50%;
+height: 50px;
+margin-left: 15px;
+margin-top: 7px;
 }
 
 .section {
