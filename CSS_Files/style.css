@@ -63,7 +63,9 @@ body {
 .topofpage p {
   margin: 0;
 }
-
+.topofpage p{
+line-height: 2;
+}
 .andname {
   position: absolute;
   top: 7px;
