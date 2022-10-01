@@ -48,7 +48,7 @@ h2{
     left: 40px;  
 }
 
-.jobRequestListPage button, .jobRequestDetails button{
+.jobRequestListPage button, .jobRequestDetails .sendOfferDetails, .jobRequestDetails .goBack{
     position: absolute;
     height: 30px;
     border-style: solid;
