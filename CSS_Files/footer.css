@@ -62,5 +62,5 @@ body {
 }
 
 i{
-color: rgb(0,111,96);
+color: rgb(0,111,96) !important;
 }
