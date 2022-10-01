@@ -12,7 +12,12 @@ footer {
 .r footer{
   position: relative;
 }
-
+.acad{
+  position:absolute;
+}
+.rcad{
+  position: relative;
+}
 .rsitterProfile{
   position: relative;
   margin-bottom: 200px;
