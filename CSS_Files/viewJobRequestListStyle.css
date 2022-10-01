@@ -3,10 +3,13 @@ Body{
     font-family: 'Times New Roman', Times, serif;
 }
 
-.jobRequestListPage, .detailsPage {
-    margin-bottom: 100px;
+.jobRequestListPage{
+    margin-bottom: 250px;
 }
 
+ .detailsPage {
+    margin-bottom: -270px;
+}
 
 h2{
     height: 30px;
