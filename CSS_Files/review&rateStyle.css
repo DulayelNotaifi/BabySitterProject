@@ -24,7 +24,8 @@ input[type=text], select, textarea {
     
   }
 
-  textarea{margin-left: 20%;}
+  textarea{margin-left: 20%;
+  }
   
   input[type=text]{
 
@@ -36,11 +37,12 @@ input[type=text], select, textarea {
   /* Style the submit button with a specific background color etc */
   input[type=submit] {
     
-    background-color: white; 
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
+   
+    height: 30px;
     margin-left: 45%;
+    border-style: solid;
+    background-color: white; 
+    font-weight: bold; 
 
  
   }

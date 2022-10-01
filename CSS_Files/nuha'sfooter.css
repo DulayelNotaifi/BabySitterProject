@@ -31,11 +31,13 @@ footer {
     }*/
     .tableF {
       width: 100%;
+
     }
     
     .tableF a {
       text-decoration: none;
       color: white;
+
     }
     
     .footerP {
@@ -48,5 +50,6 @@ footer {
     #shareWeb h4 {
       margin-top: 17px;
       margin-bottom: 8px;
+
     }
     
