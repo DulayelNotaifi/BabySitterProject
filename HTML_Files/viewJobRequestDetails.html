@@ -1,60 +1,65 @@
-<!DOCTYPE html>
-<html>
+        <!DOCTYPE html>
+    <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Job Request Details</title>
-    <link rel="stylesheet" type="text/css" href="/CSS_Files/viewJobRequestListStyle.css">
-    <link rel="stylesheet" href="/CSS_Files/menustyle.css">
-    <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Job Request Details</title>
+        <link rel="stylesheet" type="text/css" href="/CSS_Files/viewJobRequestListStyle.css">
+        <link rel="stylesheet" href="/CSS_Files/menustyle.css">
+        <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
+    </head>
 
-<body>
+    <body>
 
-      <!--menu--> 
-      <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="babysitterhome.html">Home</a>
+        <!--menu--> 
+        <div class="topofpage">
+            <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
+            <p class="andname">A Watchful Eye</p>
         </div>
-        <div class="tab1">
-            <a href="">Manage Profile </a>
-            <div class="dropdown-content">
-                <a href="viewbbystr.html">View</a>
-                <a href="babysittereditprofile.html">Edit</a>
-                <a class="last" href="deletebbystracc.html">Delete</a>
+        <div class="uppermenu">
+            <div class="tab0">
+                <a href="babysitterhome.html">Home</a>
+            </div>
+            <div class="tab1">
+                <a href="">Manage Profile </a>
+                <div class="dropdown-content">
+                    <a href="viewbbystr.html">View</a>
+                    <a href="babysittereditprofile.html">Edit</a>
+                    <a class="last" href="deletebbystracc.html">Delete</a>
+                </div>
+            </div>
+            <div class="tab2">
+                <a href="viewJobRequestList.html">Job Request List </a>
+    
+            </div>
+
+            <div class="tab3 need-more">
+                <a href="viewJobs.html">Jobs </a>
+                <div class="dropdown-content">
+                    <a href="viewcurrentjobs.html">Current Job</a>
+                    <a href="viewPreviousJobs.html">Previous Jobs</a>
+                </div>
+            </div>
+
+
+            <div class="tab4">
+                <a href="ViewOffersWithTheirStatus.html">My Offers with Their Status</a>
+            </div>
+            <div class="tab4">
+                <a href="ViewRate.html">Rates and Reviews
+                </a>
+            </div>
+            
+            <div class="logout">
+                <a href="">Logout</a>
             </div>
         </div>
-        <div class="tab2">
-            <a href="viewJobRequestList.html">Job Request List </a>
- 
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewJobs.html">Jobs </a>
-            <div class="dropdown-content">
-                <a href="viewcurrentjobs.html">Current Job</a>
-                <a href="viewPreviousJobs.html">Previous Jobs</a>
-            </div>
-        </div>
+        <!--end menu-->
 
 
-        <div class="tab4">
-            <a href="ViewOffersWithTheirStatus.html">My Offers with Their Status</a>
-        </div>
-        <div class="tab4">
-            <a href="ViewRate.html">Rates and Reviews
-            </a>
-        </div>
-        
-        <div class="logout">
-            <a href="">Logout</a>
-        </div>
-    </div>
-    <!--end menu-->
+    <div class="detailsPage">
+    <br> <br> <br>
+        <h2 id="detailsH2">Job Request Details</h2>
 
 
 <div class="detailsPage">
@@ -109,52 +114,98 @@
             </label> <br>
             
             <div>
-            
-                <button class="sendOfferDetails" onclick="location.href ='#'">Send Offer</button>
-            
-                <button class="goBack" onclick="location.href ='../HTML_Files/viewJobRequestList.html'">Go Back</button>
-        
-            </div>
-        </p>
-        </form>
-    </div>    
-  
-</div> 
+                <img src="female.png" class="parintPic" alt="parint picture">
+                <p>
 
-<footer> <!-- footer -->
-    <table class="tableF">
-        <tr>
-            <th><a href="aboutUs.html"> About Us </a></th>
-            <th><a href="FAQ.html"> FAQs </a></th>
-            <th><a href="ContactUs.html"> Contact Us </a></th>
-        </tr>
-    </table>
-    <div id="shareProfile">
-            <h4>Share the website</h4>
+                <label class="nameLabel">Parent Name: </label>
+                <label class="Name">Mona</label><br>
+    
+                <label class="cityLabel">City: </label>
+                <label class="city">Riyadh</label> <br>
+
+                <label class="neighborhoodLabel">Neighborhood: </label>
+                <label class="neighborhood">Alhamra</label> <br>
+
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="jobRequestDetails"> 
+            <form action="#" method="post">
+            <p>
+                <label class="nameLabel">Kid/s Name: </label>
+                <label class="Name">Norah</label><br>
+                
+                <label class="ageLabel">Kid/s Ages: </label>
+                <label class="age">3</label><br>
         
-            <a href="https://facebook.com" target="_blank">
-                <i class="fa-brands fa-facebook fa-2x"></i>
-            </a>
+                <label class="serviceLabel">Type Of Service: </label>
+                <label class="service">Take care</label><br>
+        
+                <label class="dayLabel">Day: </label>
+                <label class="day">3/10/2022 </label><br>
+        
+                <label class="timeLabel">Time: </label>
+                <label class="time">5:00pm - 9:00pm </label>
+                <br>
+            
+                <label class="commentsLabel">Comments: </label>
+                <label class="comments">Norah has Tourette syndrome </label>
+                <br><br>
+            
+                <label class="OfferPriceDetails" >Set Offer: 
+                    <input name="OfferPrice" type="number" min="0" max="99999"> SAR
+                </label> <br>
+                
+                <div>
+                
+                    <button class="sendOfferDetails" onclick="location.href ='#'">Send Offer</button>
+                
+                    <button class="goBack" onclick="location.href ='../HTML_Files/viewJobRequestList.html'">Go Back</button>
+            
+                </div>
+            </p>
+            </form>
+        </div>    
     
-            <a href="https://twitter.com" target="_blank">
-                <i class="fa-brands fa-twitter fa-2x"></i>
-            </a>
-    
-            <a href="https://linkedin.com" target="_blank">
-                <i class="fa-brands fa-linkedin fa-2x"></i>
-            </a>
-    
-            <a href="https://instagram.com" target="_blank">
-                <i class="fa-brands fa-instagram fa-2x"></i>
-            </a>
-    
-            <a href="https://web.whatsapp.com" target="_blank">
-                <i class="fa-brands fa-whatsapp fa-2x"></i>
-            </a>
-        </div><br> 
-    <div class="footer">
-    &copy; A Watchful Eye, 2022
-    </div>
+    </div> 
+
+    <footer> <!-- footer -->
+        <table class="tableF">
+            <tr>
+                <th><a href="aboutUs.html"> About Us </a></th>
+                <th><a href="FAQ.html"> FAQs </a></th>
+                <th><a href="ContactUs.html"> Contact Us </a></th>
+            </tr>
+        </table>
+        <div id="shareProfile">
+                <h4>Share the website</h4>
+            
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+        
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+        
+                <a href="https://linkedin.com" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+        
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+        
+                <a href="https://web.whatsapp.com" target="_blank">
+                    <i class="fa-brands fa-whatsapp fa-2x"></i>
+                </a>
+            </div><br> 
+        <div class="footer">
+        &copy; A Watchful Eye, 2022
+        </div>
     </footer> <!-- end footer -->
-</body>
-</html>
+    </body>
+    </html>
