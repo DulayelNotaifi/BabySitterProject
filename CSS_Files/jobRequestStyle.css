@@ -3,11 +3,14 @@ body{
     background-color: rgb(248, 250, 219);
 }
 
-.postingPage, .editingPage, .cancelPage{
+.postingPage, .editingPage{
    /* margin-top:180px;*/
     margin-bottom: 100px;
 }
 
+.cancelPage{
+    margin-bottom: 125px;
+}
 
 h2{
     height: 30px;
