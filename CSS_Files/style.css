@@ -16,6 +16,10 @@ body {
   height: 70px;
 }
 
+.logopic{
+  margin-left: 10px;
+}
+
 .uppermenu {
   display: block;
   /* position: relative; */
