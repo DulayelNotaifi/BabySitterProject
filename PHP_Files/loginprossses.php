@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -21,7 +20,7 @@ die("Connection failed: " . mysqli_connect_error());
         $userEmail = mysqli_real_escape_string($connection,strip_tags($_POST['uEmail']));
         $userPassword = mysqli_real_escape_string($connection,$_POST['uPassword']);
 
-        $sql = "SELECT * FROM `babysitter` WHERE email='$userEmail'AND password='$userPassword'";
+        $sql = "SELECT * FROM `babysitter` WHERE email='$userEmail'";
         // AND password='$userPassword'
         $userFound = mysqli_query($connection,$sql);
         
@@ -29,9 +28,17 @@ die("Connection failed: " . mysqli_connect_error());
 
             if(mysqli_num_rows($userFound) > 0){
                 
-                        $_SESSION['user_name'] = $userEmail;
+                while($row = mysqli_fetch_assoc($userFound)){
+                    //password_verify($userPassword,$row['password']//////////////////////////////////////////////////////////////////
+                    if($userPassword==$row['password']){
+                        
+                        $_SESSION['user_name'] = $row['user_name'];
                         header('Location:/BabySitterProject/HTML_Files/babysitterhome.html');
                         exit;
+                    }
+                }
+                      //  $_SESSION['user_name'] = $userEmail;
+                        
             }
             
             
@@ -44,9 +51,17 @@ die("Connection failed: " . mysqli_connect_error());
 
             if(mysqli_num_rows($userFound) > 0){
                 
-                        $_SESSION['user_name'] = $userEmail;
-                        header('Location:/BabySitterProject/HTML_Files/parenthome.html');
+                    while($row = mysqli_fetch_assoc($userFound)){
+                        /////////////////////////////////////////////////////////////////////////////////////////////////
+                        if($userPassword==$row['password']){
+                            $_SESSION['user_name'] = $row['user_name'];
+                            header('Location:/BabySitterProject/HTML_Files/parenthome.html');
                         exit;
+                        }
+                    }
+                
+                       // $_SESSION['user_name'] = $userEmail;
+                        
             }
             
             
