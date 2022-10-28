@@ -110,32 +110,28 @@ textarea {
     
 }
 .needs-container{
+    font-size: larger;
     height: 30px;
     color:rgb(0,111,96);
 width: 580px;
 display: block;
 margin-top: 10px;
 margin-bottom: 10px;
-border-color: #d0e4ccc9;
-background-color:  #ffffff;
 background-clip: padding-box;
 border-radius: 0.25rem;
 padding: .375rem .75rem;
-border: 1px solid #ced4da;
 font-weight: 650;
 }
 .bio-par{
+    font-size: larger;
     height: 300px;
 width: 580px;
 display: block;
 margin-top: 10px;
 margin-bottom: 10px;
-border-color: #d0e4ccc9;
-background-color: #ffffff;
 background-clip: padding-box;
 border-radius: 0.25rem;
 padding: .375rem .75rem;
-border: 1px solid #ced4da;
 overflow: auto;
 font-weight: 650;
 color: rgb(0,111,96); 
@@ -202,17 +198,15 @@ padding-bottom: 400px;
 
 }
 .bigio{
+    font-size: larger;
     height: 300px;
     width: 580px;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-color: #d0e4ccc9;
-    background-color:  #ffffff;
     background-clip: padding-box;
     border-radius: 0.25rem;
     padding: .375rem .75rem;
-    border: 1px solid #ced4da;
     font-weight: 650;
     color:rgb(0,111,96); 
 }
