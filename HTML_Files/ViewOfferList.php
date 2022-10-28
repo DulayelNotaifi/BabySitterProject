@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -48,7 +49,7 @@
             </div>
         </div>
         <div class="tab4">
-            <a href="../HTML_Files/ViewOfferList.html">View offer list</a>
+            <a href="../HTML_Files/ViewOfferList.php">View offer list</a>
         </div>
         <div class="logout">
             <a href="../HTML_Files/LoginPage.html">Logout</a>
@@ -57,6 +58,7 @@
     </div>
 
     <h2>Choose a Request to display offers</h2>
+    
 
     <!-- Requests template Example-->
     <div id="content">
@@ -68,39 +70,78 @@
 $servername= "localhost";
 $username= "root" ;
 $password= "";
-$dbname= "381DataBase" ;
+$dbname= "381project" ;
 $connection= mysqli_connect($servername,$username,$password,$dbname);
 $database= mysqli_select_db($connection, $dbname);
 // Check the connection
 if (!$connection) 
-die("Connection failed: " . mysqli_connect_error());
+die("Connection failed: ".mysqli_connect_error());
 
-$val1 = 'SELECT TypeOfServese, kidsName	, age, startDate, startTime FROM kids INNER JOIN parent WHERE parent.eamail == kids.ParentEmail';
 
-$query = mysqli_query($connection, $val1);
-mysql_close($connection);
+$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
 
-while($row = mysql_fetch_row($query)){
-    $service = $row['TypeOfServese'];
-    $kids = $row['kidsName'];
-    $ages = $row['age'];
-    $startDate = $row['startDate'];
-    $startTime = $row['startTime'];
-    print("<div> 
-     <p class='req'> <label class='serviceLabel'>Type Of Service: </label>
-     <label class='service'>$service</label><br>
-     <label class='nameLabel'>Kid/s Name: </label>
-            <label class='name'>$kids</label><br>
-            <label class='ageLabel'>Kid/s Age: </label>
-            <label class='age'>$ages</label><br>
-            <label class='dayLabel'>Day: </label>
-            <label class='day'>$startDate</label><br>
-            <label class='timeLabel'>Time: </label>
-            <label class='time'>$startTime </label><br><br>  
-             <a href='../HTML_Files/OfferDetails.html'> Offers </a>
 
-            </p> </div>")
-}
+$result = mysqli_query($connection, $val1);
+
+// if(! $result )
+// echo("wrong");
+// else
+// echo("correct");
+$valu = mysqli_num_rows($result);
+// echo($valu);
+// echo($row['TypeOfServese']);
+// mysql_close($connection);
+?>
+
+
+<?php
+
+$x = 0;
+while($x< $valu  ){
+
+ $row = mysqli_fetch_row($result);
+
+  $service = key($row);
+   next($row);
+
+   $kids = key($row);
+   next($row);
+
+   $ages = key($row);
+   next($row);
+
+   $day = key($row);
+   next($row);
+
+   $time = key($row);
+   next($row);
+
+echo("<div> 
+<p class='req'>
+<label class='serviceLabel'>Type Of Service: </label>
+<label class='service'>$row[$service]</label><br>
+<label class='nameLabel'>Kid/s Name: </label>
+<label class='name'>$row[$kids]</label><br>
+
+<label class='ageLabel'>Kid/s Age: </label>
+<label class='age'>$row[$ages]</label><br>
+
+<label class='dayLabel'>Day: </label>
+<label class='day'>$row[$day] </label><br>
+
+<label class='timeLabel'>Time: </label>
+<label class='time'>$row[$time]</label>
+<br><br>
+<a href='../HTML_Files/OfferDetails.html'> Offers </a>
+
+</p>
+
+</div>");
+$x++;  
+        }
+        
+    
+
     ?>
      </div>
 
@@ -148,7 +189,7 @@ while($row = mysql_fetch_row($query)){
     <!-- </div> -->
           
 
-    </div> <!-- End of offers list-->
+<!-- End of offers list-->
 
 
 
