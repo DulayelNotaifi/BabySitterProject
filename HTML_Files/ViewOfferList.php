@@ -61,7 +61,50 @@
     <!-- Requests template Example-->
     <div id="content">
 
-        <div> <!-- Request 1-->
+
+ <?php
+
+ // connect to db
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381DataBase" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+// Check the connection
+if (!$connection) 
+die("Connection failed: " . mysqli_connect_error());
+
+$val1 = 'SELECT TypeOfServese, kidsName	, age, startDate, startTime FROM kids INNER JOIN parent WHERE parent.eamail == kids.ParentEmail';
+
+$query = mysqli_query($connection, $val1);
+mysql_close($connection);
+
+while($row = mysql_fetch_row($query)){
+    $service = $row['TypeOfServese'];
+    $kids = $row['kidsName'];
+    $ages = $row['age'];
+    $startDate = $row['startDate'];
+    $startTime = $row['startTime'];
+    print("<div> 
+     <p class='req'> <label class='serviceLabel'>Type Of Service: </label>
+     <label class='service'>$service</label><br>
+     <label class='nameLabel'>Kid/s Name: </label>
+            <label class='name'>$kids</label><br>
+            <label class='ageLabel'>Kid/s Age: </label>
+            <label class='age'>$ages</label><br>
+            <label class='dayLabel'>Day: </label>
+            <label class='day'>$startDate</label><br>
+            <label class='timeLabel'>Time: </label>
+            <label class='time'>$startTime </label><br><br>  
+             <a href='../HTML_Files/OfferDetails.html'> Offers </a>
+
+            </p> </div>")
+}
+    ?>
+     </div>
+
+        <!-- <div> 
             <p class="req">
             <label class="serviceLabel">Type Of Service: </label>
             <label class="service">Child care</label><br>
@@ -81,9 +124,9 @@
 
         </p>
     
-         </div>
+         </div> -->
 
-    <div> <!-- Request 2 -->
+    <!-- <div> 
         <p class="req">
             <label class="serviceLabel">Type Of Service: </label>
             <label class="service">Child care</label><br>
@@ -101,8 +144,8 @@
             
          <a href="../HTML_Files/OfferDetails.html"> Offers </a>
 
-        </p>
-    </div>
+        </p> -->
+    <!-- </div> -->
           
 
     </div> <!-- End of offers list-->
