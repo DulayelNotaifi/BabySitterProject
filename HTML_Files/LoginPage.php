@@ -9,10 +9,19 @@
     <title>Login</title>
     <link href="http://fonts.cdnfonts.com/css/prettier-script" rel="stylesheet">
     <link rel="stylesheet" href="../CSS_Files/style.css">
-
+<style>
+    .in-log-in{
+  color: red;
+  width:600px;
+  text-align:center;
+  display:block;
+  margin-top:5px;
+}
+</style>
 </head>
 
 <body>
+    
     <div class="topofpage">
         <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
         <p class="andname">A Watchful Eye</p>
@@ -44,15 +53,24 @@
                 <div class="Form-login">
                     <h2 class="logHead"> Login </h2>
 
-                    <form>
+                    <form action="http://localhost/BabySitterProject/PHP_Files/loginprossses.php" method="post">
 
                         <label class="FLabel"> Email: </label>
-                        <input type="email" name="Email" placeholder="Enter your Email">
+                        <input type="email" name="uEmail" placeholder="Enter your Email" required>
 
                         <label class="FLabel"> Password: </label>
-                        <input class="Buttons" type="Password" name="Password" placeholder="Enter your password"><br>
+                        <input class="Buttons" type="Password" name="uPassword" placeholder="Enter your password" required><br>
+<?php
+if(isset($_GET['error'])){
 
-                        <input class="submit-btn" type="button" onclick="location.href='babysitterhome.html';"
+if($_GET['error'] == 'failToLogIn'){
+    ?>
+    <small class="in-log-in">Please Enter correct email and password</small>
+<?php
+}}
+
+?>
+                        <input class="submit-btn" type="submit" name="submit"
                             value="Login" />
                         <input type="reset" value="Reset">
                         <a href="">
@@ -119,4 +137,6 @@
 
 </body>
 
+    
 </html>
+

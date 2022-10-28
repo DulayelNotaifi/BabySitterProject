@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,11 +61,11 @@
     <div class="cont need-bottom-space">
         <div class="contentedit">
 
-            <form action="#">
+            <form action="http://localhost/BabySitterProject/HTML_Files/bbystr.php" method="post">
                 <label for="firstname">First Name:</label>
-                <input type="text" class="inputing-text" id="firstname" placeholder="Enter your first name">
+                <input type="text" class="inputing-text" id="firstname" name="firstname" placeholder="Enter your first name">
                 <label for="lastname">Last Name:</label>
-                <input type="text" class="inputing-text" id="lastname" placeholder="Enter your last name">
+                <input type="text" class="inputing-text" id="lastname" name="lastname" placeholder="Enter your last name">
                 <p class="more-space-on-bottom"></p>
                 <label>Gender:</label>
                 <p class="more-space-on-bottom"></p>
@@ -72,21 +73,21 @@
                 <input type="radio" name="gender" value="female"> Female
                 <p class="more-space-on-bottom"></p>
                 <label for="id">ID:</label>
-                <input type="text" class="inputing-text" id="id" placeholder="Enter your ID">
+                <input type="text" class="inputing-text" id="id" name="id" placeholder="Enter your ID">
                 <label for="age">Age:</label>
-                <input type="text" class="inputing-text" id="age" placeholder="Enter your age">
+                <input type="text" class="inputing-text" id="age" name="age" placeholder="Enter your age">
 
                 <label for="eMail">Email:</label>
-                <input type="email" class="inputing-text" id="eMail" placeholder="Enter your new email">
+                <input type="email" class="inputing-text" id="eMail" name="eMail" placeholder="Enter your new email">
                 <label for="city">City:</label>
-                <input type="text" class="inputing-text" id="city" placeholder="Enter your new city">
+                <input type="text" class="inputing-text" id="city" name="city" placeholder="Enter your new city">
                 <label for="phone">Phone:</label>
-                <input type="text" class="inputing-text" id="phone" placeholder="Enter your new phone">
+                <input type="text" class="inputing-text" id="phone" name="phone" placeholder="Enter your new phone">
                 <label for="password">Password:</label>
-                <input type="password" class="inputing-text" id="password" placeholder="Enter your new password">
+                <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your new password">
                 <label for="bio">Bio:</label>
                 <p class="more-space-on-bottom"></p>
-                <textarea name="biotextbox" id="bio" rows="10" placeholder=" Enter the bio, such as: years of experience, education, languages spoken, skills, etc""></textarea>
+                <textarea name="biotextbox" id="bio" name="bio" rows="10" placeholder=" Enter the bio, such as: years of experience, education, languages spoken, skills, etc""></textarea>
                 <p class="more-space-on-bottom"></p>
                 <input class="botton-bigger" type="submit" value="Send Edits" />
 
