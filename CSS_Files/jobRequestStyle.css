@@ -33,9 +33,11 @@ h2{
     border-radius: 30px;
     width: 580px;
     margin: auto;
+    margin-top: 10px;
     padding: 20px;
     overflow: hidden;
     overflow: scroll;
+   
   }
 
   /* Extra Style for Offer Details Page */
@@ -58,18 +60,41 @@ h2{
     position: relative;
     margin-top: 50px;
 }
+.container .RequestInfo .Accept{
+   
+    width:110px;
+    background-color: white; 
+    font-weight: bold; 
+    margin-left: 190px;
+    color: rgb(39, 141,7);
+}
+.container .RequestInfo .Reject{
+    width:110px;
+    margin-left: 330px;
+    color: rgb(254, 9,9);
+}
+
+.container .RequestInfo button{
+    position: absolute;
+    height: 30px;
+    margin-left: 30500px;
+    border-style: solid;
+    background-color: white; 
+    font-weight: bold; 
+    border: 1px solid black;
+
+}
 
 
 
 .container p a{
     font-size: medium;
-    text-decoration:none;
-    color: brown;
+    text-decoration:underline;
+    color: #f01414;
 }
 
 .container p a:hover{
-    text-decoration: underline;
-    color: #f01414;
+    color: #2f06e9;
 }
     /*  End of Extra Style for Offer Details Page */
 

@@ -40,7 +40,9 @@ h2{
 
 }
 
-#content div .NameLabel, #content div .PriceLabel , #content div .StartDateLabel ,#content div .EndDateLabel ,#content div .timeslotslabel ,#content div .timeslotslabel2{
+#content div .NameLabel, #content div .PriceLabel , #content div .StartDateLabel ,#content div .EndDateLabel ,#content div .timeslotslabel 
+,#content div .timeslotslabel2, #content div .serviceLabel , #content div .dayLabel,#content div .timeLabel,
+ #content div .req .nameLabel, #content div .req .ageLabel {
     font-weight:bolder;
    padding: 5px; 
    color: rgb(0, 111, 96);
@@ -51,6 +53,11 @@ h2{
     line-height: 30px;
     text-align: center;
     margin-top: 120px;
+}
+
+#content div .req{
+
+    margin-top: 30px;
 }
 
 
@@ -68,19 +75,24 @@ h2{
 
 
 
-#content .Accept  {
+/* #content .Accept  {
+    position: absolute;
+    height: 30px;
+    border-style: solid;
+    background-color: white; 
+    font-weight: bold; 
     margin-left: 130px;
     color: rgb(39, 141,7);
    
-}
+} */
 #content .email{
     margin-left: 130px;
     color:black;
 }
 
-#content .Reject{
+/* #content .Reject{
     color: rgb(254, 9,9);
-}
+} */
 
 
  #content input {   
