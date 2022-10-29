@@ -60,7 +60,7 @@
         
             <div class="container">
 
-            <form action="#" method="post">
+            <form action="PHP_Files/jobRequest.php" method="POST">
             <p id="formInfo">
                 <label class="nameLabel"> Kid/s Name: 
                     <input class="inputName" name="kidsname" type="text" placeholder="Enter Kid/s Name" required> 
@@ -75,7 +75,8 @@
                 </label>
                 
                 <label class="durationLabel"> Duration: <br>
-                    Day:<input class="inputDay" name="day" type="date" required > </label>
+                Day/s:<input class="inputDay" name="form_day" type="date" required > </label>
+                <label class="durationLabel"> - <input class="inputDay" name="to_day" type="date" required > </label> <br>
                 <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" required > </label>
                 <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time"  required> </label>
                 <br><br>
@@ -84,7 +85,7 @@
                 </label>
                 <br>
                  
-                <input type="submit" class="Bottons postBotton" value="Post"/>
+                <input type="submit" class="Bottons postBotton" value="Post" name="post_submit"/>
             </p>
             </form>
             </div> <!-- end container -->
