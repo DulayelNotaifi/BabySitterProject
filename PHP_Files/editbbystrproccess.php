@@ -87,7 +87,7 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
                 
             }
             $results = mysqli_query($connection,$sql);
-            //header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
+            header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
             exit;
 
 }
