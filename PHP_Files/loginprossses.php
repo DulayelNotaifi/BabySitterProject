@@ -29,10 +29,11 @@ die("Connection failed: " . mysqli_connect_error());
             if(mysqli_num_rows($userFound) > 0){
                 
                 while($row = mysqli_fetch_assoc($userFound)){
+                    //$userPassword==$row['password']
                     //password_verify($userPassword,$row['password']//////////////////////////////////////////////////////////////////
                     if($userPassword==$row['password']){
                         
-                        $_SESSION['user_name'] = $row['user_name'];
+                        $_SESSION['email'] = $row['email'];
                         header('Location:/BabySitterProject/HTML_Files/babysitterhome.html');
                         exit;
                     }
@@ -54,7 +55,7 @@ die("Connection failed: " . mysqli_connect_error());
                     while($row = mysqli_fetch_assoc($userFound)){
                         /////////////////////////////////////////////////////////////////////////////////////////////////
                         if($userPassword==$row['password']){
-                            $_SESSION['user_name'] = $row['user_name'];
+                            $_SESSION['email'] = $row['email'];
                             header('Location:/BabySitterProject/HTML_Files/parenthome.html');
                         exit;
                         }
@@ -71,5 +72,5 @@ die("Connection failed: " . mysqli_connect_error());
         
         
     }
-
+    unset($_SESSION['user_name']);
 }?>
