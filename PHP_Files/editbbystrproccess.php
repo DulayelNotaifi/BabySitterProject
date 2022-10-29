@@ -28,7 +28,7 @@ $bio =    $_POST['biotextbox'];
 
 
 if(isset($_POST['password']) && $_POST['password']!= "")
-$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
 
 
 $loggedInUser = $_SESSION['email'];
