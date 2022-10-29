@@ -48,7 +48,7 @@ if($_FILES['img']['name']!=""){
     if($fileExtension == 'jpg' || $fileExtension == 'png' || $fileExtension == 'jpeg'){
         //Process Image
         
-        if($fileSize < 616140){
+        if($fileSize < 6161400){
             //var_dump(basename($imageName));
     
             $fileNewName = "../public/userImages/".$imageName;
