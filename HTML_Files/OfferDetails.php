@@ -56,19 +56,125 @@
 
 
     <!--Page Content-->
-<h2 id="offerH2">Request Offers</h2>
-    <div class="container">
 
-            <img src="female.png" id="sitterPic" alt="babystter picture">
+    <?php
+    include('../PHP_Files/connect_db.php');
+   if(isset($_GET['id'])){
+   // echo("set");
+      $id = mysqli_real_escape_string($connection,$_GET['id']);
+
+       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`expireDate`  FROM `kids` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `kids`.`ID` = $id";
+
+       $result = mysqli_query($connection,  $sql);
+    //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+       $valu = mysqli_num_rows($result);
+   }
+
+    ?>
+
+
+<h2 id="offerH2">Request Offers</h2>
+
+<?php print_r($offers);?>
+
+    
+
+
+ <?php 
+
+ if($valu > 0 ){
+
+$x = 0;
+while($x< $valu  ){
+
+ $row = mysqli_fetch_row($result);
+
+  $babySitterName = key($row);
+   next($row);
+
+
+   $TypeOfServese = key($row);
+   next($row);
+
+   $startDate = key($row);
+   next($row);
+
+   $startTime = key($row);
+   next($row);
+
+   $endTime = key($row);
+   next($row);
+
+   $comments = key($row);
+   next($row);
+
+   $price = key($row);
+   next($row);
+
+   $expireDate = key($row);
+   next($row);
+
+?> 
+        <div class="container">
+
+        <img src="female.png" id="sitterPic" alt="babystter picture">
+
+        <p class="SitterInfo">
+        <label class="nameLabel">Babysitter Name: </label>
+       <label class="Name"><?php echo(($row[$babySitterName]))?></label><br>
+       <a href="../HTML_Files/BabySitterProfile.html">View babystter Profile</a>  <!-- will be modified later -->
+       <hr>
+       </p>
+
+         
+
+            <!-- <img src="female.png" id="sitterPic" alt="babystter picture">
             <p class="SitterInfo">
                 <label class="nameLabel">Babysitter Name: </label>
                 <label class="Name">sara</label><br>
     
                 <a href="../HTML_Files/BabySitterProfile.html">View babystter Profile</a>
                 <hr>
-            </p>
 
-        <p class="RequestInfo"> 
+            </p> -->
+
+ <p class="RequestInfo"> 
+
+<label class="serviceLabel">Type Of Service: </label>
+<label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
+
+<label class="dayLabel">Day: </label>
+<label class="day"><?php echo(($row[$startDate]))?> </label><br><br>
+
+<label class="timeLabel">Time: </label>
+<label class="time"><?php echo(($row[$startTime])) ?> - <?php echo(($row[$endTime]))?></label>
+<br><br>
+
+<label class="commentsLabel">Comments: </label>
+<label class="comments"><?php echo(($row[$comments]))?> </label>
+<br><br>
+
+
+ <label class="PriceLabel">Offered price/hr: </label>
+ <label class="Price"><?php echo(($row[$price]))?> SAR</label> <br><br>
+ <label class="Expirelabel">Offer expire date: </label>
+ <label class="expireDate"><?php echo(($row[$expireDate]))?></label><br><br>
+
+ <button class="Accept" onclick="location.href ='../HTML_Files/parenthome.html'">Accept</button>
+ <button class="Reject"onclick="location.href ='../HTML_Files/parenthome.html'">Reject</button>
+
+
+</p>
+</div> 
+ <?php } 
+}//end if
+else{
+?>
+
+<div class="container">
+    <h2>Offers are cooming soon!</h2></div>
+<?php } ?>
+        <!-- <p class="RequestInfo"> 
 
             <label class="serviceLabel">Type Of Service: </label>
             <label class="service">Child care</label><br><br>
@@ -95,9 +201,10 @@
 
            
         </p>
-    </div>
-
+    </div> -->
+<!-- 
     <div class="container">
+   
 
         <img src="female.png" id="sitterPic" alt="babystter picture">
         <p class="SitterInfo">
@@ -135,7 +242,7 @@
 
        
     </p>
-</div>
+</div> -->
 <!-- footer-->
 
 <footer> 

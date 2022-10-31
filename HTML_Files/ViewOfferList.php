@@ -67,20 +67,9 @@
  <?php
 
  // connect to db
-$servername= "localhost";
-$username= "root" ;
-$password= "";
-$dbname= "381project" ;
-$connection= mysqli_connect($servername,$username,$password,$dbname);
-$database= mysqli_select_db($connection, $dbname);
-// Check the connection
-if (!$connection) 
-die("Connection failed: ".mysqli_connect_error());
+include('../PHP_Files/connect_db.php');
 
-
-$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
-
-
+$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
 $result = mysqli_query($connection, $val1);
 
 // if(! $result )
@@ -116,31 +105,34 @@ while($x< $valu  ){
    $time = key($row);
    next($row);
 
-echo("<div> 
+   $id = key($row);
+   next($row);
+?>
+<div> 
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
-<label class='service'>$row[$service]</label><br>
+<label class='service'><?php echo($row[$service])?></label><br>
 <label class='nameLabel'>Kid/s Name: </label>
-<label class='name'>$row[$kids]</label><br>
+<label class='name'><?php echo($row[$kids])?></label><br>
 
 <label class='ageLabel'>Kid/s Age: </label>
-<label class='age'>$row[$ages]</label><br>
+<label class='age'><?php echo($row[$ages])?></label><br>
 
 <label class='dayLabel'>Day: </label>
-<label class='day'>$row[$day] </label><br>
+<label class='day'><?php echo($row[$day])?></label><br>
 
 <label class='timeLabel'>Time: </label>
-<label class='time'>$row[$time]</label>
+<label class='time'><?php echo($row[$time])?></label>
 <br><br>
-<a href='../HTML_Files/OfferDetails.html'> Offers </a>
+<a href='../HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
 
 </p>
 
-</div>");
+</div>
+<?php
 $x++;  
         }
-        
-    
+
 
     ?>
      </div>
