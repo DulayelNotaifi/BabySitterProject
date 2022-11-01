@@ -68,9 +68,9 @@
 // connect to db
 include('../PHP_Files/connect_db.php');
 
-$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
+$val1 = "SELECT `TypeOfServese`,`startDate`, `endDate` ,`startTime` ,`endTime`,`ID`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
 $result = mysqli_query($connection, $val1);
-
+//`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`)
 // if(! $result )
 // echo("wrong");
 // else
@@ -92,16 +92,16 @@ $row = mysqli_fetch_row($result);
  $service = key($row);
   next($row);
 
-  $kids = key($row);
+  $start_day = key($row);
   next($row);
 
-  $ages = key($row);
+  $end_day = key($row);
   next($row);
 
-  $day = key($row);
+  $start_time = key($row);
   next($row);
 
-  $time = key($row);
+  $end_time = key($row);
   next($row);
 
   $id = key($row);
@@ -111,19 +111,19 @@ $row = mysqli_fetch_row($result);
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
 <label class='service'><?php echo($row[$service])?></label><br>
-<label class='nameLabel'>Kid/s Name: </label>
+<!--<label class='nameLabel'>Kid/s Name: </label>
 <label class='name'><?php echo($row[$kids])?></label><br>
 
 <label class='ageLabel'>Kid/s Age: </label>
-<label class='age'><?php echo($row[$ages])?></label><br>
+<label class='age'><?php echo($row[$ages])?></label><br> -->
 
-<label class='dayLabel'>Day: </label>
-<label class='day'><?php echo($row[$day])?></label><br>
+<label class='dayLabel'>Day/s: </label>
+<label class='day'><?php echo($row[$start_day] .' - ' . $row[ $end_day] )?></label><br>
 
 <label class='timeLabel'>Time: </label>
-<label class='time'><?php echo($row[$time])?></label>
+<label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label>
 <br>
-<a href='viewJobRequestDetails1.html'<?php echo($row[$id])?>'>View Job Request Details</a>
+<a href='../HTML_Files/viewJobRequestDetails1.html'<?php echo($row[$id])?>>View Job Request Details</a>
 
 <label class="OfferPrice">Set Offer: 
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>

@@ -113,6 +113,14 @@ h2{
 
 
     /* for view job request page */
+
+ #content div  .reqList .serviceLabel , #content div  .reqList .dayLabel,#content div  .reqList .timeLabel{
+    font-weight:bolder;
+   padding: 10px; 
+   /*color: rgb(0, 111, 96);*/
+   color: rgb(111, 35, 0);
+  
+}
     .req .OfferPrice {
         position: absolute;
         left: 40px;
