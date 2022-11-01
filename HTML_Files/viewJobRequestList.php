@@ -123,7 +123,7 @@ $row = mysqli_fetch_row($result);
 <label class='timeLabel'>Time: </label>
 <label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label>
 <br>
-<a href='../HTML_Files/viewJobRequestDetails1.html'<?php echo($row[$id])?>>View Job Request Details</a>
+<a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
 
 <label class="OfferPrice">Set Offer: 
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>

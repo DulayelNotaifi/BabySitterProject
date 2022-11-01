@@ -23,7 +23,13 @@ $to_day = $_POST['to_day'];
 $from_time = $_POST['from_time'];
 $to_time = $_POST['to_time'];
 
-$sql = "INSERT INTO `kids` (`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`) VALUES ('$kidsname', '$kidsages', '$service', '$from_time', '$to_time', '$form_day', '$to_day', 'none', 'Mona', NULL, 'non', 'parent1@gmail.com')";
+if(isset($_POST['comments']))
+$comments = $_POST['comments'];
+else
+$comments = 'no comment added';
+
+echo $comments;
+$sql = "INSERT INTO `kids` (`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `ID`, `status`, `ParentEmail`) VALUES ('$kidsname', '$kidsages', '$service', '$from_time', '$to_time', '$form_day', '$to_day', '$comments', NULL, 'sent', 'parent1@gmail.com')";
 $query = mysqli_query($connection,$sql);
 if( $query ){
     echo 'done';

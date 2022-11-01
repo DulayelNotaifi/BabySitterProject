@@ -59,10 +59,131 @@
     <!--end menu-->
 
  <!--Page Content-->
- <h2 id="offerH2">Job Request Details</h2>
- <div class="container">
+ <?php
+ include('../PHP_Files/connect_db.php');
+if(isset($_GET['id'])){
+// echo("set");
+   $id = mysqli_real_escape_string($connection,$_GET['id']);
 
-         <img src="female.png" id="sitterPic" alt="babystter picture">
+    $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` WHERE `kids`.`ID` = $id";
+
+    $result = mysqli_query($connection,  $sql);
+ //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $valu = mysqli_num_rows($result);
+}
+
+ ?>
+
+
+<h2 id="offerH2">Job Request Details</h2>
+
+<?php print_r($jobReq);?>
+
+ 
+<?php 
+
+if($valu > 0 ){
+
+$x = 0;
+while($x< $valu  ){
+
+$row = mysqli_fetch_row($result);
+
+$kidsName = key($row);
+next($row);
+
+
+$age = key($row);
+next($row);
+
+$TypeOfServese = key($row);
+next($row);
+
+$startTime = key($row);
+next($row);
+
+$endTime = key($row);
+next($row);
+
+$startDate = key($row);
+next($row);
+
+$endDate = key($row);
+next($row);
+
+$comments = key($row);
+next($row);
+
+?> 
+<div class="container">
+
+<img src="female.png" id="sitterPic" alt="parent profile picture">
+<p class="SitterInfo">
+   <label class="nameLabel">Parent Name: </label>
+   <label class="Name">Mona</label><br>
+
+   <label class="cityLabel">City: </label>
+   <label class="city">Riyadh</label> <br>
+
+   <label class="neighborhoodLabel">District: </label>
+   <label class="neighborhood">Alhamra</label> <br>
+    <hr>
+</p>
+
+<p class="RequestInfo"> 
+
+<label class="nameLabel">Kid/s Name: </label>
+<label class="Name"><?php echo(($row[$kidsName]))?></label><br><br>
+
+<label class="ageLabel">Kid/s Ages: </label>
+<label class="age"><?php echo(($row[$age]))?></label><br><br>
+
+<label class="serviceLabel">Type Of Service: </label>
+<label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
+
+<label class="dayLabel">Date: </label>
+<label class="day"><?php echo(($row[$startDate])?> </label><br><br>
+<!-- <?php echo(($row[$endDate]))?>
+- <?php echo(($row[$endTime]))?> -->
+<label class="timeLabel">Time: </label>
+<label class="time"><?php echo(($row[$startTime])?> </label>
+<br><br>
+
+
+<label class="commentsLabel">Comments: </label>
+<label class="comments"><?php echo(($row[$comments]))?></label>
+<br><br><br> 
+
+
+<label class="OfferPriceDetails" >Set Offer: 
+   <input name="OfferPrice" type="number" min="0" max="99999"><span>SAR/hr</span>
+</label> <br>
+
+<div>
+<br>
+   <input type="button" class="sendOfferDetails" onclick="location.href ='#';" value="Send Offer"/>
+   <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.html';" value="Go Back"/>
+
+
+</div>
+</p>
+</div>
+
+
+ <?php } 
+}//end if
+else{
+?>
+
+<div class="container">
+ <h2>Offers are cooming soon!</h2></div>
+<?php } ?>
+
+<!-- end copy-->
+
+<!-- <div class="container">
+
+         <img src="female.png" id="sitterPic" alt="parent profile picture">
          <p class="SitterInfo">
             <label class="nameLabel">Parent Name: </label>
             <label class="Name">Mona</label><br>
@@ -78,25 +199,25 @@
      <p class="RequestInfo"> 
 
         <label class="nameLabel">Kid/s Name: </label>
-        <label class="Name">Norah</label><br><br>
+        <label class="Name"><?php echo(($row[$kidsName]))?></label><br><br>
         
         <label class="ageLabel">Kid/s Ages: </label>
-        <label class="age">3</label><br><br>
+        <label class="age"><?php echo(($row[$age]))?></label><br><br>
 
         <label class="serviceLabel">Type Of Service: </label>
-        <label class="service">Child care</label><br><br>
+        <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
 
-        <label class="dayLabel">Day: </label>
-        <label class="day">3/10/2022 </label><br><br>
+        <label class="dayLabel">Date: </label>
+        <label class="day"><?php echo(($row[$startDate]) . ($row[$endDate]))?></label><br><br>
 
         <label class="timeLabel">Time: </label>
-        <label class="time">5:00PM - 9:00PM </label>
+        <label class="time"><?php echo(($row[$startTime]) . ($row[$endTime]))?> </label>
         <br><br>
     
         <label class="commentsLabel">Comments: </label>
-        <label class="comments">Norah has Tourette syndrome </label>
+        <label class="comments"><?php echo(($row[$comments]))?></label>
         <br><br><br>
-
+       
 
         <label class="OfferPriceDetails" >Set Offer: 
             <input name="OfferPrice" type="number" min="0" max="99999"><span>SAR/hr</span>
@@ -110,7 +231,7 @@
 
         </div>
      </p>
- </div>
+ </div> -->
 <!-- footer-->
 
 <footer> 
