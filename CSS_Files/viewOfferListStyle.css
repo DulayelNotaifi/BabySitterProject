@@ -112,6 +112,22 @@ h2{
     margin-left: -30px; }
 
 
+    /* for view job request page */
+    .req .OfferPrice {
+        position: absolute;
+        left: 40px;
+        top: 210px;
+        font-weight:bolder;
+        padding: 5px; 
+        color: rgb(0, 111, 96);
+        }
+
+.req .sendOffer{
+     position: absolute;
+      padding: 5px;
+        left: 40px;
+        top: 260px;
+}
 
 
 

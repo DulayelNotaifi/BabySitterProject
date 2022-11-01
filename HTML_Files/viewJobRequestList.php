@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Job Request List</title>
-    <link rel="stylesheet" type="text/css" href="../CSS_Files/viewJobRequestListStyle.css">
+    <link rel="stylesheet" type="text/css" href="../CSS_Files/viewOfferListStyle.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../CSS_Files/viewJobRequestListStyle.css"> -->
     <link rel="stylesheet" href="../CSS_Files/menustyle.css">
     <link rel="stylesheet" href="../CSS_Files/footer.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
@@ -58,8 +59,91 @@
     <!--end menu-->
 
 
+        <h2>Job Request List</h2>
+        <div id="content">
 
 
+<?php
+
+// connect to db
+include('../PHP_Files/connect_db.php');
+
+$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
+$result = mysqli_query($connection, $val1);
+
+// if(! $result )
+// echo("wrong");
+// else
+// echo("correct");
+$valu = mysqli_num_rows($result);
+// echo($valu);
+// echo($row['TypeOfServese']);
+// mysql_close($connection);
+?>
+
+
+<?php
+
+$x = 0;
+while($x< $valu  ){
+
+$row = mysqli_fetch_row($result);
+
+ $service = key($row);
+  next($row);
+
+  $kids = key($row);
+  next($row);
+
+  $ages = key($row);
+  next($row);
+
+  $day = key($row);
+  next($row);
+
+  $time = key($row);
+  next($row);
+
+  $id = key($row);
+  next($row);
+?>
+<div> 
+<p class='req'>
+<label class='serviceLabel'>Type Of Service: </label>
+<label class='service'><?php echo($row[$service])?></label><br>
+<label class='nameLabel'>Kid/s Name: </label>
+<label class='name'><?php echo($row[$kids])?></label><br>
+
+<label class='ageLabel'>Kid/s Age: </label>
+<label class='age'><?php echo($row[$ages])?></label><br>
+
+<label class='dayLabel'>Day: </label>
+<label class='day'><?php echo($row[$day])?></label><br>
+
+<label class='timeLabel'>Time: </label>
+<label class='time'><?php echo($row[$time])?></label>
+<br>
+<a href='viewJobRequestDetails1.html'<?php echo($row[$id])?>'>View Job Request Details</a>
+
+<label class="OfferPrice">Set Offer: 
+                <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
+            </label> <br><br>
+
+            <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
+</p>
+
+</div>
+<?php
+$x++;  
+       }
+
+
+   ?>
+    </div>
+
+
+            <!-- aaaaaaaaaaaa-->
+        <!--
     <div class="jobRequestListPage">
         <h2>Job Request List</h2>
         
@@ -125,7 +209,7 @@
 
             <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
      
-        </div>
+        </div> -->
 
     </div> 
 
