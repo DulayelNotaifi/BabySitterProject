@@ -55,7 +55,94 @@
         </div>
         <!--end menu-->
 
-        <div class="cancelPage">
+        <?php
+        include('../PHP_Files/connect_db.php');
+           $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`";
+
+           $result = mysqli_query($connection,  $sql);
+        //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+           $valu = mysqli_num_rows($result);
+    
+        ?>
+            <div class="cancelPage">
+            <h2>Cancel Job Request</h2>
+
+     <?php 
+    
+     if($valu > 0 ){
+    
+    $x = 0;
+    while($x< $valu  ){
+    
+     $row = mysqli_fetch_row($result);
+    
+     $kidsName = key($row);
+     next($row);
+     
+     
+     $age = key($row);
+     next($row);
+     
+     $TypeOfServese = key($row);
+     next($row);
+     
+     $startTime = key($row);
+     next($row);
+     
+     $endTime = key($row);
+     next($row);
+     
+     $startDate = key($row);
+     next($row);
+     
+     $endDate = key($row);
+     next($row);
+     
+     $comments = key($row);
+     next($row);
+     
+    ?> 
+
+        <div class="container">
+
+<form action="#" method="post">
+
+    <p class="canceledInfo">
+        <label class="nameLabel">Kid/s Name: </label>
+        <label class="name"><?php echo(($row[$kidsName]))?></label><br><br>
+        
+        <label class="ageLabel">Kid/s Age: </label>
+        <label class="age"><?php echo(($row[$age]))?></label><br><br>
+
+        <label class="serviceLabel">Type Of Service: </label>
+        <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
+
+        <label class="dayLabel">Date: </label>
+        <label class="day"><?php echo(($row[$startDate]))?> - <?php echo(($row[$endDate]))?></label><br><br>
+
+        <label class="timeLabel">Time: </label>
+        <label class="time"><?php echo(($row[$startTime])) ?> - <?php echo(($row[$endTime]))?></label>
+        <br><br>
+    
+        <label class="commentsLabel">Comments: </label>
+        <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
+
+    <input type="button" class="Bottons cancelBotton" value="Cancel Job Request"/>
+
+    </p>
+</form>
+</div> <!-- end container -->
+    
+     <?php } 
+    }//end if
+    else{
+    ?>
+    
+    <div class="container">
+        <h2>No posted job request yet </h2></div>
+    <?php } ?>
+    <!-- end copy -->
+       <!-- <div class="cancelPage">
             <h2>Cancel Job Request</h2>
 
             <div class="container">
@@ -85,7 +172,7 @@
                 <input type="button" class="Bottons cancelBotton" value="Cancel Job Request"/>
 
                 </p>
-            </form>
+            </form> -->
             </div> <!-- end container -->
         </div> <!-- end postingPage -->
 
