@@ -1,4 +1,8 @@
 <?php
+
+print_r($_POST);
+
+/*
 session_start();
 
 if(isset($_POST['post_submit'])){
@@ -14,6 +18,7 @@ die("Connection failed: " . mysqli_connect_error());
 if(!$database= mysqli_select_db($connection, $dbname))
 die("Could not open database failed: " . mysqli_connect_error());
 print_r($_POST);
+
 if(isset($_POST['kidsname']) && isset($_POST['kidsages']) && isset($_POST['service']) && isset($_POST['form_day']) && isset($_POST['to_day']) && isset($_POST['from_time']) && isset($_POST['to_time'])){
 $kidsname = $_POST['kidsname'];
 $kidsages = $_POST['kidsages']; 
@@ -46,5 +51,5 @@ if(isset($_POST['cancel_submit'])){
     //$sql = "DELETE *  FROM `kids` WHERE kids.ID=  ";
 
 
-}
+}*/
 ?> 
