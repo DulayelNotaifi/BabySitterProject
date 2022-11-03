@@ -57,7 +57,7 @@
 
         <?php
         include('../PHP_Files/connect_db.php');
-           $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`";
+           $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` FROM `kids`";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -127,7 +127,7 @@
         <label class="commentsLabel">Comments: </label>
         <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
 
-    <input type="button" class="Bottons cancelBotton" value="Cancel Job Request"/>
+    <input type="submit" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/>
 
     </p>
 </form>

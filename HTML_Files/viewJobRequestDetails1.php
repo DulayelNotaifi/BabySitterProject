@@ -172,12 +172,12 @@ next($row);
 
  <?php } 
 }//end if
-else{
+//else{
 ?>
-
+<!--
 <div class="container">
  <h2>Offers are cooming soon!</h2></div>
-<?php } ?>
+<?php } ?> -->
 
 <!-- end copy-->
 

@@ -36,7 +36,7 @@ h2{
     margin-top: 10px;
     padding: 20px;
     overflow: hidden;
-    overflow: scroll;
+    /*overflow: scroll;*/
    
   }
 
@@ -98,7 +98,7 @@ h2{
 }
     /*  End of Extra Style for Offer Details Page */
 
-  .inputName , .inputAge, .inptService{
+.inptService{
 height: 30px;
 width: 500px;
 display: block;
@@ -113,6 +113,20 @@ padding: .375rem .75rem;
 border: 1px solid #ced4da;
 }
 
+.inputName , .inputAge{
+    height: 30px;
+    width: 235px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-color: #d0e4ccc9;
+    color: #495057;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;   
+}
 .commentsArea{
     max-width:fit-content;
     max-height: fit-content;
@@ -127,6 +141,7 @@ border: 1px solid #ced4da;
   .dayLabel, .timeLabel,.PriceLabel {
     font-weight:bold;
     color: rgb(0, 111, 96);
+    display: inline-block;
 }
 
 .Expirelabel{
