@@ -31,6 +31,7 @@ $comments = 'no comment added';
 echo $comments;
 $sql = "INSERT INTO `kids` (`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `ID`, `status`, `ParentEmail`) VALUES ('$kidsname', '$kidsages', '$service', '$from_time', '$to_time', '$form_day', '$to_day', '$comments', NULL, 'sent', 'parent1@gmail.com')";
 $query = mysqli_query($connection,$sql);
+
 if( $query ){
     echo 'done';
 }
@@ -40,6 +41,10 @@ else{
 }
 }
 
+if(isset($_POST['cancel_submit'])){
+    include('../PHP_Files/connect_db.php');
+    //$sql = "DELETE *  FROM `kids` WHERE kids.ID=  ";
 
 
+}
 ?> 

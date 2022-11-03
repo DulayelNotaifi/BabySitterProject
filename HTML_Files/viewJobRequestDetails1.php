@@ -65,7 +65,7 @@ if(isset($_GET['id'])){
 // echo("set");
    $id = mysqli_real_escape_string($connection,$_GET['id']);
 
-    $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` WHERE `kids`.`ID` = $id";
+    $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` FROM `kids` WHERE `kids`.`ID` = $id";
 
     $result = mysqli_query($connection,  $sql);
  //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -79,7 +79,7 @@ if(isset($_GET['id'])){
 
 <?php print_r($jobReq);?>
 
- 
+
 <?php 
 
 if($valu > 0 ){
@@ -133,7 +133,7 @@ next($row);
 <p class="RequestInfo"> 
 
 <label class="nameLabel">Kid/s Name: </label>
-<label class="Name"><?php echo(($row[$kidsName]))?></label><br><br>
+<label class="Name"><?php echo(($row[$kidsName]))?></label> <!-- <br><br> --> 
 
 <label class="ageLabel">Kid/s Ages: </label>
 <label class="age"><?php echo(($row[$age]))?></label><br><br>
@@ -142,16 +142,15 @@ next($row);
 <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
 
 <label class="dayLabel">Date: </label>
-<label class="day"><?php echo(($row[$startDate])?> </label><br><br>
-<!-- <?php echo(($row[$endDate]))?>
-- <?php echo(($row[$endTime]))?> -->
+<label class="day"><?php echo(($row[$startDate]))?> - <?php echo(($row[$endDate])); ?> </label><br><br>
+
 <label class="timeLabel">Time: </label>
-<label class="time"><?php echo(($row[$startTime])?> </label>
+<label class="time"><?php echo(($row[$startTime]))?> - <?php echo(($row[$endTime])); ?></label>
 <br><br>
 
 
 <label class="commentsLabel">Comments: </label>
-<label class="comments"><?php echo(($row[$comments]))?></label>
+<label class="comments"><?php echo(($row[$comments]))?> </label>
 <br><br><br> 
 
 
@@ -162,7 +161,7 @@ next($row);
 <div>
 <br>
    <input type="button" class="sendOfferDetails" onclick="location.href ='#';" value="Send Offer"/>
-   <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.html';" value="Go Back"/>
+   <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
 
 
 </div>
@@ -170,14 +169,8 @@ next($row);
 </div>
 
 
- <?php } 
-}//end if
-//else{
-?>
-<!--
-<div class="container">
- <h2>Offers are cooming soon!</h2></div>
-<?php } ?> -->
+
+
 
 <!-- end copy-->
 
@@ -232,6 +225,7 @@ next($row);
         </div>
      </p>
  </div> -->
+ 
 <!-- footer-->
 
 <footer> 
@@ -271,6 +265,8 @@ next($row);
  </div>
  </footer>
 
-
+ <?php } 
+}//end if
+?>
 </body>
 </html>
