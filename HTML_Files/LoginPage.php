@@ -9,19 +9,12 @@
     <title>Login</title>
     <link href="http://fonts.cdnfonts.com/css/prettier-script" rel="stylesheet">
     <link rel="stylesheet" href="../CSS_Files/style.css">
-<style>
-    .in-log-in{
-  color: red;
-  width:600px;
-  text-align:center;
-  display:block;
-  margin-top:5px;
-}
-</style>
+
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">-->
 </head>
 
 <body>
-    
+   
     <div class="topofpage">
         <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
         <p class="andname">A Watchful Eye</p>
@@ -54,22 +47,25 @@
                     <h2 class="logHead"> Login </h2>
 
                     <form action="http://localhost/BabySitterProject/PHP_Files/loginprossses.php" method="post">
+                        <?php
+if(isset($_GET['error'])){
 
+if($_GET['error'] == 'failToLogIn'){
+    ?>
+    <div class="alert alert-danger" role="alert">
+    Wrong email/password, please enter a correct one!
+</div>
+    <!--<small class="in-log-in">Please Enter correct email and password</small>-->
+<?php
+}}
+
+?>
                         <label class="FLabel"> Email: </label>
                         <input type="email" name="uEmail" placeholder="Enter your Email" required>
 
                         <label class="FLabel"> Password: </label>
                         <input class="Buttons" type="Password" name="uPassword" placeholder="Enter your password" required><br>
-<?php
-if(isset($_GET['error'])){
 
-if($_GET['error'] == 'failToLogIn'){
-    ?>
-    <small class="in-log-in">Please Enter correct email and password</small>
-<?php
-}}
-
-?>
                         <input class="submit-btn" type="submit" name="submit"
                             value="Login" />
                         <input type="reset" value="Reset">

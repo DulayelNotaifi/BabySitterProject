@@ -128,7 +128,7 @@ die("Connection failed: " . mysqli_connect_error());
 
         </div>
         <div class="forthepic bbystr">
-        <img src="../public/userImages/<?php echo $row['img']; ?>" /> 
+        <img src="../public/userImages/<?php echo $row['img']; ?>" alt="profile picture" /> 
             <!--"data:image/jpg;charset=utf8;base64,<?php 
             //echo base64_encode($row['img']); 
             ?>" -->
