@@ -129,7 +129,7 @@ $row = mysqli_fetch_row($result);
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
             </label> <br><br>
 
-            <input type="submit" class="sendOffer" name="offerL_submit" value="Send"/>
+            <input type="submit" class="sendOffer" name="offer_submit" value="Send"/>
 </form>
 </p>
 

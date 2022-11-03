@@ -158,7 +158,7 @@ next($row);
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
             </label> <br>
 
-            <input type="submit" class="sendOfferDetails" name="offerL_submit" value="Send Offer"/>
+            <input type="submit" class="sendOfferDetails" name="offer_submit" value="Send Offer"/>
             <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
 </form>
 <!--
