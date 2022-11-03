@@ -124,12 +124,13 @@ $row = mysqli_fetch_row($result);
 <label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label>
 <br>
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
-
+<form action="../PHP_Files/sendOffer.php" method="POST">
 <label class="OfferPrice">Set Offer: 
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
             </label> <br><br>
 
-            <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
+            <input type="submit" class="sendOffer" name="offer_submit" value="Send"/>
+</form>
 </p>
 
 </div>

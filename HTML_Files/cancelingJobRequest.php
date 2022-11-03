@@ -133,7 +133,8 @@
 </form>
 </div> <!-- end container -->
     
-     <?php } 
+     <?php
+     $x++; } 
     }//end if
     else{
     ?>

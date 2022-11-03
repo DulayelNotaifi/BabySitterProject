@@ -153,7 +153,15 @@ next($row);
 <label class="comments"><?php echo(($row[$comments]))?> </label>
 <br><br><br> 
 
+<form action="../PHP_Files/sendOffer.php" method="POST">
+<label class="OfferPriceDetails">Set Offer: 
+                <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
+            </label> <br>
 
+            <input type="submit" class="sendOfferDetails" name="offer_submit" value="Send Offer"/>
+            <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
+</form>
+<!--
 <label class="OfferPriceDetails" >Set Offer: 
    <input name="OfferPrice" type="number" min="0" max="99999"><span>SAR/hr</span>
 </label> <br>
@@ -163,8 +171,15 @@ next($row);
    <input type="button" class="sendOfferDetails" onclick="location.href ='#';" value="Send Offer"/>
    <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
 
+   <form action="../PHP_Files/sendOffer.php" method="POST">
+<label class="OfferPriceDetails">Set Offer: 
+                <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
+            </label> <br>
 
-</div>
+            <input type="submit" class="sendOfferDetails" name="offerL_submit" value="Send Offer"/>
+            <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
+</form>
+</div> -->
 </p>
 </div>
 
