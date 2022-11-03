@@ -27,8 +27,16 @@ footer {
 
   position: absolute;
 }
+
+.detailspage{
+  position: absolute;
+  margin-top: 1000px;
+}
+
+
 html {
   height: 100%;
+  
 }
 body {
   min-height: 100%;
