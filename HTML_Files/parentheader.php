@@ -35,7 +35,7 @@
             <a href="../HTML_Files/ViewOfferList.html">View offer list</a>
         </div>
         <div class="logout">
-            <a href="LoginPage.html">Logout</a>
+            <a href="logout.php">Logout</a>
         </div>
 
     </div>
