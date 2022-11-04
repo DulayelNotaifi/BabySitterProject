@@ -94,7 +94,7 @@ ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$s
     
     
     <div class="y">
-        <img src="data:image/jpeg;base64,<?php echo base64_encode($row['img']) ;?>" id="sitterPic" alt="babystter picture">
+    <img src="../public/userImages/<?php echo $row['img']; ?>" id="sitterPic" alt="babystter picture">
                 <p>
 
         

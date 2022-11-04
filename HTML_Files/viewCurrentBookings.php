@@ -99,7 +99,7 @@ ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$se
                     ?>
     
             <div class="y"  >
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($row['img']) ;?>" id="sitterPic" alt="babystter picture">
+            <img src="../public/userImages/<?php echo $row['img']; ?>" id="sitterPic" alt="babystter picture">
                 <p>
 
                     <label class="NameLabel">Babystter Name: </label>

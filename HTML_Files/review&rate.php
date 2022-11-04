@@ -123,7 +123,7 @@
         
         
                         ?>
-                        <img src="data:image/jpeg;base64,<?php echo base64_encode($row1['img']); ?>" id="sitterPic"
+                           <img src="../public/userImages/<?php echo $row['img']; ?>" id="sitterPic"
                              alt="babystter picture">
                     <?php }
                 }
