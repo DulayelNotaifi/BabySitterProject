@@ -59,7 +59,8 @@ if($_FILES['img']['name']!=""){
                 
 
 if(isset($_POST['password']) && $_POST['password']!= ""){
-$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+//$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+$userPassword =mysqli_real_escape_string($connection,$_POST['password']);
 $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
 ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName',password ='$userPassword' WHERE email = '$loggedInUser'";
 }else{
