@@ -18,8 +18,6 @@ if(isset($_POST['offer_submit'])){
     if(!$database= mysqli_select_db($connection, $dbname))
     die("Could not open database failed: " . mysqli_connect_error());
 
-    print_r($_POST);
-
     if(isset($_POST['OfferPrice'])){
         $OfferPrice = $_POST['OfferPrice'];
     }

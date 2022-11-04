@@ -56,8 +56,12 @@
         <!--end menu-->
 
         <?php
+        if(isset($_GET['Message'])){
+            echo $_GET['Message'];
+        }
         include('../PHP_Files/connect_db.php');
-           $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` FROM `kids`";
+        
+           $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` , `ID` FROM `kids`";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -100,12 +104,14 @@
      
      $comments = key($row);
      next($row);
+
+     $id = key($row);
+     next($row);
      
     ?> 
 
         <div class="container">
 
-<form action="#" method="post">
 
     <p class="canceledInfo">
         <label class="nameLabel">Kid/s Name: </label>
@@ -127,10 +133,10 @@
         <label class="commentsLabel">Comments: </label>
         <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
 
-    <input type="submit" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/>
-
+   <!-- <input type="button" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/> -->
+    <button class="Bottons cancelBotton" ><a href='../PHP_Files/cancelJobRequest.php?id=<?php echo($row[$id])?>'>Cancel Job Request</a></button>
     </p>
-</form>
+
 </div> <!-- end container -->
     
      <?php
