@@ -65,27 +65,23 @@
 
 
  <?php
-
  // connect to db
 include('../PHP_Files/connect_db.php');
-
-$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`  FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail`";
+$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` " ;
 $result = mysqli_query($connection, $val1);
-
-// if(! $result )
-// echo("wrong");
-// else
-// echo("correct");
 $valu = mysqli_num_rows($result);
-// echo($valu);
-// echo($row['TypeOfServese']);
-// mysql_close($connection);
+echo $valu ;
 ?>
 
 
 <?php
 
+
+// $currentDate = mktime(0, 0, 0, date("d")+1, date("m"), date("Y")); 
+
 $x = 0;
+$y=0;
+
 while($x< $valu  ){
 
  $row = mysqli_fetch_row($result);
@@ -107,7 +103,15 @@ while($x< $valu  ){
 
    $id = key($row);
    next($row);
+
+   $status = key($row);
+   next($row);
+
+
+   if($row[$status] == "unserved") $y=-1;  echo $y;
+   if($row[$status] == "served") continue;
 ?>
+
 <div> 
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
@@ -125,65 +129,26 @@ while($x< $valu  ){
 <label class='time'><?php echo($row[$time])?></label>
 <br><br>
 <a href='../HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
-
 </p>
 
 </div>
+
 <?php
 $x++;  
-        }
+ }?>
 
+</div>
 
-    ?>
-     </div>
-
-        <!-- <div> 
-            <p class="req">
-            <label class="serviceLabel">Type Of Service: </label>
-            <label class="service">Child care</label><br>
-            <label class="nameLabel">Kid/s Name: </label>
-            <label class="name">Abdullah</label><br>
-            
-            <label class="ageLabel">Kid/s Age: </label>
-            <label class="age">5</label><br>
-    
-            <label class="dayLabel">Day: </label>
-            <label class="day">3/10/2022 </label><br>
-    
-            <label class="timeLabel">Time: </label>
-            <label class="time">5:00PM - 9:00PM </label>
-            <br><br>
-         <a href="../HTML_Files/OfferDetails.html"> Offers </a>
-
-        </p>
-    
-         </div> -->
-
-    <!-- <div> 
-        <p class="req">
-            <label class="serviceLabel">Type Of Service: </label>
-            <label class="service">Child care</label><br>
-            <label class="nameLabel">Kid/s Name: </label>
-            <label class="name">Ahmed</label><br>
-            
-            <label class="ageLabel">Kid/s Age: </label>
-            <label class="age">12</label><br>
-    
-            <label class="dayLabel">Day: </label>
-            <label class="day">3/11/2022 </label><br>
-    
-            <label class="timeLabel">Time: </label>
-            <label class="time">5:00PM - 9:00PM </label><br><br>
-            
-         <a href="../HTML_Files/OfferDetails.html"> Offers </a>
-
-        </p> -->
-    <!-- </div> -->
-          
-
-<!-- End of offers list-->
-
-
+ <?php 
+ echo $y;
+      if($y == 0){
+ ?>
+   
+   <div class="container" >
+    <h2 >YOU DO NOT HAVE ANY RequestS</h2>
+</div>
+<?php } ?>
+     
 
     <!-- footer-->
 
