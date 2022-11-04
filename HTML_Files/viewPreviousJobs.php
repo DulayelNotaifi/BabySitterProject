@@ -107,7 +107,8 @@ ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$s
 
             <label class="StartDateLabel">Date: </label>
             <label class="StartDate"><?php echo $row['startDate']; ?></label>
-    
+            <br>
+
 
             <label class="timeslotslabel"> From: </label>
             <label class="timeslots"> <?php echo $row['startTime']; ?></label> 
