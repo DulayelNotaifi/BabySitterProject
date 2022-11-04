@@ -148,7 +148,7 @@ while($x< $valu  ){
  <label class="Expirelabel">Offer expire date: </label>
  <label class="expireDate"><?php echo(($row[$expireDate]))?></label><br><br>
  <div id="chose">
- <button class="Accept" ><a href='../PHP_Files/addrecord.php?id=<?php echo($id)?>' onclick="return checkAcce()">Accept</a></button>
+ <button class="Accept" ><a href='../PHP_Files/addrecord.php?id=<?php echo($id)?>&name=<?php echo($row[$babySitterName]) ?>' onclick="return checkAcce()">Accept</a></button>
  <button class="Reject" ><a href='../PHP_Files/deletrecord.php?id=<?php echo($id) ?>&name=<?php echo($row[$babySitterName]) ?>' onclick="return checkDelet()">Reject</a></button>
 </div>
 
