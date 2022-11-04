@@ -68,7 +68,7 @@
 // connect to db
 include('../PHP_Files/connect_db.php');
 
-$val1 = "SELECT `TypeOfServese`,`startDate`, `endDate` ,`startTime` ,`endTime`,`ID`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
+$val1 = "SELECT `TypeOfServese`,`startDate`, `endDate` ,`startTime` ,`endTime`,`ID`  FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail`";
 $result = mysqli_query($connection, $val1);
 //`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`)
 // if(! $result )
@@ -124,12 +124,14 @@ $row = mysqli_fetch_row($result);
 <label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label>
 <br>
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
-<form action="../PHP_Files/sendOffer.php" method="POST">
-<label class="OfferPrice">Set Offer: 
+<form action="../PHP_Files/sendOffer.php" method="GET">
+<label class="OfferPrice">Set Offer:  
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
-            </label> <br><br>
+                </label> <br><br>
+           <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/>
+            <input type="submit" class="sendOffer" name="offer_submit" value="Send"/> 
 
-            <input type="submit" class="sendOffer" name="offer_submit" value="Send"/>
+   
 </form>
 </p>
 

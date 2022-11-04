@@ -61,7 +61,7 @@
         }
         include('../PHP_Files/connect_db.php');
         
-           $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` , `ID` FROM `kids`";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` , `ID` FROM `requests`";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);

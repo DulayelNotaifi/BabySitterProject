@@ -65,7 +65,7 @@ if(isset($_GET['id'])){
 // echo("set");
    $id = mysqli_real_escape_string($connection,$_GET['id']);
 
-    $sql = "SELECT `kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` FROM `kids` WHERE `kids`.`ID` = $id";
+    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` FROM `requests` WHERE `requests`.`ID` = $id";
 
     $result = mysqli_query($connection,  $sql);
  //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -88,13 +88,6 @@ $x = 0;
 while($x< $valu  ){
 
 $row = mysqli_fetch_row($result);
-
-$kidsName = key($row);
-next($row);
-
-
-$age = key($row);
-next($row);
 
 $TypeOfServese = key($row);
 next($row);

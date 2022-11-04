@@ -35,7 +35,7 @@ if(isset($_POST['post_submit'])){
         else
         $comments = "no comment added";
 
-        $sql = "INSERT INTO `kids` (`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `ID`, `status`, `ParentEmail`) VALUES ('tryMulty', '0', '$service', '$from_time', '$to_time', '$form_day', '$to_day', '$comments', NULL, 'sent', 'parent1@gmail.com')";
+        $sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`,`parentName`, `ID`, `status`, `ParentEmail`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$to_day', '$comments','Mona', NULL, 'sent', 'parent1@gmail.com')";
         $query = mysqli_query($connection,$sql);
        // isset($_POST['kidsname']) && isset($_POST['kidsages']) &&
        if( $query ){
@@ -49,7 +49,7 @@ if(isset($_POST['post_submit'])){
         for($x =0 ; $x < $count ; $x++) {
            $kidName = $_POST["kidsname"]["$x"];
            $kidAge = $_POST["kidsage"]["$x"];
-            $sql = "INSERT INTO `kidsNameAge` (`ID`, `kidName`, `kidAge`) VALUES ('$id', '$kidName', '$kidAge')";
+            $sql = "INSERT INTO `kids` (`ID`, `kidName`, `kidAge`) VALUES ('$id', '$kidName', '$kidAge')";
             $query = mysqli_query($connection,$sql);
           }
     }
