@@ -65,7 +65,7 @@
    // echo("set");
       $id = mysqli_real_escape_string($connection,$_GET['id']);
 
-       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`expireDate`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
+       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`expireDate`,`offerstatus`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
 
        $result = mysqli_query($connection,  $sql);
     //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -113,6 +113,11 @@ while($x< $valu  ){
    $expireDate = key($row);
    next($row);
 
+   $offstatus = key($row);
+   next($row);
+
+   if($row[$offstatus] == "Rejected") continue;
+
 ?> 
         <div class="container">
 
@@ -146,10 +151,35 @@ while($x< $valu  ){
  <label class="PriceLabel">Offered price/hr: </label>
  <label class="Price"><?php echo(($row[$price]))?> SAR</label> <br><br>
  <label class="Expirelabel">Offer expire date: </label>
- <label class="expireDate"><?php echo(($row[$expireDate]))?></label><br><br>
+ <label class="expireDate"><?php echo(($row[$expireDate]))?></label><br>
+
  <div id="chose">
- <button class="Accept" ><a href='../PHP_Files/addrecord.php?id=<?php echo($id)?>&name=<?php echo($row[$babySitterName]) ?>' onclick="return checkAcce()">Accept</a></button>
- <button class="Reject" ><a href='../PHP_Files/deletrecord.php?id=<?php echo($id) ?>&name=<?php echo($row[$babySitterName]) ?>' onclick="return checkDelet()">Reject</a></button>
+ <button class ="Accept" onclick="return checkAcce()"
+  style="  position: absolute;
+    height: 30px;
+    margin-left: 30500px;
+    border-style: solid;
+    background-color: white; 
+    font-weight: bold; 
+    border: 1px solid black;    width:110px;
+    background-color: white; 
+    font-weight: bold; 
+    margin-left: 190px;
+    color: rgb(39, 141,7);">
+    <a style="  color: rgb(39, 141,7);
+    text-decoration: none;" href='../PHP_Files/addrecord.php?id=<?php echo($id)?>&name=<?php echo($row[$babySitterName]) ?>'>Accept</a></button>
+ <button class="Reject" onclick="return checkDelet()"
+ style="position: realative;
+    height: 30px;
+    margin-left: 30500px;
+    border-style: solid;
+    background-color: white; 
+    font-weight: bold; 
+    border: 1px solid black;    width:110px;
+    margin-left: 330px; margin-bottom:1px;
+    color: rgb(254, 9,9);">
+    <a style=" color: rgb(254, 9,9);
+    text-decoration: none;"href='../PHP_Files/deletrecord.php?id=<?php echo($id) ?>&name=<?php echo($row[$babySitterName]) ?>'>Reject</a></button>
 </div>
 
 
@@ -189,8 +219,8 @@ function checkAcce(){
 
 
 <!-- footer-->
-
-<footer class="detailspage"> 
+<div class="detailspage">
+<footer> 
         <table class="tableF">
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
@@ -225,5 +255,7 @@ function checkAcce(){
         &copy; A Watchful Eye, 2022
         </div>
         </footer>
+
+</div>
 </body>
 </html>

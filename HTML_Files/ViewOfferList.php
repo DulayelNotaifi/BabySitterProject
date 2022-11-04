@@ -67,10 +67,13 @@
  <?php
  // connect to db
 include('../PHP_Files/connect_db.php');
-$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` " ;
-$result = mysqli_query($connection, $val1);
-$valu = mysqli_num_rows($result);
-echo $valu ;
+$val1 = "SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` " ;
+//$kidss = "SELECT `kidName`,`kidAge` FROM `kids` INNER JOIN `requests` WHERE `kids`.`ID` = `requests`.`ID`";
+
+$result1 = mysqli_query($connection, $val1);
+//$result2 = mysqli_query($connection, $kidss);
+
+$valu = mysqli_num_rows($result1);
 ?>
 
 
@@ -83,22 +86,26 @@ $x = 0;
 $y=0;
 
 while($x< $valu  ){
+
  $x++;  
- $row = mysqli_fetch_row($result);
+ $row = mysqli_fetch_row($result1);
 
   $service = key($row);
    next($row);
 
-   $kids = key($row);
-   next($row);
+//    $kids = key($row);
+//    next($row);
 
-   $ages = key($row);
-   next($row);
+//    $ages = key($row);
+//    next($row);
 
    $day = key($row);
    next($row);
 
-   $time = key($row);
+   $stime = key($row);
+   next($row);
+
+   $etime = key($row);
    next($row);
 
    $id = key($row);
@@ -107,26 +114,45 @@ while($x< $valu  ){
    $status = key($row);
    next($row);
 
+   
+
 
    if($row[$status] == "unserved") {$y=-1; } 
    if($row[$status] == "served") continue;
+
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+$result2 = mysqli_query($connection, $kidss);
 ?>
 
 <div> 
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
 <label class='service'><?php echo($row[$service])?></label><br>
-<label class='nameLabel'>Kid/s Name: </label>
-<label class='name'><?php echo($row[$kids])?></label><br>
+<label class='nameLabel'>Kid/s : </label><br>
+<label class='name'><?php
 
-<label class='ageLabel'>Kid/s Age: </label>
-<label class='age'><?php echo($row[$ages])?></label><br>
+while($kidrow = mysqli_fetch_row($result2)){
+    $kname = key($kidrow);
+    next($kidrow);
+
+    $kAge = key($kidrow);
+    next($kidrow);
+
+    //$ages[] = $kidrow[$kAge];
+
+     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+       
+}
+
+?></label>
+
+
 
 <label class='dayLabel'>Day: </label>
 <label class='day'><?php echo($row[$day])?></label><br>
 
 <label class='timeLabel'>Time: </label>
-<label class='time'><?php echo($row[$time])?></label>
+<label class='time'><?php echo($row[$stime])?> - <?php echo($row[$etime])?></label>
 <br><br>
 <a href='../HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
 </p>

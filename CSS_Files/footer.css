@@ -29,8 +29,10 @@ footer {
 }
 
 .detailspage{
+width: max-content;
+  margin-bottom: 0px;
   position: absolute;
-  margin-top: 1000px;
+  width: 100%;
 }
 
 
