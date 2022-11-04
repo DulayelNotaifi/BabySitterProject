@@ -57,7 +57,7 @@ die("Connection failed: " . mysqli_connect_error());
         $userFound = mysqli_query($connection,$sql);
         
         if($userFound){
-
+            `
             if(mysqli_num_rows($userFound) > 0){
                 
                     while($row = mysqli_fetch_assoc($userFound)){
@@ -67,6 +67,8 @@ die("Connection failed: " . mysqli_connect_error());
                             $_SESSION['firstName']=$row['firstName'];
                             $_SESSION['lastName']=$row['lastName'];
                             $_SESSION['img']=$row['img'];
+                            $_SESSION['City']=$row['City'];
+                            $_SESSION['District']=$row['District'];
                             header('Location:/BabySitterProject/HTML_Files/parenthome.html');
                         exit;
                         }
