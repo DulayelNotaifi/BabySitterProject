@@ -39,7 +39,7 @@ die("Connection failed: " . mysqli_connect_error());
                         $_SESSION['email'] = $row['email'];
                             $_SESSION['firstName']=$row['firstName'];
                             $_SESSION['lastName']=$row['lastName'];
-                            $_SESSION['img']=$row['img'];s
+                            $_SESSION['img']=$row['img'];
 
                         header('Location:/BabySitterProject/HTML_Files/babysitterhome.php');
                         exit;
