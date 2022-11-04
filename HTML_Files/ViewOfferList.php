@@ -83,7 +83,7 @@ $x = 0;
 $y=0;
 
 while($x< $valu  ){
-
+ $x++;  
  $row = mysqli_fetch_row($result);
 
   $service = key($row);
@@ -108,7 +108,7 @@ while($x< $valu  ){
    next($row);
 
 
-   if($row[$status] == "unserved") $y=-1;  echo $y;
+   if($row[$status] == "unserved") {$y=-1; } 
    if($row[$status] == "served") continue;
 ?>
 
@@ -134,18 +134,19 @@ while($x< $valu  ){
 </div>
 
 <?php
-$x++;  
- }?>
+// $x++;  
+ }//end while
+ ?>
 
 </div>
 
  <?php 
- echo $y;
+
       if($y == 0){
  ?>
    
    <div class="container" >
-    <h2 >YOU DO NOT HAVE ANY RequestS</h2>
+    <h2 >YOU DO NOT HAVE ANY REQUESTS</h2>
 </div>
 <?php } ?>
      
