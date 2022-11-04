@@ -14,29 +14,37 @@ $database= mysqli_select_db($connection, $dbname);
 if (!$connection) 
 die("Connection failed: " . mysqli_connect_error());
 
-
+//echo 'PHP version: ' . phpversion();
+//print_r($_POST);
     if(!empty($_POST['uEmail']) && !empty($_POST['uPassword'])){
 
         $userEmail = mysqli_real_escape_string($connection,strip_tags($_POST['uEmail']));
         $userPassword = mysqli_real_escape_string($connection,$_POST['uPassword']);
-
-        $sql = "SELECT * FROM `babysitter` WHERE email='$userEmail'";
+        //$password_encrypted = password_hash(mysqli_real_escape_string($connection,$_POST['uPassword']), PASSWORD_DEFAULT);
+        //$password_encrypted = password_hash($userPassword, PASSWORD_DEFAULT);
+        $sql = "SELECT * FROM `babysitter` WHERE email='$userEmail'AND password='$userPassword'";
         // AND password='$userPassword'
         $userFound = mysqli_query($connection,$sql);
-        
+        //echo $password_encrypted;
         if($userFound){
 
             if(mysqli_num_rows($userFound) > 0){
                 
                 while($row = mysqli_fetch_assoc($userFound)){
-                    //$userPassword==$row['password']
-                    //password_verify($userPassword,$row['password']//////////////////////////////////////////////////////////////////
+                    //$userPassword==$row['password'] password_verify($password_encrypted,$row['password'])
+                    //password_verify($userPassword,$row['password'])//////////////////////////////////////////////////////////////////
+                    //var_dump(password_verify($userPassword,$row['password']));
+                    //if(password_verify($userPassword,$row['password'])){
                     if($userPassword==$row['password']){
-                        
                         $_SESSION['email'] = $row['email'];
-                        header('Location:/BabySitterProject/HTML_Files/babysitterhome.html');
+                            $_SESSION['firstName']=$row['firstName'];
+                            $_SESSION['lastName']=$row['lastName'];
+                            $_SESSION['img']=$row['img'];
+
+                        header('Location:/BabySitterProject/HTML_Files/babysitterhome.php');
                         exit;
                     }
+                    //}
                 }
                       //  $_SESSION['user_name'] = $userEmail;
                         
@@ -56,6 +64,9 @@ die("Connection failed: " . mysqli_connect_error());
                         /////////////////////////////////////////////////////////////////////////////////////////////////
                         if($userPassword==$row['password']){
                             $_SESSION['email'] = $row['email'];
+                            $_SESSION['firstName']=$row['firstName'];
+                            $_SESSION['lastName']=$row['lastName'];
+                            $_SESSION['img']=$row['img'];
                             header('Location:/BabySitterProject/HTML_Files/parenthome.html');
                         exit;
                         }
@@ -72,5 +83,5 @@ die("Connection failed: " . mysqli_connect_error());
         
         
     }
-    unset($_SESSION['user_name']);
+    //unset($_SESSION['user_name']);
 }?>
