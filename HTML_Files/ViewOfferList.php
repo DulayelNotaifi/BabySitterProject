@@ -69,7 +69,7 @@
  // connect to db
 include('../PHP_Files/connect_db.php');
 
-$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`  FROM `parent` INNER JOIN `kids` WHERE `parent`.`email` = `kids`.`ParentEmail`";
+$val1 = "SELECT `TypeOfServese`,`KidsName`,`age`,`startDate`,`startTime` ,`ID`  FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail`";
 $result = mysqli_query($connection, $val1);
 
 // if(! $result )
@@ -221,10 +221,6 @@ $x++;
         <div class="footer">
         &copy; A Watchful Eye, 2022
         </div>
-        </footer>
-          
-
-
-    
+        </footer> 
 </body>
 </html>
