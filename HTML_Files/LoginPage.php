@@ -56,6 +56,7 @@ if($_GET['error'] == 'failToLogIn'){
     Wrong email/password, please enter a correct one!
 </div>
     <!--<small class="in-log-in">Please Enter correct email and password</small>-->
+    
 <?php
 }}
 

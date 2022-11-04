@@ -27,8 +27,8 @@ $phone =    $_POST['phone'];
 $bio =    $_POST['biotextbox'];
 
 
-if(isset($_POST['password']) && $_POST['password']!= "")
-$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
+//if(isset($_POST['password']) && $_POST['password']!= "")
+//$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
 
 
 $loggedInUser = $_SESSION['email'];
@@ -78,7 +78,7 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
         }}}
 
         if(isset($_POST['password']) && $_POST['password']!= ""){
-            $userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+           // $userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
             $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
             ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
 
