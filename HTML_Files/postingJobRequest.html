@@ -62,13 +62,21 @@
 
             <form action="../PHP_Files/jobRequest.php" method="POST">
             <p id="formInfo">
-                <label class="nameLabel"> Kid/s Name: 
-                    <br>  <input class="inputName" name="kidsname" type="text" placeholder="Enter Kid/s Name" required> 
-                </label>
-                
-                <label class="ageLabel"> Kid/s Age: 
-                    <input class="inputAge" name="kidsages" type="number" min="0" max="17" placeholder="Enter Kid/s Age" required>
-                </label>
+
+                <div id="kids_info">
+                    <label class="nameLabel"> Kid/s Name: 
+                        <input class="inputName" name="kidsname[]" type="text" placeholder="Enter Kid Name" required> 
+                    </label>
+                    
+                    <label class="ageLabel"> Kid/s Age: 
+                        <input class="inputAge" name="kidsage[]" type="number" min="0" max="17" placeholder="Enter Kid Age" required>
+                    </label>
+                </div>
+                    
+                        <div class="controls">
+                          <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
+                          <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
+                        </div>
                 
                 <label class="serviceLabel"> Type Of Service: 
                     <input class="inptService" name="service" type="text" placeholder="Enter type of service you want" required> 
@@ -127,5 +135,5 @@
             </div>
             </footer> <!-- end footer -->
     </body>
-
+    <script src="addKids.js"></script>
 </html>

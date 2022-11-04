@@ -54,6 +54,8 @@
 
     </div>
 
+    
+
 
     <!--Page Content-->
 
@@ -63,21 +65,18 @@
    // echo("set");
       $id = mysqli_real_escape_string($connection,$_GET['id']);
 
-       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`expireDate`  FROM `kids` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `kids`.`ID` = $id";
+       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`expireDate`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
 
        $result = mysqli_query($connection,  $sql);
     //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
        $valu = mysqli_num_rows($result);
-   }
+   }// end if set
 
     ?>
 
 
 <h2 id="offerH2">Request Offers</h2>
 
-<?php print_r($offers);?>
-
-    
 
 
  <?php 
@@ -126,17 +125,6 @@ while($x< $valu  ){
        <hr>
        </p>
 
-         
-
-            <!-- <img src="female.png" id="sitterPic" alt="babystter picture">
-            <p class="SitterInfo">
-                <label class="nameLabel">Babysitter Name: </label>
-                <label class="Name">sara</label><br>
-    
-                <a href="../HTML_Files/BabySitterProfile.html">View babystter Profile</a>
-                <hr>
-
-            </p> -->
 
  <p class="RequestInfo"> 
 
@@ -159,129 +147,83 @@ while($x< $valu  ){
  <label class="Price"><?php echo(($row[$price]))?> SAR</label> <br><br>
  <label class="Expirelabel">Offer expire date: </label>
  <label class="expireDate"><?php echo(($row[$expireDate]))?></label><br><br>
+ <div id="chose">
+ <button class="Accept" ><a href='../PHP_Files/addrecord.php?id=<?php echo($id)?>&name=<?php echo($row[$babySitterName]) ?>' onclick="return checkAcce()">Accept</a></button>
+ <button class="Reject" ><a href='../PHP_Files/deletrecord.php?id=<?php echo($id) ?>&name=<?php echo($row[$babySitterName]) ?>' onclick="return checkDelet()">Reject</a></button>
+</div>
 
- <button class="Accept" onclick="location.href ='../HTML_Files/parenthome.html'">Accept</button>
- <button class="Reject"onclick="location.href ='../HTML_Files/parenthome.html'">Reject</button>
 
 
 </p>
-</div> 
- <?php } 
+</div> <!-- End container -->
+
+<?php
+
+
+ $x++;  
+}//end while loop 
 }//end if
 else{
+
 ?>
 
-<div class="container">
-    <h2>Offers are cooming soon!</h2></div>
-<?php } ?>
-        <!-- <p class="RequestInfo"> 
+<div class="container" >
+    <h2 >Offers are cooming soon!</h2>
+</div>
+ <?php }//close else ?>
 
-            <label class="serviceLabel">Type Of Service: </label>
-            <label class="service">Child care</label><br><br>
-    
-            <label class="dayLabel">Day: </label>
-            <label class="day">1/10/2022 </label><br><br>
-    
-            <label class="timeLabel">Time: </label>
-            <label class="time">7:00PM - 9:00PM </label>
-            <br><br>
-        
-            <label class="commentsLabel">Comments: </label>
-            <label class="comments">No comment added </label>
-            <br><br>
+ <script>
+
+ function checkDelet(){
+    return confirm("Are you sure you want to Reject offer?");
+}
+
+function checkAcce(){
+    return confirm("Are you sure you want to Accept offer?");
+}
+
+</script>
 
 
-             <label class="PriceLabel">Offered price/hr: </label>
-             <label class="Price">50 SAR</label> <br><br>
-             <label class="Expirelabel">Offer expire date: </label>
-             <label class="expireDate">30/9/2022</label><br><br>
-
-             <button class="Accept" onclick="location.href ='../HTML_Files/parenthome.html'">Accept</button>
-             <button class="Reject"onclick="location.href ='../HTML_Files/parenthome.html'">Reject</button>
-
-           
-        </p>
-    </div> -->
-<!-- 
-    <div class="container">
-   
-
-        <img src="female.png" id="sitterPic" alt="babystter picture">
-        <p class="SitterInfo">
-            <label class="nameLabel">Babysitter Name: </label>
-            <label class="Name">maha</label><br>
-
-            <a href="#">View babystter Profile</a>
-            <hr>
-        </p>
-
-    <p class="RequestInfo"> 
-
-        <label class="serviceLabel">Type Of Service: </label>
-        <label class="service">Child care</label><br><br>
-
-        <label class="dayLabel">Day: </label>
-        <label class="day">1/10/2022 </label><br><br>
-
-        <label class="timeLabel">Time: </label>
-        <label class="time">7:00PM - 9:00PM </label>
-        <br><br>
-    
-        <label class="commentsLabel">Comments: </label>
-        <label class="comments">No comment added </label>
-        <br><br>
 
 
-         <label class="PriceLabel">Offered price/hr: </label>
-         <label class="Price">80 SAR</label> <br><br>
-         <label class="Expirelabel">Offer expire date: </label>
-         <label class="expireDate">30/9/2022</label><br><br>
 
-         <button class="Accept" onclick="location.href ='../HTML_Files/parenthome.html'">Accept</button>
-         <button class="Reject"onclick="location.href ='../HTML_Files/parenthome.html'">Reject</button>
-
-       
-    </p>
-</div> -->
 <!-- footer-->
 
-<footer> 
-    <table class="tableF">
-        <tr>
-            <th><a href="aboutUs.html"> About Us </a></th>
-            <th><a href="FAQ.html"> FAQs </a></th>
-            <th><a href="ContactUs.html"> Contact Us </a></th>
-        </tr>
-    </table>
-    
-    <div id="shareWeb">
-            <h4>Share the website</h4>
+<footer class="detailspage"> 
+        <table class="tableF">
+            <tr>
+                <th><a href="aboutUs.html"> About Us </a></th>
+                <th><a href="FAQ.html"> FAQs </a></th>
+                <th><a href="ContactUs.html"> Contact Us </a></th>
+            </tr>
+        </table>
+        <div id="shareProfile">
+                <h4>Share the website</h4>
+            
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
         
-            <a href="https://facebook.com" target="_blank">
-                <i class="fa-brands fa-facebook fa-2x"></i>
-            </a>
-    
-            <a href="https://twitter.com" target="_blank">
-                <i class="fa-brands fa-twitter fa-2x"></i>
-            </a>
-    
-            <a href="https://linkedin.com" target="_blank">
-                <i class="fa-brands fa-linkedin fa-2x"></i>
-            </a>
-    
-            <a href="https://instagram.com" target="_blank">
-                <i class="fa-brands fa-instagram fa-2x"></i>
-            </a>
-    
-            <a href="https://web.whatsapp.com" target="_blank">
-                <i class="fa-brands fa-whatsapp fa-2x"></i>
-            </a>
-        </div><br> 
-    <div class="footer">
-    &copy; A Watchful Eye, 2022
-    </div>
-    </footer>
-
-   
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+        
+                <a href="https://linkedin.com" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+        
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+        
+                <a href="https://web.whatsapp.com" target="_blank">
+                    <i class="fa-brands fa-whatsapp fa-2x"></i>
+                </a>
+            </div><br> 
+        <div class="footer">
+        &copy; A Watchful Eye, 2022
+        </div>
+        </footer>
 </body>
 </html>
