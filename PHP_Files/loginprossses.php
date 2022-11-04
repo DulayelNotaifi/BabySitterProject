@@ -57,7 +57,7 @@ die("Connection failed: " . mysqli_connect_error());
         $userFound = mysqli_query($connection,$sql);
         
         if($userFound){
-            
+            `
             if(mysqli_num_rows($userFound) > 0){
                 
                     while($row = mysqli_fetch_assoc($userFound)){
