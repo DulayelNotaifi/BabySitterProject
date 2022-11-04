@@ -163,6 +163,11 @@ border: 1px solid #ced4da;
     display: inline-block;
 }
 
+/*.ageLabel{
+    margin-left: 40px;
+}*/
+
+
 .Expirelabel{
     font-weight:bold;
     color:  brown;

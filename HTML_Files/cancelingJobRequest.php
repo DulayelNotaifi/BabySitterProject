@@ -67,6 +67,9 @@
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
            $valu = mysqli_num_rows($result);
     
+           //$sql2 = "SELECT `ID`, `kidName`, `kidAge` FROM `kids` WHERE `requests`.`ID` = `kids`.`ID`";
+           //$result2 = mysqli_query($connection,  $sql2);
+           //$valu2 = mysqli_num_rows($result2);
         ?>
             <div class="cancelPage">
             <h2>Cancel Job Request</h2>
@@ -79,13 +82,6 @@
     while($x< $valu  ){
     
      $row = mysqli_fetch_row($result);
-    
-     $kidsName = key($row);
-     next($row);
-     
-     
-     $age = key($row);
-     next($row);
      
      $TypeOfServese = key($row);
      next($row);
@@ -115,9 +111,9 @@
 
     <p class="canceledInfo">
         <label class="nameLabel">Kid/s Name: </label>
-        <label class="name"><?php echo(($row[$kidsName]))?></label><br><br>
-        
         <label class="ageLabel">Kid/s Age: </label>
+
+        <label class="name"><?php echo(($row[$kidsName]))?></label>
         <label class="age"><?php echo(($row[$age]))?></label><br><br>
 
         <label class="serviceLabel">Type Of Service: </label>
@@ -145,7 +141,7 @@
     else{
     ?>
     
-    <div class="container">
+    <div >
         <h2>No posted job request yet </h2></div>
     <?php } ?>
     <!-- end copy -->

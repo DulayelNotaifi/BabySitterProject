@@ -117,7 +117,7 @@ $row = mysqli_fetch_row($result);
 <label class='ageLabel'>Kid/s Age: </label>
 <label class='age'><?php echo($row[$ages])?></label><br> -->
 
-<label class='dayLabel'>Day/s: </label>
+<label class='dayLabel'>Date: </label>
 <label class='day'><?php echo($row[$start_day] .' - ' . $row[ $end_day] )?></label><br>
 
 <label class='timeLabel'>Time: </label>

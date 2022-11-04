@@ -65,7 +65,7 @@ if(isset($_GET['id'])){
 // echo("set");
    $id = mysqli_real_escape_string($connection,$_GET['id']);
 
-    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` FROM `requests` WHERE `requests`.`ID` = $id";
+    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `ID` FROM `requests` WHERE `requests`.`ID` = $id";
 
     $result = mysqli_query($connection,  $sql);
  //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -107,6 +107,8 @@ next($row);
 $comments = key($row);
 next($row);
 
+$id = key($row);
+next($row);
 ?> 
 <div class="container">
 
@@ -146,12 +148,21 @@ next($row);
 <label class="comments"><?php echo(($row[$comments]))?> </label>
 <br><br><br> 
 
-<form action="../PHP_Files/sendOffer.php" method="POST">
+<!--<form action="../PHP_Files/sendOffer.php" method="POST">
 <label class="OfferPriceDetails">Set Offer: 
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
             </label> <br>
 
             <input type="submit" class="sendOfferDetails" name="offer_submit" value="Send Offer"/>
+            <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
+</form> -->
+<form action="../PHP_Files/sendOffer.php" method="GET">
+<label class="OfferPriceDetails">Set Offer:  
+                <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
+                </label> <br>
+                <label> <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/></label>
+          
+           <input type="submit" class="sendOfferDetails" name="offer_submit" value="Send Offer"/>
             <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
 </form>
 <!--
