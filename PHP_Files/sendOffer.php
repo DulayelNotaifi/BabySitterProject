@@ -24,7 +24,7 @@ if(isset($_GET['offer_submit'])){
         $id =  $_GET['id'];
         echo $id;
 
-        //INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`) VALUES ( NULL ,'$OfferPrice','Nora','$id','pending','sitter1@gmail.com')
+        //INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`) VALUES ( NULL ,'$OfferPrice','$_SESSION['firstName']','$id','pending','$_SESSION['email']')
     $sql = "INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`) VALUES ( NULL ,'$OfferPrice','Nora','$id','pending','sitter1@gmail.com')";
 $query = mysqli_query($connection,$sql);
 //print_r($_GET);
