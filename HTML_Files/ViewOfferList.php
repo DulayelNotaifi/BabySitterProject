@@ -15,72 +15,22 @@
 
 
     <!--Upper Menue-->
-    <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="parenthome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage profile </a>
-            <div class="dropdown-content">
-                <a href="viewparent.html">View</a>
-                <a href="parenteditprofile.html">Edit</a>
-                <a class="last" href="deleteparent.html">delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="#">Job request </a>
-            <div class="dropdown-content">
-                <a href="postingJobRequest.html">Post request </a>
-                <a href="editingJobRequest.html">Edit request</a>
-                <a class="last" href="cancelingJobRequest.html">Cancel request</a>
-            </div>
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewbookings.html">View booking </a>
-            <div class="dropdown-content">
-                <a href="viewCurrentBookings.html">View current bookings </a>
-                <a class="last" href="viewPreviousBookings.html">View previous bookings
-                </a>
-            </div>
-        </div>
-        <div class="tab4">
-            <a href="../HTML_Files/ViewOfferList.php">View offer list</a>
-        </div>
-        <div class="logout">
-            <a href="../HTML_Files/LoginPage.html">Logout</a>
-        </div>
-
-    </div>
+   <?php include("parentheader.php"); ?>
 
     <h2>Choose a Request to display offers</h2>
     
-
-    <!-- Requests template Example-->
-    <div id="content">
-
+<div id="content">
 
  <?php
- // connect to db
+ 
 include('../PHP_Files/connect_db.php');
 $val1 = "SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` " ;
-//$kidss = "SELECT `kidName`,`kidAge` FROM `kids` INNER JOIN `requests` WHERE `kids`.`ID` = `requests`.`ID`";
-
 $result1 = mysqli_query($connection, $val1);
-//$result2 = mysqli_query($connection, $kidss);
-
 $valu = mysqli_num_rows($result1);
 ?>
 
 
 <?php
-
-
-// $currentDate = mktime(0, 0, 0, date("d")+1, date("m"), date("Y")); 
 
 $x = 0;
 $y=0;
@@ -92,12 +42,6 @@ while($x< $valu  ){
 
   $service = key($row);
    next($row);
-
-//    $kids = key($row);
-//    next($row);
-
-//    $ages = key($row);
-//    next($row);
 
    $day = key($row);
    next($row);
@@ -113,9 +57,6 @@ while($x< $valu  ){
 
    $status = key($row);
    next($row);
-
-   
-
 
    if($row[$status] == "unserved") {$y=-1; } 
    if($row[$status] == "served") continue;
@@ -137,13 +78,9 @@ while($kidrow = mysqli_fetch_row($result2)){
 
     $kAge = key($kidrow);
     next($kidrow);
-
-    //$ages[] = $kidrow[$kAge];
-
-     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+    echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
        
 }
-
 ?></label>
 
 

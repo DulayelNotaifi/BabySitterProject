@@ -18,14 +18,14 @@
   <?php
 
   include("parentheader.php");
- if(!isset($_POST['SitterEmail'])) {
+ if(!isset($_GET['id'])) {
     header('Location:/BabySitterProject/HTML_Files/offerDetails.php');
     exit;
 } 
 
 include('../PHP_Files/connect_db.php');
- $email = $_POST['SitterEmail']; 
-$sql = "SELECT `img`,`firstName`,`lastName`,`age`,`city`,`bio` FROM `babysitter` WHERE `email` = '$email' ";
+ $email = $_GET['em']; 
+$sql = "SELECT `img`,`firstName`,`lastName`,`age`,`city`,`bio`,`phone` FROM `babysitter` WHERE `email` = '$email' ";
 $result = mysqli_query($connection,  $sql);
 $row = mysqli_fetch_row($result);
 
@@ -45,6 +45,9 @@ $city = key($row);
 next($row);
 
 $bio = key($row);
+next($row);
+
+$phone = key($row);
 next($row);
   ?>  
  
@@ -69,7 +72,6 @@ next($row);
     <div id="Discription">
         <p>
   <?php  
-  echo( $email);
     echo($row[$bio])
     ?>
 
@@ -77,51 +79,7 @@ next($row);
 
     </div>
     <!--End of Discription-->
-    
 
-    <!-- <div id="Experience">
-
-        <i class="fa-solid fa-person-breastfeeding"></i> 
-        <label class="headText">Experience with babysitting</label><br>
-        <label class="subHeadText">> 12years</label><br>
-
-        <i class="fa-brands fa-pagelines"></i> <label class="headText">Experience with age(s)</label><br>
-        <label class="subHeadText">Baby . Toddler . Preschooler . Teenager</label> -->
-
-    <!-- </div>  -->
-    <!--End of Experience-->
-  
-<!-- 
-    <div id="AboutMe">
-        <h2>About Me</h2>
-
-       <i class="fa-regular fa-id-card"></i> <label class="headText">Driver's license</label>
-        <label class="subHeadText">Yes</label> -->
-        <!-- <i class="fa-solid fa-person-breastfeeding"></i>  -->
-        <!-- <label class="headText">Experience with babysitting</label><br>
-        <label class="subHeadText">> 12years</label><br>
-
-        <i class="fa-solid fa-school"></i> <label class="headText">Education</label>
-        <label class="subHeadText" >Bachelor's Degree/High Schoole Degree</label>
-
-        <i class="fa-solid fa-language"></i><label class="headText">Languages that I speak</label>
-        <label class="subHeadText">Arabic/English</label>
-
-
-    </div>  -->
-    <!--End of AboutMe-->
-  
-
-   
-
-    <!-- <div id="Skills">
-        <h2>Skills</h2>
-        <i class="fa-solid fa-scissors"></i> <label class="headText">Crafting</label>
-        <i class="fa-solid fa-pen"></i><label class="headText">Drawing</label>
-        <i class="fa-solid fa-book"></i> <label class="headText">Reading</label>
-        <i class="fa-solid fa-gamepad"></i><label class="headText">Games</label>
-    </div> -->
-    <!--End of Skills-->
     <hr>
 
     <div id="Review">
@@ -167,7 +125,13 @@ next($row);
 
             </p>
         </div>
-        <?php } // close while loop ?> 
+        <?php } // close while loop 
+        
+        if(mysqli_num_rows( $result2) == 0){
+            echo("<h3 style=' margin-left: 15px;'>No Reviews yet </h3>");
+        }
+        
+        ?> 
 
 
     </div>
@@ -177,16 +141,27 @@ next($row);
     <div id="Rate">
         <h2>Rating</h2>
         <?php 
+       
+
         $rateSum = (5*$total5s)+(4*$total4s)+(3*$total3s)+(2*$total2s)+(1*$total1s);
-        $finalRate = $rateSum/$totalnumOfRates;
-        settype($finalRate ,"integer");
+
+        if($totalnumOfRates != 0){
+         $finalRate = $rateSum/$totalnumOfRates;
+         settype($finalRate ,"integer");
+    
+        
+       
 
         $count = 0;
-
+        echo("<i class='fa-solid fa-star fa-2x'></i>");
         while($count < $finalRate){
             echo("<i class='fa-solid fa-star fa-2x'></i>");
             $count++;
         }
+    }
+    else
+    echo("<h3 style=' margin-left: 15px;'>No Rating </h3>");
+        
         ?>
 
         </div>
@@ -238,7 +213,7 @@ next($row);
     ?>
 
         <label><?php echo($row3[$pr])?> SAR/hr</label>
-        <a href="mailto: babysitter@example.com"><button type="button">Contact <?php echo($row[$fname]) ?></button></a>
+        <a href="tel:<?php echo($row[$phone ]);?>"><button type="button">Contact <?php echo($row[$fname]) ?></button></a>
 
 
     </div>
