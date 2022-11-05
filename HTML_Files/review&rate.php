@@ -47,11 +47,11 @@
                 $Rate = addslashes($_POST['Rate']);
                 $Date_ = date('Y-m-d');
                 $time_ = date('H:i:s');
-                $id=$_GET['id'];
+                $babySitterEmail=$_GET['babySitterEmail'];
     
     
-                $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,offer_id
-                   ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$id')";
+                $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail
+                   ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail')";
     
     
     
