@@ -115,6 +115,9 @@ next($row);
 
 $District = key($row);
 next($row);
+
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+$result2 = mysqli_query($connection, $kidss);
 ?> 
 <div class="container">
 
@@ -133,21 +136,33 @@ next($row);
 
 <p class="RequestInfo"> 
 
-<label class="nameLabel">Kid/s Name: </label>
-<label class="Name"><?php echo(($row[$kidsName]))?></label> <!-- <br><br> --> 
+<label class="nameLabel">Kid/s : </label> <br>
+<label class="Name"><?php 
+while($kidrow = mysqli_fetch_row($result2)){
+    $kname = key($kidrow);
+    next($kidrow);
 
-<label class="ageLabel">Kid/s Ages: </label>
-<label class="age"><?php echo(($row[$age]))?></label><br><br>
+    $kAge = key($kidrow);
+    next($kidrow);
+
+    //$ages[] = $kidrow[$kAge];
+
+     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+}
+?></label> <!-- <br><br> --> 
+
+<!--<label class="ageLabel">Kid/s Ages: </label>
+<label class="age"><?php echo(($row[$age]))?></label><br><br> -->
 
 <label class="serviceLabel">Type Of Service: </label>
-<label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
+<label class="service"><?php echo(($row[$TypeOfServese]))?></label><br>
 
 <label class="dayLabel">Date: </label>
-<label class="day"><?php echo(($row[$startDate]))?></label><br><br>
+<label class="day"><?php echo(($row[$startDate]))?></label><br>
 
 <label class="timeLabel">Time: </label>
 <label class="time"><?php echo(($row[$startTime]))?> - <?php echo(($row[$endTime])); ?></label>
-<br><br>
+<br>
 
 
 <label class="commentsLabel">Comments: </label>

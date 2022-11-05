@@ -40,6 +40,7 @@ h2{
  .commentsLabel, .OfferPriceDetails, .OfferPrice {
     font-weight:bolder;
     color: rgb(0, 111, 96);
+    margin-bottom: 5px;
 }
 
 

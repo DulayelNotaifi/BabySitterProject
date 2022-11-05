@@ -84,10 +84,11 @@ $valu = mysqli_num_rows($result);
 
 
 <?php
-
 $x = 0;
-while($x< $valu  ){
+$y=0;
 
+while($x< $valu  ){
+    $x++;  
 $row = mysqli_fetch_row($result);
 
  $service = key($row);
@@ -104,15 +105,30 @@ $row = mysqli_fetch_row($result);
 
   $id = key($row);
   next($row);
+
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+$result2 = mysqli_query($connection, $kidss);
 ?>
 <div> 
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
 <label class='service'><?php echo($row[$service])?></label><br>
-<!--<label class='nameLabel'>Kid/s Name: </label>
-<label class='name'><?php echo($row[$kids])?></label><br>
+<label class='nameLabel'>Kid/s : </label><br>
+<label class='name'><?php 
+while($kidrow = mysqli_fetch_row($result2)){
+    $kname = key($kidrow);
+    next($kidrow);
 
-<label class='ageLabel'>Kid/s Age: </label>
+    $kAge = key($kidrow);
+    next($kidrow);
+
+    //$ages[] = $kidrow[$kAge];
+
+     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+}
+?></label><br>
+
+<!--<label class='ageLabel'>Kid/s Age: </label>
 <label class='age'><?php echo($row[$ages])?></label><br> -->
 
 <label class='dayLabel'>Date: </label>
