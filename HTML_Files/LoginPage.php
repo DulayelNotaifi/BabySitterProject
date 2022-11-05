@@ -85,10 +85,7 @@ if($_GET['error'] == 'failToLogIn'){
                        </div>
                         <hr>
                         <br>
-                        <input class="submit-btn" type="button" onclick="location.href='parenthome.html';"
-                            value="Find child care" />
-                        <input class="submit-btn" type="button" onclick="location.href='babysitterhome.html';"
-                            value="I'm a babysitter" />
+                        
                     </form>
 
                 </div>
@@ -100,7 +97,7 @@ if($_GET['error'] == 'failToLogIn'){
                 <tr>
                     <th><a href="aboutUs.html"> About Us </a></th>
                     <th><a href="FAQ.html"> FAQs </a></th>
-                    <th><a href="ContactUs.html"> Contact Us </a></th>
+                    <th><a href="ContactUs.php"> Contact Us </a></th>
                 </tr>
             </table>
             <div id="shareWeb">
