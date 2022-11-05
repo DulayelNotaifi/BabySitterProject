@@ -119,7 +119,7 @@ $row = mysqli_fetch_row($result);
 <label class='day'><?php echo($row[$start_day])?></label><br>
 
 <label class='timeLabel'>Time: </label>
-<label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label>
+<label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label><br>
 <br>
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
 <form action="../PHP_Files/sendOffer.php" method="GET">
