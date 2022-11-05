@@ -49,7 +49,7 @@ if($_GET['error'] == 'failToDelete'){
             <input type="password" class="inputing-text" id="password" name="uPassword" placeholder="Enter your password" required>
             <p id="onlyDelNow"class="more-space-on-bottom"></p>
 
-            <input class="botton-bigger" type="submit" name="submit" value="delete account" />
+            <input class="botton-bigger" type="submit" onclick="return confirm('Are you sure you want to delete your account ?')" name="submit" value="delete account" />
         </form>
     </div>
     </div>

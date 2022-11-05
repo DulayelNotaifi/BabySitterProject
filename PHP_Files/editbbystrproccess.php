@@ -15,8 +15,9 @@ $database= mysqli_select_db($connection, $dbname);
 if (!$connection) 
 die("Connection failed: " . mysqli_connect_error());
 //print_r($_POST);
-
+$loggedInUser = $_SESSION['email'];
 $firstname  =    $_POST['firstname'];
+
 $lastname =    $_POST['lastname'];
 $gender =    $_POST['gender'];
 $id =    $_POST['id'];
@@ -25,13 +26,13 @@ $eMail =    $_POST['eMail'];
 $city =    $_POST['city'];
 $phone =    $_POST['phone'];
 $bio =    $_POST['biotextbox'];
-
+$_SESSION['email']=$eMail;
 
 //if(isset($_POST['password']) && $_POST['password']!= "")
 //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
 
 
-$loggedInUser = $_SESSION['email'];
+
 if($_FILES['img']['name']!=""){
     //print_r($_FILES['img']);
     $userImage    =   $_FILES['img'];   
