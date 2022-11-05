@@ -67,8 +67,9 @@
 
 // connect to db
 include('../PHP_Files/connect_db.php');
-
-$val1 = "SELECT `TypeOfServese`,`startDate`, `endDate` ,`startTime` ,`endTime`,`ID`  FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail`";
+//`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`, `city`, `District` 
+//SELECT * FROM `requests` WHERE `status` = 'unserved' ;
+$val1 = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved'";
 $result = mysqli_query($connection, $val1);
 //`kidsName`, `age`, `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`)
 // if(! $result )
@@ -92,16 +93,13 @@ $row = mysqli_fetch_row($result);
  $service = key($row);
   next($row);
 
-  $start_day = key($row);
-  next($row);
-
-  $end_day = key($row);
-  next($row);
-
   $start_time = key($row);
   next($row);
 
   $end_time = key($row);
+  next($row);
+
+  $start_day = key($row);
   next($row);
 
   $id = key($row);
@@ -118,7 +116,7 @@ $row = mysqli_fetch_row($result);
 <label class='age'><?php echo($row[$ages])?></label><br> -->
 
 <label class='dayLabel'>Date: </label>
-<label class='day'><?php echo($row[$start_day] .' - ' . $row[ $end_day] )?></label><br>
+<label class='day'><?php echo($row[$start_day])?></label><br>
 
 <label class='timeLabel'>Time: </label>
 <label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label>

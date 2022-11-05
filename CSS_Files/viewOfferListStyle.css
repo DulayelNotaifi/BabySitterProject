@@ -121,7 +121,7 @@ h2{
    color: rgb(111, 35, 0);
   
 }
-    .req .OfferPrice {
+.OfferPrice {
         position: absolute;
         left: 40px;
         top: 210px;
@@ -130,7 +130,7 @@ h2{
         color: rgb(0, 111, 96);
         }
 
-.req .sendOffer{
+.sendOffer{
      position: absolute;
       padding: 5px;
         left: 40px;

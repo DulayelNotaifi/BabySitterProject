@@ -64,8 +64,8 @@
 if(isset($_GET['id'])){
 // echo("set");
    $id = mysqli_real_escape_string($connection,$_GET['id']);
-
-    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments`, `ID` FROM `requests` WHERE `requests`.`ID` = $id";
+   //$val1 = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `expireDate`, `city`, `District` FROM  `requests` WHERE
+    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `city`, `District` FROM `requests` WHERE `requests`.`ID` = $id";
 
     $result = mysqli_query($connection,  $sql);
  //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -77,15 +77,15 @@ if(isset($_GET['id'])){
 
 <h2 id="offerH2">Job Request Details</h2>
 
-<?php print_r($jobReq);?>
+<!--<?php print_r($jobReq);?>-->
 
 
 <?php 
 
 if($valu > 0 ){
 
-$x = 0;
-while($x< $valu  ){
+//$x = 0;
+//while($x< $valu  ){
 
 $row = mysqli_fetch_row($result);
 
@@ -101,13 +101,19 @@ next($row);
 $startDate = key($row);
 next($row);
 
-$endDate = key($row);
-next($row);
-
 $comments = key($row);
 next($row);
 
+$parentName = key($row);
+next($row);
+
 $id = key($row);
+next($row);
+
+$city = key($row);
+next($row);
+
+$District = key($row);
 next($row);
 ?> 
 <div class="container">
@@ -137,7 +143,7 @@ next($row);
 <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
 
 <label class="dayLabel">Date: </label>
-<label class="day"><?php echo(($row[$startDate]))?> - <?php echo(($row[$endDate])); ?> </label><br><br>
+<label class="day"><?php echo(($row[$startDate]))?></label><br><br>
 
 <label class="timeLabel">Time: </label>
 <label class="time"><?php echo(($row[$startTime]))?> - <?php echo(($row[$endTime])); ?></label>
@@ -284,7 +290,7 @@ next($row);
  </div>
  </footer>
 
- <?php } 
+ <?php ////} 
 }//end if
 ?>
 </body>
