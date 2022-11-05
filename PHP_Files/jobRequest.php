@@ -53,6 +53,8 @@ if(isset($_POST['post_submit'])){
             $sql = "INSERT INTO `kids` (`ID`, `kidName`, `kidAge`) VALUES ('$id', '$kidName', '$kidAge')";
             $query = mysqli_query($connection,$sql);
           }
+         
+    header("Location: http://localhost/BabySitterProject/HTML_Files/postingJobRequest.html");
     }
     else{
         echo 'fail';

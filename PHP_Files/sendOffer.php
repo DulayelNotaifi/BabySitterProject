@@ -30,6 +30,8 @@ $query = mysqli_query($connection,$sql);
 //print_r($_GET);
 if( $query ){
     echo 'done';
+
+    header("Location: http://localhost/BabySitterProject/HTML_Files/viewJobRequestList.php");
 }
 else{
     echo 'fail';
