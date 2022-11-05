@@ -12,70 +12,24 @@
 <body>
 
     <!--Upper Menue-->
-    <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="parenthome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage profile </a>
-            <div class="dropdown-content">
-                <a href="viewparent.html">View</a>
-                <a href="parenteditprofile.html">Edit</a>
-                <a class="last" href="deleteparent.html">delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="#">Job request </a>
-            <div class="dropdown-content">
-                <a href="postingJobRequest.html">Post request </a>
-                <a href="editingJobRequest.html">Edit request</a>
-                <a class="last" href="cancelingJobRequest.html">Cancel request</a>
-            </div>
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewbookings.html">View booking </a>
-            <div class="dropdown-content">
-                <a href="viewCurrentBookings.html">View current bookings </a>
-                <a class="last" href="viewPreviousBookings.html">View previous bookings
-                </a>
-            </div>
-        </div>
-        <div class="tab4">
-            <a href="../HTML_Files/ViewOfferList.php">View offer list</a>
-        </div>
-        <div class="logout">
-            <a href="../HTML_Files/LoginPage.html">Logout</a>
-        </div>
-
-    </div>
-
-    
+    <?php include("parentheader.php"); ?>
 
 
     <!--Page Content-->
 
     <?php
     include('../PHP_Files/connect_db.php');
-   if(isset($_GET['id'])){
-   // echo("set");
-      $id = $_GET['id'];
-       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`offerstatus`,`babySitterEmail`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
 
-       $result = mysqli_query($connection,  $sql);
-       $valu = mysqli_num_rows($result);
+   if(isset($_GET['id'])){
+      $id = $_GET['id'];
+     $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`offerstatus`,`babySitterEmail`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
+     $result = mysqli_query($connection,  $sql);
+    $valu = mysqli_num_rows($result);
    }// end if set
 
     ?>
 
-
 <h2 id="offerH2">Request Offers</h2>
-
-
 
  <?php 
 
@@ -88,7 +42,6 @@ while($x< $valu  ){
 
   $babySitterName = key($row);
    next($row);
-
 
    $TypeOfServese = key($row);
    next($row);
@@ -113,30 +66,23 @@ while($x< $valu  ){
 
  $sitterEm = key($row);
  next($row);
+ $sql2 = "SELECT `img` FROM `babysitter` WHERE `email` = '$row[$sitterEm]' ";
+ $result2 = mysqli_query($connection,  $sql2);
+ $row2 = mysqli_fetch_row($result2);
+ $sitterPic = key($row2);
 
    if($row[$offstatus] == "Rejected") continue;
 
 ?> 
         <div class="container">
 
-        <img src="female.png" id="sitterPic" alt="babystter picture">
+        <img src="<?php echo(($row2[$sitterPic])); ?>" id="sitterPic" alt="babystter picture">
 
         <p class="SitterInfo">
         <label class="nameLabel">Babysitter Name: </label>
        <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br>
-
-       <?php   $nn =  $row[$sitterEm]; echo($nn);?>
-
-       <form id="hiddenform" action ="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo($nn) ?>" method="post">
-        <input type="hidden" name="SitterEmail" value= "<?php echo($nn); ?>">
-       <a href="#" onclick="myFunction()">View babystter Profile</a>  
-       </form>
-
-       <script>
-            function myFunction() {
-                document.getElementById("hiddenform").submit();
-            }
-        </script>
+       <a href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
+    
        <hr>
        </p>
 
