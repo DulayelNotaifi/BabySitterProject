@@ -1,3 +1,16 @@
+<?php
+session_start();
+    
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381project" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+// Check the connection
+if (!$connection) 
+die("Connection failed: " . mysqli_connect_error());
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,96 +28,70 @@
 </head>
 
 <body>
-    <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="babysitterhome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage Profile </a>
-            <div class="dropdown-content">
-                <a href="viewbbystr.html">View</a>
-                <a href="babysittereditprofile.html">Edit</a>
-                <a class="last" href="deletebbystracc.html">Delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="viewJobRequestList.html">Job Request List </a>
- 
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewJobs.html">Jobs </a>
-            <div class="dropdown-content">
-                <a href="viewcurrentjobs.html">Current Job</a>
-                <a href="viewPreviousJobs.html">Previous Jobs</a>
-            </div>
-        </div>
-
-
-        <div class="tab4">
-            <a href="ViewOffersWithTheirStatus.html">My Offers with Their Status</a>
-        </div>
-        <div class="tab4">
-            <a href="ViewRate.html">Rates and Reviews
-            </a>
-        </div>
-        
-        <div class="logout">
-            <a href="LoginPage.html">Logout</a>
-        </div>
-    </div>
+<?php include("bbystrheader.php");?>
 
     <h2>My profile:</h2>
     <div class="cont need-bottom-space">
         <div class="contentedit">
+        <?php
+                
+                $currentUser = $_SESSION['email'];
+                //print($_SESSION['email']);
+                $sql = "SELECT * FROM `babysitter` WHERE email ='$currentUser'";
+
+                $gotResuslts = mysqli_query($connection,$sql);
+
+                if($gotResuslts){
+                    if(mysqli_num_rows($gotResuslts)>0){
+                        while($row = mysqli_fetch_array($gotResuslts)){
+                            //print_r("ygbyb8yn".$row['email']);
+                        ?>
 
 
-
-            <p class="needs-container"> First Name: <span class="par">Cady</span>
+            <p class="needs-container"> First Name: <span class="par"><?php echo $row['firstName']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="needs-container">
                 Last Name:
-                <span class="par"> Alolyan</span>
+                <span class="par"> <?php echo $row['lastName']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
-            <p class="needs-container"> Gender: <span class="par">female</span>
+            <p class="needs-container"> Gender: <span class="par"><?php echo $row['gender']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="needs-container"> ID:
-                <span class="par">4566</span>
+                <span class="par"><?php echo $row['ID']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="needs-container"> Age:
-                <span class="par">19</span>
+                <span class="par"><?php echo $row['age']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="needs-container"> Email:
-                <span class="par">CadyAlolyan@yahoo.com</span>
+                <span class="par"><?php echo $row['email']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="needs-container"> City:
-                <span class="par">Riyadh</span>
+                <span class="par"><?php echo $row['city']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="needs-container"> Phone:
-                <span class="par">+966 500345290</span>
+                <span class="par"><?php echo $row['phone']; ?></span>
             </p>
             <p class="more-space-on-bottom"></p>
             <p class="bio-par"> Bio:
                 <span class="par">
-                    I like reading</span>
+                <?php echo $row['bio']; ?>
+                </span>
             </p>
 
         </div>
         <div class="forthepic">
-            <img src="female.png" alt="a picture of a female">
+        <img src="../public/userImages/<?php echo $row['img']; ?>" alt="profile picture"/> 
         </div>
     </div>
+    <?php
+}}}  ?>
     <footer> 
         <table class="tableF">
             <tr>

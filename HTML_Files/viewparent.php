@@ -1,3 +1,16 @@
+<?php
+session_start();
+    
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381project" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+// Check the connection
+if (!$connection) 
+die("Connection failed: " . mysqli_connect_error());
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,83 +28,55 @@
 </head>
 
 <body>
-    <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="parenthome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage profile </a>
-            <div class="dropdown-content">
-                <a href="viewparent.html">View</a>
-                <a href="parenteditprofile.html">Edit</a>
-                <a class="last" href="deleteparent.html">delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="#">Job request </a>
-            <div class="dropdown-content">
-                <a href="postingJobRequest.html">Post request </a>
-                <a href="editingJobRequest.html">Edit request</a>
-                <a class="last" href="cancelingJobRequest.html">Cancel request</a>
-            </div>
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewbookings.html">View booking </a>
-            <div class="dropdown-content">
-                <a href="viewCurrentBookings.html">View current bookings </a>
-                <a class="last" href="viewPreviousBookings.html">View previous bookings
-                </a>
-            </div>
-        </div>
-        <div class="tab4">
-            <a href="../HTML_Files/ViewOfferList.html">View offer list</a>
-        </div>
-        <div class="logout">
-            <a href="LoginPage.html">Logout</a>
-        </div>
-
-    </div>
+<?php include("parentheader.php");?>
     <h2>My profile:</h2>
     <div class="cont aaanot">
         
         <div class="contentedit">
+        <?php
+                
+                $currentUser = $_SESSION['email'];
+                //print($_SESSION['email']);
+                $sql = "SELECT * FROM `parent` WHERE email ='$currentUser'";
 
+                $gotResuslts = mysqli_query($connection,$sql);
+
+                if($gotResuslts){
+                    if(mysqli_num_rows($gotResuslts)>0){
+                        while($row = mysqli_fetch_array($gotResuslts)){
+                            //print_r("ygbyb8yn".$row['email']);
+                        ?>
 
             
-            <p class="needs-container"> First Name: <span class="par">Cady</span>
+            <p class="needs-container"> First Name: <span class="par"><?php echo $row['firstName']; ?></span>
                 </p>
             <p class="more-space-on-bottom" ></p>
             <p class="needs-container"> 
             Last Name:
-            <span class="par"> Alolyan</span></p>
+            <span class="par"> <?php echo $row['lastName']; ?></span></p>
             <p class="more-space-on-bottom" ></p>
             <p class="needs-container"> Email:
-            <span class="par">CadyAlolyan@yahoo.com</span></p>
+            <span class="par"><?php echo $row['email']; ?></span></p>
             <p class="more-space-on-bottom" ></p>
             <p class="bigio"> 
                 Address: <br><br>
                 City:
-                <span class="par">Riyadh</span>
+                <span class="par"><?php echo $row['City']; ?></span>
                 <br><br>
                 District:
-                <span class="par">Almuhammadiya</span>
+                <span class="par"><?php echo $row['District']; ?></span>
                 <br><br>
                 Street:
-                <span class="par">Almansur Almarini</span>
+                <span class="par"><?php echo $row['Street']; ?></span>
                 <br><br>
                 Building number:
-                <span class="par">1623</span>
+                <span class="par"><?php echo $row['BuildingNumber']; ?></span>
                 <br><br>
                 Postal code:
-                <span class="par">22381</span>
+                <span class="par"><?php echo $row['PostalCode']; ?></span>
                 <br><br>
                 Secondary number:
-                <span class="par">2238</span>
+                <span class="par"><?php echo $row['SecondaryNumber']; ?></span>
 
 
 
@@ -107,9 +92,11 @@
 
         </div>
         <div class="forthepic">
-            <img src="defultpico.jpg" alt="a picture of a female">
+        <img src="../public/userImages/<?php echo $row['img']; ?>" alt="profile picture"/> 
         </div>
     </div>
+    <?php
+}}}  ?>
     <footer class="rcad"> 
         <table class="tableF">
             <tr>

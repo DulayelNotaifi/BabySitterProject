@@ -1,3 +1,16 @@
+<?php
+session_start();
+    
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381project" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+// Check the connection
+if (!$connection) 
+die("Connection failed: " . mysqli_connect_error());
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,54 +27,30 @@
 </head>
 
 <body>
-    <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="parenthome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage profile </a>
-            <div class="dropdown-content">
-                <a href="viewparent.html">View</a>
-                <a href="parenteditprofile.html">Edit</a>
-                <a class="last" href="deleteparent.html">delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="#">Job request </a>
-            <div class="dropdown-content">
-                <a href="postingJobRequest.html">Post request </a>
-                <a href="editingJobRequest.html">Edit request</a>
-                <a class="last" href="cancelingJobRequest.html">Cancel request</a>
-            </div>
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewbookings.html">View booking </a>
-            <div class="dropdown-content">
-                <a href="viewCurrentBookings.html">View current bookings </a>
-                <a class="last" href="viewPreviousBookings.html">View previous bookings
-                </a>
-            </div>
-        </div>
-        <div class="tab4">
-            <a href="../HTML_Files/ViewOfferList.html">View offer list</a>
-        </div>
-        <div class="logout">
-            <a href="LoginPage.html">Logout</a>
-        </div>
-
-    </div>
+<?php include("parentheader.php");?>
     <div class="down-more-cont">
         <div class="backy">
-        <form action="">
+        <form action="../PHP_Files/deleteparentaccproccess.php" method="POST" enctype="multipart/form-data">
+        <?php
+if(isset($_GET['error'])){
+
+if($_GET['error'] == 'failToDelete'){
+    ?>
+    
+    <div class="alert alert-danger" role="alert">
+    Please Enter correct password
+</div>
+    
+<?php
+}}
+?>
             <label for="password">Please enter your password to delete your account:</label>
-            <input type="password" class="inputing-text" id="password" placeholder="Enter your password">
-            <p class="more-space-on-bottom"></p>
-            <input class="botton-bigger" type="submit" value="delete account" />
+            <input type="password" class="inputing-text" id="password" name="uPassword" placeholder="Enter your password" required>
+            <p id="onlyDelNow"class="more-space-on-bottom"></p>
+
+            <input class="botton-bigger" type="submit" name="submit" value="delete account" />
+
+    
         </form>
         
         </div>

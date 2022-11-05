@@ -37,6 +37,6 @@
         </div>
         
         <div class="logout">
-            <a href="logout.php">Logout</a>
+            <a href="../PHP_Files/logout.php">Logout</a>
         </div>
     </div>

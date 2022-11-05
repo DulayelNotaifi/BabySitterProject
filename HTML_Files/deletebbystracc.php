@@ -1,3 +1,16 @@
+<?php
+session_start();
+    
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381project" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+// Check the connection
+if (!$connection) 
+die("Connection failed: " . mysqli_connect_error());
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,58 +24,32 @@
     <link rel="stylesheet" href="../CSS_Files/editstyle.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../CSS_Files/footer.css">
+
 </head>
 
 <body>
-    <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="babysitterhome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage Profile </a>
-            <div class="dropdown-content">
-                <a href="viewbbystr.html">View</a>
-                <a href="babysittereditprofile.html">Edit</a>
-                <a class="last" href="deletebbystracc.html">Delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="viewJobRequestList.html">Job Request List </a>
- 
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewJobs.html">Jobs </a>
-            <div class="dropdown-content">
-                <a href="viewcurrentjobs.html">Current Job</a>
-                <a href="viewPreviousJobs.html">Previous Jobs</a>
-            </div>
-        </div>
-
-
-        <div class="tab4">
-            <a href="ViewOffersWithTheirStatus.html">My Offers with Their Status</a>
-        </div>
-        <div class="tab4">
-            <a href="ViewRate.html">Rates and Reviews
-            </a>
-        </div>
-        
-        <div class="logout">
-            <a href="LoginPage.html">Logout</a>
-        </div>
-    </div>
+<?php include("bbystrheader.php");?>
     <div class="down-more-cont">
         <div class="backy">
-            <form action="">
+        <form action="http://localhost/BabySitterProject/PHP_Files/deletebbystraccprosses.php" method="POST" enctype="multipart/form-data">
+            <?php
+if(isset($_GET['error'])){
+
+if($_GET['error'] == 'failToDelete'){
+    ?>
+    
+    <div class="alert alert-danger" role="alert">
+    Please Enter correct password
+</div>
+    
+<?php
+}}
+?>
             <label for="password">Please enter your password to delete your account:</label>
-            <input type="password" class="inputing-text" id="password" placeholder="Enter your password">
-            <p class="more-space-on-bottom"></p>
-            <input class="botton-bigger" type="submit" value="delete account" />
+            <input type="password" class="inputing-text" id="password" name="uPassword" placeholder="Enter your password" required>
+            <p id="onlyDelNow"class="more-space-on-bottom"></p>
+
+            <input class="botton-bigger" type="submit" name="submit" value="delete account" />
         </form>
     </div>
     </div>
