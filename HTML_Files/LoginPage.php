@@ -80,8 +80,8 @@ if($_GET['error'] == 'failToLogIn'){
                         <br>
                         <div class="moveAcc">
                         <p class="first-para">Don't have an account yet?</p>
-                        <p class="second-para">Join us as a parent now! <a href="signUpParents.html">Sign Up</a></p>
-                        <p class="second-para">Join us as a babysitter now! <a href="signUpBabySitter.html">Sign Up</a></p>
+                        <p class="second-para">Join us as a parent now! <a href="signUpParents.php">Sign Up</a></p>
+                        <p class="second-para">Join us as a babysitter now! <a href="signUpBabySitter.php">Sign Up</a></p>
                        </div>
                         <hr>
                         <br>
