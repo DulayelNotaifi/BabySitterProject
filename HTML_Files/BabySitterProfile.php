@@ -12,12 +12,12 @@
 
 <body>
 
-    <!--Upper Menue-->
 
-
+ <!--Upper Menue-->
   <?php
-
   include("parentheader.php");
+  
+
  if(!isset($_GET['id'])) {
     header('Location:/BabySitterProject/HTML_Files/offerDetails.php');
     exit;
@@ -56,27 +56,19 @@ next($row);
     
 
     <div id="picBar">
-
-        <!-- <video width="200px" height="100px" controls>
-            <source src="ShortFilm.mp4" type="video/mp4">
-        </video> -->
         <img src="<?php echo($row[$image ]);?>" id="sitterPic" alt="babystter picture">
-
         <label><?php echo($row[$fname])?>  <?php echo($row[$lname]) ?></label><br>
-        <label class="sitterage"> <?php echo($row[$age])?> Years Old, <?php echo($row[$city])?></label><br>
-
-       
+        <label class="sitterage"> <?php echo($row[$age])?> Years Old, <?php echo($row[$city])?></label><br>  
     </div>
+    <!--End of image&name-->
     <hr>
 
     <div id="Discription">
         <p>
-  <?php  
-    echo($row[$bio])
-    ?>
-
+      <?php  
+          echo($row[$bio])
+        ?>
         </p>
-
     </div>
     <!--End of Discription-->
 
@@ -84,8 +76,6 @@ next($row);
 
     <div id="Review">
         <h2>Reviews</h2>
-    
-
       <?php 
 
       $q2 = "SELECT `feedBack`,`Rate` FROM `review` WHERE `babySitterEmail` = '$email'";
@@ -163,10 +153,8 @@ next($row);
     echo("<h3 style=' margin-left: 15px;'>No Rating </h3>");
         
         ?>
+     </div>
 
-        </div>
-
- 
     <!--End of Rate-->
     <hr>
 
@@ -214,9 +202,8 @@ next($row);
 
         <label><?php echo($row3[$pr])?> SAR/hr</label>
         <a href="tel:<?php echo($row[$phone ]);?>"><button type="button">Contact <?php echo($row[$fname]) ?></button></a>
-
-
     </div>
+    <!--End of contact bar-->
 
     <!--Footer-->
     <footer class="rsitterProfile"> 

@@ -154,7 +154,7 @@ $res = mysqli_query($connection, $kidss);
     margin-left: 190px;
     color: rgb(39, 141,7);">
     <a style="  color: rgb(39, 141,7);
-    text-decoration: none;" href='../PHP_Files/addrecord.php?id=<?php echo($id)?>&name=<?php echo($row[$babySitterName]) ?>'>Accept</a></button>
+    text-decoration: none;" href='../PHP_Files/setAccepted.php?id=<?php echo($id)?>&name=<?php echo($row[$babySitterName]) ?>'>Accept</a></button>
  <button class="Reject" onclick="return checkDelet()"
  style="position: realative;
     height: 30px;
@@ -166,7 +166,7 @@ $res = mysqli_query($connection, $kidss);
     margin-left: 330px; margin-bottom:1px;
     color: rgb(254, 9,9);">
     <a style=" color: rgb(254, 9,9);
-    text-decoration: none;"href='../PHP_Files/deletrecord.php?id=<?php echo($id) ?>&name=<?php echo($row[$babySitterName]) ?>'>Reject</a></button>
+    text-decoration: none;"href='../PHP_Files/setRejected.php?id=<?php echo($id) ?>&name=<?php echo($row[$babySitterName]) ?>'>Reject</a></button>
 </div>
 
 
