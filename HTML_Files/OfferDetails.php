@@ -164,7 +164,8 @@ $res = mysqli_query($connection, $kidss);
 
 <?php
 
- $x++;  
+ $x++; 
+ $rr++; 
 }//end while loop 
 }//end if
 else{
@@ -187,6 +188,7 @@ else{
  <?php }//close else
  
 ?>
+
  <script>
 
  function checkDelet(){
@@ -204,8 +206,8 @@ function checkAcce(){
 
 
 <!-- footer-->
-<div class="detailspage">
-<footer> 
+<div id="DetailsFooter">
+<footer > 
         <table class="tableF">
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
