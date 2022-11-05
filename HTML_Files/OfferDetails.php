@@ -63,12 +63,10 @@
     include('../PHP_Files/connect_db.php');
    if(isset($_GET['id'])){
    // echo("set");
-      $id = mysqli_real_escape_string($connection,$_GET['id']);
-
-       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`expireDate`,`offerstatus`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
+      $id = $_GET['id'];
+       $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`offerstatus`,`babySitterEmail`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
 
        $result = mysqli_query($connection,  $sql);
-    //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
        $valu = mysqli_num_rows($result);
    }// end if set
 
@@ -110,11 +108,11 @@ while($x< $valu  ){
    $price = key($row);
    next($row);
 
-   $expireDate = key($row);
-   next($row);
-
    $offstatus = key($row);
    next($row);
+
+ $sitterEm = key($row);
+ next($row);
 
    if($row[$offstatus] == "Rejected") continue;
 
@@ -125,8 +123,20 @@ while($x< $valu  ){
 
         <p class="SitterInfo">
         <label class="nameLabel">Babysitter Name: </label>
-       <label class="Name"><?php echo(($row[$babySitterName]))?></label><br>
-       <a href="../HTML_Files/BabySitterProfile.html">View babystter Profile</a>  <!-- will be modified later -->
+       <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br>
+
+       <?php   $nn =  $row[$sitterEm]; echo($nn);?>
+
+       <form id="hiddenform" action ="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo($nn) ?>" method="post">
+        <input type="hidden" name="SitterEmail" value= "<?php echo($nn); ?>">
+       <a href="#" onclick="myFunction()">View babystter Profile</a>  
+       </form>
+
+       <script>
+            function myFunction() {
+                document.getElementById("hiddenform").submit();
+            }
+        </script>
        <hr>
        </p>
 
@@ -150,8 +160,7 @@ while($x< $valu  ){
 
  <label class="PriceLabel">Offered price/hr: </label>
  <label class="Price"><?php echo(($row[$price]))?> SAR</label> <br><br>
- <label class="Expirelabel">Offer expire date: </label>
- <label class="expireDate"><?php echo(($row[$expireDate]))?></label><br>
+
 
  <div id="chose">
  <button class ="Accept" onclick="return checkAcce()"

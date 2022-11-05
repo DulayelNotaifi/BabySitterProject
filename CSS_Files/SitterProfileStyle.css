@@ -36,6 +36,7 @@ body{
     margin-top: 65px;
 }
 
+
 div h2{
     margin-left: 15px;
     padding-top: 10px;
@@ -151,7 +152,7 @@ div .subHeadText{
 #shareProfile{
     /* background-color: white; */
     position: relative;
-    height: 170px;
+    height: 100px;
   
 }
 

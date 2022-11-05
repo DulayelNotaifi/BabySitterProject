@@ -160,7 +160,6 @@ while($kidrow = mysqli_fetch_row($result2)){
 </div>
 
 <?php
-// $x++;  
  }//end while
  ?>
 
