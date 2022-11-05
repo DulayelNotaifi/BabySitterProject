@@ -54,24 +54,34 @@
             </div>
         </div>
         <!--end menu-->
-
-        <?php
+ <!--Page Content-->
+ <?php
  include('../PHP_Files/connect_db.php');
 if(isset($_GET['id'])){
 // echo("set");
    $id = mysqli_real_escape_string($connection,$_GET['id']);
    //$val1 = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `expireDate`, `city`, `District` FROM  `requests` WHERE
-    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments` `ID` FROM `requests` WHERE `requests`.`ID` = '$id'";
-
+   $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments` `ID` FROM `requests` WHERE `requests`.`ID` = '$id'";
     $result = mysqli_query($connection,  $sql);
  //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $valu = mysqli_num_rows($result);} ?>
+    $valu = mysqli_num_rows($result);
+}
+
+ ?>
 
 <div class="editingPage">
             <h2>Edit Job Request</h2>
-<?php
+
+<!--<?php print_r($jobReq);?>-->
+
+<?php 
+
 if($valu > 0 ){
-    $row = mysqli_fetch_row($result);
+
+//$x = 0;
+//while($x< $valu  ){
+
+$row = mysqli_fetch_row($result);
 
 $TypeOfServese = key($row);
 next($row);
@@ -91,41 +101,62 @@ next($row);
 $id = key($row);
 next($row);
 
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = '$row[$id]'";
+$result2 = mysqli_query($connection, $kidss);
+?> 
+     
+            <div class="container">
 
- ?>
+            <form action="#" method="post">
+                <p id="formInfo">
 
-<?php 
-$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
-//$result2 = mysqli_query($connection, $kidss);
-/*
+                <div id="kids_info">
+                    <label class="nameLabel"> Kid/s Name: 
+                        <input class="inputName" name="kidsname[]" type="text" placeholder="Enter Kid Name" required> 
+                    </label>
+                    
+                    <label class="ageLabel"> Kid/s Age: 
+                        <input class="inputAge" name="kidsage[]" type="number" min="0" max="17" placeholder="Enter Kid Age" required>
+                    </label>
+               
+
+                <?php 
 while($kidrow = mysqli_fetch_row($result2)){
-    
     $kname = key($kidrow);
     next($kidrow);
 
     $kAge = key($kidrow);
     next($kidrow);
 
-    //$ages[] = $kidrow[$kAge];
+?>
+<script>
+  var nameField = document.createElement('input');
+  var ageField = document.createElement('input');
 
-     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
-}*/
+  nameField.setAttribute('type','text');
+  nameField.setAttribute('name','kidsname[]');
+  nameField.setAttribute('class','inputExtraName');
+  nameField.setAttribute('size',50);
+  nameField.setAttribute('placeholder','Enter Kid/s name');
+  nameField.setAttribute('value','<?php echo(($kidrow[$kname]))?>');
+  kids_info.appendChild(nameField);
+
+
+  ageField.setAttribute('type','number');
+  ageField.setAttribute('name','kidsage[]');
+  ageField.setAttribute('class','inputExtraAge');
+  ageField.setAttribute('size',50);
+  ageField.setAttribute('placeholder','Enter Kid/s age');
+  ageField.setAttribute('min',0);
+  ageField.setAttribute('max',17);
+  ageField.setAttribute('value','<?php echo(($kidrow[$kAge]))?>');
+  kids_info.appendChild(ageField);
+</script>
+
+<?php }
 ?>
 
-           
-            <div class="container">
-
-            <form action="#" method="post">
-                <p id="formInfo">
-
-                <label class="nameLabel"> Kid/s Name: 
-                    <input class="inputName" name="kidsname" type="text" value="Abdullah" required> 
-                </label>
-                
-                <label class="ageLabel"> Kid/s Age: 
-                    <input class="inputAge" name="kidsages" type="number" min="0" max="17" value="5" required> 
-                </label>
-                
+</div>
                 <label class="serviceLabel"> Type Of Service: 
                     <input class="inptService" name="service" type="text" value="<?php echo(($row[$TypeOfServese]))?>" required> 
                 </label>
