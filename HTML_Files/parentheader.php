@@ -4,7 +4,7 @@
     </div>
     <div class="uppermenu">
         <div class="tab0">
-            <a href="parenthome.html">Home</a>
+            <a href="parenthome.php">Home</a>
         </div>
         <div class="tab1">
             <a href="">Manage profile </a>
@@ -17,22 +17,22 @@
         <div class="tab2">
             <a href="#">Job request </a>
             <div class="dropdown-content">
-                <a href="postingJobRequest.html">Post request </a>
-                <a href="editingJobRequest.html">Edit request</a>
-                <a class="last" href="cancelingJobRequest.html">Cancel request</a>
+                <a href="postingJobRequest.php">Post request </a>
+                <a href="editingJobRequest.php">Edit request</a>
+                <a class="last" href="cancelingJobRequest.php">Cancel request</a>
             </div>
         </div>
 
         <div class="tab3 need-more">
-            <a href="viewbookings.html">View booking </a>
+            <a href="viewbookings.php">View booking </a>
             <div class="dropdown-content">
-                <a href="viewCurrentBookings.html">View current bookings </a>
-                <a class="last" href="viewPreviousBookings.html">View previous bookings
+                <a href="viewCurrentBookings.php">View current bookings </a>
+                <a class="last" href="viewPreviousBookings.php">View previous bookings
                 </a>
             </div>
         </div>
         <div class="tab4">
-            <a href="../HTML_Files/ViewOfferList.html">View offer list</a>
+            <a href="../HTML_Files/ViewOfferList.php">View offer list</a>
         </div>
         <div class="logout">
             <a href="logout.php">Logout</a>
