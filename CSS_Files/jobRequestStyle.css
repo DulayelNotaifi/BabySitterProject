@@ -60,6 +60,7 @@ h2{
     position: relative;
     margin-top: 50px;
 }
+
 .container .RequestInfo .Accept{
    
     width:110px;
@@ -92,11 +93,11 @@ h2{
 .container p a{
     font-size: medium;
     text-decoration:underline;
-    color: #f01414;
+    color: #2f06e9;
 }
 
 .container p a:hover{
-    color: #2f06e9;
+    color: #f01414; 
 }
 
     /*  End of Extra Style for Offer Details Page */
@@ -163,6 +164,8 @@ border: 1px solid #ced4da;
     color: rgb(0, 111, 96);
     display: inline-block;
 }
+
+
 
 /*.ageLabel{
     margin-left: 40px;

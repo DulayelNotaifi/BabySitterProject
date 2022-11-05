@@ -22,9 +22,10 @@
 
    if(isset($_GET['id'])){
       $id = $_GET['id'];
-     $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`, `price` ,`offerstatus`,`babySitterEmail`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
+     $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`,`price` ,`offerstatus`,`babySitterEmail`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
      $result = mysqli_query($connection,  $sql);
     $valu = mysqli_num_rows($result);
+    echo( "ffff");
    }// end if set
 
     ?>
@@ -35,7 +36,7 @@
 
  if($valu > 0 ){
 
-$x = 0;
+$x = 0; $test=0 ; $rr=0;
 while($x< $valu  ){
 
  $row = mysqli_fetch_row($result);
@@ -66,30 +67,35 @@ while($x< $valu  ){
 
  $sitterEm = key($row);
  next($row);
+ 
  $sql2 = "SELECT `img` FROM `babysitter` WHERE `email` = '$row[$sitterEm]' ";
  $result2 = mysqli_query($connection,  $sql2);
  $row2 = mysqli_fetch_row($result2);
  $sitterPic = key($row2);
 
-   if($row[$offstatus] == "Rejected") continue;
+   if($row[$offstatus] == "Rejected") {  $x++;  $test--; continue; }
 
 ?> 
         <div class="container">
 
+
+
+        <?php if($row2[$sitterPic] == "")  echo("<img src='female.png' id='sitterPic' alt='babystter picture'>");?>
+     
         <img src="<?php echo(($row2[$sitterPic])); ?>" id="sitterPic" alt="babystter picture">
 
         <p class="SitterInfo">
-        <label class="nameLabel">Babysitter Name: </label>
+        <label class="nameLabel">Babysitter Name: </label> 
        <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br>
        <a href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
     
        <hr>
+       <label class="serviceLabel" style=" margin-top:15px;position: absolute;">Your Request: </label><br>
        </p>
 
 
  <p class="RequestInfo"> 
-
-<label class="serviceLabel">Type Of Service: </label>
+<label class="serviceLabel" >Type Of Service: </label>
 <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
 
 <label class="dayLabel">Day: </label>
@@ -102,9 +108,23 @@ while($x< $valu  ){
 <label class="commentsLabel">Comments: </label>
 <label class="comments"><?php echo(($row[$comments]))?> </label>
 <br><br>
+<label class="commentsLabel">Kid/s: </label><br>
+<?php 
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $id";
+$res = mysqli_query($connection, $kidss);
+ while($kidrow = mysqli_fetch_row($res)){
+    $kname = key($kidrow);
+    next($kidrow);
 
+    $kAge = key($kidrow);
+    next($kidrow);
+    echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+       
+}
+?>
 
- <label class="PriceLabel">Offered price/hr: </label>
+<hr>
+ <br><label class="PriceLabel">Offered price/hr: </label>
  <label class="Price"><?php echo(($row[$price]))?> SAR</label> <br><br>
 
 
@@ -144,19 +164,29 @@ while($x< $valu  ){
 
 <?php
 
-
  $x++;  
 }//end while loop 
 }//end if
 else{
-
 ?>
 
-<div class="container" >
-    <h2 >Offers are cooming soon!</h2>
+<div style="    background-color: rgb(248, 250, 219);
+    position: relative;
+    border-style: solid;
+    border-radius: 30px;
+    width: 500px;
+    height: 100px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;" >
+    <h2 style="   height: 30px;
+    color: black;
+    text-align: center;
+    margin-top: 35px; ">Offers are cooming soon!</h2> <?php echo($test); ?>
 </div>
- <?php }//close else ?>
-
+ <?php }//close else
+ 
+?>
  <script>
 
  function checkDelet(){
@@ -164,11 +194,11 @@ else{
 }
 
 function checkAcce(){
+   
     return confirm("Are you sure you want to Accept offer?");
 }
 
 </script>
-
 
 
 

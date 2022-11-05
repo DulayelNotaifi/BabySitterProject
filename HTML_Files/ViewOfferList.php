@@ -107,9 +107,22 @@ while($kidrow = mysqli_fetch_row($result2)){
       if($y == 0){
  ?>
    
-   <div class="container" >
-    <h2 >YOU DO NOT HAVE ANY REQUESTS</h2>
+   <div class="noReq" style="    background-color: rgb(248, 250, 219);
+    position: relative;
+    border-style: solid;
+    border-radius: 30px;
+    width: 500px;
+    height: 100px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;" >
+    <h2 style="   height: 30px;
+    color: black;
+    text-align: center;
+    margin-top: 35px; ">YOU DO NOT HAVE ANY REQUESTS!</h2>
 </div>
+
+
 <?php } ?>
      
 
