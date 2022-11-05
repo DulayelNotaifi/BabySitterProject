@@ -6,7 +6,7 @@ if(isset($_GET['id'])){
    $name = $_GET['name'];
 
    $sql = "UPDATE `requests` SET `status`= 'served' WHERE `ID` = $id ";
-   $sq2 = "UPDATE `offers` SET `offerstatus`='Accepted' WHERE `RequestID` = $id AND `babySitterName` = '$name'";
+   $sq2 = "UPDATE `offers` SET `offerstatus`='accepted' WHERE `RequestID` = $id AND `babySitterName` = '$name'";
    $result1 = mysqli_query($connection,$sql);
    $result1 = mysqli_query($connection,$sq2);
 

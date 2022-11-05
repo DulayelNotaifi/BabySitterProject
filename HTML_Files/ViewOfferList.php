@@ -69,19 +69,20 @@ $result2 = mysqli_query($connection, $kidss);
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
 <label class='service'><?php echo($row[$service])?></label><br>
-<label class='nameLabel'>Kid/s : </label><br>
+<label class='nameLabel'>No. Kid/s : </label>
 <label class='name'><?php
+$numOfKids = mysqli_num_rows($result2);
+echo($numOfKids );
+// while($kidrow = mysqli_fetch_row($result2)){
+//     $kname = key($kidrow);
+//     next($kidrow);
 
-while($kidrow = mysqli_fetch_row($result2)){
-    $kname = key($kidrow);
-    next($kidrow);
-
-    $kAge = key($kidrow);
-    next($kidrow);
-    echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+//     $kAge = key($kidrow);
+//     next($kidrow);
+//     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
        
-}
-?></label>
+// }
+?></label><br>
 
 
 
@@ -91,7 +92,9 @@ while($kidrow = mysqli_fetch_row($result2)){
 <label class='timeLabel'>Time: </label>
 <label class='time'><?php echo($row[$stime])?> - <?php echo($row[$etime])?></label>
 <br><br>
-<a href='../HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
+<a style=" font-size: medium;
+    text-decoration:underline;
+    color: #2f06e9;" href='../HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
 </p>
 
 </div>

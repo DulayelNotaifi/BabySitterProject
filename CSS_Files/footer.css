@@ -31,14 +31,11 @@ footer {
 }
 
 #DetailsFooter{
-  position:relative;
-  margin-bottom: 500px;
-  bottom:0px;
-}
-#DetailsFooter footer{
   position:absolute;
+  margin-bottom: 0px;
   bottom:0px;
 }
+
 
 
 html {

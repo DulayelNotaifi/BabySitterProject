@@ -90,13 +90,13 @@ h2{
 
 
 
-.container p a{
+.container p .sitterProfile{
     font-size: medium;
     text-decoration:underline;
     color: #2f06e9;
 }
 
-.container p a:hover{
+.container p .sitterProfile:hover{
     color: #f01414; 
 }
 

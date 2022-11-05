@@ -7,6 +7,19 @@
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../CSS_Files/footer.css">
     <title>Offer Details</title>
+    <style>
+        html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    
+    display: table-row;
+}
+        </style>
 </head>
 
 <body>
@@ -22,10 +35,11 @@
 
    if(isset($_GET['id'])){
       $id = $_GET['id'];
-     $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`,`price` ,`offerstatus`,`babySitterEmail`  FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id AND `requests`.`ID` = $id";
+     $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`,`price` ,`offerstatus`,`babySitterEmail` 
+      FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id 
+      AND `requests`.`ID` = $id AND `offers`.`offerstatus` != 'rejected' ";
      $result = mysqli_query($connection,  $sql);
     $valu = mysqli_num_rows($result);
-    echo( "ffff");
    }// end if set
 
     ?>
@@ -36,9 +50,9 @@
 
  if($valu > 0 ){
 
-$x = 0; $test=0 ; $rr=0;
+$x = 0;
 while($x< $valu  ){
-
+$x++;
  $row = mysqli_fetch_row($result);
 
   $babySitterName = key($row);
@@ -73,8 +87,6 @@ while($x< $valu  ){
  $row2 = mysqli_fetch_row($result2);
  $sitterPic = key($row2);
 
-   if($row[$offstatus] == "Rejected") {  $x++;  $test--; continue; }
-
 ?> 
         <div class="container">
 
@@ -87,7 +99,7 @@ while($x< $valu  ){
         <p class="SitterInfo">
         <label class="nameLabel">Babysitter Name: </label> 
        <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br>
-       <a href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
+       <a class="sitterProfile"href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
     
        <hr>
        <label class="serviceLabel" style=" margin-top:15px;position: absolute;">Your Request: </label><br>
@@ -164,8 +176,6 @@ $res = mysqli_query($connection, $kidss);
 
 <?php
 
- $x++; 
- $rr++; 
 }//end while loop 
 }//end if
 else{
@@ -206,8 +216,8 @@ function checkAcce(){
 
 
 <!-- footer-->
-<div id="DetailsFooter">
-<footer > 
+<br><br>
+ <footer> 
         <table class="tableF">
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
@@ -215,7 +225,7 @@ function checkAcce(){
                 <th><a href="ContactUs.html"> Contact Us </a></th>
             </tr>
         </table>
-        <div id="shareProfile">
+        <div class="shareProfile">
                 <h4>Share the website</h4>
             
                 <a href="https://facebook.com" target="_blank">
@@ -241,8 +251,8 @@ function checkAcce(){
         <div class="footer">
         &copy; A Watchful Eye, 2022
         </div>
-        </footer>
+        </footer> 
 
-</div>
+
 </body>
 </html>
