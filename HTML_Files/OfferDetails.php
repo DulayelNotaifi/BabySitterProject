@@ -164,7 +164,8 @@ $res = mysqli_query($connection, $kidss);
 
 <?php
 
- $x++;  
+ $x++; 
+ $rr++; 
 }//end while loop 
 }//end if
 else{
@@ -187,6 +188,7 @@ else{
  <?php }//close else
  
 ?>
+
  <script>
 
  function checkDelet(){
