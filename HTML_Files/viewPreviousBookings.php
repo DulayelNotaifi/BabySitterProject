@@ -80,7 +80,7 @@ ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$se
             <label class="timeslotslabel2"> To: </label>
             <label class="timeslots2"> <?php echo $row['endTime']; ?>AM</label> <br>
         </p>
-            <a href="mailto:<?php echo $row['email']; ?>"><input  type="submit" class="email" value="contact" ></a>
+            <a href="tel:<?php echo($row[$phone ]);?>"><input  type="submit" class="email" value="contact" ></a>
             <a href="../HTML_Files/review&rate.html">  <input  type="submit" class="review" value="review" ></a>
          
     

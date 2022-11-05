@@ -85,7 +85,7 @@ ON babysitter.firstName = offers.babySitterName   where requests.ParentEmail='$s
                 <label class="timeslotslabel2"> To: </label>
                 <label class="timeslots2">  <?php echo $row['endTime']; ?></label> <br>
             </p>
-                <a href="mailto:<?php echo $row['email']; ?>"><input  type="submit" class="email" value="contact" ></a>
+                <a href="tel:<?php echo($row[$phone ]);?>"><input  type="submit" class="email" value="contact" ></a>
                 <?php if(date('Y-m-d') > $row['startDate'] ){?>
                     <a href="review&rate.php"> <input type="submit" class="review" value="review"></a>
                     <?php } ?>
