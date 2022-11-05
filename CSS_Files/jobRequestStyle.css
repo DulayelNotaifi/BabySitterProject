@@ -182,6 +182,7 @@ border: 1px solid #ced4da;
     width: 120px;
     background-color: #ffffff;
     border: 1px solid #000000;
+    text-decoration: none;
 }
 
 .postBotton {
@@ -195,6 +196,7 @@ width: 530px;
     left: 0px;
     height: 30px;
     width: 265px;
+    direction: none;
 }
 
 .cancelBotton{

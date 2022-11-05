@@ -171,7 +171,7 @@ while($kidrow = mysqli_fetch_row($result2)){
                 </label>
                 <br>
                  
-                <input class="Bottons resetBotton" type="reset" value="reset">
+                <input class="Bottons resetBotton" type="button" value="go back" >
 
                 <input type="submit" class="Bottons editBotton" value="Edit" name="edit_submit"/>
                 
