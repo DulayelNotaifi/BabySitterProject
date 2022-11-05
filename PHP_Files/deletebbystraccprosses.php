@@ -28,8 +28,8 @@ $loggedInUser = $_SESSION['email'];
             if(mysqli_num_rows($userFound) > 0){
                 
                 while($row = mysqli_fetch_assoc($userFound)){
-                    if(password_verify($userPassword,$row['password'])){
-                        
+                    //if(password_verify($userPassword,$row['password'])){
+                     if($userPassword==$row['password']){   
                         $sql2="DELETE FROM `babysitter` WHERE email='$loggedInUser'";
                         $userFound = mysqli_query($connection,$sql2);
                         header('Location:/BabySitterProject/HTML_Files/LoginPage.php');
