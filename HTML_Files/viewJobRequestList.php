@@ -84,11 +84,10 @@ $valu = mysqli_num_rows($result);
 
 
 <?php
-$x = 0;
-$y=0;
 
+$x = 0;
 while($x< $valu  ){
-    $x++;  
+
 $row = mysqli_fetch_row($result);
 
  $service = key($row);
@@ -105,30 +104,14 @@ $row = mysqli_fetch_row($result);
 
   $id = key($row);
   next($row);
-
-$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
-$result2 = mysqli_query($connection, $kidss);
 ?>
 <div> 
 <p class='req'>
 <label class='serviceLabel'>Type Of Service: </label>
 <label class='service'><?php echo($row[$service])?></label><br>
-<label class='nameLabel'>Kid/s : </label><br>
-<label class='name'><?php 
-while($kidrow = mysqli_fetch_row($result2)){
-    $kname = key($kidrow);
-    next($kidrow);
-
-    $kAge = key($kidrow);
-    next($kidrow);
-
-    //$ages[] = $kidrow[$kAge];
-
-     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
-}
-?></label><br>
-
-<!--<label class='ageLabel'>Kid/s Age: </label>
+<!--<label class='nameLabel'>Kid/s Name: </label>
+<label class='name'><?php echo($row[$kids])?></label><br>
+<label class='ageLabel'>Kid/s Age: </label>
 <label class='age'><?php echo($row[$ages])?></label><br> -->
 
 <label class='dayLabel'>Date: </label>
@@ -191,12 +174,9 @@ $x++;
             <label class="OfferPrice">Set Offer: 
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
             </label> <br><br>
-
             <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
         
-
         </div>
-
         <div class="jobReq2"> 
           <p>
             <label class="nameLabel">Kid/s Name: </label>
@@ -204,26 +184,19 @@ $x++;
         
             <label class="ageLabel">Kid/s Ages: </label>
             <label class="age">4</label><br>
-
             <label class="serviceLabel">Type Of Service: </label>
             <label class="service">Child care</label><br>
-
             <label class="dayLabel">Day: </label>
             <label class="day">1/10/2022 </label><br>
-
             <label class="timeLabel">Time: </label>
             <label class="time">7:00PM - 9:00PM </label>
             <br>
-
             <a href="#">View Job Request Details</a> <br> 
-
           </p>
-
         
             <label class="OfferPrice">Set Offer: 
                 <input name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
             </label> <br><br>
-
             <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
      
         </div> -->

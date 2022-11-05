@@ -3,6 +3,10 @@
 
  if(isset($_GET['id'])){
     $id=  $_GET['id'];
+    $sql = "DELETE FROM `offers` WHERE `RequestID` = $id";
+    $query = mysqli_query($connection,$sql);
+    if( $query ){
+      echo 'done0';
     $sql = "DELETE FROM `kids` WHERE `ID` = $id";
     $query = mysqli_query($connection,$sql);
     if( $query ){
@@ -12,7 +16,7 @@
       if( $query ){
          echo 'done2';
       }
-  }
+  }}
   else{
       echo 'fail';
       }

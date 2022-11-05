@@ -60,8 +60,9 @@
             echo $_GET['Message'];
         }
         include('../PHP_Files/connect_db.php');
-        
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `endDate`, `comments` , `ID` FROM `requests`";
+        //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
+        //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= 'parent1@gmail.com'";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -95,26 +96,37 @@
      $startDate = key($row);
      next($row);
      
-     $endDate = key($row);
-     next($row);
-     
      $comments = key($row);
      next($row);
 
      $id = key($row);
      next($row);
      
+     $kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+     $result2 = mysqli_query($connection, $kidss);
     ?> 
 
         <div class="container">
 
 
     <p class="canceledInfo">
-        <label class="nameLabel">Kid/s Name: </label>
-        <label class="ageLabel">Kid/s Age: </label>
+    <label class="nameLabel">Kid/s : </label> <br>
+<label class="Name"><?php 
+while($kidrow = mysqli_fetch_row($result2)){
+    $kname = key($kidrow);
+    next($kidrow);
 
-        <label class="name"><?php echo(($row[$kidsName]))?></label>
-        <label class="age"><?php echo(($row[$age]))?></label><br><br>
+    $kAge = key($kidrow);
+    next($kidrow);
+
+    //$ages[] = $kidrow[$kAge];
+
+     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+}
+?></label> <!-- <br><br> --> 
+
+<!--<label class="ageLabel">Kid/s Ages: </label>
+<label class="age"><?php echo(($row[$age]))?></label><br><br> -->
 
         <label class="serviceLabel">Type Of Service: </label>
         <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
