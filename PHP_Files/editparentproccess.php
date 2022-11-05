@@ -15,13 +15,14 @@ $database= mysqli_select_db($connection, $dbname);
 if (!$connection) 
 die("Connection failed: " . mysqli_connect_error());
 //print_r($_POST);
-
+$loggedInUser = $_SESSION['email'];
 $firstname  =    $_POST['firstname'];
 $lastname =    $_POST['lastname'];
 $City =    $_POST['City'];
 $District =    $_POST['District'];
 $Street =    $_POST['Street'];
 $eMail =    $_POST['eMail'];
+$_SESSION['email'] = $eMail;
 $BuildingNumber =    $_POST['BuildingNumber'];
 $PostalCode =    $_POST['PostalCode'];
 $SecondaryNumber =    $_POST['SecondaryNumber'];
@@ -31,7 +32,7 @@ $SecondaryNumber =    $_POST['SecondaryNumber'];
 //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
 
 
-$loggedInUser = $_SESSION['email'];
+
 if($_FILES['img']['name']!=""){
     //print_r($_FILES['img']);
     $userImage    =   $_FILES['img'];   
@@ -65,23 +66,24 @@ $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `las
  `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
   `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName' WHERE email = '$loggedInUser'";
 //pass also/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+echo "uo";
 }else{
     $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
  `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
   `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName' WHERE email = '$loggedInUser'";
+  echo "uu";
 }
     print($imageName);
                 $results = mysqli_query($connection,$sql);
     
-                header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+              header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
             exit;
             }
     
     
         }}}
 
-        if(isset($_POST['password']) && $_POST['password']!= ""){
+     /*   if(isset($_POST['password']) && $_POST['password']!= ""){
             //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
             $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
  `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
@@ -89,22 +91,23 @@ $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `las
             //$sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
             //,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
             $results = mysqli_query($connection,$sql);
-            header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+            //header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
             exit;
             }else{
                 $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
  `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
   `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
                $results = mysqli_query($connection,$sql);
-            header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+            //header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+        
             exit; 
-            }
+            }*/
             
             $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
             `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
              `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
-                           
-                       
+                          // echo $sql;
+                      
             $results = mysqli_query($connection,$sql);
             header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
             exit;
