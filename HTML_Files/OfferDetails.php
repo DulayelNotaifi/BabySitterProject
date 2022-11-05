@@ -204,8 +204,8 @@ function checkAcce(){
 
 
 <!-- footer-->
-<div class="detailspage">
-<footer> 
+<div id="DetailsFooter">
+<footer > 
         <table class="tableF">
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
