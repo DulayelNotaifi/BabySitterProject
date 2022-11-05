@@ -44,7 +44,7 @@
         $session_email= $_SESSION['email'];
         $sql = "SELECT * FROM `offers`  INNER JOIN requests
 ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$session_email'";
+ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$session_email' and requests.status='Accepted'";;
 
         $userFound = mysqli_query($connection,$sql);
         if($userFound){
