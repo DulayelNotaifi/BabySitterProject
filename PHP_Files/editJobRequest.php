@@ -143,7 +143,7 @@ while($kidrow = mysqli_fetch_row($result2)){
         <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
 
    <!-- <input type="button" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/> -->
-    <button class="Bottons editBotton" ><a href='../HTML_Files/editingJobRequest.html?id=<?php echo($row[$id])?>'>Edit Job Request</a></button>
+    <button class="Bottons editBotton" ><a href='../HTML_Files/editingJobRequest.php?id=<?php echo($row[$id])?>'>Edit Job Request</a></button>
     </p>
 
 </div> <!-- end container -->

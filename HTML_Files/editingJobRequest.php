@@ -55,13 +55,69 @@
         </div>
         <!--end menu-->
 
-        <div class="editingPage">
+        <?php
+ include('../PHP_Files/connect_db.php');
+if(isset($_GET['id'])){
+// echo("set");
+   $id = mysqli_real_escape_string($connection,$_GET['id']);
+   //$val1 = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `expireDate`, `city`, `District` FROM  `requests` WHERE
+    $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments` `ID` FROM `requests` WHERE `requests`.`ID` = '$id'";
+
+    $result = mysqli_query($connection,  $sql);
+ //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $valu = mysqli_num_rows($result);} ?>
+
+<div class="editingPage">
             <h2>Edit Job Request</h2>
-        
+<?php
+if($valu > 0 ){
+    $row = mysqli_fetch_row($result);
+
+$TypeOfServese = key($row);
+next($row);
+
+$startTime = key($row);
+next($row);
+
+$endTime = key($row);
+next($row);
+
+$startDate = key($row);
+next($row);
+
+$comments = key($row);
+next($row);
+
+$id = key($row);
+next($row);
+
+
+ ?>
+
+<?php 
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+//$result2 = mysqli_query($connection, $kidss);
+/*
+while($kidrow = mysqli_fetch_row($result2)){
+    
+    $kname = key($kidrow);
+    next($kidrow);
+
+    $kAge = key($kidrow);
+    next($kidrow);
+
+    //$ages[] = $kidrow[$kAge];
+
+     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+}*/
+?>
+
+           
             <div class="container">
 
             <form action="#" method="post">
                 <p id="formInfo">
+
                 <label class="nameLabel"> Kid/s Name: 
                     <input class="inputName" name="kidsname" type="text" value="Abdullah" required> 
                 </label>
@@ -71,22 +127,22 @@
                 </label>
                 
                 <label class="serviceLabel"> Type Of Service: 
-                    <input class="inptService" name="service" type="text" value="Child care" required> 
+                    <input class="inptService" name="service" type="text" value="<?php echo(($row[$TypeOfServese]))?>" required> 
                 </label>
                 
                 <label class="durationLabel"> Duration: <br>
-                    Day:<input class="inputDay" name="day" type="date" required > </label>
-                <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" required > </label>
-                <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time"  required> </label>
+                    Day:<input class="inputDay" name="day" type="date" value="<?php echo(($row[$startDate]))?>"required > </label>
+                <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" value="<?php echo(($row[$startTime]))?>" required > </label>
+                <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time" value="<?php echo(($row[$endTime]))?>" required> </label>
                 <br><br>
                 <label class="commentsLabel"> Add Comments: (optional)
-                    <textarea class="commentsArea" name="comments" cols="72" rows="6"></textarea>
+                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"></textarea>
                 </label>
                 <br>
                  
                 <input class="Bottons resetBotton" type="reset" value="reset">
 
-                <input type="submit" class="Bottons editBotton" value="Edit"/>
+                <input type="submit" class="Bottons editBotton" value="Edit" name="edit_submit"/>
                 
                 </p>
             </form>
@@ -128,6 +184,9 @@
             &copy; A Watchful Eye, 2022
             </div>
             </footer> <!-- end footer -->
+            <?php ////} 
+}//end if
+?>
     </body>
 
 </html>
