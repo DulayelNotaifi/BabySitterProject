@@ -39,7 +39,7 @@
     $session_first_name= $_SESSION['first_name'];
     $sql = "SELECT * FROM `offers`  INNER JOIN requests
 ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$session_first_name'";
+ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$session_first_name' and requests.status='Accepted'";;
 
     $userFound = mysqli_query($connection,$sql);
     if($userFound) {
