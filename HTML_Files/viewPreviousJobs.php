@@ -83,7 +83,6 @@ ON kids.ID  = requests.ID  where offers.babySitterEmail ='$session_email' and of
             <label class="timeslots2"> <?php echo $row['endTime']; ?></label> <br>
 
     
-            <a href="mailto:<?php echo $row['email']; ?>"><input  type="submit" class="contact" value="contact" ></a>
          </p>
 
 </div>

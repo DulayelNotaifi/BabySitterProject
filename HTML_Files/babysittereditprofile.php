@@ -32,7 +32,7 @@ die("Connection failed: " . mysqli_connect_error());
     <div class="cont need-bottom-space">
         <div class="contentedit">
 
-            <form action="http://localhost/BabySitterProject/PHP_Files/editbbystrproccess.php" method="POST" enctype="multipart/form-data">
+            <form action="../PHP_Files/editbbystrproccess.php" method="POST" enctype="multipart/form-data">
                 <?php
                 
                         $currentUser = $_SESSION['email'];

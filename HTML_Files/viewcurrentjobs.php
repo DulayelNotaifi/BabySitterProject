@@ -77,7 +77,7 @@ while ($row = mysqli_fetch_assoc($userFound)) {
             <label class="Price"><?php echo $row['price']; ?> SAR</label> <br>
 
             <label class="StartDateLabel">Date: </label>
-            <label class="StartDate"><?php echo $row['startDate']; ?></label>
+            <label class="StartDate"><?php echo $row['startDate']; ?></label><br>
     
     
             <label class="timeslotslabel"> From: </label>
@@ -86,7 +86,6 @@ while ($row = mysqli_fetch_assoc($userFound)) {
             <label class="timeslotslabel2"> To: </label>
             <label class="timeslots2"> <?php echo $row['endTime']; ?></label></label> <br>
 
-            <a href="mailto:<?php echo $row['email']; ?>"><input  type="submit" class="contact" value="contact" ></a>
          </p>
 
 </div>

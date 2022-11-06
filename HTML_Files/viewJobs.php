@@ -86,7 +86,6 @@ while ($row = mysqli_fetch_assoc($userFound)) {
             <label class="timeslotslabel2"> To: </label>
             <label class="timeslots2">  <?php echo $row['endTime']; ?></label> <br>
 
-            <a href="mailto:<?php echo $row['email']; ?> "><input  type="submit" class="contact" value="contact" ></a>
          </p>
 
 </div>
