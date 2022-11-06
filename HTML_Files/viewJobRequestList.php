@@ -151,7 +151,8 @@ echo($numOfKids );
    style=" position: absolute;
    margin-left: 60px;
    color: #000;
-    padding:5px;">SAR/hr</span>
+    padding:5px;
+    padding-left: 10px;">SAR/hr</span>
                 </label> <br><br>
            <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/>
            <input  name="day" type="hidden" value="<?php echo($row[$start_day])?>"/>
