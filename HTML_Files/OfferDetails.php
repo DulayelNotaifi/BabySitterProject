@@ -35,11 +35,17 @@ footer {
 
    if(isset($_GET['id'])){
       $id = $_GET['id'];
-     $sql = "SELECT `babySitterName` ,`TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`,`price` ,`offerstatus`,`babySitterEmail` 
+     $sql1 = "SELECT `babySitterName`,`price` ,`babySitterEmail` 
       FROM `requests` INNER JOIN `offers` WHERE `offers`.`RequestID` = $id 
       AND `requests`.`ID` = $id AND `offers`.`offerstatus` != 'rejected' ";
-     $result = mysqli_query($connection,  $sql);
-    $valu = mysqli_num_rows($result);
+
+$sql2 = "SELECT `TypeOfServese`,`startDate`,`startTime`,`endTime`,`comments`
+FROM `requests` 
+WHERE `requests`.`ID` = $id ";
+
+ $Offresult = mysqli_query($connection,  $sql1);
+ $Reqresult = mysqli_query($connection,  $sql2);
+ $valu = mysqli_num_rows($Offresult);
    }// end if set
 
     ?>
@@ -48,92 +54,94 @@ footer {
 
  <?php 
 
- if($valu > 0 ){
-
-$x = 0;
-while($x< $valu  ){
-$x++;
- $row = mysqli_fetch_row($result);
-
-  $babySitterName = key($row);
-   next($row);
-
-   $TypeOfServese = key($row);
-   next($row);
-
-   $startDate = key($row);
-   next($row);
-
-   $startTime = key($row);
-   next($row);
-
-   $endTime = key($row);
-   next($row);
-
-   $comments = key($row);
-   next($row);
-
-   $price = key($row);
-   next($row);
-
-   $offstatus = key($row);
-   next($row);
-
- $sitterEm = key($row);
- next($row);
- 
- $sql2 = "SELECT `img` FROM `babysitter` WHERE `email` = '$row[$sitterEm]' ";
- $result2 = mysqli_query($connection,  $sql2);
- $row2 = mysqli_fetch_row($result2);
- $sitterPic = key($row2);
-
-?> 
-        <div class="container">
-
-
-
-        <?php if($row2[$sitterPic] == "")  echo("<img src='female.png' id='sitterPic' alt='babystter picture'>");?>
-     
-        <img src="<?php echo(($row2[$sitterPic])); ?>" id="sitterPic" alt="babystter picture">
-
-        <p class="SitterInfo">
-        <label class="nameLabel">Babysitter Name: </label> 
-       <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br>
-       <a class="sitterProfile"href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
-    
-       <hr>
-       <label class="serviceLabel" style=" margin-top:15px;position: absolute;">Your Request: </label><br>
-       </p>
-
-
- <p class="RequestInfo"> 
-<label class="serviceLabel" >Type Of Service: </label>
-<label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
-
-<label class="dayLabel">Day: </label>
-<label class="day"><?php echo(($row[$startDate]))?> </label><br><br>
-
-<label class="timeLabel">Time: </label>
-<label class="time"><?php echo(($row[$startTime])) ?> - <?php echo(($row[$endTime]))?></label>
-<br><br>
-
-<label class="commentsLabel">Comments: </label>
-<label class="comments"><?php echo(($row[$comments]))?> </label>
-<br><br>
-<label class="commentsLabel">Kid/s: </label><br>
-<?php 
 $kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $id";
 $res = mysqli_query($connection, $kidss);
- while($kidrow = mysqli_fetch_row($res)){
+
+ $requ = mysqli_fetch_row($Reqresult);
+ $serv = key($requ);
+   next($requ);
+
+   $stdate = key($requ);
+   next($requ);
+
+   $sttime = key($requ);
+   next($requ);
+
+   $etime = key($requ);
+   next($requ);
+
+   $com = key($requ);
+   next($requ);
+?>
+<div class="Requestcontainer" style="    background-color: white;
+    position: relative;
+    border-style: solid;
+    border-radius: 30px;
+    width: 75%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;">
+    <label class="serviceLabel">Your Request: </label><br><br>
+
+    <label class="serviceLabel" >Type Of Service: </label>
+<label class="service"><?php echo(($requ[$serv]))?></label>
+
+<label class="dayLabel">, Day: </label>
+<label class="day"><?php echo(($requ[$stdate]))?> </label>
+
+<label class="timeLabel">, Time: </label>
+<label class="time"><?php echo(($requ[$sttime])) ?> - <?php echo(($requ[$etime]))?></label>
+
+<label class="commentsLabel">, Comments: </label>
+<label class="comments"><?php echo(($requ[$com]))?> </label>
+<label class="commentsLabel">, Kid/s: </label>
+<?php while($kidrow = mysqli_fetch_row($res)){
     $kname = key($kidrow);
     next($kidrow);
 
     $kAge = key($kidrow);
     next($kidrow);
-    echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+    echo $kidrow[$kname].": ".$kidrow[$kAge]." Years. "; }?>
        
-}
-?>
+
+
+</div>
+
+<?php
+ if($valu > 0 ){
+
+$x = 0;
+while($x< $valu  ){
+$x++;
+ $row = mysqli_fetch_row($Offresult);
+
+  $babySitterName = key($row);
+   next($row);
+
+   $price = key($row);
+   next($row);
+
+ $sitterEm = key($row);
+ next($row);
+ 
+ $sql3 = "SELECT `img` FROM `babysitter` WHERE `email` = '$row[$sitterEm]' ";
+ $result2 = mysqli_query($connection,  $sql3);
+ $row2 = mysqli_fetch_row($result2);
+ $sitterPic = key($row2);
+
+?> 
+        <div class="container" style="display: inline-block; margin-left: 45px; margin-top: 20px;">
+
+        <img src="<?php echo(($row2[$sitterPic])); ?>" id="sitterPic" alt="babystter picture">
+
+        <p class="SitterInfo">
+        <label class="nameLabel">Babysitter Name: </label> 
+       <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br><br>
+       <a class=""href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
+    
+      
+     
+       </p>
 
 <hr>
  <br><label class="PriceLabel">Offered price/hr: </label>
