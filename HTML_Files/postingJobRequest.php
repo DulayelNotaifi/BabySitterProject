@@ -43,8 +43,12 @@
                     <input class="inptService" name="service" type="text" placeholder="Enter type of service you want" required> 
                 </label>
                 
+                <script>
+                    datepickr = new Date().toISOString().split("T")[0];
+                    datepickr1 = new Date().toISOString().split("T")[0];
+                    </script>
                 <label class="durationLabel"> Duration: <br>
-                Date:<input class="inputDay" name="form_day" type="date" required > </label>
+                Date:<input class="inputDay" name="form_day" type="date" min=<?php echo date('Y-m-d', strtotime('+2 days') ); ?>required > </label>
                 <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" required > </label>
                 <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time"  required> </label>
                 <br><br>

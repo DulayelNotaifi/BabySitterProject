@@ -80,8 +80,11 @@ $result2 = mysqli_query($connection, $kidss);
 ?> 
 <div class="container">
 
-<img src="female.png" id="sitterPic" alt="parent profile picture">
-<p class="SitterInfo">
+<p class="SitterInfo" style="   
+                  position: relative;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-bottom: 30px;">
    <label class="nameLabel">Parent Name: </label>
    <label class="Name">Mona</label><br>
 
@@ -89,7 +92,7 @@ $result2 = mysqli_query($connection, $kidss);
    <label class="city">Riyadh</label> <br>
 
    <label class="neighborhoodLabel">District: </label>
-   <label class="neighborhood">Alhamra</label> <br>
+   <label class="neighborhood">Alhamra</label>
     <hr>
 </p>
 
