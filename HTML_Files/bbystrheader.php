@@ -29,7 +29,7 @@
 
 
         <div class="tab4">
-            <a href="ViewOffersWithTheirStatus.php">My Offers with Their Status</a>
+            <a href="ViewOffers.php">My Offers</a>
         </div>
         <div class="tab4">
             <a href="ViewRate.php">Rates and Reviews

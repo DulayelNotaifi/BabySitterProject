@@ -9,7 +9,16 @@
     <link href="../CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
+    <style> 
+html, body{
+    height:100%;
+    width: 100%; 
+    margin: 0; 
+    display: table;
+}
+footer{display:table-row;}
 
+</style>
 </head>
 
 <body>
@@ -27,36 +36,30 @@
 
 
 
+<?php
 
-    <?php
-
-    $servername= "localhost";
-    $username= "root" ;
-    $password= "";
-    $dbname= "381project" ;
-    $connection= mysqli_connect($servername,$username,$password,$dbname);
-    $database= mysqli_select_db($connection, $dbname);
-    if (!$connection)
-        die("Connection failed: " . mysqli_connect_error());
-    $session_first_name= $_SESSION['first_name'];
-    $sql = "SELECT * FROM `offers`  INNER JOIN requests
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381project" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+if (!$connection)
+    die("Connection failed: " . mysqli_connect_error());
+//$session_first_name= $_SESSION['first_name'];
+$session_email= $_SESSION['email'];
+$sql = "SELECT * FROM `offers`  INNER JOIN requests
 ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$session_first_name' and requests.status='Accepted'";;
+ON babysitter.email  = offers.babySitterEmail INNER JOIN kids
+ON kids.ID  = requests.ID  where offers.babySitterEmail ='$session_email' and offers.offerstatus='accepted'";;
 
-    $userFound = mysqli_query($connection,$sql);
-    if($userFound){
+$userFound = mysqli_query($connection,$sql);
+if($userFound){
 
-    if (mysqli_num_rows($userFound) > 0) {
+if (mysqli_num_rows($userFound) > 0) {
 
-    while ($row = mysqli_fetch_assoc($userFound)) {
-    ?>
-
-
-
-
-
-
-
+while ($row = mysqli_fetch_assoc($userFound)) {
+?>
 
      
     
@@ -66,7 +69,7 @@ ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$s
 
         
             <label class="NameLabel">Baby Name: </label>
-            <label class="Name"><?php echo $row['kidsName']; ?></label><br>
+            <label class="Name"><?php echo $row['kidName']; ?></label><br>
     
             <label class="PriceLabel"> Price/hr: </label>
             <label class="Price"><?php echo $row['price']; ?> SAR</label> <br>
@@ -83,7 +86,6 @@ ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$s
             <label class="timeslotslabel2"> To: </label>
             <label class="timeslots2">  <?php echo $row['endTime']; ?></label> <br>
 
-            <a href="mailto:<?php echo $row['email']; ?> "><input  type="submit" class="contact" value="contact" ></a>
          </p>
 
 </div>
