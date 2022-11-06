@@ -128,16 +128,18 @@ h2{
 .sendOffer{
      position: absolute;
       padding: 5px;
-        left: 40px;
+        left: 54px;
         top: 260px;
 }
 
 
-#offerP {
-    position: absolute;
-    margin-left: 45px;
-    bottom: 65px;
+span{
+   bottom: -1px;
+   padding-left: 7px;
 }
+
+
+
 
 
 

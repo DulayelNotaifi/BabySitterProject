@@ -53,7 +53,9 @@ if(isset($_GET['offer_submit'])){
      } 
         }
 //if no conflect 
-$sql = "INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`, `startTime`, `endTime`, `startDate`) VALUES ( NULL ,'$OfferPrice','Nora','$id','pending','sitter1@gmail.com','$oTime1' , '$oTime2' , '$oDay' )";
+$bbyname = $_SESSION['firstName'];
+$bbyemail =  $_SESSION['email'] ;
+$sql = "INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`, `startTime`, `endTime`, `startDate`) VALUES ( NULL ,'$OfferPrice','$bbyname','$id','pending','$bbyemail','$oTime1' , '$oTime2' , '$oDay' )";
 $query = mysqli_query($connection,$sql);
 //print_r($_GET);
 if( $query ){
