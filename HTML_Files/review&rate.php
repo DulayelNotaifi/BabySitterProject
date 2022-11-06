@@ -11,7 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
+<style> 
+html, body{
+    height:100%;
+    width: 100%; 
+    margin: 0; 
+    display: table;
+}
+footer{display:table-row;}
 
+</style>
 </head>
 
 <body>
@@ -65,9 +74,8 @@
 
             <form method = "post"  action = "<?php $_PHP_SELF ?>" name="myform" id="myform" onsubmit="return validateform()">
                 <?php
-                $id=$_GET['id'];
                 $sql_view = "SELECT * FROM `offers`   INNER JOIN babysitter
-        ON babysitter.firstName = offers.babySitterName  where offers.id='$id'";
+        ON babysitter.email = offers.babySitterEmail ";
         
                 $userFound = mysqli_query($connection,$sql_view);
                 if($userFound) {

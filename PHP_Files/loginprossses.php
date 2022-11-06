@@ -69,7 +69,7 @@ die("Connection failed: " . mysqli_connect_error());
                             $_SESSION['img']=$row['img'];
                             $_SESSION['City']=$row['City'];
                             $_SESSION['District']=$row['District'];
-                            header('Location:../BabySitterProject/HTML_Files/parenthome.php');
+                            header('Location:../HTML_Files/parenthome.php');
                         exit;
                         }
                     }

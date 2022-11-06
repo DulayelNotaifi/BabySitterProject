@@ -9,7 +9,16 @@
     <link href="../CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
+    <style> 
+html, body{
+    height:100%;
+    width: 100%; 
+    margin: 0; 
+    display: table;
+}
+footer{display:table-row;}
 
+</style>
 </head>
 
 <body>
@@ -57,7 +66,7 @@ ON kids.ID  = requests.ID  where offers.babySitterEmail ='$session_email' and of
 
         
             <label class="NameLabel">Baby Name: </label>
-            <label class="Name"><?php echo $row['kidsName'];echo $row['kidAge']; , ?></label><br>
+            <label class="Name"><?php echo $row['kidName'].','. $row['kidAge'];  ?></label><br>
     
             <label class="PriceLabel"> Price/hr: </label>
             <label class="Price"><?php echo $row['price']; ?> SAR</label> <br>
