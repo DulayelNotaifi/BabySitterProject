@@ -144,6 +144,9 @@ while($kidrow = mysqli_fetch_row($result2)){
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
                 </label> <br>
                 <label> <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/></label>
+                <input  name="day" type="hidden" value="<?php echo($row[$startDate])?>"/>
+           <input  name="fromTime" type="hidden" value="<?php echo($row[$startTime])?>"/>
+           <input  name="toTime" type="hidden" value="<?php echo($row[$endTime])?>"/>
           
            <input type="submit" class="sendOfferDetails" name="offer_submit" value="Send Offer"/>
             <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>
