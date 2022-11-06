@@ -128,11 +128,11 @@ while($kidrow = mysqli_fetch_row($result2)){
 <!--<label class="ageLabel">Kid/s Ages: </label>
 <label class="age"><?php echo(($row[$age]))?></label><br><br> -->
 
-        <label class="serviceLabel">Type Of Service: </label>
+        <br><label class="serviceLabel">Type Of Service: </label>
         <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
 
         <label class="dayLabel">Date: </label>
-        <label class="day"><?php echo(($row[$startDate]))?> - <?php echo(($row[$endDate]))?></label><br><br>
+        <label class="day"><?php echo(($row[$startDate]))?></label><br><br>
 
         <label class="timeLabel">Time: </label>
         <label class="time"><?php echo(($row[$startTime])) ?> - <?php echo(($row[$endTime]))?></label>

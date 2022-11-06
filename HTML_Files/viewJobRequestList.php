@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../CSS_Files/menustyle.css">
     <link rel="stylesheet" href="../CSS_Files/footer.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -123,7 +124,7 @@ $row = mysqli_fetch_row($result);
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
 <form action="../PHP_Files/sendOffer.php" method="GET">
 <label class="OfferPrice">Set Offer:  
-                <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
+                <input  class="offerP" name="OfferPrice" type="number" min="0" max="99999">
                 </label> <br><br>
            <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/>
             <input type="submit" class="sendOffer" name="offer_submit" value="Send"/> 

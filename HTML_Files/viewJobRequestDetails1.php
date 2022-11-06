@@ -153,21 +153,21 @@ while($kidrow = mysqli_fetch_row($result2)){
 
 <!--<label class="ageLabel">Kid/s Ages: </label>
 <label class="age"><?php echo(($row[$age]))?></label><br><br> -->
-
+<br>
 <label class="serviceLabel">Type Of Service: </label>
 <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br>
-
+<br>
 <label class="dayLabel">Date: </label>
 <label class="day"><?php echo(($row[$startDate]))?></label><br>
-
+<br>
 <label class="timeLabel">Time: </label>
 <label class="time"><?php echo(($row[$startTime]))?> - <?php echo(($row[$endTime])); ?></label>
 <br>
 
-
+<br>
 <label class="commentsLabel">Comments: </label>
 <label class="comments"><?php echo(($row[$comments]))?> </label>
-<br><br><br> 
+<br><br><br> <br>
 
 <!--<form action="../PHP_Files/sendOffer.php" method="POST">
 <label class="OfferPriceDetails">Set Offer: 
