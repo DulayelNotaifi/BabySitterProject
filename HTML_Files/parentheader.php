@@ -18,7 +18,7 @@
             <a href="#">Job request </a>
             <div class="dropdown-content">
                 <a href="postingJobRequest.php">Post request </a>
-                <a href="editingJobRequest.php">Edit request</a>
+                <a href="editJobRequest.php">Edit request</a>
                 <a class="last" href="cancelingJobRequest.php">Cancel request</a>
             </div>
         </div>
