@@ -27,29 +27,33 @@
     
 
 
-    <?php
+   
 
-    $servername= "localhost";
-    $username= "root" ;
-    $password= "";
-    $dbname= "381project" ;
-    $connection= mysqli_connect($servername,$username,$password,$dbname);
-    $database= mysqli_select_db($connection, $dbname);
-    if (!$connection)
-        die("Connection failed: " . mysqli_connect_error());
-    $session_first_name= $_SESSION['first_name'];
-    $sql = "SELECT * FROM `offers`  INNER JOIN requests
+<?php
+
+$servername= "localhost";
+$username= "root" ;
+$password= "";
+$dbname= "381project" ;
+$connection= mysqli_connect($servername,$username,$password,$dbname);
+$database= mysqli_select_db($connection, $dbname);
+if (!$connection)
+    die("Connection failed: " . mysqli_connect_error());
+$session_email= $_SESSION['email'];
+$sql = "SELECT * FROM `offers`  INNER JOIN requests
 ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$session_first_name' and requests.status='Accepted'";;
+ON babysitter.email  = offers.babySitterEmail INNER JOIN kids
+ON kids.ID  = requests.ID  where offers.babySitterEmail ='$session_email' and offers.offerstatus='accepted'";;
 
-    $userFound = mysqli_query($connection,$sql);
-    if($userFound){
+$userFound = mysqli_query($connection,$sql);
+if($userFound){
 
-    if (mysqli_num_rows($userFound) > 0) {
+if (mysqli_num_rows($userFound) > 0) {
 
-    while ($row = mysqli_fetch_assoc($userFound)) {
-        if ($row['startDate'] > date('Y-m-d')) {
-            ?>
+while ($row = mysqli_fetch_assoc($userFound)) {
+    if ($row['startDate'] > date('Y-m-d')) {
+        ?>
+
     
     
     <div class="y">
