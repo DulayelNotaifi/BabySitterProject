@@ -105,6 +105,9 @@ $row = mysqli_fetch_row($result);
 
   $id = key($row);
   next($row);
+
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+$result2 = mysqli_query($connection, $kidss);
 ?>
 <div> 
 <p class='req'>
@@ -114,19 +117,35 @@ $row = mysqli_fetch_row($result);
 <label class='name'><?php echo($row[$kids])?></label><br>
 <label class='ageLabel'>Kid/s Age: </label>
 <label class='age'><?php echo($row[$ages])?></label><br> -->
+<label class='nameLabel'>No. Kid/s : </label>
+<label class='name'><?php
+$numOfKids = mysqli_num_rows($result2);
+echo($numOfKids );
+// while($kidrow = mysqli_fetch_row($result2)){
+//     $kname = key($kidrow);
+//     next($kidrow);
 
+//     $kAge = key($kidrow);
+//     next($kidrow);
+//     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+       
+// }
+?></label><br>
 <label class='dayLabel'>Date: </label>
 <label class='day'><?php echo($row[$start_day])?></label><br>
 
 <label class='timeLabel'>Time: </label>
 <label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label><br>
-<br>
+
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
 <form action="../PHP_Files/sendOffer.php" method="GET">
 <label class="OfferPrice">Set Offer:  
-                <input  class="offerP" name="OfferPrice" type="number" min="0" max="99999">
+                <input  id="offerP" name="OfferPrice" type="number" min="0" max="99999">
                 </label> <br><br>
            <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/>
+           <input  name="day" type="hidden" value="<?php echo($row[$start_day])?>"/>
+           <input  name="fromTime" type="hidden" value="<?php echo($row[$start_time])?>"/>
+           <input  name="toTime" type="hidden" value="<?php echo($row[$end_time])?>"/>
             <input type="submit" class="sendOffer" name="offer_submit" value="Send"/> 
 
    

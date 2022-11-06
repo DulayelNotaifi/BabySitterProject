@@ -92,12 +92,20 @@
                 </label>
                 <br>
                  
-                <input type="submit" class="Bottons postBotton" value="Post" name="post_submit"/>
+                <input type="submit" class="Bottons postBotton" onclick="return check()" value="Post" name="post_submit"/>
             </p>
             </form>
             </div> <!-- end container -->
         </div> <!-- end postingPage -->
 
+        <script>
+
+            function check(){
+               return alert("Job Request Posted Successfully");
+           }
+           
+           </script>
+           
         <footer> <!-- footer -->
             <table class="tableF">
                 <tr>

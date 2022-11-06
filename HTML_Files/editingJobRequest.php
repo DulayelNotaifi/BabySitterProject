@@ -111,7 +111,7 @@ $result2 = mysqli_query($connection, $kidss);
                 <p id="formInfo">
 
                 <div id="kids_info">
-                    <label class="nameLabel"> Kid/s Name: 
+                    <label class="nameLabel"> Kid/s Name:
                         <input class="inputName" name="kidsname[]" type="text" placeholder="Enter Kid Name" required> 
                     </label>
                     
@@ -129,7 +129,12 @@ while($kidrow = mysqli_fetch_row($result2)){
     next($kidrow);
 
 ?>
-<script>
+<script type="text/javascript">
+   var Kname = "<?php echo $kidrow[$kname]; ?>";
+   var kAge = "<?php echo  $kidrow[$kAge] ?>";
+
+var kids_info = document.getElementById('kids_info');
+
   var nameField = document.createElement('input');
   var ageField = document.createElement('input');
 
@@ -138,7 +143,7 @@ while($kidrow = mysqli_fetch_row($result2)){
   nameField.setAttribute('class','inputExtraName');
   nameField.setAttribute('size',50);
   nameField.setAttribute('placeholder','Enter Kid/s name');
-  nameField.setAttribute('value','<?php echo(($kidrow[$kname]))?>');
+  //nameField.setAttribute('value','Kname');
   kids_info.appendChild(nameField);
 
 
@@ -149,12 +154,18 @@ while($kidrow = mysqli_fetch_row($result2)){
   ageField.setAttribute('placeholder','Enter Kid/s age');
   ageField.setAttribute('min',0);
   ageField.setAttribute('max',17);
-  ageField.setAttribute('value','<?php echo(($kidrow[$kAge]))?>');
+  //ageField.setAttribute('value','kAge');
   kids_info.appendChild(ageField);
+
 </script>
 
+<div class="controls">
+                          <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
+                          <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
+                        </div>
 <?php }
 ?>
+
 
 </div>
                 <label class="serviceLabel"> Type Of Service: 

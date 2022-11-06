@@ -217,3 +217,8 @@ width: 530px;
     left: 180px;
 }
 
+a:any-link {
+    color: black;
+    text-decoration: none;
+    cursor: auto;
+    }
