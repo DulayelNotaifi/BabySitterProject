@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
-<style> 
-html, body{
-    height:100%;
-    width: 100%; 
-    margin: 0; 
-    display: table;
-}
-footer{display:table-row;}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
 
-</style>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <script src="rating.js"></script>
 </head>
 
 <body>
@@ -55,14 +55,18 @@ footer{display:table-row;}
                 $feedBack = addslashes($_POST['feedBack']);
                 $Rate = addslashes($_POST['Rate']);
                 $Date_ = date('Y-m-d');
-                $time_ = date('H:i:s');
+                $time_ = date('H:i');
                 $babySitterEmail=$_GET['babySitterEmail'];
-    
-    
-                $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail
-                   ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail')";
-    
-    
+                $parentEmail=$_SESSION['email'];
+
+                $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail,parentEmail
+                   ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail','$parentEmail')";
+
+                if ($connection->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $connection->error;
+                }
     
     
                 ?>
@@ -74,8 +78,9 @@ footer{display:table-row;}
 
             <form method = "post"  action = "<?php $_PHP_SELF ?>" name="myform" id="myform" onsubmit="return validateform()">
                 <?php
+                $id=$_GET['babySitterEmail'];
                 $sql_view = "SELECT * FROM `offers`   INNER JOIN babysitter
-        ON babysitter.email = offers.babySitterEmail ";
+        ON babysitter.firstName = offers.babySitterName  where offers.id='$id'";
         
                 $userFound = mysqli_query($connection,$sql_view);
                 if($userFound) {
@@ -108,7 +113,7 @@ footer{display:table-row;}
 
 
           <label >Give Your Feedback:</label><br>
-          <textarea  placeholder="Write something.." > </textarea>
+          <textarea  placeholder="Write something.." name="feedBack"> </textarea>
       <br>
 
 

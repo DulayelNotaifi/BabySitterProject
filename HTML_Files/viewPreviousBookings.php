@@ -9,8 +9,7 @@
     <link href="../CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
-
-    <style> 
+<style> 
 html, body{
     height:100%;
     width: 100%; 
@@ -20,6 +19,7 @@ html, body{
 footer{display:table-row;}
 
 </style>
+ 
 </head>
 
 <body>
@@ -40,22 +40,22 @@ footer{display:table-row;}
 
 
 
-    <?php
+        <?php
 
-$servername= "localhost";
-$username= "root" ;
-$password= "";
-$dbname= "381project" ;
-$connection= mysqli_connect($servername,$username,$password,$dbname);
-$database= mysqli_select_db($connection, $dbname);
-if (!$connection)
-    die("Connection failed: " . mysqli_connect_error());
-$session_email= $_SESSION['email'];
-$sql = "SELECT * FROM `offers`  INNER JOIN requests
+        $servername= "localhost";
+        $username= "root" ;
+        $password= "";
+        $dbname= "381project" ;
+        $connection= mysqli_connect($servername,$username,$password,$dbname);
+        $database= mysqli_select_db($connection, $dbname);
+        if (!$connection)
+            die("Connection failed: " . mysqli_connect_error());
+        $session_email= $_SESSION['email'];
+        $sql = "SELECT * FROM `offers`  INNER JOIN requests
 ON requests.ID = offers.RequestID  INNER JOIN babysitter
 ON babysitter.email  = offers.babySitterEmail   where requests.ParentEmail='$session_email' and offers.offerstatus='accepted'";
 
-$userFound = mysqli_query($connection,$sql);
+        $userFound = mysqli_query($connection,$sql);
         if($userFound){
 
         if(mysqli_num_rows($userFound) > 0) {
@@ -89,7 +89,7 @@ $userFound = mysqli_query($connection,$sql);
             <label class="timeslotslabel2"> To: </label>
             <label class="timeslots2"> <?php echo $row['endTime']; ?>AM</label> <br>
         </p>
-            <a href="tel:<?php echo($row[$phone ]);?>"><input  type="submit" class="email" value="contact" ></a>
+            <a href="tel:<?php echo($row['phone']);?>"><input  type="submit" class="email" value="contact" ></a>
             <a href='../HTML_Files/review&rate.php?babySitterEmail=<?php echo ($row['babySitterEmail'])?>'>  <input  type="submit" class="review" value="review" ></a>
          
     
@@ -146,3 +146,4 @@ $userFound = mysqli_query($connection,$sql);
 
 
     </body></html>
+
