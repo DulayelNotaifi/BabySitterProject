@@ -36,49 +36,67 @@ footer{display:table-row;}
     
 
 
-   
+    <?php
 
-<?php
+    $servername= "localhost";
+    $username= "root" ;
+    $password= "";
+    $dbname= "381project" ;
+    $connection= mysqli_connect($servername,$username,$password,$dbname);
+    $database= mysqli_select_db($connection, $dbname);
+    if (!$connection)
+        die("Connection failed: " . mysqli_connect_error());
+    $session_email= $_SESSION['email'];
+    $sql = "SELECT * FROM `offers`  INNER JOIN requests
+ON requests.ID = offers.RequestID INNER JOIN parent
+ON parent.email  = requests.ParentEmail   where offers.babySitterEmail ='$session_email' and offers.offerstatus='accepted'";
 
-$servername= "localhost";
-$username= "root" ;
-$password= "";
-$dbname= "381project" ;
-$connection= mysqli_connect($servername,$username,$password,$dbname);
-$database= mysqli_select_db($connection, $dbname);
-if (!$connection)
-    die("Connection failed: " . mysqli_connect_error());
-$session_email= $_SESSION['email'];
-$sql = "SELECT * FROM `offers`  INNER JOIN requests
-ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.email  = offers.babySitterEmail INNER JOIN kids
-ON kids.ID  = requests.ID  where offers.babySitterEmail ='$session_email' and offers.offerstatus='accepted'";;
+    $userFound = mysqli_query($connection,$sql);
+    if($userFound){
 
-$userFound = mysqli_query($connection,$sql);
-if($userFound){
+    if (mysqli_num_rows($userFound) > 0) {
 
-if (mysqli_num_rows($userFound) > 0) {
-
-while ($row = mysqli_fetch_assoc($userFound)) {
-    if ($row['startDate'] > date('Y-m-d')) {
-        ?>
-
+    while ($row = mysqli_fetch_assoc($userFound)) {
+        if ($row['startDate'] >= date('Y-m-d')) {
+            ?>
     
     
     <div class="y">
     <img src="../public/userImages/<?php echo $row['img']; ?>" id="sitterPic" alt="babystter picture">
                 <p>
 
-        
-            <label class="NameLabel">Baby Name: </label>
-            <label class="Name"><?php echo $row['kidName']; ?></label><br>
-    
-            <label class="PriceLabel"> Price/hr: </label>
-            <label class="Price"><?php echo $row['price']; ?> SAR</label> <br>
 
-            <label class="StartDateLabel">Date: </label>
-            <label class="StartDate"><?php echo $row['startDate']; ?></label><br>
+                    <?php $id= $row['ID'];
+                    $sql_kids = "SELECT * FROM `kids`   where ID ='$id' ";
+
+                    $userFound_kids = mysqli_query($connection,$sql_kids);
+                    if($userFound_kids) {
+
+                        if (mysqli_num_rows($userFound_kids) > 0) {
+
+                            while ($row_kids = mysqli_fetch_assoc($userFound_kids)) {
+                                ?>
+
+                                <label class="NameLabel">Baby Name: </label>
+                                <label class="Name"><?php echo $row_kids['kidName'].', '; ?></label>
+
+                                <label class="NameLabel">Age: </label>
+                                <label class="Name"><?php echo $row_kids['kidAge'].' Years'; ?></label><br>
+                            <?php }
+                        }
+                    } ?>
     
+            <label class="PriceLabel">Price/hr:</label>
+            <label class="Price"><?php echo $row['price'];?>SR</label> 
+
+            <label class="StartDateLabel">Date:</label>
+            <label class="StartDate"><?php echo $row['startDate'];?></label>
+            <br>
+    
+            <label class="PriceLabel"> Type Of Servese: </label>
+            <label class="Price"><?php echo $row['TypeOfServese']; ?> </label> <br>
+
+            
     
             <label class="timeslotslabel"> From: </label>
             <label class="timeslots"><?php echo $row['startTime']; ?></label> 

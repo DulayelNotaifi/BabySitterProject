@@ -55,14 +55,18 @@ footer{display:table-row;}
                 $feedBack = addslashes($_POST['feedBack']);
                 $Rate = addslashes($_POST['Rate']);
                 $Date_ = date('Y-m-d');
-                $time_ = date('H:i:s');
+                $time_ = date('H:i');
                 $babySitterEmail=$_GET['babySitterEmail'];
-    
-    
-                $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail
-                   ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail')";
-    
-    
+                $parentEmail=$_SESSION['email'];
+
+                $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail,parentEmail
+                   ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail','$parentEmail')";
+
+                if ($connection->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $connection->error;
+                }
     
     
                 ?>
@@ -72,10 +76,11 @@ footer{display:table-row;}
             } ?>
     
 
-            <form method = "post"  action = "<?php $_PHP_SELF ?>" name="myform" id="myform" onsubmit="return validateform()">
+    <form method = "post"  action = "<?php $_PHP_SELF ?>" name="myform" id="myform" onsubmit="return validateform()">
                 <?php
+                $id=$_GET['babySitterEmail'];
                 $sql_view = "SELECT * FROM `offers`   INNER JOIN babysitter
-        ON babysitter.email = offers.babySitterEmail ";
+        ON babysitter.firstName = offers.babySitterName  where offers.id='$id'";
         
                 $userFound = mysqli_query($connection,$sql_view);
                 if($userFound) {
@@ -108,7 +113,7 @@ footer{display:table-row;}
 
 
           <label >Give Your Feedback:</label><br>
-          <textarea  placeholder="Write something.." > </textarea>
+          <textarea  placeholder="Write something.." name="feedBack"> </textarea>
       <br>
 
 
