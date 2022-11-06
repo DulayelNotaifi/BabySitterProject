@@ -137,7 +137,7 @@ $x++;
         <p class="SitterInfo">
         <label class="nameLabel">Babysitter Name: </label> 
        <label class="Name"><?php echo(($row[$babySitterName])); ?></label><br><br>
-       <a class=""href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
+       <a class="sitterProfile"href="http://localhost/BabySitterProject/HTML_Files/BabySitterProfile.php?id=<?php echo($id) ?>&em=<?php echo( $row[$sitterEm]) ?>">View babystter Profile</a>  
     
       
      
