@@ -140,7 +140,18 @@ echo($numOfKids );
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
 <form action="../PHP_Files/sendOffer.php" method="GET">
 <label class="OfferPrice">Set Offer:  
-                <input  id="offerP" name="OfferPrice" type="number" min="0" max="99999">
+                <input  style="   
+                 position: absolute;
+   height: 20px;
+   margin-left: 6px;
+   border-style: solid;
+   background-color: white; 
+   font-weight: bold; 
+   border: 1px solid black;" id="offerP" name="OfferPrice" type="number" min="0" max="99999"><span
+   style=" position: absolute;
+   margin-left: 60px;
+   color: #000;
+    padding:5px;">SAR/hr</span>
                 </label> <br><br>
            <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/>
            <input  name="day" type="hidden" value="<?php echo($row[$start_day])?>"/>
@@ -148,7 +159,7 @@ echo($numOfKids );
            <input  name="toTime" type="hidden" value="<?php echo($row[$end_time])?>"/>
             <input type="submit" class="sendOffer" name="offer_submit" value="Send"/> 
 
-   
+
 </form>
 </p>
 
