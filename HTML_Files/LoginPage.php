@@ -46,7 +46,7 @@
                 <div class="Form-login">
                     <h2 class="logHead"> Login </h2>
 
-                    <form action="http://localhost/BabySitterProject/PHP_Files/loginprossses.php" method="post">
+                    <form action="../PHP_Files/loginprossses.php" method="post">
                         <?php
 if(isset($_GET['error'])){
 

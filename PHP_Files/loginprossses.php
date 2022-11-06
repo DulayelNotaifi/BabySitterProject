@@ -41,7 +41,7 @@ die("Connection failed: " . mysqli_connect_error());
                             $_SESSION['lastName']=$row['lastName'];
                             $_SESSION['img']=$row['img'];
 
-                        header('Location:../BabySitterProject/HTML_Files/babysitterhome.php');
+                        header('Location:../HTML_Files/babysitterhome.php');
                         exit;
                     }
                     //}
