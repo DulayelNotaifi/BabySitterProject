@@ -101,6 +101,7 @@ $requests = get_requests($_SESSION['email']);
         else if (strtolower($row["offerstatus"]) == "rejected")
           echo '<td class="Red">' . $row["offerstatus"] . '</td>';
         echo '</tr>';
+         $count = $count +1;
       }
       ?>
 
