@@ -37,9 +37,13 @@ footer {
 <div id="content">
 
  <?php
+session_start();
+$pemail =  $_SESSION['email'];
  
 include('../PHP_Files/connect_db.php');
-$val1 = "SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` " ;
+$val1 = "SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM  `requests` 
+WHERE `ParentEmail` = '$pemail' 
+ AND `status`  = 'unserved' " ;
 $result1 = mysqli_query($connection, $val1);
 $valu = mysqli_num_rows($result1);
 ?>
@@ -50,6 +54,7 @@ $valu = mysqli_num_rows($result1);
 $x = 0;
 $y=0;
 
+if($valu > 0 ) {
 while($x< $valu  ){
 
  $x++;  
@@ -73,8 +78,8 @@ while($x< $valu  ){
    $status = key($row);
    next($row);
 
-   if($row[$status] == "unserved") {$y=-1; } 
-   if($row[$status] == "served") continue;
+ // if($row[$status] == "unserved") {$y=-1; } 
+ // if($row[$status] == "served") continue;
 
 $kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
 $result2 = mysqli_query($connection, $kidss);
@@ -107,14 +112,10 @@ echo($numOfKids );
 
 <?php
  }//end while
+}else {
  ?>
 
 </div>
-
- <?php 
-
-      if($y == 0){
- ?>
    
    <div class="noReq" style="    background-color: rgb(248, 250, 219);
     position: relative;
@@ -136,7 +137,7 @@ echo($numOfKids );
      
 
     <!-- footer-->
-
+</div>
     <footer> 
         <table class="tableF">
             <tr>

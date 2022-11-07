@@ -151,6 +151,8 @@ if(isset($_SESSION['ERROR2'])){
 unset($_SESSION['ERROR2']);
 }
 ?>
+
+
 <?php 
 if(isset($_SESSION['Correct'])){
    
@@ -161,7 +163,7 @@ if(isset($_SESSION['Correct'])){
 ?>
 
    
-
+</div>
     <footer> <!-- footer -->
         <table class="tableF">
             <tr>
