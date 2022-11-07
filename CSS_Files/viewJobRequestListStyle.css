@@ -119,10 +119,10 @@ line-height: 30px;
 
 .sendOfferDetails{
     position: absolute;
-    left: 320px;  
+    left: 290px;  
     bottom: 15px;
     height: 30px;
-    width: 280px;
+    width: 275px;
     background-color: #ffffff;
     border: 1px solid black;
 }
@@ -133,10 +133,10 @@ line-height: 30px;
 }
 .goBack{
     position: absolute;
-    left: 30px; 
+    left: 10px; 
     bottom: 15px;
     height: 30px;
-    width: 280px;
+    width: 275px;
     background-color: #ffffff;
     border: 1px solid black;
 }
