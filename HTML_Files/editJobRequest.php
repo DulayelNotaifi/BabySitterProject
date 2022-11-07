@@ -18,7 +18,7 @@
         
             //error_reporting(E_ERROR | E_WARNING | E_PARSE);
                   //  include 'connect_db.php';
-            echo "HI";
+            /*echo "HI";
             $select = "SELECT * FROM requests WHERE created_at < (NOW() - INTERVAL 1 HOUR)  AND `status` = 'unserved'";
             $q = mysqli_query($connection, $select);
             if($q)
@@ -31,7 +31,7 @@
                  if($q2)
                  echo "done2" ;
               }
-            }
+            }*/
             
             $query = "UPDATE requests SET `status` =  'expired' WHERE created_at < (NOW() - INTERVAL 1 HOUR) AND `status` = 'unserved'";
             $q3 = $result = mysqli_query($connection, $query);
