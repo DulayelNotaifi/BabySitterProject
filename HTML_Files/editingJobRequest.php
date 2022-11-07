@@ -126,7 +126,6 @@ while($kidrow = mysqli_fetch_row($result2)){
                     <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"></textarea>
                 </label>
                 <br>
-                 
                 <input  name="idReq" type="hidden" value="<?php echo($id2)?>"/>
                 <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 

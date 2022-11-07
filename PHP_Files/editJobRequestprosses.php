@@ -25,16 +25,16 @@ if(isset($_POST['edit_submit'])){
         //$kidsages = $_POST['kidsages']; 
         $id =  $_POST['idReq'];
         $service = $_POST['service'];
-        $form_day = $_POST['form_day'];
+        $form_day = $_POST['day'];
        // $to_day = $_POST['to_day'];
         $from_time = $_POST['from_time'];
         $to_time = $_POST['to_time'];
 
-        echo $id ;
-        echo $service ;
+       // echo $id ;
+       // echo $service ;
         echo $form_day ;
-        echo $from_time ;
-        echo $to_time ;
+      //  echo $from_time ;
+      //  echo $to_time ;
 
 
 
