@@ -19,17 +19,25 @@ if(isset($_POST['edit_submit'])){
     //$ID = mysqli_insert_id($connection);
     //echo "$ID";
 
-    if( isset($_POST['service']) && isset($_POST['form_day']) && isset($_POST['from_time']) && isset($_POST['to_time']) && isset($_POST['id']) ){
+    //if( isset($_POST['service']) && isset($_POST['form_day']) && isset($_POST['from_time']) && isset($_POST['to_time']) && isset($_POST['id']) ){
+        
         //$kidsname = $_POST['kidsname'];
         //$kidsages = $_POST['kidsages']; 
-        $id =  $_POST['id'];
+        $id =  $_POST['idReq'];
         $service = $_POST['service'];
         $form_day = $_POST['form_day'];
        // $to_day = $_POST['to_day'];
         $from_time = $_POST['from_time'];
         $to_time = $_POST['to_time'];
 
-        
+        echo $id ;
+        echo $service ;
+        echo $form_day ;
+        echo $from_time ;
+        echo $to_time ;
+
+
+
         if(!empty($_POST['comments']))
         $comments = $_POST['comments'];
         else
@@ -39,20 +47,19 @@ if(isset($_POST['edit_submit'])){
         $city = $_SESSION['City'];
         $district = $_SESSION['District'];
         $pemail =  $_SESSION['email'];
-
-        $createdAt = $date = date('m/d/Y h:i:s', time());
-
-        echo "$createdAt";
-        $sql = "UPDATE `requests` SET `TypeOfServese`='$service',`startTime`='$from_time',`endTime`='$to_time',`startDate`='$form_day',`comments`='$comments' WHERE `ID` = '27'";
+        //,`comments`='$comments'
+        $sql = "UPDATE `requests` SET `TypeOfServese`='$service',`startTime`='$from_time',`endTime`='$to_time',`startDate`='$form_day' WHERE `ID` = '$id'";
         //$sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `created_at`, `city`, `District`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','$name', NULL, 'unserved', '$pemail', '2022-11-04 00:00:00', '$city' , '$district' )";
         //$sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`, `city`, `District`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','Mona', NULL, 'unserved', 'parent1@gmail.com', '2022-11-04', 'Riyadh' , 'aldreya')";
+        echo 'done0';
         $query = mysqli_query($connection,$sql);
-        print_r($_POST);
+        echo 'done01';
        // isset($_POST['kidsname']) && isset($_POST['kidsages']) &&
+     
        if( $query ){
         echo 'done1';
-        
-        //remove kids
+        print_r($_POST);
+        /*//remove kids
         $sql = "DELETE FROM `kids` WHERE `ID` = $id";
         $query = mysqli_query($connection,$sql);
         if( $query ){
@@ -66,14 +73,14 @@ if(isset($_POST['edit_submit'])){
            $kidAge = $_POST["kidsage"]["$x"];
             $sql = "INSERT INTO `kids` (`ID`, `kidName`, `kidAge`) VALUES ('$id', '$kidName', '$kidAge')";
             $query = mysqli_query($connection,$sql);
-          }
-         
-    //header("Location: http://localhost/BabySitterProject/HTML_Files/editingJobRequest.php");
+          }*/
+        
+    //header("Location: http://localhost/BabySitterProject/HTML_Files/editJobRequest.php");
     }}
     else{
         echo 'fail';
         }
-    }
-}
+   // }
+//}
 
 ?> 
