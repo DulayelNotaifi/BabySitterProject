@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $valid = true;
 
-    if ($name == ""|| !ctype_alpha($name)) {
+    if ($name == ""|| !ctype_alpha(str_replace(" ", "", $name))) {
         $name_err = " please enter a valid name";
         $valid = false;
     }
