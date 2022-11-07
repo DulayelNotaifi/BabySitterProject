@@ -201,7 +201,8 @@ next($row);
     ?>
 
         <label><?php echo($row3[$pr])?> SAR/hr</label>
-        <a href="tel:<?php echo($row[$phone ]);?>"><button type="button">Contact <?php echo($row[$fname]) ?></button></a>
+        <a href="tel:<?php echo($row[$phone ]);?>"><button type="button">call <?php echo($row[$fname]) ?><i class="fa-solid fa-phone fa-lg" style="color: white"></i></button></a>
+        <a style="position:absolute; margin-left:800px;"href="https://api.whatsapp.com/send/?phone=<?php echo($row[$phone ]);?>&text=hi&type=phone_number&app_absent=0'target='_blank"><button type="button">messaging <?php echo($row[$fname]) ?><i class="fa-brands fa-whatsapp fa-lg" style="color: white;"></i></button></a>
     </div>
     <!--End of contact bar-->
 
