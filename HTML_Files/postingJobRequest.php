@@ -87,9 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO `kids` (`ID`, `kidName`, `kidAge`) VALUES ('$id', '$kidName', '$kidAge')";
             $query = mysqli_query($connection,$sql);
           }
-          echo '<script>alert("Posted successful!");</script>';
+          echo '<script>alert("Posted successful!");window.location.href="postingJobRequest.php";</script>';
 
-    header("Location: http://localhost/BabySitterProject/HTML_Files/postingJobRequest.php");
+    //header("Location: http://localhost/BabySitterProject/HTML_Files/postingJobRequest.php");
     }
     else{
         echo 'fail';
