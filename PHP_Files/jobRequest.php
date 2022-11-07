@@ -1,6 +1,6 @@
 <?php
 session_start();
-print_r($_session);
+
 
 
 if(isset($_POST['post_submit'])){
@@ -29,19 +29,20 @@ if(isset($_POST['post_submit'])){
         $to_time = $_POST['to_time'];
 
         
-        if(isset($_POST['comments']))
+        if(!empty($_POST['comments']))
         $comments = $_POST['comments'];
         else
         $comments = "no comment added";
-        print_r($_POST);
+
         $name = $_SESSION['firstName'];
         $city = $_SESSION['City'];
         $district = $_SESSION['District'];
         $pemail =  $_SESSION['email'];
-        $sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','$name', NULL, 'unserved', '$pemail', '2022-11-04', '$city' , '$district' )";
+        print_r($_POST);
+        $sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`, `city`, `District`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','$name', NULL, 'unserved', '$pemail', '2022-11-04', '$city' , '$district' )";
         //$sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`, `city`, `District`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','Mona', NULL, 'unserved', 'parent1@gmail.com', '2022-11-04', 'Riyadh' , 'aldreya')";
         $query = mysqli_query($connection,$sql);
-        
+
        // isset($_POST['kidsname']) && isset($_POST['kidsages']) &&
        if( $query ){
         echo 'done1';

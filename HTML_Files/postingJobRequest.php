@@ -8,6 +8,16 @@
         <link rel="stylesheet" href="../CSS_Files/menustyle.css">
         <link rel="stylesheet" href="../CSS_Files/footer.css">
         <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+      <script type="text/javascript">
+    window.onload=function(){//from ww  w . j  a  va2s. c  o  m
+var today = new Date().toISOString().split('T')[0];
+
+document.getElementsByName("form_day")[0].setAttribute('min', today);
+    }
+
+      </script> 
     </head>
     
     <body>
@@ -37,16 +47,13 @@
                         <div class="controls">
                           <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
                           <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
+                          <p>Select + to add child, - to remove child</p>
                         </div>
                 
                 <label class="serviceLabel"> Type Of Service: 
                     <input class="inptService" name="service" type="text" placeholder="Enter type of service you want" required> 
                 </label>
                 
-                <script>
-                    datepickr = new Date().toISOString().split("T")[0];
-                    datepickr1 = new Date().toISOString().split("T")[0];
-                    </script>
                 <label class="durationLabel"> Duration: <br>
                 Date:<input class="inputDay" name="form_day" type="date" min=<?php echo date('Y-m-d', strtotime('+2 days') ); ?>required > </label>
                 <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" required > </label>
