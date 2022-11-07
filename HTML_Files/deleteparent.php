@@ -31,20 +31,33 @@ die("Connection failed: " . mysqli_connect_error());
     <div class="down-more-cont">
         <div class="backy">
         <form action="../PHP_Files/deleteparentaccproccess.php" method="POST" enctype="multipart/form-data">
-        <?php
+        
+            <label for="password">Please enter your password to delete your account:</label>
+            <?php
 if(isset($_GET['error'])){
 
 if($_GET['error'] == 'failToDelete'){
     ?>
     
-    <div class="alert alert-danger" role="alert">
-    Please Enter correct password
-</div>
+    <span style="color:red;">
+    <br>
+     please enter correct password
+</span>
     
 <?php
+}elseif($_GET['error'] == 'serReq'){
+    ?>
+    
+    <span style="color:red;">
+    <br>
+    you have a served request that has not came yet you are unable to delete your account
+</span>
+    
+<?php
+
 }}
 ?>
-            <label for="password">Please enter your password to delete your account:</label>
+
             <input type="password" class="inputing-text" id="password" name="uPassword" placeholder="Enter your password" required>
             <p id="onlyDelNow"class="more-space-on-bottom"></p>
 
