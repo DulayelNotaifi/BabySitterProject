@@ -21,6 +21,16 @@
             crossorigin="anonymous"></script>
 
     <script src="rating.js"></script>
+    <style> 
+html, body{
+    height:100%;
+    width: 100%; 
+    margin: 0; 
+    display: table;
+}
+footer{display:table-row;}
+
+</style>
 </head>
 
 <body>
@@ -62,15 +72,15 @@
                 $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail,parentEmail
                    ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail','$parentEmail')";
 
-                if ($connection->query($sql) === TRUE) {
-                    echo "New record created successfully";
-                } else {
+                if ($connection->query($sql) === TRUE) {?>
+        <div style="text-align: center;color: green;font-size: 20px !important;"> <?php echo "Entered data successfully\n"; ?> </div>
+               <?php } else {
                     echo "Error: " . $sql . "<br>" . $connection->error;
                 }
     
     
                 ?>
-                <div style="text-align: center;color: red;font-size: 20px !important;"> <?php echo "Entered data successfully\n"; ?> </div>
+
                 <?php
     
             } ?>
@@ -113,7 +123,7 @@
 
 
           <label >Give Your Feedback:</label><br>
-          <textarea  placeholder="Write something.." name="feedBack"> </textarea>
+          <textarea  placeholder="Write something.." name="feedBack"></textarea>
       <br>
 
 
@@ -130,7 +140,7 @@
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
                 <th><a href="FAQ.html"> FAQs </a></th>
-                <th><a href="ContactUs.html"> Contact Us </a></th>
+                <th><a href="ContactUs.php"> Contact Us </a></th>
             </tr>
         </table>
         <div id="shareProfile">
