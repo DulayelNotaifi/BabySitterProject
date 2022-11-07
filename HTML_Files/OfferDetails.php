@@ -132,7 +132,7 @@ $x++;
 ?> 
         <div class="container" style="display: inline-block; margin-left: 45px; margin-top: 20px;">
 
-        <img src="<?php echo(($row2[$sitterPic])); ?>" id="sitterPic" alt="babystter picture">
+        <img src="../public/userImages/<?php echo(($row2[$sitterPic])); ?>" id="sitterPic" alt="babystter picture">
 
         <p class="SitterInfo">
         <label class="nameLabel">Babysitter Name: </label> 

@@ -56,7 +56,7 @@ next($row);
     
 
     <div id="picBar">
-        <img src="<?php echo($row[$image ]);?>" id="sitterPic" alt="babystter picture">
+        <img src="../public/userImages/<?php echo($row[$image ]);?>" id="sitterPic" alt="babystter picture">
         <label><?php echo($row[$fname])?>  <?php echo($row[$lname]) ?></label><br>
         <label class="sitterage"> <?php echo($row[$age])?> Years Old, <?php echo($row[$city])?></label><br>  
     </div>
