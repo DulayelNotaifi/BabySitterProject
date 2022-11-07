@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $target_file = $target_dir . basename($_FILES["img"]["name"]);
             move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
 
-            echo '<script>alert("Registration successful!");window.location.href="parenthome.php";</script>';
+            echo '<script>alert("Registration successful!");window.location.href="LoginPage.php";</script>';
 
         }
     }
