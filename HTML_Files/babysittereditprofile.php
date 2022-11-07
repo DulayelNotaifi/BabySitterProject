@@ -156,6 +156,10 @@ $fname = $_POST["firstname"];
         $email_err = " this email is already registered, please enter a different email!";
         $valid = false;
     }}
+    if (!preg_match("/^[0-9]$/i", $id)) {
+        $id_err = " please enter a valid id!";
+        $valid = false;
+    }
     
      
 if ($valid) {
@@ -265,10 +269,10 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
                                     //print_r("ygbyb8yn".$row['email']);
                                 ?>
                                 
-                <label for="firstname">First Name:</label><span style="color:red"><?php echo $fname_err; ?>  </span>
+                <label for="firstname">First Name:</label><span style="color:red;"><?php echo $fname_err; ?>  </span>
                 <input type="text" class="inputing-text" id="firstname" name="firstname" placeholder="Enter your first name"
                 value="<?php echo $row['firstName']; ?>">
-                <label for="lastname">Last Name:</label><span style="color:red"> <?php echo $lname_err; ?> </span>
+                <label for="lastname">Last Name:</label><span style="color:red;"> <?php echo $lname_err; ?> </span>
                 <input type="text" class="inputing-text" id="lastname" name="lastname" placeholder="Enter your last name"
                 value="<?php echo $row['lastName']; ?>">
                 <p class="more-space-on-bottom"></p>
@@ -277,14 +281,14 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
                 <input type="radio" name="gender" value="male"<?php if (isset($row['gender']) && strtolower($row['gender'])=="male") echo "checked";?>> Male
                 <input type="radio" name="gender" value="female"<?php if (isset($row['gender']) && strtolower($row['gender'])=="female") echo "checked";?>> Female
                 <p class="more-space-on-bottom"></p>
-                <label for="id">ID:</label><span style="color:red">  </span>
+                <label for="id">ID:</label><span style="color:red;"> <?php echo $id_err; ?> </span>
                 <input type="text" class="inputing-text" id="id" name="id" placeholder="Enter your ID"
                 value="<?php echo $row['ID']; ?>">
-                <label for="age">Age:</label><span style="color:red">  </span>
+                <label for="age">Age:</label><span style="color:red;">  </span>
                 <input type="text" class="inputing-text" id="age" name="age" placeholder="Enter your age"
                 value="<?php echo $row['age']; ?>">
 
-                <label for="eMail">Email:</label><span style="color:red"> <?php echo $email_err; ?> </span>
+                <label for="eMail">Email:</label><span style="color:red;"> <?php echo $email_err; ?> </span>
                 
                 <?php
 if(isset($_GET['error'])){
@@ -303,10 +307,10 @@ if($_GET['error'] == 'emailDup'){
 ?>
 <input type="email" class="inputing-text" id="eMail" name="eMail" placeholder="Enter your new email"
                 value="<?php echo $row['email']; ?>">
-                <label for="city">City:</label><span style="color:red"> <?php echo $city_err; ?> </span>
+                <label for="city">City:</label><span style="color:red;"> <?php echo $city_err; ?> </span>
                 <input type="text" class="inputing-text" id="city" name="city" placeholder="Enter your new city"
                 value="<?php echo $row['city']; ?>">
-                <label for="phone">Phone:</label><span style="color:red"> <?php echo $phone_err; ?> </span><!--<span id="redfff"style="color:red;"></span>-->
+                <label for="phone">Phone:</label><span style="color:red;"> <?php echo $phone_err; ?> </span><!--<span id="redfff"style="color:red;"></span>-->
                 <input type="text" class="inputing-text" id="phone" name="phone" placeholder="Enter your new phone"
                 onblur="myFunction()"
                 value="<?php echo $row['phone']; ?>">
@@ -336,9 +340,9 @@ fuction geterrdet(){
     return c;
 }
 </script>
-                <label for="password"> password:</label><span style="color:red"> <?php echo $password_err; ?> </span>
+                <label for="password"> password:</label><span style="color:red;"> <?php echo $password_err; ?> </span>
                 <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your new password">
-                <label for="bio">Bio:</label><span style="color:red"> <?php echo $msg_err; ?></span> </span>
+                <label for="bio">Bio:</label><span style="color:red;"> <?php echo $msg_err; ?></span> </span>
                 <p class="more-space-on-bottom"></p>
                 <textarea name="biotextbox" id="bio" name="bio" rows="10" placeholder=" Enter the bio, such as: years of experience, education, languages spoken, skills, etc">
                 <?php echo $row['bio']; ?>
