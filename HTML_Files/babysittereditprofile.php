@@ -1,6 +1,7 @@
 <?php
 session_start();
-    
+// Report all PHP errors
+error_reporting(E_ALL);
 $servername= "localhost";
 $username= "root" ;
 $password= "";
@@ -10,6 +11,216 @@ $database= mysqli_select_db($connection, $dbname);
 // Check the connection
 if (!$connection) 
 die("Connection failed: " . mysqli_connect_error());
+$fname_err = $lname_err = $gender_err = $id_err = $age_err = $email_err = $city_err = $phone_err = $password_err =  $msg_err = $notification = "";
+if(isset($_POST['submit'])){
+    
+
+//print_r($_POST);
+$loggedInUser = $_SESSION['email'];
+$firstname  =    $_POST['firstname'];
+
+$lastname =    $_POST['lastname'];
+$gender =    $_POST['gender'];
+$id =    $_POST['id'];
+$age =    $_POST['age'];
+$eMail =    $_POST['eMail'];
+$city =    $_POST['city'];
+$phone =    $_POST['phone'];
+$bio =    $_POST['biotextbox'];
+
+$userPassword =mysqli_real_escape_string($connection,$_POST['password']);
+
+    /*$sql = "SELECT email FROM `babysitter` WHERE email = '$eMail'";
+    $result = mysqli_query($connection, $sql);
+    if(mysqli_num_rows($result)){
+        if($_FILES['img']['name']!=""){
+            //print_r($_FILES['img']);
+            $userImage    =   $_FILES['img'];   
+            $imageName = $userImage ['name'];
+            $fileType  = $userImage['type'];
+            $fileSize  = $userImage['size'];
+            $fileTmpName = $userImage['tmp_name'];
+            $fileError = $userImage['error'];
+            
+            $fileImageData = explode('/',$fileType);
+            $fileExtension = $fileImageData[count($fileImageData)-1];
+            
+            //echo  $fileExtension;
+            if($fileExtension == 'jpg' || $fileExtension == 'png' || $fileExtension == 'jpeg'){
+                //Process Image
+                
+                if($fileSize < 6161400){
+                    //var_dump(basename($imageName));
+            
+                    $fileNewName = "../public/userImages/".$imageName;
+                    
+                    $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
+                    
+                    if($uploaded){
+                        
+        
+        if(isset($_POST['password']) && $_POST['password']!= ""){
+        //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+        $userPassword =mysqli_real_escape_string($connection,$_POST['password']);
+        $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+        ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName',password ='$userPassword' WHERE email = '$loggedInUser'";
+        }else{
+            $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+            ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName' WHERE email = '$loggedInUser'";
+        }
+            print($imageName);
+                        $results = mysqli_query($connection,$sql);
+            
+                        header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php?error=emailDup');
+                    exit;
+                    }
+            
+            
+                }}}
+        
+                if(isset($_POST['password']) && $_POST['password']!= ""){
+                   // $userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+                    $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+                    ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
+        
+                    }else{
+                        $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+                        ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio' WHERE email = '$loggedInUser'";
+                        
+                    }
+                    $results = mysqli_query($connection,$sql);
+                    header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php?error=emailDup');
+                    exit;
+        
+        }
+    
+    
+
+*/
+//if(isset($_POST['password']) && $_POST['password']!= "")
+//$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
+
+
+$fname = $_POST["firstname"];
+    $lname = $_POST["lastname"];
+    if (isset($_POST["gender"]))
+        $gender = $_POST["gender"];
+    
+    $id = $_POST["id"];
+    $age = $_POST["age"];
+    $email = $_POST["eMail"];
+    echo $email;
+    $city = $_POST["city"];
+    $phone = $_POST["phone"];
+    $password = $_POST["password"];
+    //$confirmpassword= $_POST["confirmpassword"];
+    $msg = $_POST["biotextbox"];
+    
+    $valid = true;
+    if ($fname == "" || !ctype_alpha($fname)) {
+        $fname_err = " please enter a valid name!";
+        $valid = false;
+    }
+    if ($lname == "" || !ctype_alpha($lname)) {
+        $lname_err = " please enter a valid name!";
+        $valid = false;
+    }
+    if ($email == "" || !filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $email_err = " please enter a valid email!";
+        $valid = false;
+    }
+
+    if ($password!=""&&strlen($password) < 6) {
+        $password_err = " password needs to be at least 6 characters!";
+        $valid = false;
+    }
+    if ($city == "" || !ctype_alpha($city)) {
+        $city_err = " please enter a valid city!";
+        $valid = false;
+    }
+
+    if(!preg_match("/[a-zA-Z]/i", $msg)){
+        $msg_err = " please enter a valid bio (must contain letters)!";
+        $valid = false;
+    }
+    if (!preg_match("/^05\d{8}$/", $phone)) {
+        $phone_err = " please enter a valid phone number (must start with 05)!";
+        $valid = false;
+    }
+    if($email!=$_SESSION['email']){
+    $sql = "SELECT email FROM `babysitter` WHERE email = '$email'";
+    $result = mysqli_query($connection, $sql);
+    $nummy=mysqli_num_rows($result);
+    
+    if ($nummy > 0) {
+        $email_err = " this email is already registered, please enter a different email!";
+        $valid = false;
+    }}
+    
+     
+if ($valid) {
+    $_SESSION['email']=$eMail;
+if($_FILES['img']['name']!=""){
+    //print_r($_FILES['img']);
+    $userImage    =   $_FILES['img'];   
+    $imageName = $userImage ['name'];
+    $fileType  = $userImage['type'];
+    $fileSize  = $userImage['size'];
+    $fileTmpName = $userImage['tmp_name'];
+    $fileError = $userImage['error'];
+    
+    $fileImageData = explode('/',$fileType);
+    $fileExtension = $fileImageData[count($fileImageData)-1];
+    
+    //echo  $fileExtension;
+    if($fileExtension == 'jpg' || $fileExtension == 'png' || $fileExtension == 'jpeg'){
+        //Process Image
+        
+        if($fileSize < 6161400){
+            //var_dump(basename($imageName));
+    
+            $fileNewName = "../public/userImages/".$imageName;
+            
+            $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
+            
+            if($uploaded){
+                
+
+if(isset($_POST['password']) && $_POST['password']!= ""){
+//$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+$userPassword =mysqli_real_escape_string($connection,$_POST['password']);
+$sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
+,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName',password ='$userPassword' WHERE email = '$loggedInUser'";
+}else{
+    $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
+    ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName' WHERE email = '$loggedInUser'";
+}
+    print($imageName);
+                $results = mysqli_query($connection,$sql);
+    
+                header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
+            exit;
+            }
+    
+    
+        }}}
+
+        if(isset($_POST['password']) && $_POST['password']!= ""){
+           // $userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+            $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
+            ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
+
+            }else{
+                $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
+                ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio' WHERE email = '$loggedInUser'";
+                
+            }
+            $results = mysqli_query($connection,$sql);
+            header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
+            exit;
+
+}}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,15 +235,22 @@ die("Connection failed: " . mysqli_connect_error());
     <link rel="stylesheet" href="../CSS_Files/editstyle.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../CSS_Files/footer.css">
+    <style>
+        label{
+            margin-right:5px;
+        }
+    </style>
 </head>
 
 <body>
+    
+    
 <?php include("bbystrheader.php");?>
     <h2>Edit profile:</h2>
     <div class="cont need-bottom-space">
         <div class="contentedit">
 
-            <form action="../PHP_Files/editbbystrproccess.php" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
                 <?php
                 
                         $currentUser = $_SESSION['email'];
@@ -47,10 +265,10 @@ die("Connection failed: " . mysqli_connect_error());
                                     //print_r("ygbyb8yn".$row['email']);
                                 ?>
                                 
-                <label for="firstname">First Name:</label>
+                <label for="firstname">First Name:</label><span style="color:red"><?php echo $fname_err; ?>  </span>
                 <input type="text" class="inputing-text" id="firstname" name="firstname" placeholder="Enter your first name"
                 value="<?php echo $row['firstName']; ?>">
-                <label for="lastname">Last Name:</label>
+                <label for="lastname">Last Name:</label><span style="color:red"> <?php echo $lname_err; ?> </span>
                 <input type="text" class="inputing-text" id="lastname" name="lastname" placeholder="Enter your last name"
                 value="<?php echo $row['lastName']; ?>">
                 <p class="more-space-on-bottom"></p>
@@ -59,31 +277,74 @@ die("Connection failed: " . mysqli_connect_error());
                 <input type="radio" name="gender" value="male"<?php if (isset($row['gender']) && strtolower($row['gender'])=="male") echo "checked";?>> Male
                 <input type="radio" name="gender" value="female"<?php if (isset($row['gender']) && strtolower($row['gender'])=="female") echo "checked";?>> Female
                 <p class="more-space-on-bottom"></p>
-                <label for="id">ID:</label>
+                <label for="id">ID:</label><span style="color:red">  </span>
                 <input type="text" class="inputing-text" id="id" name="id" placeholder="Enter your ID"
                 value="<?php echo $row['ID']; ?>">
-                <label for="age">Age:</label>
+                <label for="age">Age:</label><span style="color:red">  </span>
                 <input type="text" class="inputing-text" id="age" name="age" placeholder="Enter your age"
                 value="<?php echo $row['age']; ?>">
 
-                <label for="eMail">Email:</label>
-                <input type="email" class="inputing-text" id="eMail" name="eMail" placeholder="Enter your new email"
+                <label for="eMail">Email:</label><span style="color:red"> <?php echo $email_err; ?> </span>
+                
+                <?php
+if(isset($_GET['error'])){
+
+if($_GET['error'] == 'emailDup'){
+    ?>
+    <span style="color:red;">
+    
+    the email you entered was already registered, please enter a different email!
+</span>
+    <!--<small class="in-log-in">Please Enter correct email and password</small>-->
+    
+<?php
+}}
+
+?>
+<input type="email" class="inputing-text" id="eMail" name="eMail" placeholder="Enter your new email"
                 value="<?php echo $row['email']; ?>">
-                <label for="city">City:</label>
+                <label for="city">City:</label><span style="color:red"> <?php echo $city_err; ?> </span>
                 <input type="text" class="inputing-text" id="city" name="city" placeholder="Enter your new city"
                 value="<?php echo $row['city']; ?>">
-                <label for="phone">Phone:</label>
+                <label for="phone">Phone:</label><span style="color:red"> <?php echo $phone_err; ?> </span><!--<span id="redfff"style="color:red;"></span>-->
                 <input type="text" class="inputing-text" id="phone" name="phone" placeholder="Enter your new phone"
+                onblur="myFunction()"
                 value="<?php echo $row['phone']; ?>">
-                <label for="password">Password:</label>
+                
+               
+
+<script>
+   var errordet=false;
+function myFunction() {
+    var phoneno =/^05\d{8}$/;
+  if(!document.getElementById("phone").value.match(phoneno))
+
+        {
+            alert("gjnkfd");global errordet=true;
+            var x = document.getElementById("redfff");
+  x.innerHTML="invalid phone number";
+        }else{
+            global errordet=false;
+            var x = document.getElementById("redfff");
+  x.innerHTML="";
+
+        }
+  
+}
+fuction geterrdet(){
+    c=global errordet;
+    return c;
+}
+</script>
+                <label for="password"> password:</label><span style="color:red"> <?php echo $password_err; ?> </span>
                 <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your new password">
-                <label for="bio">Bio:</label>
+                <label for="bio">Bio:</label><span style="color:red"> <?php echo $msg_err; ?></span> </span>
                 <p class="more-space-on-bottom"></p>
                 <textarea name="biotextbox" id="bio" name="bio" rows="10" placeholder=" Enter the bio, such as: years of experience, education, languages spoken, skills, etc">
                 <?php echo $row['bio']; ?>
                 </textarea>
                 <p class="more-space-on-bottom"></p>
-                <input class="botton-bigger" type="submit" name="submit" value="Update" />
+                <input class="botton-bigger" type="submit" name="submit" onclick="return geterrdet()" value="Update" />
 
         </div>
         <div class="forthepic bbystr">

@@ -26,12 +26,79 @@ $eMail =    $_POST['eMail'];
 $city =    $_POST['city'];
 $phone =    $_POST['phone'];
 $bio =    $_POST['biotextbox'];
-$_SESSION['email']=$eMail;
+
+$userPassword =mysqli_real_escape_string($connection,$_POST['password']);
+
+    $sql = "SELECT email FROM `babysitter` WHERE email = '$eMail'";
+    $result = mysqli_query($connection, $sql);
+    if(mysqli_num_rows($result)){
+        if($_FILES['img']['name']!=""){
+            //print_r($_FILES['img']);
+            $userImage    =   $_FILES['img'];   
+            $imageName = $userImage ['name'];
+            $fileType  = $userImage['type'];
+            $fileSize  = $userImage['size'];
+            $fileTmpName = $userImage['tmp_name'];
+            $fileError = $userImage['error'];
+            
+            $fileImageData = explode('/',$fileType);
+            $fileExtension = $fileImageData[count($fileImageData)-1];
+            
+            //echo  $fileExtension;
+            if($fileExtension == 'jpg' || $fileExtension == 'png' || $fileExtension == 'jpeg'){
+                //Process Image
+                
+                if($fileSize < 6161400){
+                    //var_dump(basename($imageName));
+            
+                    $fileNewName = "../public/userImages/".$imageName;
+                    
+                    $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
+                    
+                    if($uploaded){
+                        
+        
+        if(isset($_POST['password']) && $_POST['password']!= ""){
+        //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+        $userPassword =mysqli_real_escape_string($connection,$_POST['password']);
+        $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+        ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName',password ='$userPassword' WHERE email = '$loggedInUser'";
+        }else{
+            $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+            ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName' WHERE email = '$loggedInUser'";
+        }
+            print($imageName);
+                        $results = mysqli_query($connection,$sql);
+            
+                        header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php?error=emailDup');
+                    exit;
+                    }
+            
+            
+                }}}
+        
+                if(isset($_POST['password']) && $_POST['password']!= ""){
+                   // $userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+                    $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+                    ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
+        
+                    }else{
+                        $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname'
+                        ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio' WHERE email = '$loggedInUser'";
+                        
+                    }
+                    $results = mysqli_query($connection,$sql);
+                    header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php?error=emailDup');
+                    exit;
+        
+        }
+    
+    
 
 //if(isset($_POST['password']) && $_POST['password']!= "")
 //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT,array("cost" => 10)); 
 
-
+$_SESSION['email']=$eMail;
 
 if($_FILES['img']['name']!=""){
     //print_r($_FILES['img']);
