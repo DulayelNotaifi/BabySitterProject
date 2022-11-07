@@ -31,7 +31,7 @@ h2{
     position: relative;
     border-style: solid;
     border-radius: 30px;
-    width: 580px;
+    width: 540px;
     margin: auto;
     margin-top: 10px;
     padding: 20px;
@@ -227,4 +227,3 @@ a:any-link {
         float: right;
           margin-right: 70px
       }
-      
