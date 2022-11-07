@@ -28,31 +28,26 @@ die("Connection failed: " . mysqli_connect_error());
 
 <body>
     <?php include("parentheader.php");?>
-    
     <h2>Edit profile:</h2>
     <div class="cont aaaa">
         <div class="contentedit">
             <form action="../PHP_Files/editparentproccess.php"method="POST" enctype="multipart/form-data">
-            
-<?php 
-$currentUser = $_SESSION['email'];
-//print($_SESSION['email']);
-$sql = "SELECT * FROM `parent` WHERE email ='$currentUser'";
-//echo $currentUser;
-$gotResuslts = mysqli_query($connection,$sql);
-                if($gotResuslts){
-                    //echo mysqli_num_rows($gotResuslts);
+            <?php
                 
+                $currentUser = $_SESSION['email'];
+                //print($_SESSION['email']);
+                $sql = "SELECT * FROM `parent` WHERE email ='$currentUser'";
+
+                $gotResuslts = mysqli_query($connection,$sql);
+
+                if($gotResuslts){
                     if(mysqli_num_rows($gotResuslts)>0){
-                        //echo "ppp";
                         while($row = mysqli_fetch_array($gotResuslts)){
                             //print_r("ygbyb8yn".$row['email']);
                         ?>
                 <label for="firstname">First Name:</label>
                 <input type="text" class="inputing-text" id="firstname" name="firstname"placeholder="Enter your first name"
                 value="<?php echo $row['firstName']; ?>">
-               
-
                 <label for="lastname">Last Name:</label>
                 <input type="text" class="inputing-text" id="lastname" name="lastname"placeholder="Enter your last name"
                 value="<?php echo $row['lastName']; ?>">
@@ -62,17 +57,17 @@ $gotResuslts = mysqli_query($connection,$sql);
                 <!--<label for="city">City:</label>
                 <input type="text" class="inputing-text" id="city" name="city"placeholder="Enter your new city">-->
                 <label >Address:</label><br>
-                    <input type="text" class="inputing-text " id="loc" name= "City" placeholder= "City"
+                    <input type="text" class="inputing-text" id="loc" name= "City" placeholder= "City"
                     value="<?php echo $row['City']; ?>">
-                    <input type="text" class="inputing-text " id="loc" name="District"placeholder="District"
+                    <input type="text" class="inputing-text" id="loc" name="District"placeholder="District"
                     value="<?php echo $row['District']; ?>">
-                    <input type="text" class="inputing-text " id="loc" name="Street"placeholder="Street"
+                    <input type="text" class="inputing-text" id="loc" name="Street"placeholder="Street"
                     value="<?php echo $row['Street']; ?>">
-                    <input type="text" class="inputing-text " id="loc" name="BuildingNumber"placeholder="Building number"
+                    <input type="text" class="inputing-text" id="loc" name="BuildingNumber"placeholder="Building number"
                     value="<?php echo $row['BuildingNumber']; ?>"> 
-                    <input type="text" class="inputing-text " id="loc" name="PostalCode"placeholder="Postal code"
+                    <input type="text" class="inputing-text" id="loc" name="PostalCode"placeholder="Postal code"
                     value="<?php echo $row['PostalCode']; ?>">
-                    <input type="text" class="inputing-text "id="loc" name="SecondaryNumber"placeholder="Secondary number"
+                    <input type="text" class="inputing-text"id="loc" name="SecondaryNumber"placeholder="Secondary number"
                     value="<?php echo $row['SecondaryNumber']; ?>">
                 
                 <label for="password">Password:</label>
@@ -89,56 +84,7 @@ $gotResuslts = mysqli_query($connection,$sql);
             <input type="file" accept="image/*" name="img">
         </div>
         <?php
-}}
-/*
-else{
-    ?>
-    <label for="firstname">First Name:</label>
-    <input type="text" class="inputing-text" id="firstname" name="firstname"placeholder="Enter your first name"
-    >
-    <label for="lastname">Last Name:</label>
-    <input type="text" class="inputing-text" id="lastname" name="lastname"placeholder="Enter your last name"
-    >
-    <label for="eMail">Email:</label>
-    <input type="email" class="inputing-text" id="eMail" name="eMail"placeholder="Enter your new email"
-    >
-    <!--<label for="city">City:</label>
-    <input type="text" class="inputing-text" id="city" name="city"placeholder="Enter your new city">-->
-    <label >Address:</label><br>
-        <input type="text" class="locad " id="loc" name= "City" placeholder= "City"
-        >
-        <input type="text" class="locad " id="loc" name="District"placeholder="District"
-        >
-        <input type="text" class="locad " id="loc" name="Street"placeholder="Street"
-        >
-        <input type="text" class="locad " id="loc" name="BuildingNumber"placeholder="Building number"
-        > 
-        <input type="text" class="locad " id="loc" name="PostalCode"placeholder="Postal code"
-        >
-        <input type="text" class="locad "id="loc" name="SecondaryNumber"placeholder="Secondary number"
-       >
-    
-    <label for="password">Password:</label>
-    <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your new password">
-    <p class="more-space-on-bottom"></p>
-    <input class="botton-bigger" type="submit" name="submit" value="Update" />
-
-</div>
-
-<div class="forthepic">
-<img src="../public/userImages/defultpico.jpg" alt="profile picture" />
-<p>Upload a different photo:</p>
-
-<input type="file" accept="image/*" name="img">
-</div><?php
-}*/
-
-
-
-
-
-
-}  ?>
+}}}  ?>
         </form>
     </div>
     <footer class="rcad"> 
