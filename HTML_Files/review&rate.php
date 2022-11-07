@@ -58,32 +58,40 @@ footer{display:table-row;}
         if (!$connection)
             die("Connection failed: " . mysqli_connect_error());
 
+        $parentEmail = $_SESSION['email'];
+        $sql_email = "select count(*) as cunt from review where parentEmail ='$parentEmail'";
 
+        $result = $connection->query($sql_email);
+        while ($row = $result->fetch_assoc()) {
+        if ($row['cunt'] > 0) {?>
+            <div style=" text-align:center; color:red; font-size: 17px"> <?php echo "Email already Reviewed\n"; ?> </div>
+        <?php } else {
 
-            if(isset($_POST['add'])) {
+            if (isset($_POST['add'])) {
 
                 $feedBack = addslashes($_POST['feedBack']);
                 $Rate = addslashes($_POST['Rate']);
                 $Date_ = date('Y-m-d');
                 $time_ = date('H:i');
-                $babySitterEmail=$_GET['babySitterEmail'];
-                $parentEmail=$_SESSION['email'];
+                $babySitterEmail = $_GET['babySitterEmail'];
+                $parentEmail = $_SESSION['email'];
 
                 $sql = "INSERT INTO review " . "(feedBack, Rate, Date,time ,babySitterEmail,parentEmail
                    ) " . "VALUES('$feedBack','$Rate','$Date_','$time_','$babySitterEmail','$parentEmail')";
 
-                if ($connection->query($sql) === TRUE) {?>
-        <div style="text-align: center;color: green;font-size: 20px !important;"> <?php echo "Entered data successfully\n"; ?> </div>
-               <?php } else {
+                if ($connection->query($sql) === TRUE) { ?>
+                    <div style="text-align: center;color: green ;font-size: 20px !important;"> <?php echo "Entered data successfully\n"; ?> </div>
+                <?php } else {
                     echo "Error: " . $sql . "<br>" . $connection->error;
                 }
-    
-    
+
+
                 ?>
 
                 <?php
-    
-            } ?>
+            }
+            }
+        }?>
     
 
             <form method = "post"  action = "<?php $_PHP_SELF ?>" name="myform" id="myform" onsubmit="return validateform()">
@@ -140,7 +148,7 @@ footer{display:table-row;}
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
                 <th><a href="FAQ.html"> FAQs </a></th>
-                <th><a href="ContactUs.php"> Contact Us </a></th>
+                <th><a href="ContactUs.html"> Contact Us </a></th>
             </tr>
         </table>
         <div id="shareProfile">
