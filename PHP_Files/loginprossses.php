@@ -41,7 +41,7 @@ die("Connection failed: " . mysqli_connect_error());
                             $_SESSION['lastName']=$row['lastName'];
                             $_SESSION['img']=$row['img'];
 
-                        header('../HTML_Files/babysitterhome.php');
+                        header('Location:../HTML_Files/babysitterhome.php');
                         exit;
                     }
                     //}
@@ -69,7 +69,7 @@ die("Connection failed: " . mysqli_connect_error());
                             $_SESSION['img']=$row['img'];
                             $_SESSION['City']=$row['City'];
                             $_SESSION['District']=$row['District'];
-                            header('../HTML_Files/parenthome.php');
+                            header('Location:../HTML_Files/parenthome.php');
                         exit;
                         }
                     }
@@ -81,7 +81,7 @@ die("Connection failed: " . mysqli_connect_error());
             
         }
         
-        header('../HTML_Files/LoginPage.php?error=failToLogIn');
+        header('Location:../HTML_Files/LoginPage.php?error=failToLogIn');
         
         
     }
