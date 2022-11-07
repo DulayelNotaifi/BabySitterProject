@@ -71,11 +71,12 @@ $rates = get_rates($_SESSION["email"]);
     <div class="outerDiv">
         <?php
         while ($row = mysqli_fetch_assoc($rates)) {
+            
             // dd($row);
             echo '
                     <div class="SubDiv">
                         <div class="innerDiv">
-                            <img class="userImg" src="' . $row["img"] . '">
+                            <img class="userImg" src="../public/userImages/' . $row["img"] . '">
                             <Strong class="Reviewers">' . $row["firstName"] . " " . $row["lastName"] . '</Strong><br>
                             <p class="date">' . $row["time"] . " " . $row["date"] . '</p>
                             ';

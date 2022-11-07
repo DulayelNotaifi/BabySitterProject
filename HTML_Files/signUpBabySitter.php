@@ -22,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $msg = validate($_POST["bio"]);
 
     $valid = true;
-    if ($fname == "" || !ctype_alpha($fname)) {
+    if ($fname == "" || !ctype_alpha(str_replace(" ", "", $fname))) {
         $fname_err = " please enter a valid name!";
         $valid = false;
     }
-    if ($lname == "" || !ctype_alpha($lname)) {
+    if ($lname == "" || !ctype_alpha(str_replace(" ", "", $lname))) {
         $lname_err = " please enter a valid name!";
         $valid = false;
     }
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password_err = " password needs to be at least 6 characters!";
         $valid = false;
     }
-    if ($city == "" || !ctype_alpha($city)) {
+    if ($city == "" || !ctype_alpha(str_replace(" ", "", $city))) {
         $city_err = " please enter a valid city!";
         $valid = false;
     }
@@ -93,9 +93,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $notification = 'Registration successful!';
             $_POST["fname"] = $_POST["confirmpassword"] = $_POST["lname"] = $_POST["email"] = $_POST["password"] = $_POST["city"] = $_POST["district"] = $_POST["street"] = $_POST["bldg_number"] = $_POST["postal_code"] = $_POST["_2nd_number"] = "";
 
-            $target_dir = "../public/userImages/";
-            $target_file = $target_dir . basename($_FILES["img"]["name"]);
-            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+//            $target_dir = "../public/userImages/";
+//            $target_file = $target_dir . basename($_FILES["img"]["name"]);
+//            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+
+            $fileTmpName = $userImage['tmp_name'];
+            $fileNewName = "../public/userImages/".$imageName;
+            $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
+
 
             $_POST["fname"] =$_POST["confirmpassword"]= $_POST["lname"] = $_POST["gender"] = $_POST["age"] = $_POST["id"] = $_POST["email"] = $_POST["password"] = $_POST["city"] = $_POST["phone"] = $_POST["bio"] = "";
             echo '<script>alert("Registration successful!");window.location.href="LoginPage.php";</script>';
