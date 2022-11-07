@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="../CSS_Files/menustyle.css">
     <link rel="stylesheet" href="../CSS_Files/footer.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
+
+    <style>
+        html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    
+    display: table-row;
+    
+}
+        </style>
 </head>
 
 <body>
@@ -122,7 +137,7 @@ echo($numOfKids );
 
     <!-- footer-->
 
-    <footer class="OfferListFooter"> 
+    <footer> 
         <table class="tableF">
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>

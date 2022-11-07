@@ -30,6 +30,7 @@ if(isset($_GET['offer_submit'])){
         //chech conflect
 
         $conflect = false;
+        $error_m = '';
         //add constrain same day
         $sql = "SELECT `startTime` , `endTime` FROM `offers` WHERE `babySitterEmail` = 'sitter1@gmail.com' AND NOT `offerstatus` = 'rejected' AND `startDate` = '$oDay'";
         $query = mysqli_query($connection,$sql);
@@ -47,10 +48,12 @@ if(isset($_GET['offer_submit'])){
          (strtotime($oTime2) >= strtotime($row[$sTime]) && strtotime($oTime2) <= strtotime($row[$eTime])) ||
          (strtotime($row[$sTime]) >= strtotime($oTime1) && strtotime($row[$sTime]) <= strtotime($oTime2)) ||
          (strtotime($row[$eTime]) >= strtotime($oTime1) && strtotime($row[$eTime]) <= strtotime($oTime2))) {
-      $conflect = true; 
-      echo '<script>alert("can\'t send offer because there is a conflect!");</script>';
-      echo "conflect";
+     $conflect = true; 
+     $_SESSION['ERROR2'] = "it is error";
+
+     header("Location: http://localhost/BabySitterProject/HTML_Files/viewJobRequestList.php");
       exit;
+      
      } 
         }
 //if no conflect 
@@ -58,12 +61,9 @@ $bbyname = $_SESSION['firstName'];
 $bbyemail =  $_SESSION['email'] ;
 $sql = "INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`, `startTime`, `endTime`, `startDate`) VALUES ( NULL ,'$OfferPrice','$bbyname','$id','pending','$bbyemail','$oTime1' , '$oTime2' , '$oDay' )";
 $query = mysqli_query($connection,$sql);
-//print_r($_GET);
 if( $query ){
-    echo '<script>alert("done send offer successful!");</script>';
-    echo 'done send offer';
-
-    //header("Location: http://localhost/BabySitterProject/HTML_Files/viewJobRequestList.php");
+    $_SESSION['Correct'] = "it is correct";  
+    header("Location: http://localhost/BabySitterProject/HTML_Files/viewJobRequestList.php");
 }
 else{
     echo 'fail';
@@ -73,5 +73,6 @@ else{
 }
 }
 ?>
+
 
 

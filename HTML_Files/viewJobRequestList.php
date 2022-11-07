@@ -37,7 +37,7 @@ footer {
 
 
 <?php
-
+session_start();
 // connect to db
 include('../PHP_Files/connect_db.php');
 //`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`, `city`, `District` 
@@ -143,69 +143,24 @@ $x++;
 
 
    ?>
-    </div>
 
+<?php 
+if(isset($_SESSION['ERROR2'])){
+   
+    echo '<script>alert("can\'t send offer because there is a conflect!");</script>';
+unset($_SESSION['ERROR2']);
+}
+?>
+<?php 
+if(isset($_SESSION['Correct'])){
+   
+    echo '<script>alert(" done send offer successful!!");</script>';
+    unset($_SESSION['Correct']);
+}
 
-            <!-- aaaaaaaaaaaa-->
-        <!--
-    <div class="jobRequestListPage">
-        <h2>Job Request List</h2>
-        
-        <div class="jobReq1"> 
-            
-          <p>
-            <label class="nameLabel">Kid/s Name: </label>
-            <label class="Name">Norah</label><br>
-            
-            <label class="ageLabel">Kid/s Ages: </label>
-            <label class="age">3</label><br>
-    
-            <label class="serviceLabel">Type Of Service: </label>
-            <label class="service">Child care</label><br>
-    
-            <label class="dayLabel">Day: </label>
-            <label class="day">3/10/2022 </label><br>
-    
-            <label class="timeLabel">Time: </label>
-            <label class="time">5:00PM - 9:00PM </label>
-            <br>
-    
-             <a href="viewJobRequestDetails1.html">View Job Request Details</a> <br> 
-    
-          </p>
-    
-            
-            <label class="OfferPrice">Set Offer: 
-                <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
-            </label> <br><br>
-            <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
-        
-        </div>
-        <div class="jobReq2"> 
-          <p>
-            <label class="nameLabel">Kid/s Name: </label>
-            <label class="Name">Sara</label><br>
-        
-            <label class="ageLabel">Kid/s Ages: </label>
-            <label class="age">4</label><br>
-            <label class="serviceLabel">Type Of Service: </label>
-            <label class="service">Child care</label><br>
-            <label class="dayLabel">Day: </label>
-            <label class="day">1/10/2022 </label><br>
-            <label class="timeLabel">Time: </label>
-            <label class="time">7:00PM - 9:00PM </label>
-            <br>
-            <a href="#">View Job Request Details</a> <br> 
-          </p>
-        
-            <label class="OfferPrice">Set Offer: 
-                <input name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
-            </label> <br><br>
-            <button class="sendOffer" onclick="location.href ='#'">Send Offer</button>
-     
-        </div> -->
+?>
 
-    </div> 
+   
 
     <footer> <!-- footer -->
         <table class="tableF">
