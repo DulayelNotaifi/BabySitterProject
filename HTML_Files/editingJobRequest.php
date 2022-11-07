@@ -127,7 +127,7 @@ while($kidrow = mysqli_fetch_row($result2)){
                 </label>
                 <br>
                  
-                <input  name="id2" type="hidden" value="<?php echo($id2)?>"/>
+                <input  name="idReq" type="hidden" value="<?php echo($id2)?>"/>
                 <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 
                 <input type="submit" class="Bottons editingBotton" style="position: relative;
