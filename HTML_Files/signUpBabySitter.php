@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
 
             $_POST["fname"] =$_POST["confirmpassword"]= $_POST["lname"] = $_POST["gender"] = $_POST["age"] = $_POST["id"] = $_POST["email"] = $_POST["password"] = $_POST["city"] = $_POST["phone"] = $_POST["bio"] = "";
-            echo '<script>alert("Registration successful!");window.location.href="babysitterhome.php";</script>';
+            echo '<script>alert("Registration successful!");window.location.href="LoginPage.php";</script>';
 
         }
     }
