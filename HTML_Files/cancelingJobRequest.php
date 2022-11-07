@@ -13,11 +13,36 @@
     <body>
         
     <!--Upper Menue-->
-    <?php include("parentheader.php"); ?>
+    <?php include("parentheader.php");
+            include('../PHP_Files/connect_db.php');
+        
+            //error_reporting(E_ERROR | E_WARNING | E_PARSE);
+                  //  include 'connect_db.php';
+            echo "HI";
+            $select = "SELECT * FROM requests WHERE created_at < (NOW() - INTERVAL 1 HOUR)  AND `status` = 'unserved'";
+            $q = mysqli_query($connection, $select);
+            if($q)
+            echo "done1" ;
+            
+            if(mysqli_num_rows($q) > 0){
+              while($req = mysqli_fetch_array($q)){
+                  $offer = "UPDATE offers SET offerstatus ='expired' WHERE RequestID = ".$req['ID']."";
+                 $q2 =  mysqli_query($connection, $offer);
+                 if($q2)
+                 echo "done2" ;
+              }
+            }
+            
+            $query = "UPDATE requests SET `status` =  'expired' WHERE created_at < (NOW() - INTERVAL 1 HOUR) AND `status` = 'unserved'";
+            $q3 = $result = mysqli_query($connection, $query);
+            if($q3)
+            echo "done3" ;
+            ?>
+
 
         <?php
         session_start();
-        include('../PHP_Files/connect_db.php');
+
         $pemail =  $_SESSION['email'];
         echo "$pemail" ;
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
