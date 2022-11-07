@@ -17,7 +17,7 @@
 
 
 <?php
-
+session_start();
         include('../PHP_Files/connect_db.php');
         $pemail =  $_SESSION['email'];
         if(isset($_GET['id'])){
@@ -25,7 +25,7 @@
                $id = mysqli_real_escape_string($connection,$_GET['id']);
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= 'parent1@gmail.com' AND `ID` = '27'";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= '$pemail' AND `ID` = '$id'";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -107,6 +107,7 @@ while($kidrow = mysqli_fetch_row($result2)){
 <div class="controls">
                           <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
                           <a href="#" id="remove_fields" style="float: right; margin-right: 13px"><i class="fa fa-minus"></i></a>
+                          <p style="margin-left: 140px;">Select + to add child, - to remove child</p>
                         </div>
 
 
