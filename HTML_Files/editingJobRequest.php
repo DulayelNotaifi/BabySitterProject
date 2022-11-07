@@ -146,7 +146,11 @@ var kids_info = document.getElementById('kids_info');
                  
                 <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 
-                <input type="submit" class="Bottons editBotton" value="Edit" name="edit_submit"/>
+                <input type="submit" class="Bottons editingBotton" style="position: relative;
+    left: 10px;
+    height: 30px;
+    width: 265px;
+    direction: none;" value="Edit" name="edit_submit"/>
                 
                 </p>
             </form>
