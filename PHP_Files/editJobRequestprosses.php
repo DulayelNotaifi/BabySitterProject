@@ -43,13 +43,11 @@ if(isset($_POST['edit_submit'])){
         else
         $comments = "no comment added";
 
-        echo($comments);
 
         $name = $_SESSION['firstName'];
         $city = $_SESSION['City'];
         $district = $_SESSION['District'];
         $pemail =  $_SESSION['email'];
-        //,`comments`='$comments'
         $sql = "UPDATE `requests` SET `TypeOfServese`='$service',`startTime`='$from_time',`endTime`='$to_time',`startDate`='$form_day', `comments` = '$comments' WHERE `ID` = '$id'";
         //$sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `created_at`, `city`, `District`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','$name', NULL, 'unserved', '$pemail', '2022-11-04 00:00:00', '$city' , '$district' )";
         //$sql = "INSERT INTO `requests` (`TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `ParentEmail`, `expireDate`, `city`, `District`) VALUES ('$service', '$from_time', '$to_time', '$form_day', '$comments','Mona', NULL, 'unserved', 'parent1@gmail.com', '2022-11-04', 'Riyadh' , 'aldreya')";
@@ -59,9 +57,10 @@ if(isset($_POST['edit_submit'])){
        // isset($_POST['kidsname']) && isset($_POST['kidsages']) &&
      
        if( $query ){
-        echo 'done1';
-        print_r($_POST);
-        /*//remove kids
+        echo 'done1111';}
+       // print_r($_POST);}
+
+        //remove kids
         $sql = "DELETE FROM `kids` WHERE `ID` = $id";
         $query = mysqli_query($connection,$sql);
         if( $query ){
@@ -69,16 +68,18 @@ if(isset($_POST['edit_submit'])){
 
         //add kids
         $count = count($_POST["kidsname"]);
-        print("count: ". $count ."\n");
+      //  print("count: ". $count ."\n");
+
         for($x =0 ; $x < $count ; $x++) {
            $kidName = $_POST["kidsname"]["$x"];
            $kidAge = $_POST["kidsage"]["$x"];
             $sql = "INSERT INTO `kids` (`ID`, `kidName`, `kidAge`) VALUES ('$id', '$kidName', '$kidAge')";
             $query = mysqli_query($connection,$sql);
-          }*/
-        
-    //header("Location: http://localhost/BabySitterProject/HTML_Files/editJobRequest.php");
-    }}
+          }
+        }
+    header("Location: http://localhost/BabySitterProject/HTML_Files/editJobRequest.php");
+    
+}//end line 6
     else{
         echo 'fail';
         }
