@@ -1,38 +1,18 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
         include('../PHP_Files/connect_db.php');
-$select = "SELECT `ID` FROM requests              
-           WHERE created_at < DATE_SUB( NOW() , INTERVAL 1 HOUR ) 
-           AND `status` = 'unserved'";
 
-$result = mysqli_query($connection,  $select);
+$select = "SELECT * FROM `requests` WHERE created_at < (NOW() - INTERVAL 1 HOUR)  AND `status` = 'unserved'";
+$q = mysqli_query($connection, $select);
 
-$valu = mysqli_num_rows($result);
+if(mysqli_num_rows($q) > 0){
+  while($req = mysqli_fetch_array($q)){
+      $offer = "UPDATE `offers` SET `offerstatus`='expired' WHERE `RequestID` = ".$req['ID']."";
+      mysqli_query($connection, $offer);
+  }
+}
 
-if($valu > 0 ){
-    
-    $x = 0;
-    while($x< $valu  ){
-
-        $id = key($row);
-        next($row);
-
-        $sql = "UPDATE `offers` SET `offerstatus`='expired' WHERE `RequestID` = '$row[$id]'";
-        $query = mysqli_query($connection,$sql);
-        if( $query ){
-          echo 'done0';
-        /*$sql = "DELETE FROM `kids` WHERE `ID` = $row[$id]";
-        $query = mysqli_query($connection,$sql);
-        if( $query ){
-          echo 'done1';*/
-          $sql = "UPDATE `requests` SET `status`='expired' WHERE `ID` = '$row[$id]'";
-          $query = mysqli_query($connection,$sql); 
-          if( $query ){
-             echo 'done2';
-          }
-      }}
-      else{
-          echo 'fail';
-          }
-    }
+$query = "UPDATE `requests` SET `status` =  'expired' WHERE createdAt < (NOW() - INTERVAL 1 HOUR) AND `status` = 'unserved'";
+$result = mysqli_query($connection, $query);
 
 ?>
