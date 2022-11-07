@@ -16,13 +16,12 @@
     <?php include("parentheader.php"); ?>
 
         <?php
-        if(isset($_GET['Message'])){
-            echo $_GET['Message'];
-        }
         include('../PHP_Files/connect_db.php');
+        $pemail =  $_SESSION['email'];
+        echo "$pemail" ;
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= 'parent1@gmail.com'";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= 'parent1@gmail.com'";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -102,7 +101,7 @@ while($kidrow = mysqli_fetch_row($result2)){
         <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
 
    <!-- <input type="button" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/> -->
-    <button class="Bottons cancelBotton" onclick="return checkAcce()" ><a href='../PHP_Files/cancelJobRequest.php?id=<?php echo($row[$id])?>'>Cancel Job Request</a></button>
+    <button class="Bottons cancelBotton" onclick="return checkDelet()" ><a href='../PHP_Files/cancelJobRequest.php?id=<?php echo($row[$id])?>'>Cancel Job Request</a></button>
     </p>
 
 </div> <!-- end container -->
@@ -114,6 +113,7 @@ while($kidrow = mysqli_fetch_row($result2)){
     ?>
     
     <div >
+    <div class="container">
         <h2>No posted job request yet </h2></div>
     <?php } ?>
     <!-- end copy -->

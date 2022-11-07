@@ -31,7 +31,7 @@ h2{
     position: relative;
     border-style: solid;
     border-radius: 30px;
-    width: 580px;
+    width: 540px;
     margin: auto;
     margin-top: 10px;
     padding: 20px;
@@ -193,16 +193,21 @@ width: 530px;
 
 .editBotton, .resetBotton{
     position: relative;
-    left: 0px;
+    left: -30px;
     height: 30px;
     width: 265px;
     direction: none;
 }
 
+.resetBotton {
+    left: 8px;
+}
+
 .cancelBotton{
-    margin-left: -150px;
     height: 30px;
-    width: 530px;
+    width: 265px;
+    position: relative;
+    left: -30px;
 }
 
 .container #formInfo{
@@ -222,3 +227,8 @@ a:any-link {
     text-decoration: none;
     cursor: auto;
     }
+
+    #remove_fields {
+        float: right;
+          margin-right: 70px
+      }

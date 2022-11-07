@@ -30,7 +30,8 @@ if(isset($_GET['offer_submit'])){
         //chech conflect
 
         $conflect = false;
-        $sql = "SELECT `startTime` , `endTime` FROM `offers` WHERE `babySitterEmail` = 'sitter1@gmail.com' AND NOT `offerstatus` = 'rejected'";
+        //add constrain same day
+        $sql = "SELECT `startTime` , `endTime` FROM `offers` WHERE `babySitterEmail` = 'sitter1@gmail.com' AND NOT `offerstatus` = 'rejected' AND `startDate` = '$oDay'";
         $query = mysqli_query($connection,$sql);
         if( $query ){
         while($row = mysqli_fetch_row($query)){
@@ -42,12 +43,12 @@ if(isset($_GET['offer_submit'])){
 
      //echo $row[$eTime].": ".$row[$sTime]."<br>";
 
-     $time="00:05:00"; //5 minutes
      if( (strtotime($oTime1) >= strtotime($row[$sTime]) && strtotime($oTime1) <= strtotime($row[$eTime])) ||
          (strtotime($oTime2) >= strtotime($row[$sTime]) && strtotime($oTime2) <= strtotime($row[$eTime])) ||
          (strtotime($row[$sTime]) >= strtotime($oTime1) && strtotime($row[$sTime]) <= strtotime($oTime2)) ||
          (strtotime($row[$eTime]) >= strtotime($oTime1) && strtotime($row[$eTime]) <= strtotime($oTime2))) {
       $conflect = true; 
+      echo '<script>alert("can\'t send offer because there is a conflect!");</script>';
       echo "conflect";
       exit;
      } 
@@ -59,6 +60,7 @@ $sql = "INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offe
 $query = mysqli_query($connection,$sql);
 //print_r($_GET);
 if( $query ){
+    echo '<script>alert("done send offer successful!");</script>';
     echo 'done send offer';
 
     //header("Location: http://localhost/BabySitterProject/HTML_Files/viewJobRequestList.php");

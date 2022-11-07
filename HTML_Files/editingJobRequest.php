@@ -12,77 +12,77 @@
     
     <body>
         
-           <!--Upper Menue-->
+         <!--Upper Menue-->
     <?php include("parentheader.php"); ?>
 
 
- <!--Page Content-->
- <?php
- include('../PHP_Files/connect_db.php');
-if(isset($_GET['id'])){
-// echo("set");
-   $id = mysqli_real_escape_string($connection,$_GET['id']);
-   //$val1 = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `parentName`, `ID`, `status`, `expireDate`, `city`, `District` FROM  `requests` WHERE
-   $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments` `ID` FROM `requests` WHERE `requests`.`ID` = '$id'";
-    $result = mysqli_query($connection,  $sql);
- //  $jobReq = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $valu = mysqli_num_rows($result);
-}
+<?php
 
- ?>
+        include('../PHP_Files/connect_db.php');
+        $pemail =  $_SESSION['email'];
+        if(isset($_GET['id'])){
+            // echo("set");
+               $id = mysqli_real_escape_string($connection,$_GET['id']);
+        //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
+        //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= 'parent1@gmail.com' AND `ID` = '27'";
 
-<div class="editingPage">
+           $result = mysqli_query($connection,  $sql);
+        //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+           $valu = mysqli_num_rows($result);
+        }
+           //$sql2 = "SELECT `ID`, `kidName`, `kidAge` FROM `kids` WHERE `requests`.`ID` = `kids`.`ID`";
+           //$result2 = mysqli_query($connection,  $sql2);
+           //$valu2 = mysqli_num_rows($result2);
+        ?>
+                <div class="editingPage">
             <h2>Edit Job Request</h2>
 
-<!--<?php print_r($jobReq);?>-->
-
-<?php 
-
-if($valu > 0 ){
-
-//$x = 0;
-//while($x< $valu  ){
-
-$row = mysqli_fetch_row($result);
-
-$TypeOfServese = key($row);
-next($row);
-
-$startTime = key($row);
-next($row);
-
-$endTime = key($row);
-next($row);
-
-$startDate = key($row);
-next($row);
-
-$comments = key($row);
-next($row);
-
-$id = key($row);
-next($row);
-
-$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = '$row[$id]'";
-$result2 = mysqli_query($connection, $kidss);
-?> 
+     <?php 
+    
+     if($valu > 0 ){
+    
+    //$x = 0;
+    //while($x< $valu  ){
+    
+     $row = mysqli_fetch_row($result);
      
-            <div class="container">
+     $TypeOfServese = key($row);
+     next($row);
+     
+     $startTime = key($row);
+     next($row);
+     
+     $endTime = key($row);
+     next($row);
+     
+     $startDate = key($row);
+     next($row);
+     
+     $comments = key($row);
+     next($row);
 
-            <form action="#" method="post">
-                <p id="formInfo">
+     $id = key($row);
+     next($row);
+     
+     $kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+     $result2 = mysqli_query($connection, $kidss);
+    ?> 
 
-                <div id="kids_info">
+        <div class="container">
+
+        <form action="#" method="post">
+    <p class="canceledInfo">
+
+    <div id="kids_info">
                     <label class="nameLabel"> Kid/s Name:
-                        <input class="inputName" name="kidsname[]" type="text" placeholder="Enter Kid Name" required> 
                     </label>
                     
-                    <label class="ageLabel"> Kid/s Age: 
-                        <input class="inputAge" name="kidsage[]" type="number" min="0" max="17" placeholder="Enter Kid Age" required>
+                    <label class="ageLabel" style="float: right; margin-right: 190px" > Kid/s Age: 
                     </label>
-               
+                    
 
-                <?php 
+<label class="Name"> <br><?php 
 while($kidrow = mysqli_fetch_row($result2)){
     $kname = key($kidrow);
     next($kidrow);
@@ -90,46 +90,28 @@ while($kidrow = mysqli_fetch_row($result2)){
     $kAge = key($kidrow);
     next($kidrow);
 
-?>
-<script type="text/javascript">
-   var Kname = "<?php echo $kidrow[$kname]; ?>";
-   var kAge = "<?php echo  $kidrow[$kAge] ?>";
+    //$ages[] = $kidrow[$kAge];
+    ?>
 
-var kids_info = document.getElementById('kids_info');
-
-  var nameField = document.createElement('input');
-  var ageField = document.createElement('input');
-
-  nameField.setAttribute('type','text');
-  nameField.setAttribute('name','kidsname[]');
-  nameField.setAttribute('class','inputExtraName');
-  nameField.setAttribute('size',50);
-  nameField.setAttribute('placeholder','Enter Kid/s name');
-  //nameField.setAttribute('value','Kname');
-  kids_info.appendChild(nameField);
+                        <input class="inputExtraName" name="kidsname[]" type="text" placeholder="Enter Kid Name" value="<?php echo $kidrow[$kname] ?>" required> 
+                        <input class="inputExtraAge" name="kidsage[]" type="number" min="0" max="17" placeholder="Enter Kid Age" value="<?php echo $kidrow[$kAge] ?>" required>
 
 
-  ageField.setAttribute('type','number');
-  ageField.setAttribute('name','kidsage[]');
-  ageField.setAttribute('class','inputExtraAge');
-  ageField.setAttribute('size',50);
-  ageField.setAttribute('placeholder','Enter Kid/s age');
-  ageField.setAttribute('min',0);
-  ageField.setAttribute('max',17);
-  //ageField.setAttribute('value','kAge');
-  kids_info.appendChild(ageField);
-
-</script>
+   <?php // echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+}
+?></label> <!-- <br><br> --> 
+</div>
+<!--<label class="ageLabel">Kid/s Ages: </label>
+<label class="age"><?php echo(($row[$age]))?></label><br><br> -->
 
 <div class="controls">
                           <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
-                          <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
+                          <a href="#" id="remove_fields" style="float: right; margin-right: 13px"><i class="fa fa-minus"></i></a>
                         </div>
-<?php }
-?>
 
 
-</div>
+
+
                 <label class="serviceLabel"> Type Of Service: 
                     <input class="inptService" name="service" type="text" value="<?php echo(($row[$TypeOfServese]))?>" required> 
                 </label>
@@ -144,12 +126,61 @@ var kids_info = document.getElementById('kids_info');
                 </label>
                 <br>
                  
+                <input  name="id" type="hidden" value="<?php echo($id)?>"/>
                 <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 
-                <input type="submit" class="Bottons editBotton" value="Edit" name="edit_submit"/>
-                
+                <input type="submit" class="Bottons editingBotton" style="position: relative;
+    left: 10px;
+    height: 30px;
+    width: 265px;
+    direction: none;" value="Edit"  name="edit_submit"/>
+
                 </p>
-            </form>
+
+</div> <!-- end container -->
+    
+     <?php
+    // $x++; } 
+    }//end if
+    else{
+    ?>
+    
+    <div >
+    <div class="container">
+        <h2>No posted job request yet </h2></div>
+    <?php } ?>
+    <!-- end copy -->
+       <!-- <div class="cancelPage">
+            <h2>Cancel Job Request</h2>
+
+            <div class="container">
+
+            <form action="#" method="post">
+
+                <p class="canceledInfo">
+                    <label class="nameLabel">Kid/s Name: </label>
+                    <label class="name">Abdullah</label><br><br>
+                    
+                    <label class="ageLabel">Kid/s Age: </label>
+                    <label class="age">5</label><br><br>
+            
+                    <label class="serviceLabel">Type Of Service: </label>
+                    <label class="service">Child care</label><br><br>
+            
+                    <label class="dayLabel">Day: </label>
+                    <label class="day">1/10/2022 </label><br><br>
+            
+                    <label class="timeLabel">Time: </label>
+                    <label class="time">7:00PM - 9:00PM </label>
+                    <br><br>
+                
+                    <label class="commentsLabel">Comments: </label>
+                    <label class="comments">No comment added </label> <br><br><br><br>
+
+                <input type="button" class="Bottons cancelBotton" value="Cancel Job Request"/>
+
+                </p>
+            </form> -->
             </div> <!-- end container -->
         </div> <!-- end postingPage -->
 
@@ -188,9 +219,7 @@ var kids_info = document.getElementById('kids_info');
             &copy; A Watchful Eye, 2022
             </div>
             </footer> <!-- end footer -->
-            <?php ////} 
-}//end if
-?>
+            <script src="addKids.js"></script>
     </body>
 
 </html>

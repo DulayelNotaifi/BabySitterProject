@@ -21,9 +21,10 @@
             echo $_GET['Message'];
         }
         include('../PHP_Files/connect_db.php');
+        $pemail =  $_SESSION['email'];
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= 'parent1@gmail.com'";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= 'parent1@gmail.com'";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -115,6 +116,7 @@ while($kidrow = mysqli_fetch_row($result2)){
     ?>
     
     <div >
+    <div class="container">
         <h2>No posted job request yet </h2></div>
     <?php } ?>
     <!-- end copy -->

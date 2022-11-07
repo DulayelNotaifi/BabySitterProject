@@ -73,15 +73,6 @@ $result2 = mysqli_query($connection, $kidss);
 <label class='name'><?php
 $numOfKids = mysqli_num_rows($result2);
 echo($numOfKids );
-// while($kidrow = mysqli_fetch_row($result2)){
-//     $kname = key($kidrow);
-//     next($kidrow);
-
-//     $kAge = key($kidrow);
-//     next($kidrow);
-//     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
-       
-// }
 ?></label><br>
 
 
@@ -94,7 +85,7 @@ echo($numOfKids );
 <br><br>
 <a style=" font-size: medium;
     text-decoration:underline;
-    color: #2f06e9;" href='../HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
+    color: #2f06e9;" href='http://localhost/BabySitterProject/HTML_Files/OfferDetails.php?id=<?php echo($row[$id])?>'> Offers </a>
 </p>
 
 </div>
