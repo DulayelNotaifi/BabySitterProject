@@ -123,7 +123,7 @@ while($kidrow = mysqli_fetch_row($result2)){
                 <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time" value="<?php echo(($row[$endTime]))?>" required> </label>
                 <br><br>
                 <label class="commentsLabel"> Add Comments: (optional)
-                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"></textarea>
+                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"><?php echo(($row[$comments]))?></textarea>
                 </label>
                 <br>
                 <input  name="idReq" type="hidden" value="<?php echo($id2)?>"/>
