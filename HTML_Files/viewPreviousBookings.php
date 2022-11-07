@@ -9,7 +9,8 @@
     <link href="../CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
-<style> 
+
+    <style> 
 html, body{
     height:100%;
     width: 100%; 
@@ -19,7 +20,6 @@ html, body{
 footer{display:table-row;}
 
 </style>
- 
 </head>
 
 <body>
@@ -84,14 +84,26 @@ ON babysitter.email  = offers.babySitterEmail   where requests.ParentEmail='$ses
              <br>
             
             <label class="timeslotslabel"> From: </label>
-            <label class="timeslots"> <?php echo $row['startTime']; ?>AM</label> 
+            <label class="timeslots"> <?php echo $row['startTime']; ?></label> 
 
             <label class="timeslotslabel2"> To: </label>
-            <label class="timeslots2"> <?php echo $row['endTime']; ?>AM</label> <br>
+            <label class="timeslots2"> <?php echo $row['endTime']; ?></label> <br>
         </p>
             <a href="tel:<?php echo($row['phone']);?>"><input  type="submit" class="email" value="contact" ></a>
-            <a href='../HTML_Files/review&rate.php?babySitterEmail=<?php echo ($row['babySitterEmail'])?>'>  <input  type="submit" class="review" value="review" ></a>
-         
+
+            <?php
+            $id_offer = $row['id'];
+            $parentEmail = $_SESSION['email'];
+            $sql_email = "select count(*) as cunt from review where parentEmail ='$parentEmail' and offer_id ='$id_offer'";
+
+            $resultt = $connection->query($sql_email);
+            while ($roww = $resultt->fetch_assoc()) {
+                if ($roww['cunt'] == 0) { ?>
+
+                    <a href='../HTML_Files/review&rate.php?babySitterEmail=<?php echo($row['babySitterEmail']) ?>'>
+                        <input type="submit" class="review" value="review"></a>
+                <?php }
+            } ?>
     
     
     </div>
@@ -146,4 +158,3 @@ ON babysitter.email  = offers.babySitterEmail   where requests.ParentEmail='$ses
 
 
     </body></html>
-
