@@ -26,13 +26,14 @@ if(isset($_GET['offer_submit'])){
         $oTime1 = $_GET['fromTime'];
         $oTime2 = $_GET['toTime']; 
         //echo $oTime1;
+        $bbyemail =  $_SESSION['email'] ;
 
         //chech conflect
 
         $conflect = false;
         $error_m = '';
         //add constrain same day
-        $sql = "SELECT `startTime` , `endTime` FROM `offers` WHERE `babySitterEmail` = 'sitter1@gmail.com' AND NOT `offerstatus` = 'rejected' AND `startDate` = '$oDay'";
+        $sql = "SELECT `startTime` , `endTime` FROM `offers` WHERE `babySitterEmail` = '$bbyemail' AND NOT `offerstatus` = 'rejected' AND `startDate` = '$oDay'";
         $query = mysqli_query($connection,$sql);
         if( $query ){
         while($row = mysqli_fetch_row($query)){
@@ -58,7 +59,7 @@ if(isset($_GET['offer_submit'])){
         }
 //if no conflect 
 $bbyname = $_SESSION['firstName'];
-$bbyemail =  $_SESSION['email'] ;
+
 $sql = "INSERT INTO `offers`(`id`, `price`, `babySitterName`, `RequestID`, `offerstatus`, `babySitterEmail`, `startTime`, `endTime`, `startDate`) VALUES ( NULL ,'$OfferPrice','$bbyname','$id','pending','$bbyemail','$oTime1' , '$oTime2' , '$oDay' )";
 $query = mysqli_query($connection,$sql);
 if( $query ){

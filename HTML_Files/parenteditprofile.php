@@ -118,84 +118,82 @@ if(isset($_POST['submit'])){
     
     if ($valid){
         $_SESSION['email']=$eMail;
-    if($_FILES['img']['name']!=""){
-        //print_r($_FILES['img']);
-        $userImage    =   $_FILES['img'];   
-        $imageName = $userImage ['name'];
-        $fileType  = $userImage['type'];
-        $fileSize  = $userImage['size'];
-        $fileTmpName = $userImage['tmp_name'];
-        $fileError = $userImage['error'];
-        
-        $fileImageData = explode('/',$fileType);
-        $fileExtension = $fileImageData[count($fileImageData)-1];
-        
-        //echo  $fileExtension;
-        if($fileExtension == 'jpg' || $fileExtension == 'png' || $fileExtension == 'jpeg'){
-            //Process Image
+        if($_FILES['img']['name']!=""){
+            //print_r($_FILES['img']);
+            $userImage    =   $_FILES['img'];   
+            $imageName = $userImage ['name'];
+            $fileType  = $userImage['type'];
+            $fileSize  = $userImage['size'];
+            $fileTmpName = $userImage['tmp_name'];
+            $fileError = $userImage['error'];
             
-            if($fileSize < 6161400){
-                //var_dump(basename($imageName));
-        
-                $fileNewName = "../public/userImages/".$imageName;
+            $fileImageData = explode('/',$fileType);
+            $fileExtension = $fileImageData[count($fileImageData)-1];
+            
+            //echo  $fileExtension;
+            if($fileExtension == 'jpg' || $fileExtension == 'png' || $fileExtension == 'jpeg'){
+                //Process Image
                 
-                $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
-                
-                if($uploaded){
+                if($fileSize < 6161400){
+                    //var_dump(basename($imageName));
+            
+                    $fileNewName = "../public/userImages/".$imageName;
                     
-    
-    if(isset($_POST['password']) && $_POST['password']!= ""){
-    //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
-    
-    $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
-     `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
-      `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName' WHERE email = '$loggedInUser'";
-    //pass also/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    }else{
+                    $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
+                    
+                    if($uploaded){
+                        
+        
+        if(isset($_POST['password']) && $_POST['password']!= ""){
+        //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
+        $userPassword =mysqli_real_escape_string($connection,$_POST['password']);
         $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
-     `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
-      `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName' WHERE email = '$loggedInUser'";
-    }
-        //print($imageName);
-                    $results = mysqli_query($connection,$sql);
+         `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
+          `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName',password ='$userPassword' WHERE email = '$loggedInUser'";
+        //pass also/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
-                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
-                exit;
-                }
+        }else{
+            $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
+         `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
+          `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName' WHERE email = '$loggedInUser'";
+        }
+            print($imageName);
+                        $results = mysqli_query($connection,$sql);
+            
+                        header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                    exit;
+                    }
+            
+            
+                }}}
         
-        
-            }}}
-    
-            if(isset($_POST['password']) && $_POST['password']!= ""){
-                //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
-                $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
-     `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
-      `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
-                //$sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
-                //,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
-                $results = mysqli_query($connection,$sql);
-                header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
-                exit;
-                }else{
+                if(isset($_POST['password']) && $_POST['password']!= ""){
+                    //$userPassword = password_hash(mysqli_real_escape_string($connection,$_POST['password']), PASSWORD_DEFAULT);
                     $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
-     `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
-      `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
-                   $results = mysqli_query($connection,$sql);
-                header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
-                exit; 
-                }
-                
-                $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
-                `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
-                 `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
+         `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
+          `SecondaryNumber` = '$SecondaryNumber',password ='$userPassword' WHERE email = '$loggedInUser'";
+                    //$sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
+                    //,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
+                    $results = mysqli_query($connection,$sql);
+                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                    exit;
+                    }else{
+                        $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
+         `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
+          `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
+                       $results = mysqli_query($connection,$sql);
+                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                    exit; 
+                    }
+                    
+                    $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
+                    `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
+                     `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
+                                   
                                
-                           
-                $results = mysqli_query($connection,$sql);
-                header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
-                exit;
-    
-    }}
+                    $results = mysqli_query($connection,$sql);
+                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                    exit;}}
 ?>
 <!DOCTYPE html>
 <html lang="en">
