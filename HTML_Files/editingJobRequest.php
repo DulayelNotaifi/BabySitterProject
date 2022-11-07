@@ -20,6 +20,9 @@
 
         include('../PHP_Files/connect_db.php');
         $pemail =  $_SESSION['email'];
+        if(isset($_GET['id'])){
+            // echo("set");
+               $id = mysqli_real_escape_string($connection,$_GET['id']);
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
            $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= 'parent1@gmail.com' AND `ID` = '27'";
@@ -27,7 +30,7 @@
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
            $valu = mysqli_num_rows($result);
-    
+        }
            //$sql2 = "SELECT `ID`, `kidName`, `kidAge` FROM `kids` WHERE `requests`.`ID` = `kids`.`ID`";
            //$result2 = mysqli_query($connection,  $sql2);
            //$valu2 = mysqli_num_rows($result2);
@@ -75,7 +78,7 @@
                     <label class="nameLabel"> Kid/s Name:
                     </label>
                     
-                    <label class="ageLabel"> Kid/s Age: 
+                    <label class="ageLabel" style="float: right; margin-right: 190px" > Kid/s Age: 
                     </label>
                     
 
@@ -123,14 +126,15 @@ while($kidrow = mysqli_fetch_row($result2)){
                 </label>
                 <br>
                  
+                <input  name="id" type="hidden" value="<?php echo($id)?>"/>
                 <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 
                 <input type="submit" class="Bottons editingBotton" style="position: relative;
     left: 10px;
     height: 30px;
     width: 265px;
-    direction: none;" value="Edit" name="edit_submit"/>
-                
+    direction: none;" value="Edit"  name="edit_submit"/>
+
                 </p>
 
 </div> <!-- end container -->
