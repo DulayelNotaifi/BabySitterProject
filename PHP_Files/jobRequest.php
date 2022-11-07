@@ -59,7 +59,7 @@ if(isset($_POST['post_submit'])){
             $query = mysqli_query($connection,$sql);
           }
          
-    header("Location: http://localhost/BabySitterProject/HTML_Files/postingJobRequest.html");
+    header("Location: http://localhost/BabySitterProject/HTML_Files/postingJobRequest.php");
     }
     else{
         echo 'fail';
