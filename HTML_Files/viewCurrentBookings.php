@@ -10,7 +10,16 @@
     <link href="../CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
+    <style> 
+html, body{
+    height:100%;
+    width: 100%; 
+    margin: 0; 
+    display: table;
+}
+footer{display:table-row;}
 
+</style>
 </head>
 
 <body>
@@ -39,8 +48,8 @@
                 die("Connection failed: " . mysqli_connect_error());
             $session_email= $_SESSION['email'];
             $sql = "SELECT * FROM `offers`  INNER JOIN requests
-ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$session_email' and requests.status='Accepted'";;
+ON requests.ID = offers.RequestID  INNER JOIN babysitter
+ON babysitter.email  = offers.babySitterEmail   where requests.ParentEmail='$session_email' and offers.offerstatus='accepted'";
 
             $userFound = mysqli_query($connection,$sql);
             if($userFound){
@@ -48,7 +57,7 @@ ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$se
             if(mysqli_num_rows($userFound) > 0) {
 
             while ($row = mysqli_fetch_assoc($userFound)) {
-                if ($row['startDate'] > date('Y-m-d')) {
+                if ($row['startDate'] >= date('Y-m-d')) {
                     ?>
     
             <div class="y"  >
@@ -71,7 +80,7 @@ ON babysitter.firstName = offers.babySitterName  where requests.ParentEmail='$se
                     <label class="timeslotslabel2"> To: </label>
                     <label class="timeslots2"> <?php echo $row['endTime']; ?></label> <br>
 
-                    <a href="tel:<?php echo($row[$phone ]);?>; ?>"><input type="submit" class="contact" value="contact"></a>
+                    <a href="tel:<?php echo($row['phone']);?>; ?>"><input type="submit" class="contact" value="contact"></a>
                 </p>
 
              </div>

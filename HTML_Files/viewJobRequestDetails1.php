@@ -14,48 +14,7 @@
 <body>
 
       <!--menu-->
-      <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="babysitterhome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage Profile </a>
-            <div class="dropdown-content">
-                <a href="viewbbystr.html">View</a>
-                <a href="babysittereditprofile.html">Edit</a>
-                <a class="last" href="deletebbystracc.html">Delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="viewJobRequestList.html">Job Request List </a>
- 
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewJobs.html">Jobs </a>
-            <div class="dropdown-content">
-                <a href="viewcurrentjobs.html">Current Job</a>
-                <a href="viewPreviousJobs.html">Previous Jobs</a>
-            </div>
-        </div>
-
-
-        <div class="tab4">
-            <a href="ViewOffersWithTheirStatus.html">My Offers with Their Status</a>
-        </div>
-        <div class="tab4">
-            <a href="ViewRate.html">Rates and Reviews
-            </a>
-        </div>
-        
-        <div class="logout">
-            <a href="../HTML_Files/LoginPage.html">Logout</a>
-        </div>
-    </div>
+      <?php include("bbystrheader.php");?>
     <!--end menu-->
 
  <!--Page Content-->
@@ -121,8 +80,11 @@ $result2 = mysqli_query($connection, $kidss);
 ?> 
 <div class="container">
 
-<img src="female.png" id="sitterPic" alt="parent profile picture">
-<p class="SitterInfo">
+<p class="SitterInfo" style="   
+                  position: relative;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-bottom: 30px;">
    <label class="nameLabel">Parent Name: </label>
    <label class="Name">Mona</label><br>
 
@@ -130,7 +92,7 @@ $result2 = mysqli_query($connection, $kidss);
    <label class="city">Riyadh</label> <br>
 
    <label class="neighborhoodLabel">District: </label>
-   <label class="neighborhood">Alhamra</label> <br>
+   <label class="neighborhood">Alhamra</label>
     <hr>
 </p>
 
@@ -182,6 +144,9 @@ while($kidrow = mysqli_fetch_row($result2)){
                 <input  name="OfferPrice" type="number" min="0" max="99999"> <span>SAR/hr</span>
                 </label> <br>
                 <label> <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/></label>
+                <input  name="day" type="hidden" value="<?php echo($row[$startDate])?>"/>
+           <input  name="fromTime" type="hidden" value="<?php echo($row[$startTime])?>"/>
+           <input  name="toTime" type="hidden" value="<?php echo($row[$endTime])?>"/>
           
            <input type="submit" class="sendOfferDetails" name="offer_submit" value="Send Offer"/>
             <input type="button" class="goBack" onclick="location.href ='viewJobRequestList.php';" value="Go Back"/>

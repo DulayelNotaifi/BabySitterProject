@@ -12,48 +12,10 @@
     
     <body>
         
-         <!--menu-->
-         <div class="topofpage">
-            <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-            <p class="andname">A Watchful Eye</p>
-        </div>
-        <div class="uppermenu">
-            <div class="tab0">
-                <a href="parenthome.html">Home</a>
-            </div>
-            <div class="tab1">
-                <a href="">Manage profile </a>
-                <div class="dropdown-content">
-                    <a href="viewparent.html">View</a>
-                    <a href="parenteditprofile.html">Edit</a>
-                    <a class="last" href="deleteparent.html">delete</a>
-                </div>
-            </div>
-            <div class="tab2">
-                <a href="#">Job request </a>
-                <div class="dropdown-content">
-                    <a href="postingJobRequest.html">Post request </a>
-                    <a href="editingJobRequest.html">Edit request</a>
-                    <a class="last" href="cancelingJobRequest.html">Cancel request</a>
-                </div>
-            </div>
-    
-            <div class="tab3 need-more">
-                <a href="viewbookings.html">View booking </a>
-                <div class="dropdown-content">
-                    <a href="viewCurrentBookings.html">View current bookings </a>
-                    <a class="last" href="viewPreviousBookings.html">View previous bookings
-                    </a>
-                </div>
-            </div>
-            <div class="tab4">
-                <a href="../HTML_Files/ViewOfferList.html">View offer list</a>
-            </div>
-            <div class="logout">
-                <a href="../HTML_Files/LoginPage.html">Logout</a>
-            </div>
-        </div>
-        <!--end menu-->
+           <!--Upper Menue-->
+    <?php include("parentheader.php"); ?>
+
+
  <!--Page Content-->
  <?php
  include('../PHP_Files/connect_db.php');
@@ -111,7 +73,7 @@ $result2 = mysqli_query($connection, $kidss);
                 <p id="formInfo">
 
                 <div id="kids_info">
-                    <label class="nameLabel"> Kid/s Name: 
+                    <label class="nameLabel"> Kid/s Name:
                         <input class="inputName" name="kidsname[]" type="text" placeholder="Enter Kid Name" required> 
                     </label>
                     
@@ -129,7 +91,12 @@ while($kidrow = mysqli_fetch_row($result2)){
     next($kidrow);
 
 ?>
-<script>
+<script type="text/javascript">
+   var Kname = "<?php echo $kidrow[$kname]; ?>";
+   var kAge = "<?php echo  $kidrow[$kAge] ?>";
+
+var kids_info = document.getElementById('kids_info');
+
   var nameField = document.createElement('input');
   var ageField = document.createElement('input');
 
@@ -138,7 +105,7 @@ while($kidrow = mysqli_fetch_row($result2)){
   nameField.setAttribute('class','inputExtraName');
   nameField.setAttribute('size',50);
   nameField.setAttribute('placeholder','Enter Kid/s name');
-  nameField.setAttribute('value','<?php echo(($kidrow[$kname]))?>');
+  //nameField.setAttribute('value','Kname');
   kids_info.appendChild(nameField);
 
 
@@ -149,12 +116,18 @@ while($kidrow = mysqli_fetch_row($result2)){
   ageField.setAttribute('placeholder','Enter Kid/s age');
   ageField.setAttribute('min',0);
   ageField.setAttribute('max',17);
-  ageField.setAttribute('value','<?php echo(($kidrow[$kAge]))?>');
+  //ageField.setAttribute('value','kAge');
   kids_info.appendChild(ageField);
+
 </script>
 
+<div class="controls">
+                          <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
+                          <a href="#" id="remove_fields"><i class="fa fa-minus"></i></a>
+                        </div>
 <?php }
 ?>
+
 
 </div>
                 <label class="serviceLabel"> Type Of Service: 
@@ -171,7 +144,7 @@ while($kidrow = mysqli_fetch_row($result2)){
                 </label>
                 <br>
                  
-                <input class="Bottons resetBotton" type="button" value="go back" >
+                <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 
                 <input type="submit" class="Bottons editBotton" value="Edit" name="edit_submit"/>
                 

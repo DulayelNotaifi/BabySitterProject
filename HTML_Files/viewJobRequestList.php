@@ -10,53 +10,25 @@
     <link rel="stylesheet" href="../CSS_Files/footer.css">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
 
+    <style>
+        html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    
+    display: table-row;
+}
+        </style>
 </head>
 
 <body>
 
       <!--menu-->
-      <div class="topofpage">
-        <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
-        <p class="andname">A Watchful Eye</p>
-    </div>
-    <div class="uppermenu">
-        <div class="tab0">
-            <a href="babysitterhome.html">Home</a>
-        </div>
-        <div class="tab1">
-            <a href="">Manage Profile </a>
-            <div class="dropdown-content">
-                <a href="viewbbystr.html">View</a>
-                <a href="babysittereditprofile.html">Edit</a>
-                <a class="last" href="deletebbystracc.html">Delete</a>
-            </div>
-        </div>
-        <div class="tab2">
-            <a href="viewJobRequestList.html">Job Request List </a>
- 
-        </div>
-
-        <div class="tab3 need-more">
-            <a href="viewJobs.html">Jobs </a>
-            <div class="dropdown-content">
-                <a href="viewcurrentjobs.html">Current Job</a>
-                <a href="viewPreviousJobs.html">Previous Jobs</a>
-            </div>
-        </div>
-
-
-        <div class="tab4">
-            <a href="ViewOffersWithTheirStatus.html">My Offers with Their Status</a>
-        </div>
-        <div class="tab4">
-            <a href="ViewRate.html">Rates and Reviews
-            </a>
-        </div>
-        
-        <div class="logout">
-            <a href="../HTML_Files/LoginPage.html">Logout</a>
-        </div>
-    </div>
+      <?php include("bbystrheader.php");?>
     <!--end menu-->
 
 
@@ -105,6 +77,9 @@ $row = mysqli_fetch_row($result);
 
   $id = key($row);
   next($row);
+
+$kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
+$result2 = mysqli_query($connection, $kidss);
 ?>
 <div> 
 <p class='req'>
@@ -114,22 +89,50 @@ $row = mysqli_fetch_row($result);
 <label class='name'><?php echo($row[$kids])?></label><br>
 <label class='ageLabel'>Kid/s Age: </label>
 <label class='age'><?php echo($row[$ages])?></label><br> -->
+<label class='nameLabel'>No. Kid/s : </label>
+<label class='name'><?php
+$numOfKids = mysqli_num_rows($result2);
+echo($numOfKids );
+// while($kidrow = mysqli_fetch_row($result2)){
+//     $kname = key($kidrow);
+//     next($kidrow);
 
+//     $kAge = key($kidrow);
+//     next($kidrow);
+//     echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
+       
+// }
+?></label><br>
 <label class='dayLabel'>Date: </label>
 <label class='day'><?php echo($row[$start_day])?></label><br>
 
 <label class='timeLabel'>Time: </label>
 <label class='time'><?php echo($row[$start_time] .' - ' . $row[ $end_time])?></label><br>
-<br>
+
 <a href='../HTML_Files/viewJobRequestDetails1.php?id=<?php echo($row[$id])?>'>View Job Request Details</a>
 <form action="../PHP_Files/sendOffer.php" method="GET">
 <label class="OfferPrice">Set Offer:  
-                <input  class="offerP" name="OfferPrice" type="number" min="0" max="99999">
+                <input  style="   
+                 position: absolute;
+   height: 20px;
+   margin-left: 6px;
+   border-style: solid;
+   background-color: white; 
+   font-weight: bold; 
+   border: 1px solid black;" id="offerP" name="OfferPrice" type="number" min="0" max="99999"><span
+   style=" position: absolute;
+   margin-left: 60px;
+   color: #000;
+    padding:5px;
+    padding-left: 10px;">SAR/hr</span>
                 </label> <br><br>
            <input  name="id" type="hidden" value="<?php echo($row[$id])?>"/>
+           <input  name="day" type="hidden" value="<?php echo($row[$start_day])?>"/>
+           <input  name="fromTime" type="hidden" value="<?php echo($row[$start_time])?>"/>
+           <input  name="toTime" type="hidden" value="<?php echo($row[$end_time])?>"/>
             <input type="submit" class="sendOffer" name="offer_submit" value="Send"/> 
 
-   
+
 </form>
 </p>
 

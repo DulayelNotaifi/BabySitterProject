@@ -9,7 +9,16 @@
     <link href="../CSS_Files/menustyle.css" type="text/css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
     <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
+    <style> 
+html, body{
+    height:100%;
+    width: 100%; 
+    margin: 0; 
+    display: table;
+}
+footer{display:table-row;}
 
+</style>
 </head>
 
 <body>
@@ -38,10 +47,11 @@
     $database= mysqli_select_db($connection, $dbname);
     if (!$connection)
         die("Connection failed: " . mysqli_connect_error());
-    $session_first_name= $_SESSION['first_name'];
+    //$session_first_name= $_SESSION['first_name'];
+    $session_email= $_SESSION['email'];
     $sql = "SELECT * FROM `offers`  INNER JOIN requests
-ON requests.ID = offers.RequestID INNER JOIN babysitter
-ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$session_first_name' and requests.status='Accepted'";;
+ON requests.ID = offers.RequestID INNER JOIN parent
+ON parent.email  = requests.ParentEmail    where offers.babySitterEmail ='$session_email' and offers.offerstatus='accepted'";
 
     $userFound = mysqli_query($connection,$sql);
     if($userFound){
@@ -52,38 +62,50 @@ ON babysitter.firstName = offers.babySitterName  where offers.babySitterName='$s
     ?>
 
 
-
-
-
-
-
-
-     
-    
-    <div class="y">
+    <div class="y"  style=" padding=1px;">
         <img src="../public/userImages/<?php echo $row['img']; ?>" id="sitterPic" alt="babystter picture">
         <p>
 
-        
-            <label class="NameLabel">Baby Name: </label>
-            <label class="Name"><?php echo $row['kidsName']; ?></label><br>
-    
-            <label class="PriceLabel"> Price/hr: </label>
-            <label class="Price"><?php echo $row['price']; ?> SAR</label> <br>
 
-            <label class="StartDateLabel">Date: </label>
-            <label class="StartDate"><?php echo $row['startDate']; ?></label>
-    
-         <br>
+            <?php $id= $row['ID'];
+            $sql_kids = "SELECT * FROM `kids`   where ID ='$id' ";
 
-    
+            $userFound_kids = mysqli_query($connection,$sql_kids);
+            if($userFound_kids) {
+
+                if (mysqli_num_rows($userFound_kids) > 0) {
+
+                    while ($row_kids = mysqli_fetch_assoc($userFound_kids)) {
+                        ?>
+
+                        <label class="NameLabel">Baby Name: </label>
+                        <label class="Name"><?php echo $row_kids['kidName'].' , '; ?></label>
+
+                        <label class="NameLabel">Age: </label>
+                        <label class="Name"><?php echo $row_kids['kidAge'].'Years'; ?></label><br>
+                    <?php }
+                }
+            } ?>
+
+
+            <label class="PriceLabel">Price/hr:</label>
+            <label class="Price"><?php echo $row['price'];?>SR</label>    
+
+             <label class="StartDateLabel"> Date:</label>  
+
+            <label class="StartDate"><?php echo $row['startDate'];?></label>
+    <br>
+
+            <label class="PriceLabel"> Type Of Servese: </label>
+            <label class="Price"><?php echo $row['TypeOfServese']; ?> </label> <br>
+
+          
             <label class="timeslotslabel"> From: </label>
             <label class="timeslots"><?php echo $row['startTime']; ?></label> 
 
             <label class="timeslotslabel2"> To: </label>
             <label class="timeslots2">  <?php echo $row['endTime']; ?></label> <br>
 
-            <a href="mailto:<?php echo $row['email']; ?> "><input  type="submit" class="contact" value="contact" ></a>
          </p>
 
 </div>
