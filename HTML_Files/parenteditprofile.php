@@ -62,17 +62,17 @@ $gotResuslts = mysqli_query($connection,$sql);
                 <!--<label for="city">City:</label>
                 <input type="text" class="inputing-text" id="city" name="city"placeholder="Enter your new city">-->
                 <label >Address:</label><br>
-                    <input type="text" class="locad " id="loc" name= "City" placeholder= "City"
+                    <input type="text" class="inputing-text " id="loc" name= "City" placeholder= "City"
                     value="<?php echo $row['City']; ?>">
-                    <input type="text" class="locad " id="loc" name="District"placeholder="District"
+                    <input type="text" class="inputing-text " id="loc" name="District"placeholder="District"
                     value="<?php echo $row['District']; ?>">
-                    <input type="text" class="locad " id="loc" name="Street"placeholder="Street"
+                    <input type="text" class="inputing-text " id="loc" name="Street"placeholder="Street"
                     value="<?php echo $row['Street']; ?>">
-                    <input type="text" class="locad " id="loc" name="BuildingNumber"placeholder="Building number"
+                    <input type="text" class="inputing-text " id="loc" name="BuildingNumber"placeholder="Building number"
                     value="<?php echo $row['BuildingNumber']; ?>"> 
-                    <input type="text" class="locad " id="loc" name="PostalCode"placeholder="Postal code"
+                    <input type="text" class="inputing-text " id="loc" name="PostalCode"placeholder="Postal code"
                     value="<?php echo $row['PostalCode']; ?>">
-                    <input type="text" class="locad "id="loc" name="SecondaryNumber"placeholder="Secondary number"
+                    <input type="text" class="inputing-text "id="loc" name="SecondaryNumber"placeholder="Secondary number"
                     value="<?php echo $row['SecondaryNumber']; ?>">
                 
                 <label for="password">Password:</label>
