@@ -109,7 +109,7 @@ $fname = $_POST["firstname"];
     $id = $_POST["id"];
     $age = $_POST["age"];
     $email = $_POST["eMail"];
-    echo $email;
+    //echo $email;
     $city = $_POST["city"];
     $phone = $_POST["phone"];
     $password = $_POST["password"];
@@ -156,10 +156,12 @@ $fname = $_POST["firstname"];
         $email_err = " this email is already registered, please enter a different email!";
         $valid = false;
     }}
-    if (!preg_match("/^[0-9]$/i", $id)) {
+    
+    if (!preg_match("/^\\d+$/", $id)) {
         $id_err = " please enter a valid id!";
         $valid = false;
     }
+    
     
      
 if ($valid) {
