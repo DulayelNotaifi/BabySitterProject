@@ -56,29 +56,6 @@ $loggedInUser = $_SESSION['email'];
         }}}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $sql = "SELECT * FROM `babysitter` WHERE email='$loggedInUser'";
         // AND password='$userPassword'
         $userFound = mysqli_query($connection,$sql);

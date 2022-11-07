@@ -41,6 +41,7 @@ if($_GET['error'] == 'failToDelete'){
     ?>
     
     <span style="color:red;">
+    <br>
     please enter correct password
 </span>
     

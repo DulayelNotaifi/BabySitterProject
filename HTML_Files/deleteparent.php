@@ -40,12 +40,24 @@ if($_GET['error'] == 'failToDelete'){
     ?>
     
     <span style="color:red;">
-    * please enter correct password
+    <br>
+     please enter correct password
 </span>
     
 <?php
+}elseif($_GET['error'] == 'serReq'){
+    ?>
+    
+    <span style="color:red;">
+    <br>
+    you have a served request that has not came yet you are unable to delete your account
+</span>
+    
+<?php
+
 }}
 ?>
+
             <input type="password" class="inputing-text" id="password" name="uPassword" placeholder="Enter your password" required>
             <p id="onlyDelNow"class="more-space-on-bottom"></p>
 
