@@ -71,7 +71,7 @@ session_start();
 
         <div class="container">
 
-        <form action="#" method="post">
+        <form action="../PHP_Files/editJobRequestprosses.php" method="post">
     <p class="canceledInfo">
 
     <div id="kids_info">

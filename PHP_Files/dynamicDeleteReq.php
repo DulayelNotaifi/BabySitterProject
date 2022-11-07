@@ -1,6 +1,5 @@
 <?php
-        include('../PHP_Files/connect_db.php');\
-
+        include('../PHP_Files/connect_db.php');
 $select = "SELECT `ID` FROM requests              
            WHERE created_at < DATE_SUB( NOW() , INTERVAL 1 HOUR ) 
            AND `status` = 'unserved'";
@@ -17,15 +16,15 @@ if($valu > 0 ){
         $id = key($row);
         next($row);
 
-        $sql = "DELETE FROM `offers` WHERE `RequestID` = $row[$id]";
+        $sql = "UPDATE `offers` SET `offerstatus`='expired' WHERE `RequestID` = '$row[$id]'";
         $query = mysqli_query($connection,$sql);
         if( $query ){
           echo 'done0';
-        $sql = "DELETE FROM `kids` WHERE `ID` = $row[$id]";
+        /*$sql = "DELETE FROM `kids` WHERE `ID` = $row[$id]";
         $query = mysqli_query($connection,$sql);
         if( $query ){
-          echo 'done1';
-          $sql = "DELETE FROM `requests` WHERE `ID` = $row[$id]";
+          echo 'done1';*/
+          $sql = "UPDATE `requests` SET `status`='expired' WHERE `ID` = '$row[$id]'";
           $query = mysqli_query($connection,$sql); 
           if( $query ){
              echo 'done2';
@@ -36,5 +35,4 @@ if($valu > 0 ){
           }
     }
 
-}
 ?>
