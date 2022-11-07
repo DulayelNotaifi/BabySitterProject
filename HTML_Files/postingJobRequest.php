@@ -46,7 +46,7 @@ document.getElementsByName("form_day")[0].setAttribute('min', today);
                     
                         <div class="controls">
                           <a href="#" id="add_more_fields" size="50"><i class="fa fa-plus"></i></a>
-                          <a href="#" id="remove_fields" style="float: right; margin-right: 60px"><i class="fa fa-minus"></i></a>
+                          <a href="#" id="remove_fields" style="float: right; margin-right: 13px"><i class="fa fa-minus"></i></a>
                           <p style="margin-left: 140px;">Select + to add child, - to remove child</p>
                         </div>
                 
