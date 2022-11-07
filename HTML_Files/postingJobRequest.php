@@ -111,14 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-      <script type="text/javascript">
-    window.onload=function(){//from ww  w . j  a  va2s. c  o  m
-var today = new Date().toISOString().split('T')[0];
 
-document.getElementsByName("form_day")[0].setAttribute('min', today);
-    }
-
-      </script> 
     </head>
     
     <body>
@@ -156,7 +149,7 @@ document.getElementsByName("form_day")[0].setAttribute('min', today);
                 </label>
                 
                 <label class="durationLabel"> Duration: <br> <span class="errspan" style="color:red;font-size: 15px;"><?php echo $to_time_err; ?></span><br>
-                Date:<input class="inputDay" name="form_day" type="date" min=<?php echo date('Y-m-d', strtotime('+2 days') ); ?>required > </label>
+                Date:<input class="inputDay" name="form_day" type="date" min="<?php echo date('Y-m-d', strtotime('+1 days')); ?>"  ?>required > </label>
                 <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" required > </label>
                 <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time"  required> </label>
                 <br><br>
