@@ -81,7 +81,7 @@ die("Connection failed: " . mysqli_connect_error());
             
         }
         
-        header('Location:/BabySitterProject/HTML_Files/LoginPage.php?error=failToLogIn');
+        header('Location:../HTML_Files/LoginPage.php?error=failToLogIn');
         
         
     }

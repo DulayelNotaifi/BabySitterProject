@@ -22,10 +22,10 @@ session_start();
         $pemail =  $_SESSION['email'];
         if(isset($_GET['id'])){
             // echo("set");
-               $id = mysqli_real_escape_string($connection,$_GET['id']);
+               $id2 = mysqli_real_escape_string($connection,$_GET['id']);
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= '$pemail' AND `ID` = '$id'";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `ID` = '$id2'";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -127,7 +127,7 @@ while($kidrow = mysqli_fetch_row($result2)){
                 </label>
                 <br>
                  
-                <input  name="id" type="hidden" value="<?php echo($id)?>"/>
+                <input  name="idReq" type="hidden" value="<?php echo($id2)?>"/>
                 <input class="Bottons resetBotton" type="button" onclick="location.href ='editJobRequest.php';" value="go back" >
 
                 <input type="submit" class="Bottons editingBotton" style="position: relative;
@@ -136,7 +136,7 @@ while($kidrow = mysqli_fetch_row($result2)){
     width: 265px;
     direction: none;" value="Edit"  name="edit_submit"/>
 
-                </p>
+</p></form>
 
 </div> <!-- end container -->
     
