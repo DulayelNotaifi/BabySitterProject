@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userImage = $_FILES['img'];
         $imageName = $userImage['name'];
         if ($imageName == "")
-            $imageName = "BabySitterProject-main\public\userImages\defultpico.jpg";
+            $imageName = "defultpico.jpg";
 
         if (parent_signup_handler($fname, $lname, $email, $password, $city, $district, $street,  $bldg_number, $postal_code, $_2nd_number, $imageName)) {
 //            $notification = 'Registration successful!';

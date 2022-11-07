@@ -29,7 +29,7 @@ function dd($arr)
 function contact_us_handler($name, $email, $message)
 {
     global $conn;
-    $sql = "INSERT INTO `contactus` VALUES ('" . $name . "','" . $email . "','" . $message . "')";
+    $sql = "INSERT INTO `contactus` (`name`, `email`, `massage`) VALUES ('" . $name . "','" . $email . "','" . $message . "')";
     $result = mysqli_query($conn, $sql);
     return $result;
 }

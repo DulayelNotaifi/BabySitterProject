@@ -117,11 +117,11 @@ $fname = $_POST["firstname"];
     $msg = $_POST["biotextbox"];
     
     $valid = true;
-    if ($fname == "" || !ctype_alpha($fname)) {
+    if ($fname == "" || !ctype_alpha(str_replace(" ", "", $fname))) {
         $fname_err = " please enter a valid name!";
         $valid = false;
     }
-    if ($lname == "" || !ctype_alpha($lname)) {
+    if ($lname == "" || !ctype_alpha(str_replace(" ", "", $lname))) {
         $lname_err = " please enter a valid name!";
         $valid = false;
     }
@@ -134,7 +134,7 @@ $fname = $_POST["firstname"];
         $password_err = " password needs to be at least 6 characters!";
         $valid = false;
     }
-    if ($city == "" || !ctype_alpha($city)) {
+    if ($city == "" || !ctype_alpha(str_replace(" ", "", $city))) {
         $city_err = " please enter a valid city!";
         $valid = false;
     }
