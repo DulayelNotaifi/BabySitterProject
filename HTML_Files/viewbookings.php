@@ -106,7 +106,7 @@ ON babysitter.email  = offers.babySitterEmail   where requests.ParentEmail='$ses
     <footer> 
         <table class="tableF">
             <tr>
-                <th><a href="aboutUs.html"> About Us </a></th>
+                <th><a href="aboutUs.php"> About Us </a></th>
                 <th><a href="FAQ.html"> FAQs </a></th>
                 <th><a href="ContactUs.html"> Contact Us </a></th>
             </tr>
