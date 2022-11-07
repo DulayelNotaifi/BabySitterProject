@@ -194,24 +194,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="SLabel">Address:<span style="color:red"> * </span></label>
 
                     <span class="errspan" style=" color:red;font-size: 15px;font-weight:bold"><?php echo $city_err; ?></span><br>
-                    <input required type="text" class="inputing-text" id="loc" placeholder="Enter your city, example: riyadh" name="city" value="<?php if (isset($_POST["city"])) echo $_POST["city"]; ?>">
+                    <input required type="text" class="secondInputing-text" id="loc" placeholder="Enter your city, example: riyadh" name="city" value="<?php if (isset($_POST["city"])) echo $_POST["city"]; ?>">
                     <br>
 
                     <span class="errspan" style="color:red;font-size: 15px;font-weight:bold"><?php echo $district_err; ?></span><br>
-                    <input required type="text" class="inputing-text" id="loc" placeholder="Enter your district , example: alolaya" name="district" value="<?php if (isset($_POST["district"])) echo $_POST["district"]; ?>">
+                    <input required type="text" class="secondInputing-text" id="loc" placeholder="Enter your district , example: alolaya" name="district" value="<?php if (isset($_POST["district"])) echo $_POST["district"]; ?>">
                     <br>
 
                     <span class="errspan" style="color:red;font-size: 15px;font-weight:bold"><?php echo $street_err; ?></span><br>
-                    <input required type="text" class="inputing-text" id="loc" placeholder="Enter your street, example: hasan sadiq" name="street" value="<?php if (isset($_POST["street"])) echo $_POST["street"]; ?>"><br>
+                    <input required type="text" class="secondInputing-text" id="loc" placeholder="Enter your street, example: hasan sadiq" name="street" value="<?php if (isset($_POST["street"])) echo $_POST["street"]; ?>"><br>
 
                     <span class="errspan" style="color:red;font-size: 15px;font-weight:bold"><?php echo $bldg_number_err; ?></span><br>
-                    <input required type="text" class="inputing-text" id="loc" placeholder="Enter your building number, example: 8621" maxlength="4" name="bldg_number" value="<?php if (isset($_POST["bldg_number"])) echo $_POST["bldg_number"]; ?>"><br>
+                    <input required type="text" class="secondInputing-text" id="loc" placeholder="Enter your building number, example: 8621" maxlength="4" name="bldg_number" value="<?php if (isset($_POST["bldg_number"])) echo $_POST["bldg_number"]; ?>"><br>
 
                     <span class="errspan" style="color:red;font-size: 15px;font-weight:bold"><?php echo $postal_code_err; ?></span><br>
-                    <input required type="text" class="inputing-text" id="loc" placeholder="Enter your postal code, example: 12471" maxlength="5"  name="postal_code" value="<?php if (isset($_POST["postal_code"])) echo $_POST["postal_code"]; ?>"><br>
+                    <input required type="text" class="secondInputing-text" id="loc" placeholder="Enter your postal code, example: 12471" maxlength="5"  name="postal_code" value="<?php if (isset($_POST["postal_code"])) echo $_POST["postal_code"]; ?>"><br>
 
                     <span class="errspan" style="color:red;font-size: 15px;font-weight:bold"><?php echo $_2nd_number_err; ?></span><br>
-                    <input required type="text" class="inputing-text" id="loc" placeholder="Enter your secondary number, example: 4188" maxlength="4"  name="_2nd_number" value="<?php if (isset($_POST["_2nd_number"])) echo $_POST["_2nd_number"]; ?>"><br>
+                    <input required type="text" class="secondInputing-text" id="loc" placeholder="Enter your secondary number, example: 4188" maxlength="4"  name="_2nd_number" value="<?php if (isset($_POST["_2nd_number"])) echo $_POST["_2nd_number"]; ?>"><br>
 
                     <p class="more-space-on-bottom"></p>
                     <input class="submit-btn" type="submit" value="Sign Up" /><br>
