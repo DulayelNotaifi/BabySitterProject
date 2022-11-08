@@ -75,7 +75,7 @@ session_start();
     <p class="canceledInfo">
 
     <div id="kids_info">
-                    <label class="nameLabel"> Kid/s Name:
+                    <label class="nameLabel"> Kid/s Name: <span class="errspan" style="color:red;font-size: 15px;"><?php  if(isset($_SESSION['nameErr'])) echo $_SESSION['nameErr']; ?></span>
                     </label>
                     
                     <label class="ageLabel" style="float: right; margin-right: 190px" > Kid/s Age: 
@@ -145,20 +145,19 @@ echo '<script type="text/javascript">add_more_fields(n, a);</script>';
                           <p style="margin-left: 140px;">Select + to add child, - to remove child</p>
                         </div>
 
+                       
 
-
-
-                <label class="serviceLabel"> Type Of Service: 
+                <label class="serviceLabel"> Type Of Service: <span class="errspan" style="color:red;font-size: 15px;"><?php  if(isset($_SESSION['servesErr'])) echo $_SESSION['servesErr']; ?></span>
                     <input class="inptService" name="service" type="text" value="<?php echo(($row[$TypeOfServese]))?>" required> 
                 </label>
                 
-                <label class="durationLabel"> Duration: <br>
-                    Day:<input class="inputDay" name="day" type="date" value="<?php echo(($row[$startDate]))?>"required > </label>
+                <label class="durationLabel"> Duration: <br> <span class="errspan" style="color:red;font-size: 15px;"><?php  if(isset($_SESSION['timeErr'])) echo $_SESSION['timeErr']; ?></span> <br>
+                    Day:<input class="inputDay" name="day" type="date" value="<?php echo(($row[$startDate]))?>" min="<?php echo date('Y-m-d', strtotime('+1 days')); ?>" required > </label>
                 <label class="durationLabel"> From: <input class="inputFromTime" name="from_time" type="time" value="<?php echo(($row[$startTime]))?>" required > </label>
                 <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time" value="<?php echo(($row[$endTime]))?>" required> </label>
                 <br><br>
                 <label class="commentsLabel"> Add Comments: (optional)
-                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"><?php echo(($row[$comments]))?></textarea>
+                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"><?php if( $row[$comments] != "no comment added" ) echo(($row[$comments]));?></textarea>
                 </label>
                 <br>
                 <input  name="idReq" type="hidden" value="<?php echo($id2)?>"/>
@@ -175,8 +174,12 @@ echo '<script type="text/javascript">add_more_fields(n, a);</script>';
 </div> <!-- end container -->
     
      <?php
+
     // $x++; } 
-    }//end if
+    unset($_SESSION['nameErr']);
+    unset($_SESSION['servesErr']);
+    unset($_SESSION['timeErr']);
+  }//end if
     else{
     ?>
     

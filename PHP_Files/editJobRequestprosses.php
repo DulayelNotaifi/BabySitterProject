@@ -2,6 +2,7 @@
 session_start();
 
 
+$service_err = $form_day_err = $to_time_err = $kidName_err = "";
 
 if(isset($_POST['edit_submit'])){
 
@@ -36,8 +37,32 @@ if(isset($_POST['edit_submit'])){
       //  echo $from_time ;
       //  echo $to_time ;
 
+      $valid = true;
+        if($service == "" || !ctype_alpha($service)){
+          $_SESSION['servesErr'] = " please enter a service!" ;
+            $valid = false;
+        }
+       
+       /*  if(strtotime($form_day) <= strtotime(today)){
+            $form_day_err = " please enter a valid date , start from tomorrow!" ;
+            $valid = false;
+        }*/
+        if(strtotime($to_time) <= strtotime($from_time)){
+          $_SESSION['timeErr'] = " please enter a valid time , second time must be greater than the first!" ;
+            $valid = false;
+        }
+        $count = count($_POST["kidsname"]);
+        for($x =0 ; $x < $count ; $x++) {
+           $kidName = $_POST["kidsname"]["$x"];
+           if($kidName == "" || !ctype_alpha($kidName)){
+            $_SESSION['nameErr'] =" please enter a valid name!";
+           $valid = false;}
+        } 
 
 
+
+        
+        if ($valid) {
         if(!empty($_POST['comments']))
         $comments = $_POST['comments'];
         else
@@ -82,8 +107,9 @@ if(isset($_POST['edit_submit'])){
 }//end line 6
     else{
         echo 'fail';
+        header("Location: http://localhost/BabySitterProject/HTML_Files/editingJobRequest.php?id=$id");
         }
-   // }
+   }
 //}
 
 ?> 
