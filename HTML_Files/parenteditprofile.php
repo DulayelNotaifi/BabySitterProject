@@ -233,38 +233,38 @@ if(isset($_POST['submit'])){
                             //print_r("ygbyb8yn".$row['email']);
                         ?>
                 <label for="firstname">First Name:</label><span style="color:red"><?php echo $fname_err; ?> </span>
-                <input type="text" class="inputing-text" id="firstname" name="firstname"placeholder="Enter your first name"
+                <input type="text" class="inputing-text" id="firstname" name="firstname"placeholder="Enter your first name, example: Aliyah"
                 value="<?php echo $row['firstName']; ?>">
                 <label for="lastname">Last Name:</label><span style="color:red"><?php echo $lname_err; ?> </span>
-                <input type="text" class="inputing-text" id="lastname" name="lastname"placeholder="Enter your last name"
+                <input type="text" class="inputing-text" id="lastname" name="lastname"placeholder="Enter your last name, example: Alabdulkarim"
                 value="<?php echo $row['lastName']; ?>">
                 <label for="eMail">Email:</label><span style="color:red"> <?php echo $email_err; ?></span>
-                <input type="email" class="inputing-text" id="eMail" name="eMail"placeholder="Enter your new email"
+                <input type="email" class="inputing-text" id="eMail" name="eMail"pplaceholder="Enter your email, example: aliyah@gmail.com" 
                 value="<?php echo $row['email']; ?>">
                 <!--<label for="city">City:</label>
                 <input type="text" class="inputing-text" id="city" name="city"placeholder="Enter your new city">-->
                 <label >Address:</label><br><span style="color:red"> </span><br>
                 <label >City:</label><br><span style="color:red"> <?php echo $city_err; ?></span>
-                    <input type="text" class="inputing-text" id="loc" name= "City" placeholder= "City"
+                    <input type="text" class="inputing-text" id="loc" name= "City" placeholder="Enter your city, example: riyadh"
                     value="<?php echo $row['City']; ?>">
                     <label >District:</label><br><span style="color:red"> <?php echo $district_err; ?></span>
-                    <input type="text" class="inputing-text" id="loc" name="District"placeholder="District"
+                    <input type="text" class="inputing-text" id="loc" name="District"placeholder="Enter your district , example: alolaya"
                     value="<?php echo $row['District']; ?>">
                     <label >Street:</label><br><span style="color:red"> <?php echo $street_err; ?></span>
-                    <input type="text" class="inputing-text" id="loc" name="Street"placeholder="Street"
+                    <input type="text" class="inputing-text" id="loc" name="Street" placeholder="Enter your street, example: hasan sadiq"
                     value="<?php echo $row['Street']; ?>">
                     <label >Building Number:</label><br><span style="color:red"> <?php echo $bldg_number_err; ?></span>
-                    <input type="text" class="inputing-text" id="loc" name="BuildingNumber"placeholder="Building number"
+                    <input type="text" class="inputing-text" id="loc" name="BuildingNumber"placeholder="Enter your building number, example: 8621"
                     value="<?php echo $row['BuildingNumber']; ?>"> 
                     <label >Postal Code:</label><br><span style="color:red"> <?php echo $postal_code_err; ?></span>
-                    <input type="text" class="inputing-text" id="loc" name="PostalCode"placeholder="Postal code"
+                    <input type="text" class="inputing-text" id="loc" name="PostalCode"placeholder="Enter your postal code, example: 12471"
                     value="<?php echo $row['PostalCode']; ?>">
                     <label >Secondary Number:</label><br><span style="color:red"><?php echo $_2nd_number_err; ?> </span>
-                    <input type="text" class="inputing-text"id="loc" name="SecondaryNumber"placeholder="Secondary number"
+                    <input type="text" class="inputing-text"id="loc" name="SecondaryNumber"placeholder="Enter your secondary number, example: 4188"
                     value="<?php echo $row['SecondaryNumber']; ?>">
                 
                 <label for="password">Password:</label><span style="color:red"> <?php echo $password_err; ?></span>
-                <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your new password">
+                <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your password, it must be at least 6 characters ">
                 <p class="more-space-on-bottom"></p>
                 <input class="botton-bigger" type="submit" name="submit" value="Update" />
 
