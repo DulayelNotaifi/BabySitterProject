@@ -112,7 +112,8 @@ session_start();
     font-size: 40px;
     margin-bottom:3px;
     text-align: center;
-    height: 1px;"><?php print("welcome ".$_SESSION['firstName']);?></p>
+    color:black;
+    height: 1px;"><?php print("welcome ".$_SESSION['firstName']);?> !</p>
         <p class="p1">A Watchful Eye</p>
         <p class="p2">baby care</p>
     </div>
