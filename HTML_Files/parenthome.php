@@ -42,7 +42,7 @@ footer {
     margin-bottom:3px;
     text-align: center;
     height: 1px;
-    color:black;"><?php print("welcome ".$_SESSION['firstName']);?>!</p>
+    color:black;"><?php print("welcome ".$_SESSION['firstName']);?> !</p>
         <p class="p1">A Watchful Eye</p>
         <p class="p2">baby care</p>
     </div>
