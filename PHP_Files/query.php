@@ -85,7 +85,7 @@ function get_rates($email)
 function get_requests($email)
 {
     global $conn;
-    $sql = "SELECT requests.TypeOfServese, requests.startTime, requests.endTime, requests.startDate, requests.startDate,kids.kidName, kids.kidAge, offers.price, offers.offerstatus FROM `requests`, `offers`, `kids` WHERE requests.ID = kids.ID AND requests.ID = offers.RequestID AND offers.babySitterEmail = '" . $email . "'";
+    $sql = "SELECT requests.TypeOfServese, requests.startTime, requests.endTime, requests.startDate, requests.startDate, offers.price, offers.offerstatus FROM `requests`, `offers` WHERE  requests.ID = offers.RequestID AND offers.babySitterEmail = '" . $email . "'";
     $result = mysqli_query($conn, $sql);
     return $result;
 }
