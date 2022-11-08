@@ -102,6 +102,7 @@ if(isset($_POST['edit_submit'])){
             $query = mysqli_query($connection,$sql);
           }
         }
+        $_SESSION['editDone'] = "Edited successful!";
     header("Location: http://localhost/BabySitterProject/HTML_Files/editJobRequest.php");
     
 }//end line 6

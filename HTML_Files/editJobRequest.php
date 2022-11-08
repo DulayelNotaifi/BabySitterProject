@@ -54,9 +54,11 @@ footer {
 
 <?php
 session_start();
-        if(isset($_GET['Message'])){
-            echo $_GET['Message'];
-        }
+if(isset($_SESSION['editDone'])){
+   
+    echo '<script>alert("Edited successful!");</script>';
+unset($_SESSION['editDone']);
+}
         $pemail =  $_SESSION['email'];
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'

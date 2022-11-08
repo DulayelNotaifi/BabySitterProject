@@ -31,6 +31,7 @@ session_start();
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
            $valu = mysqli_num_rows($result);
         }
+
            //$sql2 = "SELECT `ID`, `kidName`, `kidAge` FROM `kids` WHERE `requests`.`ID` = `kids`.`ID`";
            //$result2 = mysqli_query($connection,  $sql2);
            //$valu2 = mysqli_num_rows($result2);
