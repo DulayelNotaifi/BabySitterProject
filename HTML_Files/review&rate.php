@@ -70,19 +70,6 @@ footer{display:table-row;}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container">
 
 
@@ -109,12 +96,13 @@ footer{display:table-row;}
 
         $parentEmail = $_SESSION['email'];
 
+
         $sql_email = "select count(*) as cunt from review where parentEmail ='$parentEmail' and offer_id ='$id_offer'";
+        //$result = $userFound = mysqli_query($connection,$sql_email );
 
 
 
-        $result = $connection->query($sql_email);
-
+       $result = $connection->query($sql_email);
         while ($row = $result->fetch_assoc()) {
 
         if ($row['cunt'] > 0) {?>
@@ -189,7 +177,7 @@ footer{display:table-row;}
 
                 $sql_view = "SELECT * FROM `offers`   INNER JOIN babysitter
 
-        ON babysitter.firstName = offers.babySitterName  where offers.id='$id'";
+        ON babysitter.email = offers.babySitterEmail  where offers.id='$id'";
 
         
 
