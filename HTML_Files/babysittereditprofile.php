@@ -273,10 +273,10 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
                                 ?>
                                 
                 <label for="firstname">First Name:</label><span style="color:red;"><?php echo $fname_err; ?>  </span>
-                <input type="text" class="inputing-text" id="firstname" name="firstname" placeholder="Enter your first name"
+                <input type="text" class="inputing-text" id="firstname" name="firstname" placeholder="Enter your first name, example: Aliyah"
                 value="<?php echo $row['firstName']; ?>">
                 <label for="lastname">Last Name:</label><span style="color:red;"> <?php echo $lname_err; ?> </span>
-                <input type="text" class="inputing-text" id="lastname" name="lastname" placeholder="Enter your last name"
+                <input type="text" class="inputing-text" id="lastname" name="lastname" placeholder="Enter your last name, example: Alabdulkarim"
                 value="<?php echo $row['lastName']; ?>">
                 <p class="more-space-on-bottom"></p>
                 <label>Gender:</label>
@@ -285,10 +285,10 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
                 <input type="radio" name="gender" value="female"<?php if (isset($row['gender']) && strtolower($row['gender'])=="female") echo "checked";?>> Female
                 <p class="more-space-on-bottom"></p>
                 <label for="id">ID:</label><span style="color:red;"> <?php echo $id_err; ?> </span>
-                <input type="text" class="inputing-text" id="id" name="id" placeholder="Enter your ID"
+                <input type="text" class="inputing-text" id="id" name="id" placeholder="Enter your ID number, example: 1126354857"
                 value="<?php echo $row['ID']; ?>">
                 <label for="age">Age:</label><span style="color:red;">  </span>
-                <input type="text" class="inputing-text" id="age" name="age" placeholder="Enter your age"
+                <input type="text" class="inputing-text" id="age" name="age" placeholder="Enter your age, example: 35"
                 value="<?php echo $row['age']; ?>">
 
                 <label for="eMail">Email:</label><span style="color:red;"> <?php echo $email_err; ?> </span>
@@ -308,13 +308,13 @@ if($_GET['error'] == 'emailDup'){
 }}
 
 ?>
-<input type="email" class="inputing-text" id="eMail" name="eMail" placeholder="Enter your new email"
+<input type="email" class="inputing-text" id="eMail" name="eMail" placeholder="Enter your email, example: aliyah@gmail.com"
                 value="<?php echo $row['email']; ?>">
                 <label for="city">City:</label><span style="color:red;"> <?php echo $city_err; ?> </span>
-                <input type="text" class="inputing-text" id="city" name="city" placeholder="Enter your new city"
+                <input type="text" class="inputing-text" id="city" name="city" pplaceholder="Enter your city, example: riyadh"
                 value="<?php echo $row['city']; ?>">
                 <label for="phone">Phone:</label><span style="color:red;"> <?php echo $phone_err; ?> </span><!--<span id="redfff"style="color:red;"></span>-->
-                <input type="text" class="inputing-text" id="phone" name="phone" placeholder="Enter your new phone"
+                <input type="text" class="inputing-text" id="phone" name="phone" placeholder="Enter your phone number, example: 0532635486"
                 onblur="myFunction()"
                 value="<?php echo $row['phone']; ?>">
                 
@@ -344,10 +344,10 @@ fuction geterrdet(){
 }
 </script>
                 <label for="password"> password:</label><span style="color:red;"> <?php echo $password_err; ?> </span>
-                <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your new password">
+                <input type="password" class="inputing-text" id="password" name="password" placeholder="Enter your password, it must be at least 6 characters">
                 <label for="bio">Bio:</label><span style="color:red;"> <?php echo $msg_err; ?></span> </span>
                 <p class="more-space-on-bottom"></p>
-                <textarea name="biotextbox" id="bio" name="bio" rows="10" placeholder=" Enter the bio, such as: years of experience, education, languages spoken, skills, etc">
+                <textarea name="biotextbox" id="bio" name="bio" rows="10" placeholder=" Enter your bio, such as: years of experience, education, languages spoken, skills, etc">
                 <?php echo $row['bio']; ?>
                 </textarea>
                 <p class="more-space-on-bottom"></p>
