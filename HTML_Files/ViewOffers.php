@@ -75,8 +75,6 @@ $requests = get_requests($_SESSION['email']);
         <th>Date</th>
         <th>Time</th>
         <th>Type of Service</th>
-        <th>Kid/s Name</th>
-        <th>Kid/s Ages(year)</th>
         <th>Price(per hour)</th>
         <th>offerstatus</th>
       </tr>
@@ -91,8 +89,6 @@ $requests = get_requests($_SESSION['email']);
               <td>' . $row["startDate"] . '</td>
               <td>' . $row["startTime"] . " - " . $row["endTime"] . '</td>
               <td>' . $row["TypeOfServese"] . '</td>
-              <td>' . $row["kidName"] . '</td>
-              <td>' . $row["kidAge"] . '</td>
               <td> ' . $row["price"] . '</td>';
         if (strtolower($row["offerstatus"]) == "accepted")
           echo '<td class="Green">' . $row["offerstatus"] . '</td>';
