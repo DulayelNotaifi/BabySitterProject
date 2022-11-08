@@ -62,7 +62,7 @@ footer {
         echo "$pemail" ;
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'$pemail parent1@gmail.com
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= '$pemail'";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID`, `created_at` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= '$pemail'";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -102,6 +102,9 @@ footer {
      $id = key($row);
      next($row);
      
+     $created_at = key($row);
+     next($row);
+     
      $kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
      $result2 = mysqli_query($connection, $kidss);
     ?> 
@@ -139,7 +142,50 @@ while($kidrow = mysqli_fetch_row($result2)){
         <br><br>
     
         <label class="commentsLabel">Comments: </label>
-        <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
+        <label class="comments"><?php echo(($row[$comments]))?></label> <br><br>
+        <?php
+  
+  $date = $row[$created_at];
+  $newDate = date('Y-m-d H:i:s', strtotime($date. ' + 1 hours'));
+
+?>
+        <label class="commentsLabel" style="color: red;">expier date: </label>
+        <label id="demo" ><?php echo($newDate)?></label><br><br>
+
+<!--<script>
+// Set the date we're counting down to
+var countDownDate = new Date("<?php echo(($row[$created_at]))?>").getTime();
+
+countDownDate.setHours(countDownDate.getHours() + 1);
+
+document.getElementById("demo").innerHTML = countDownDate;
+// Update the count down every 1 second
+/*var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);*/
+</script> -->
+
 
    <!-- <input type="button" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/> -->
     <button class="Bottons cancelBotton" onclick="return checkDelet()" ><a href='../PHP_Files/cancelJobRequest.php?id=<?php echo($row[$id])?>'>Cancel Job Request</a></button>
