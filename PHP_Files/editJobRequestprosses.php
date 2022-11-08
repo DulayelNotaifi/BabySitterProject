@@ -38,7 +38,7 @@ if(isset($_POST['edit_submit'])){
       //  echo $to_time ;
 
       $valid = true;
-        if($service == "" || !ctype_alpha($service)){
+        if($service == " " ){
           $_SESSION['servesErr'] = " please enter a service!" ;
             $valid = false;
         }
@@ -54,7 +54,7 @@ if(isset($_POST['edit_submit'])){
         $count = count($_POST["kidsname"]);
         for($x =0 ; $x < $count ; $x++) {
            $kidName = $_POST["kidsname"]["$x"];
-           if($kidName == "" || !ctype_alpha($kidName)){
+           if($kidName == "" || !ctype_alpha(str_replace(" ", "", $kidName))){
             $_SESSION['nameErr'] =" please enter a valid name!";
            $valid = false;}
         } 
