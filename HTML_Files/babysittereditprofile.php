@@ -203,8 +203,8 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
 }
     //print($imageName);
                 $results = mysqli_query($connection,$sql);
-    
-                header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
+                echo '<script>alert("Your edits has been sent successfully!");window.location.href="babysittereditprofile.php";</script>';
+                //header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
             exit;
             }
     
@@ -222,7 +222,8 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
                 
             }
             $results = mysqli_query($connection,$sql);
-            header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
+            echo '<script>alert("Your edits has been sent successfully!");window.location.href="babysittereditprofile.php";</script>';
+            //header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');
             exit;
 
 }}

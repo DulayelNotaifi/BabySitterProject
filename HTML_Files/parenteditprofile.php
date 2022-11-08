@@ -159,8 +159,8 @@ if(isset($_POST['submit'])){
         }
            // print($imageName);
                         $results = mysqli_query($connection,$sql);
-            
-                        header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                        echo '<script>alert("Your edits has been sent successfully!");window.location.href="parenteditprofile.php";</script>';
+                        //header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
                     exit;
                     }
             
@@ -175,14 +175,16 @@ if(isset($_POST['submit'])){
                     //$sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
                     //,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio',password ='$userPassword' WHERE email = '$loggedInUser'";
                     $results = mysqli_query($connection,$sql);
-                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                    echo '<script>alert("Your edits has been sent successfully!");window.location.href="parenteditprofile.php";</script>';
+                    //header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
                     exit;
                     }else{
                         $sql = "UPDATE `parent` SET `email` = '$eMail', `firstName` = '$firstname', `lastName` = '$lastname',
          `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
           `SecondaryNumber` = '$SecondaryNumber' WHERE email = '$loggedInUser'";
                        $results = mysqli_query($connection,$sql);
-                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                       echo '<script>alert("Your edits has been sent successfully!");window.location.href="parenteditprofile.php";</script>';
+                    //header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
                     exit; 
                     }
                     
@@ -192,7 +194,8 @@ if(isset($_POST['submit'])){
                                    
                                
                     $results = mysqli_query($connection,$sql);
-                    header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
+                    echo '<script>alert("Your edits has been sent successfully!");window.location.href="parenteditprofile.php";</script>';
+                   // header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
                     exit;}}
 ?>
 <!DOCTYPE html>
