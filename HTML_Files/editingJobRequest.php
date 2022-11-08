@@ -11,7 +11,7 @@
     </head>
     
     <body>
-        
+    <script> add_more_fields() </script>
          <!--Upper Menue-->
     <?php include("parentheader.php"); ?>
 
@@ -81,6 +81,33 @@ session_start();
                     <label class="ageLabel" style="float: right; margin-right: 190px" > Kid/s Age: 
                     </label>
                     
+                    <script type="text/javascript">
+function add_more_fields (kidName , kidAge){
+  var nameField = document.createElement('input');
+  var ageField = document.createElement('input');
+
+  nameField.setAttribute('type','text');
+  nameField.setAttribute('name','kidsname[]');
+  nameField.setAttribute('class','inputExtraName');
+  nameField.setAttribute('size',50);
+  nameField.setAttribute('placeholder','Enter Kid/s name');
+  nameField.setAttribute('value',kidName);
+  kids_info.appendChild(nameField);
+
+
+  ageField.setAttribute('type','number');
+  ageField.setAttribute('name','kidsage[]');
+  ageField.setAttribute('class','inputExtraAge');
+  ageField.setAttribute('size',50);
+  ageField.setAttribute('placeholder','Enter Kid/s age');
+  ageField.setAttribute('value',kidAge);
+  ageField.setAttribute('min',0);
+  ageField.setAttribute('max',17);
+  kids_info.appendChild(ageField);
+}
+</script>
+
+
 
 <label class="Name"> <br><?php 
 while($kidrow = mysqli_fetch_row($result2)){
@@ -91,10 +118,18 @@ while($kidrow = mysqli_fetch_row($result2)){
     next($kidrow);
 
     //$ages[] = $kidrow[$kAge];
+    
     ?>
+        <script>
+        var n = "<?php echo $kidrow[$kname] ?>" ; 
+        var a = "<?php echo $kidrow[$kAge] ?>"; 
+</script>
+    <?php
+echo '<script type="text/javascript">add_more_fields(n, a);</script>';
+?>
 
-                        <input class="inputExtraName" name="kidsname[]" type="text" placeholder="Enter Kid Name" value="<?php echo $kidrow[$kname] ?>" required> 
-                        <input class="inputExtraAge" name="kidsage[]" type="number" min="0" max="17" placeholder="Enter Kid Age" value="<?php echo $kidrow[$kAge] ?>" required>
+                       <!-- <input class="inputExtraName" name="kidsname[]" type="text" placeholder="Enter Kid Name" value="<?php echo $kidrow[$kname] ?>" required> 
+                        <input class="inputExtraAge" name="kidsage[]" type="number" min="0" max="17" placeholder="Enter Kid Age" value="<?php echo $kidrow[$kAge] ?>" required> -->
 
 
    <?php // echo $kidrow[$kname].": ".$kidrow[$kAge]." Years<br>";
@@ -220,6 +255,23 @@ while($kidrow = mysqli_fetch_row($result2)){
             </div>
             </footer> <!-- end footer -->
             <script src="addKids.js"></script>
+            <script>
+            var kids_info = document.getElementById('kids_info');
+var add_more_fields = document.getElementById('add_more_fields');
+var remove_fields = document.getElementById('remove_fields');
+var input_id = document.getElementById('newInput'); 
+remove_fields.onclick = function(){
+  var input_tags = kids_info.getElementsByTagName('input');
+  if(input_tags.length > 2) {
+    kids_info.removeChild(input_tags[(input_tags.length) - 1]);
+    kids_info.removeChild(input_tags[(input_tags.length) - 1]);
+  }
+  // if(input_id.length > 2 ){
+    input_id.removeChild(input_id[(input_id.length) - 1]);
+    input_id.removeChild(input_id[(input_id.length) - 1]);
+ // }
+}</script>
+
     </body>
 
 </html>
