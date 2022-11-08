@@ -169,7 +169,7 @@ if(isset($_SESSION['Correct'])){
             <tr>
                 <th><a href="aboutUs.html"> About Us </a></th>
                 <th><a href="FAQ.html"> FAQs </a></th>
-                <th><a href="ContactUs.html"> Contact Us </a></th>
+                <th><a href="ContactUs.php"> Contact Us </a></th>
             </tr>
         </table>
         <div id="shareProfile">
