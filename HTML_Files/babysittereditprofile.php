@@ -201,7 +201,7 @@ $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', 
     $sql = "UPDATE `babysitter` SET firstName = '$firstname',lastName= '$lastname', email ='$eMail'
     ,gender='$gender',ID='$id',age='$age',city='$city',phone='$phone',bio='$bio', img='$imageName' WHERE email = '$loggedInUser'";
 }
-    print($imageName);
+    //print($imageName);
                 $results = mysqli_query($connection,$sql);
     
                 header('Location:/BabySitterProject/HTML_Files/babysittereditprofile.php');

@@ -157,7 +157,7 @@ if(isset($_POST['submit'])){
          `City` = '$City', `District` = '$District', `Street` = '$Street', `BuildingNumber` = '$BuildingNumber', `PostalCode` = '$PostalCode',
           `SecondaryNumber` = '$SecondaryNumber', `img` = '$imageName' WHERE email = '$loggedInUser'";
         }
-            print($imageName);
+           // print($imageName);
                         $results = mysqli_query($connection,$sql);
             
                         header('Location:/BabySitterProject/HTML_Files/parenteditprofile.php');
