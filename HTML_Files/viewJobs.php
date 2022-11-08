@@ -69,21 +69,21 @@ ON parent.email  = requests.ParentEmail    where offers.babySitterEmail ='$sessi
 
             <?php $id= $row['ID'];
             $sql_kids = "SELECT * FROM `kids`   where ID ='$id' ";
+            //$countt = mysqli_num_rows($userFound_kids);
 
             $userFound_kids = mysqli_query($connection,$sql_kids);
             if($userFound_kids) {
 
                 if (mysqli_num_rows($userFound_kids) > 0) {
 
-                    while ($row_kids = mysqli_fetch_assoc($userFound_kids)) {
+                   // while ($row_kids = mysqli_fetch_assoc($userFound_kids)) {
                         ?>
 
-                        <label class="NameLabel">Baby Name: </label>
-                        <label class="Name"><?php echo $row_kids['kidName'].' , '; ?></label>
+                        <label class="NameLabel">No.Kids: </label>
+                        <label class="Name"><?php echo mysqli_num_rows($userFound_kids); ?></label><br>
 
-                        <label class="NameLabel">Age: </label>
-                        <label class="Name"><?php echo $row_kids['kidAge'].'Years'; ?></label><br>
-                    <?php }
+              
+                    <?php //}
                 }
             } ?>
 

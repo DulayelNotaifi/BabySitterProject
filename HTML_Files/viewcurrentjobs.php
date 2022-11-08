@@ -73,18 +73,18 @@ ON parent.email  = requests.ParentEmail   where offers.babySitterEmail ='$sessio
                     if($userFound_kids) {
 
                         if (mysqli_num_rows($userFound_kids) > 0) {
-
-                            while ($row_kids = mysqli_fetch_assoc($userFound_kids)) {
+        
+                           // while ($row_kids = mysqli_fetch_assoc($userFound_kids)) {
                                 ?>
-
-                                <label class="NameLabel">Baby Name: </label>
-                                <label class="Name"><?php echo $row_kids['kidName'].', '; ?></label>
-
-                                <label class="NameLabel">Age: </label>
-                                <label class="Name"><?php echo $row_kids['kidAge'].' Years'; ?></label><br>
-                            <?php }
+        
+                                <label class="NameLabel">No.Kids: </label>
+                                <label class="Name"><?php echo mysqli_num_rows($userFound_kids); ?></label><br>
+        
+                      
+                            <?php //}
                         }
                     } ?>
+        
     
             <label class="PriceLabel">Price/hr:</label>
             <label class="Price"><?php echo $row['price'];?>SR</label> 

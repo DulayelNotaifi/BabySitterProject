@@ -28,10 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        // $to_day = $_POST['to_day'];
         $from_time = $_POST['from_time'];
         $to_time = $_POST['to_time'];
-
+       
         //validate
        $valid = true;
-        if($service == "" || !ctype_alpha($service)){
+        if($service == " "){
             $service_err = " please enter a service!" ;
             $valid = false;
         }
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $count = count($_POST["kidsname"]);
         for($x =0 ; $x < $count ; $x++) {
            $kidName = $_POST["kidsname"]["$x"];
-           if($kidName == "" || !ctype_alpha($kidName)){
+           if($kidName == "" || !ctype_alpha(str_replace(" ", "", $kidName))){
            $kidName_err =" please enter a valid name!";
            $valid = false;}
         } 

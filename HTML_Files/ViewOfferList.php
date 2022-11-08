@@ -38,9 +38,15 @@ footer {
 
  <?php
 session_start();
+include('../PHP_Files/connect_db.php');
+
+$query = "UPDATE requests SET `status` =  'expired' WHERE created_at < (NOW() - INTERVAL 1 HOUR) AND `status` = 'unserved'";
+$q3 = $result = mysqli_query($connection, $query);
+
+
 $pemail =  $_SESSION['email'];
  
-include('../PHP_Files/connect_db.php');
+
 $val1 = "SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM  `requests` 
 WHERE `ParentEmail` = '$pemail' 
  AND `status`  = 'unserved' " ;

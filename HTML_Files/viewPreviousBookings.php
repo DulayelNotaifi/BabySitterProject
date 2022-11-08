@@ -100,7 +100,7 @@ ON babysitter.email  = offers.babySitterEmail   where requests.ParentEmail='$ses
             while ($roww = $resultt->fetch_assoc()) {
                 if ($roww['cunt'] == 0) { ?>
 
-                    <a href='../HTML_Files/review&rate.php?babySitterEmail=<?php echo($row['babySitterEmail']) ?>'>
+              <a href='../HTML_Files/review&rate.php?babySitterEmail=<?php echo($row['babySitterEmail']) ?>&id_offer=<?php echo($id_offer); ?>'>
                         <input type="submit" class="review" value="review"></a>
                 <?php }
             } ?>
