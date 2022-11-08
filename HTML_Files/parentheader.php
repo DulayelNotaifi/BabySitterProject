@@ -1,6 +1,8 @@
+
 <div class="topofpage">
         <img src="thenewlogo.jpg" alt="a logo for A Watchful Eye website" class="logo-small">
         <p class="andname">A Watchful Eye</p>
+        
     </div>
     <div class="uppermenu">
         <div class="tab0">
