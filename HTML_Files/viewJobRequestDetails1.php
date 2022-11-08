@@ -86,13 +86,13 @@ $result2 = mysqli_query($connection, $kidss);
     margin-left: 0px;
     margin-bottom: 30px;">
    <label class="nameLabel">Parent Name: </label>
-   <label class="Name">Mona</label><br>
+   <label class="Name"><?php echo(($row[$parentName]))?></label><br>
 
    <label class="cityLabel">City: </label>
-   <label class="city">Riyadh</label> <br>
+   <label class="city"><?php echo(($row[$city]))?></label> <br>
 
    <label class="neighborhoodLabel">District: </label>
-   <label class="neighborhood">Alhamra</label>
+   <label class="neighborhood"><?php echo(($row[$District]))?></label>
     <hr>
 </p>
 

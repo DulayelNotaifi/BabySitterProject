@@ -10,13 +10,18 @@
             <script src="https://kit.fontawesome.com/b8b24b0649.js" crossorigin="anonymous"></script>
             <link href="../CSS_Files/nuha'sfooter.css" type="text/css" rel="stylesheet">
             <style> 
-html, body{
-    height:100%;
-    width: 100%; 
-    margin: 0; 
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
     display: table;
 }
-footer{display:table-row;}
+
+footer {
+    
+    display: table-row;
+    position: relative;
+}
 
 </style>
         </head>
