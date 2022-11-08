@@ -166,6 +166,7 @@ $fname = $_POST["firstname"];
      
 if ($valid) {
     $_SESSION['email']=$eMail;
+    $_SESSION['firstName']=$fname;
 if($_FILES['img']['name']!=""){
     //print_r($_FILES['img']);
     $userImage    =   $_FILES['img'];   

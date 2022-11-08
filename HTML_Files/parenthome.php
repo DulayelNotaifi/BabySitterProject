@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +36,12 @@ footer {
     </div>
 
     <div class="textdescription">
+    <br><br><br>
+    <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    margin-bottom:3px;
+    text-align: center;
+    height: 1px;"><?php print("welcome ".$_SESSION['firstName']);?></p>
         <p class="p1">A Watchful Eye</p>
         <p class="p2">baby care</p>
     </div>
