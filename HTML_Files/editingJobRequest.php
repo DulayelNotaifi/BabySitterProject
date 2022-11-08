@@ -145,8 +145,7 @@ echo '<script type="text/javascript">add_more_fields(n, a);</script>';
                           <p style="margin-left: 140px;">Select + to add child, - to remove child</p>
                         </div>
 
-
-
+                       
 
                 <label class="serviceLabel"> Type Of Service: <span class="errspan" style="color:red;font-size: 15px;"><?php  if(isset($_SESSION['servesErr'])) echo $_SESSION['servesErr']; ?></span>
                     <input class="inptService" name="service" type="text" value="<?php echo(($row[$TypeOfServese]))?>" required> 
@@ -158,7 +157,7 @@ echo '<script type="text/javascript">add_more_fields(n, a);</script>';
                 <label class="durationLabel"> To: <input class="inpuToTime" name="to_time" type="time" value="<?php echo(($row[$endTime]))?>" required> </label>
                 <br><br>
                 <label class="commentsLabel"> Add Comments: (optional)
-                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"><?php echo(($row[$comments]))?></textarea>
+                    <textarea class="commentsArea" name="comments" cols="72" rows="6" value="<?php echo(($row[$comments]))?>"><?php if( $row[$comments] != "no comment added" ) echo(($row[$comments]));?></textarea>
                 </label>
                 <br>
                 <input  name="idReq" type="hidden" value="<?php echo($id2)?>"/>
