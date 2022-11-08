@@ -62,7 +62,7 @@ unset($_SESSION['editDone']);
         $pemail =  $_SESSION['email'];
         //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
         //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
-           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= '$pemail '";
+           $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` , `created_at` FROM  `requests` WHERE `status` = 'unserved' AND `ParentEmail`= '$pemail '";
 
            $result = mysqli_query($connection,  $sql);
         //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -102,6 +102,9 @@ unset($_SESSION['editDone']);
      $id = key($row);
      next($row);
      
+     $created_at = key($row);
+     next($row);
+
      $kidss = "SELECT `kidName`,`kidAge` FROM `kids` WHERE `kids`.`ID` = $row[$id]";
      $result2 = mysqli_query($connection, $kidss);
     ?> 
@@ -127,7 +130,7 @@ while($kidrow = mysqli_fetch_row($result2)){
 
 <!--<label class="ageLabel">Kid/s Ages: </label>
 <label class="age"><?php echo(($row[$age]))?></label><br><br> -->
-
+<br>
         <label class="serviceLabel">Type Of Service: </label>
         <label class="service"><?php echo(($row[$TypeOfServese]))?></label><br><br>
 
@@ -139,7 +142,15 @@ while($kidrow = mysqli_fetch_row($result2)){
         <br><br>
     
         <label class="commentsLabel">Comments: </label>
-        <label class="comments"><?php echo(($row[$comments]))?></label> <br><br><br><br>
+        <label class="comments"><?php echo(($row[$comments]))?></label> <br><br>
+        <?php
+  
+  $date = $row[$created_at];
+  $newDate = date('Y-m-d H:i:s', strtotime($date. ' + 1 hours'));
+
+?>
+        <label class="commentsLabel" style="color: red;">expier date: </label>
+        <label id="demo" ><?php echo($newDate)?></label><br><br>
 
    <!-- <input type="button" class="Bottons cancelBotton" value="Cancel Job Request" name="cancel_submit"/> -->
     <button class="Bottons editBotton" ><a href='../HTML_Files/editingJobRequest.php?id=<?php echo($row[$id])?>'>Edit Job Request</a></button>
