@@ -78,7 +78,8 @@ next($row);
         <h2>Reviews</h2>
       <?php 
 
-      $q2 = "SELECT `feedBack`,`Rate` FROM `review` WHERE `babySitterEmail` = '$email'";
+      $q2 = "SELECT `feedBack`,`Rate`,`Date`,`time`,`parentEmail` FROM `review` WHERE `babySitterEmail` = '$email'";
+
       $result2 = mysqli_query($connection,  $q2);
 
       $total5s = 0;
@@ -94,6 +95,19 @@ next($row);
 
         $sitterRate = key($row2);
         next($row2);
+
+
+        $Date = key($row2);
+        next($row2);
+
+
+        $time = key($row2);
+        next($row2);
+
+        $pEmail = key($row2);
+        next($row2);
+
+
       
       
       ?>
@@ -110,7 +124,18 @@ next($row);
                     case 2: $total2s++; break;
                     case 1: $total1s++; break;
                  }
+                 $q3 = "SELECT `firstName` FROM `parent` INNER JOIN `review` WHERE `parent`.`email` = '$row2[$pEmail]' ";
+                 $result3 = mysqli_query($connection,  $q3);
+                 $row3 = mysqli_fetch_row($result3);
+                 $em = key($row3);
+ 
+                 echo($row3[$em]);print("  ,  ");
+                 echo($row2[$Date]);print("  ,  ");
+                 echo($row2[$time]);;echo("<br> <br>");
                 echo($row2[$review]);
+
+
+
                 ?>
 
             </p>
