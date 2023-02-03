@@ -21,48 +21,31 @@ session_start();
         include('../PHP_Files/connect_db.php');
         $pemail =  $_SESSION['email'];
         if(isset($_GET['id'])){
-            // echo("set");
                $id2 = mysqli_real_escape_string($connection,$_GET['id']);
-        //SELECT `TypeOfServese`,`startDate`,`startTime` ,`endTime`,`ID`,`status` FROM `parent` INNER JOIN `requests` WHERE `parent`.`email` = `requests`.`ParentEmail` 
-        //SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `ID` FROM  `requests` WHERE `status` = 'unserved' AND `requests`.`ParentEmail`= '$_SESSION['email']'
            $sql = "SELECT `TypeOfServese`, `startTime`, `endTime`, `startDate`, `comments`, `ID` FROM  `requests` WHERE `ID` = '$id2'";
-
            $result = mysqli_query($connection,  $sql);
-        //  $offers = mysqli_fetch_all($result, MYSQLI_ASSOC);
            $valu = mysqli_num_rows($result);
         }
-
-           //$sql2 = "SELECT `ID`, `kidName`, `kidAge` FROM `kids` WHERE `requests`.`ID` = `kids`.`ID`";
-           //$result2 = mysqli_query($connection,  $sql2);
-           //$valu2 = mysqli_num_rows($result2);
         ?>
                 <div class="editingPage">
             <h2>Edit Job Request</h2>
 
      <?php 
     
-     if($valu > 0 ){
-    
-    //$x = 0;
-    //while($x< $valu  ){
-    
+     if($valu > 0 ) {
+ 
      $row = mysqli_fetch_row($result);
-     
      $TypeOfServese = key($row);
      next($row);
      
      $startTime = key($row);
      next($row);
-     
      $endTime = key($row);
      next($row);
-     
      $startDate = key($row);
      next($row);
-     
      $comments = key($row);
      next($row);
-
      $id = key($row);
      next($row);
      
@@ -94,8 +77,6 @@ function add_more_fields (kidName , kidAge){
   nameField.setAttribute('placeholder','Enter Kid/s name');
   nameField.setAttribute('value',kidName);
   kids_info.appendChild(nameField);
-
-
   ageField.setAttribute('type','number');
   ageField.setAttribute('name','kidsage[]');
   ageField.setAttribute('class','inputExtraAge');
