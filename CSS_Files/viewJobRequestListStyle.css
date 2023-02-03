@@ -1,46 +1,52 @@
-Body{
-    background-color: rgb(248, 250, 219);
-    font-family: 'Times New Roman', Times, serif;
+body {
+    background-color:  rgb(248, 250, 219);
+    font-family:  'Times New Roman', Times, serif;
 }
 
-.jobRequestListPage{
-    margin-bottom: 250px;
+.jobRequestListPage {
+    margin-bottom:  250px;
 }
 
- .detailsPage {
-    margin-bottom: -270px;
+.detailsPage {
+    margin-bottom:  -270px;
 }
 
-h2{
-    height: 30px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    margin-top: 70px;
+h2 {
+    height:  30px;
+    background-color:  white;
+    color:  black;
+    text-align:  center;
+    margin-top:  70px;
 }
 
-#detailsH2{
-    margin-top: 167px;
+#detailsH2 {
+    margin-top:  167px;
 }
 
 .jobReq1, .jobReq2, .parintInfo div {
-    background-color: rgb(248, 250, 219);
-    display: inline-block;
-    position: relative;
-    width: 250px;
-    height:300px;
-    border-style:solid;
-    border-radius: 30px;
-    margin: 15px
-
+    background-color:  rgb(248, 250, 219);
+    display:  inline-block;
+    position:  relative;
+    width:  250px;
+    height:  300px;
+    border-style:  solid;
+    border-radius:  30px;
+    margin:  15px
 }
 
-.nameLabel, .ageLabel,.serviceLabel, .dayLabel, .timeLabel ,
-.cityLabel, .neighborhoodLabel ,
- .commentsLabel, .OfferPriceDetails, .OfferPrice {
-    font-weight:bolder;
-    color: rgb(0, 111, 96);
-    margin-bottom: 5px;
+.nameLabel, 
+.ageLabel,
+.serviceLabel,
+.dayLabel,
+.timeLabel,
+.cityLabel,
+.neighborhoodLabel,
+ .commentsLabel,
+ .OfferPriceDetails,
+ .OfferPrice {
+    font-weight:  bolder;
+    color:  rgb(0, 111, 96);
+    margin-bottom:  5px;
 }
 
 
