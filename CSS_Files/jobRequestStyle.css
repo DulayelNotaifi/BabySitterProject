@@ -1,18 +1,19 @@
-body{
+body {
     font-family: 'Times New Roman', Times, serif;
     background-color: rgb(248, 250, 219);
 }
 
-.postingPage, .editingPage{
+.postingPage, 
+.editingPage {
    /* margin-top:180px;*/
     margin-bottom: 100px;
 }
 
-.cancelPage{
+.cancelPage {
     margin-bottom: 125px;
 }
 
-h2{
+h2 { 
     height: 30px;
     background-color:white;
     color: black;
@@ -22,11 +23,11 @@ h2{
     margin-bottom: 50px;
 }
 
-#offerH2{
+#offerH2 {
     margin-top: 70px;  
 }
 
-.container{
+.container {
     background-color: rgb(248, 250, 219);
     position: relative;
     border-style: solid;
@@ -35,49 +36,44 @@ h2{
     margin: auto;
     margin-top: 10px;
     padding: 20px;
-    overflow: hidden;
-    /*overflow: scroll;*/
-   
+    overflow: hidden; 
   }
 
   /* Extra Style for Offer Details Page */
-  .container #sitterPic{
-    background-color:white;
+  .container #sitterPic {
+    background-color: white;
     position: absolute;
     width: 110px;
     height: 110px;
     margin: 10px;
-    border-style:ridge;
+    border-style: ridge;
 }
-.container .SitterInfo{
+.container .SitterInfo {
     position: relative;
     margin-top: 50px;
     margin-left: 150px;
     margin-bottom: 60px;
-   
 }
-.container .RequestInfo{
+.container .RequestInfo {
     position: relative;
     margin-top: 50px;
 }
 
-.container .RequestInfo .Accept{
+.container .RequestInfo .Accept {
    
-    width:110px;
+    width: 110px;
     background-color: white; 
     font-weight: bold; 
     margin-left: 190px;
     color: rgb(39, 141,7);
 }
-.container .RequestInfo .Reject{
-    width:110px;
+.container .RequestInfo .Reject {
+    width: 110px;
     margin-left: 330px;
-    color: rgb(254, 9,9);
-
-    
+    color: rgb(254, 9,9); 
 }
 
-.container .RequestInfo button{
+.container .RequestInfo button {
     position: absolute;
     height: 30px;
     margin-left: 30500px;
@@ -85,24 +81,21 @@ h2{
     background-color: white; 
     font-weight: bold; 
     border: 1px solid black;
-
 }
 
-
-
-.container p .sitterProfile{
+.container p .sitterProfile {
     font-size: medium;
-    text-decoration:underline;
+    text-decoration: underline;
     color: #2f06e9;
 }
 
-.container p .sitterProfile:hover{
+.container p .sitterProfile:hover {
     color: #f01414; 
 }
 
     /*  End of Extra Style for Offer Details Page */
 
-.inptService{
+.inptService {
 height: 30px;
 width: 500px;
 display: block;
@@ -117,7 +110,7 @@ padding: .375rem .75rem;
 border: 1px solid #ced4da;
 }
 
-.inputName , .inputAge{
+.inputName , .inputAge {
     height: 30px;
     width: 235px;
     display: block;
@@ -133,7 +126,7 @@ border: 1px solid #ced4da;
     margin-left: 2px;
 }
 
-.inputExtraName , .inputExtraAge{
+.inputExtraName , .inputExtraAge {
     height: 30px;
     width: 235px;
     display: inline-block;
@@ -148,8 +141,9 @@ border: 1px solid #ced4da;
     border: 1px solid #ced4da; 
     margin: 2px;
 }
-.commentsArea{
-    max-width:fit-content;
+
+.commentsArea {
+    max-width: fit-content;
     max-height: fit-content;
     height: 300px;
     width: 500px;
@@ -158,26 +152,25 @@ border: 1px solid #ced4da;
     margin-bottom: 10px;
 }
 
-  .nameLabel, .ageLabel ,.serviceLabel, .durationLabel, .commentsLabel ,
-  .dayLabel, .timeLabel,.PriceLabel {
-    font-weight:bold;
+  .nameLabel,
+ .ageLabel,
+ .serviceLabel,
+ .durationLabel,
+ .commentsLabel,
+  .dayLabel,
+  .timeLabel,
+  .PriceLabel {
+    font-weight: bold;
     color: rgb(0, 111, 96);
     display: inline-block;
 }
 
-
-
-/*.ageLabel{
-    margin-left: 40px;
-}*/
-
-
-.Expirelabel{
-    font-weight:bold;
+.Expirelabel {
+    font-weight: bold;
     color:  brown;
 }
 
-.Bottons{
+.Bottons {
     height: 30px;
     width: 120px;
     background-color: #ffffff;
@@ -191,7 +184,7 @@ height: 30px;
 width: 530px;
 }
 
-.editBotton, .resetBotton{
+.editBotton, .resetBotton {
     position: relative;
     left: -30px;
     height: 30px;
@@ -210,13 +203,13 @@ width: 530px;
     left: -30px;
 }
 
-.container #formInfo{
-    margin-left:20px;   
+.container #formInfo {
+    margin-left: 20px;   
     text-align: left;
     font-size: 18px;
 }
 
-.canceledInfo{
+.canceledInfo {
     text-align: left;
     position: relative;
     left: 180px;
@@ -228,7 +221,7 @@ a:any-link {
     cursor: auto;
     }
 
-    #remove_fields {
-        float: right;
-          margin-right: 70px
-      }
+ #remove_fields {
+  float: right;
+  margin-right: 70px 
+}
