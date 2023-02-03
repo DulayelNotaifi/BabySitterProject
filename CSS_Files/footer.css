@@ -1,56 +1,56 @@
 
 footer {
   text-align: center;
-  background: #000000;
+  background: #000;
   color: white;
   margin-top: 48px;
   bottom: 0px;
   width: 100%;
 }
-.a footer{
+
+.a footer {
   position: absolute;
 }
-.r footer{
+
+.r footer {
   position: relative;
 }
-.acad{
+
+.acad {
   position:absolute;
 }
-.rcad{
+
+.rcad {
   position: relative;
-  
 }
-.rsitterProfile{
+
+.rsitterProfile {
   position: relative;
   margin-bottom: 200px;
 }
 
-.OfferListFooter{
-
+.OfferListFooter {
   position: absolute;
 }
 
-#DetailsFooter{
+#DetailsFooter {
   position:absolute;
   margin-bottom: 0px;
   bottom:0px;
 }
 
-
-
 html {
   height: 100%;
   
 }
+
 body {
   min-height: 100%;
 }
 
-
 .tableF {
   width: 100%;
 }
-
 
 .tableF a {
   text-decoration: none;
@@ -69,10 +69,10 @@ body {
   margin-bottom: 8px;
 }
 
-.tableF th{
+.tableF th {
   width:33%;
 }
 
-i{
+i {
 color: rgb(0,111,96) ;
 }
