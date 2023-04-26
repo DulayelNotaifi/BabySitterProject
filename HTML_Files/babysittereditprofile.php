@@ -12,9 +12,8 @@ $database= mysqli_select_db($connection, $dbname);
 if (!$connection) 
 die("Connection failed: " . mysqli_connect_error());
 $fname_err = $lname_err = $gender_err = $id_err = $age_err = $email_err = $city_err = $phone_err = $password_err =  $msg_err = $notification = "";
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])) {
     
-
 //print_r($_POST);
 $loggedInUser = $_SESSION['email'];
 $firstname  =    $_POST['firstname'];

@@ -1,7 +1,7 @@
 const defaults = {
-    "value": 0,
-    "stars": 5,
-    "half": false,
+    'value': 0,
+    'stars': 5,
+    'half': false,
     "emptyStar": "far fa-star",
     "halfStar": "fas fa-star-half-alt",
     "filledStar": "fas fa-star",
